@@ -80,7 +80,11 @@ grade:
   copy_spelling: 0.088
   constant_schwa: 0.108
   copy_source_ipa: 0.112             # sample submission -- chance floor
-  reference_solution_score: 0.698    # GRADED -- per-segment context rewrite rules, CPU
+  reference_solution_score: 0.768    # GRADED -- per-segment context rewrite rules, CPU
+  # RE-MEASURED 2026-09-21 on the shipped split: solution.py and the committed
+  # submission.csv both score 0.7681 under grade.py, reproducibly. The value
+  # previously published here (0.698) predates the shipped rewrite table and
+  # is superseded; tools/verify.py asserts 0.768 on every run.
   oracle: 1.000
   note_band: "Difficulty and safety were established empirically on the
     shipped split (7,616 train / 1,344 test words, word-disjoint; 4,286 test
@@ -88,17 +92,17 @@ grade:
     under edit similarity, copying the source transcription scored 0.795 and
     a rule-based reference 0.914 -- the ~80% of each string that never changes
     was dominating the score. Change-segment accuracy sends copy-source to
-    0.112 and the same reference to 0.698, restoring a usable band. Three
+    0.112 and the same reference to 0.768, restoring a usable band. Three
     content-free floors sit at 0.09-0.11 (copy spelling, constant schwa, copy
     source). Accent tags RP/UK and GA/US were NOT merged: same-word
     transcriptions agree exactly only 15% (RP/UK) and 8% (GA/US) of the time
     -- editor convention, not dialect -- so only RP, GA, AU, NZ are kept."
   band_evidence: "Five measured points, strictly ordered: 0.088 (copy
     spelling) / 0.108 (constant schwa) / 0.112 (copy source, the sample) /
-    0.698 (reference) / 1.000 (oracle). Every content-free floor sits near
-    0.1; the reference clears them by 0.59. The 0.3 gap to 1.0 is the
+    0.768 (reference) / 1.000 (oracle). Every content-free floor sits near
+    0.1; the reference clears them by 0.66. The 0.23 gap to 1.0 is the
     headroom a context-reading sequence model is expected to close."
-  reference_caveat: "The shipped reference_solution_score (0.698) is a
+  reference_caveat: "The shipped reference_solution_score (0.768) is a
     per-segment context rewrite table, CPU. solution.ipynb's final submission
     is an encoder-decoder transformer over the source phoneme sequence with
     both accents as prefix tokens, trained on GPU; it reads full context and is

@@ -1,0 +1,14 @@
+# ERIS — Evidence Recovery Inference Suite
+# Everything in tools/verify.py, every grader and every CPU reference solution
+# runs against these. No GPU, no network, no API keys.
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+scikit-learn>=1.3
+
+# Corpus regeneration only (dataset/generator/build_raw.py). Not needed to run,
+# score, or verify any benchmark — the built corpora are committed.
+#   requests>=2.31          # accent-transfer, experimental-order, pipeline-attribution
+#   torch>=2.0              # prompt-edit-attribution, rag-sufficiency
+#   transformers>=4.40      # prompt-edit-attribution, rag-sufficiency
+#   sentence-transformers   # rag-sufficiency

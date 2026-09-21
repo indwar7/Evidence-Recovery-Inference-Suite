@@ -149,7 +149,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("submission")
     p.add_argument("--answers",
-                    default=os.path.join(here, "private", "answers.csv"))
+                    default=os.path.join(here, "dataset", "private", "answers.csv"))
     a = p.parse_args()
     try:
         score = grade(a.submission, a.answers)

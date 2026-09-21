@@ -49,7 +49,7 @@ task_type: structured_prediction   # submitted artifact is a jointly-scored
                                     # not a ranking, not a single label
                                     # (see rubrics.md #3 and #6)
 prepare:
-  script: dataset/prepare.py       # exposes prepare(raw, public, private)
+  script: prepare.py       # exposes prepare(raw, public, private)
   public:
     - dataset/public/train.csv             # item_id, topic_id, query_text, k,
                                             # retrieved_id/score_1..k,
@@ -72,8 +72,8 @@ prepare:
     keeps it near chance. See STATE.md FINAL LOCKED NUMBERS for exact
     counts once the full GPU build completes."
 grade:
-  script: dataset/grade.py           # exposes grade(submission, answers)
-  usage: "python dataset/grade.py submission.csv --answers dataset/private/answers.csv"
+  script: grade.py           # exposes grade(submission, answers)
+  usage: "python grade.py submission.csv --answers dataset/private/answers.csv"
   submission_file: submission.csv
   submission_columns: [item_id, diagnosis, action, reason_code]
   metric: joint_field_accuracy

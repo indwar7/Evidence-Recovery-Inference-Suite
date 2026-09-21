@@ -46,7 +46,7 @@ task_type: ranking   # submitted artifact is a permutation of 4 candidates
                       # per item, scored by positional credit -- not a
                       # single-label classification (see rubrics.md #3)
 prepare:
-  script: dataset/prepare.py       # exposes prepare(raw, public, private)
+  script: prepare.py       # exposes prepare(raw, public, private)
   public:
     - dataset/public/train.csv             # item_id, family, edit_op,
                                             # slice_1..4, fp_A/fp_B fields
@@ -70,8 +70,8 @@ prepare:
     the unedited baseline) is dropped from that side before writing, so
     no constant column ships."
 grade:
-  script: dataset/grade.py           # exposes grade(submission, answers)
-  usage: "python dataset/grade.py submission.csv --answers dataset/private/answers.csv"
+  script: grade.py           # exposes grade(submission, answers)
+  usage: "python grade.py submission.csv --answers dataset/private/answers.csv"
   submission_file: submission.csv
   submission_columns: [item_id, rank_1, rank_2, rank_3, rank_4]
   metric: positional_credit
