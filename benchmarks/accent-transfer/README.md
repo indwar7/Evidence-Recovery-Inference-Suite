@@ -12,7 +12,7 @@ function between dialects** — which segments shift and what governs it.
 
 The metric scores **only the segments that change**, so the ~80% of every
 string that survives untouched earns nothing. Copying the source scores 0.11;
-the CPU rule-table reference scores 0.70. Test words are unseen in training.
+the CPU rule-table reference scores 0.768. Test words are unseen in training.
 
 ## Files
 

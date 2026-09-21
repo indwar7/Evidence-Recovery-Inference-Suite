@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: "ERIS: Evidence Recovery Inference Suite"
+message: "If you use this suite, please cite it as below."
+type: dataset
+authors:
+  - family-names: Indwar
+    given-names: Abhaydeep
+    email: abhayindwar7@gmail.com
+repository-code: "https://github.com/indwar7/eris-ml"
+abstract: >-
+  Five adversarially-hardened machine-learning benchmarks for latent-process
+  recovery, in which every label is a fact recorded by an external archive or
+  measured from a real model run, rather than a human annotation or a model
+  output. Each benchmark ships a sealed answer key, a deterministic grader, a
+  runnable reference solution, and a measured baseline ladder including
+  adversarial shortcut attacks scored before the specification was frozen.
+keywords:
+  - benchmark
+  - natural language processing
+  - evaluation
+  - latent structure recovery
+  - dataset
+  - retrieval-augmented generation
+license: MIT
+version: "1.0.0"
+date-released: "2026-09-21"

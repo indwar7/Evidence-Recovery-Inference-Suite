@@ -499,9 +499,9 @@ def prepare(raw: Path, public: Path, private: Path) -> None:
 def main():
     here = os.path.dirname(os.path.abspath(__file__))
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--raw", default=os.path.join(here, "raw"))
-    p.add_argument("--public", default=os.path.join(here, "public"))
-    p.add_argument("--private", default=os.path.join(here, "private"))
+    p.add_argument("--raw", default=os.path.join(here, "dataset", "raw"))
+    p.add_argument("--public", default=os.path.join(here, "dataset", "public"))
+    p.add_argument("--private", default=os.path.join(here, "dataset", "private"))
     a = p.parse_args()
     prepare(Path(a.raw), Path(a.public), Path(a.private))
 

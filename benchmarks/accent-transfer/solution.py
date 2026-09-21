@@ -3,7 +3,7 @@ Reference solution for "The Accent Translator" — CPU model.
 
 Approach: per-segment context rewrite table (submission-1/2 logic from
 solution.ipynb), with backoff and no-change gating. This is the model whose
-score (0.698) is published as reference_solution_score in config.yaml.
+score (0.768) is published as reference_solution_score in config.yaml.
 
 Given a source phoneme string and a (src_accent, tgt_accent) direction, learn
 what each phoneme becomes in that direction from 3-segment context, backing

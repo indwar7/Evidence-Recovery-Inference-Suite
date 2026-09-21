@@ -1,0 +1,17 @@
+# Verification and solver scratch
+submission.verify.csv
+.verify_notebook.py
+working/
+*.egg-info/
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
