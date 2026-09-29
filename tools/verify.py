@@ -8,7 +8,7 @@ data and checks that the published numbers still hold, so a reviewer never has
 to take a README table on trust.
 
     python tools/verify.py                 # floors only  (seconds)
-    python tools/verify.py --reference     # floors + reference solutions (~15 min, CPU)
+    python tools/verify.py --reference     # floors + CPU reference solutions
     python tools/verify.py --only accent-transfer
 
 Exit code is 0 when every checked anchor reproduces within tolerance, 1 otherwise.
@@ -84,6 +84,52 @@ SUITE = [
             "expected": 0.358, "tol": 0.001,
         },
     },
+    {
+        "slug": "citation-structure",
+        "title": "Reconstructing Local Citation Structure in Case Law",
+        "metric": "mean_per_query_matthews_correlation_coefficient",
+        "floor": {"name": "rotating format example (sample_submission)", "expected": 0.141, "tol": 0.001},
+        "grade": ["grade.py", "{submission}", "dataset/private/answers.csv"],
+        "sample": "dataset/public/sample_submission.csv",
+        # No "reference": it needs sentence-transformers and downloads a
+        # pre-trained encoder, so it cannot run offline. Floor only.
+    },
+    {
+        "slug": "reference-order",
+        "title": "The Reference Shuffle",
+        "metric": "mean_rescaled_kendall_tau",
+        "floor": {"name": "rotating format example (sample_submission)", "expected": 0.502, "tol": 0.001},
+        "grade": ["grade.py", "{submission}", "dataset/private/answers.csv"],
+        "sample": "dataset/public/sample_submission.csv",
+        # No "reference": the notebook imports torch, which is outside
+        # requirements.txt. Floor only.
+    },
+    {
+        "slug": "amendment-reversal",
+        "title": "The Vanished Clause",
+        "metric": "gap_anchored_changed_token_f1",
+        "floor": {"name": "input copied through (sample_submission)", "expected": 0.000, "tol": 0.001},
+        "grade": ["grade.py", "{submission}", "--answers", "dataset/private/answers.csv"],
+        "sample": "dataset/public/sample_submission.csv",
+        "reference": {
+            "name": "sentence locator + substitution table, one edit (CPU)",
+            "cmd": ["reference_solution.py", "--out", "{out}"],
+            "expected": 0.003, "tol": 0.001,
+        },
+    },
+    {
+        "slug": "mechanism-recovery",
+        "title": "What Does It Do In There?",
+        "metric": "chance_corrected_set_f1",
+        "floor": {"name": "first candidate in the pool (sample_submission)", "expected": 0.070, "tol": 0.001},
+        "grade": ["grade.py", "{submission}", "--answers", "dataset/private/answers.csv"],
+        "sample": "dataset/public/sample_submission.csv",
+        "reference": {
+            "name": "one-vs-rest over classes, scored against the pool (CPU)",
+            "cmd": ["reference_solution.py", "--out", "{out}"],
+            "expected": 0.462, "tol": 0.001,
+        },
+    },
 ]
 
 GREEN, RED, YELLOW, DIM, RESET = "\033[32m", "\033[31m", "\033[33m", "\033[2m", "\033[0m"
@@ -150,8 +196,8 @@ def main() -> int:
         results.append(check(entry["floor"]["name"], parse_score(run(pkg, argv)),
                              entry["floor"]["expected"], entry["floor"]["tol"], time.time() - t0))
 
-        ref = entry["reference"]
-        if not args.reference:
+        ref = entry.get("reference")
+        if not args.reference or ref is None:
             continue
         t0 = time.time()
         if "notebook" in ref:

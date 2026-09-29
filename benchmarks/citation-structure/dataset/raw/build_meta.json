@@ -1,0 +1,13 @@
+{
+  "snapshot_date": "2022-09-30",
+  "source": "https://www.courtlistener.com/help/api/bulk-data/",
+  "license": "Public Domain Mark",
+  "n_opinions_matched": 44291,
+  "n_citation_edges_total": 28900122,
+  "n_internal_citation_edges": 5792,
+  "n_opinions_with_internal_edge": 4356,
+  "n_clusters_resolved": 4355,
+  "n_connected_components": 520,
+  "largest_component_size": 1778,
+  "second_largest_component_size": 264
+}

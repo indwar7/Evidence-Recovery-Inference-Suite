@@ -1,0 +1,17 @@
+{
+  "task_shape": "one query opinion + a fixed candidate pool; select the cited candidates",
+  "n_train_queries": 1954,
+  "n_test_queries": 400,
+  "n_candidates_per_query": 12,
+  "true_cites_per_query_min": 1,
+  "true_cites_per_query_max": 4,
+  "n_components_total": 524,
+  "n_components_test": 3,
+  "n_components_train": 521,
+  "leak_scan": {
+    "surviving_citations": 0,
+    "surviving_vs_patterns": 0
+  },
+  "submission_shape": "one row per query: query_id, cited_positions (whitespace-separated 0-indexed candidate positions)",
+  "split_note": "queries split by CONNECTED COMPONENT of the citation subgraph; candidates drawn from the same side of the split as their query, so no citation edge crosses between a test query and any train query"
+}

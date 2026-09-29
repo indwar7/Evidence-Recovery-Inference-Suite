@@ -15,3 +15,11 @@ venv/
 .DS_Store
 .idea/
 .vscode/
+
+# Generator scratch and caches (never part of a package)
+work/
+_checkpoint.json
+
+# Over GitHub's 100 MB file limit. Rebuilt byte-identically by
+# `python prepare.py` in that benchmark; see its README.
+benchmarks/citation-structure/dataset/public/train.csv

@@ -1,0 +1,2271 @@
+row_id,name
+te_00000,tubulin tyrosine ligase like 13
+te_00001,adhesion G protein-coupled receptor E5
+te_00002,Rho GTPase activating protein 31
+te_00003,adhesion G protein-coupled receptor A2
+te_00004,synaptotagmin 15B
+te_00005,tRNA methyltransferase 1L
+te_00006,glycyl-tRNA synthetase 1
+te_00007,UDP glucuronosyltransferase family 1 member A complex locus
+te_00008,phospholipase A and acyltransferase 5
+te_00009,retrotransposon Gag like 9
+te_00010,queuosine-tRNA mannosyltransferase
+te_00011,golgin A8 family member H
+te_00012,spindle apparatus coiled-coil protein 1
+te_00013,galectin like
+te_00014,tRNA methyltransferase O
+te_00015,transmembrane protein 270
+te_00016,golgi associated kinase 1A
+te_00017,dihydrofolate reductase 2
+te_00018,tubulin beta 8 class VIII
+te_00019,polypeptide N-acetylgalactosaminyltransferase 16
+te_00020,adhesion G protein-coupled receptor B1
+te_00021,twinkle mtDNA helicase
+te_00022,CBY1 interacting BAR domain containing 1
+te_00023,leucine zipper tumor suppressor family member 3
+te_00024,chromosome 8 open reading frame 89
+te_00025,defensin beta 130A
+te_00026,testis expressed 54
+te_00027,vacuole membrane protein 1
+te_00028,kizuna centrosomal protein
+te_00029,tRNA splicing ligase complex subunit 3A
+te_00030,tubulin beta 4A class IVa
+te_00031,PH domain containing endocytic trafficking adaptor 1
+te_00032,ER membrane associated RNA degradation
+te_00033,angiopoietin like 8
+te_00034,glutamate rich 6B
+te_00035,transmembrane protein 252
+te_00036,BRICK1 subunit of SCAR/WAVE actin nucleating complex
+te_00037,leucine rich repeat containing 74B
+te_00038,SLP adaptor and CSK interacting membrane protein
+te_00039,family with sequence similarity 90 member A7
+te_00040,BLOC-1 related complex subunit 5
+te_00041,neuron derived neurotrophic factor
+te_00042,Mab-21 domain containing 2
+te_00043,phospholipid phosphatase related 2
+te_00044,short transmembrane mitochondrial protein 1
+te_00045,coiled-coil domain containing 182
+te_00046,coiled-coil glutamate rich protein 1
+te_00047,"endogenous retrovirus group V member 1, envelope"
+te_00048,GRB2 associated regulator of MAPK1 subtype 1
+te_00049,membrane associated ring-CH-type finger 10
+te_00050,cortexin domain containing 2
+te_00051,fucose mutarotase
+te_00052,pyridoxal phosphate binding protein
+te_00053,cilia and flagella associated protein 410
+te_00054,protein phosphatase 6 regulatory subunit 2
+te_00055,TNF alpha induced protein 8 like 1
+te_00056,apelin receptor early endogenous ligand
+te_00057,sperm acrosome associated 6
+te_00058,phagophore assembly factor 1
+te_00059,germ cell nuclear acidic peptidase
+te_00060,beta-keto-L-gulonate decarboxylase
+te_00061,outer dynein arm docking complex subunit 4
+te_00062,NADH:ubiquinone oxidoreductase complex assembly factor 6
+te_00063,dynein axonemal assembly factor 10
+te_00064,NALCN channel auxiliary factor 1
+te_00065,leucine rich repeat containing 73
+te_00066,cilia and flagella associated protein 107
+te_00067,uroplakin 3B like 2
+te_00068,defensin beta 131B
+te_00069,colipase like 2
+te_00070,leucine rich single-pass membrane protein 1
+te_00071,transmembrane protein 237
+te_00072,secretory calcium-binding phosphoprotein proline-glutamine rich 1
+te_00073,haloacid dehalogenase like hydrolase domain containing 5
+te_00074,threonyl-tRNA synthetase 3
+te_00075,brain expressed X-linked 3
+te_00076,coiled-coil domain containing 92B
+te_00077,mitochondrial calcium uniporter
+te_00078,Myb/SANT DNA binding domain containing 3
+te_00079,methyltransferase like 27
+te_00080,sosondowah ankyrin repeat domain family member C
+te_00081,XRN2 binding domain containing 1
+te_00082,small integral membrane protein 43
+te_00083,CUGBP Elav-like family member 3
+te_00084,LY6/PLAUR domain containing 8
+te_00085,laeverin
+te_00086,small integral membrane protein 10 like 1
+te_00087,golgin A8 family member T
+te_00088,neuronal regeneration related protein
+te_00089,"alkaline phosphatase, germ cell"
+te_00090,collagen type VI alpha 5 chain
+te_00091,tRNA methyltransferase 10A
+te_00092,glucosylceramidase beta 1
+te_00093,protein phosphatase 4 regulatory subunit 3B
+te_00094,glutamyl-tRNA amidotransferase subunit B
+te_00095,cilia and flagella associated protein 263
+te_00096,Wnt ligand secretion mediator
+te_00097,oocyte secreted protein family member 4B
+te_00098,golgin A6 family like 25
+te_00099,sterile alpha motif domain containing 15
+te_00100,chromosome 5 open reading frame 63
+te_00101,arginyl-tRNA synthetase 1
+te_00102,DExD-box helicase 39A
+te_00103,glycine-N-acyltransferase like 1B
+te_00104,Myb/SANT DNA binding domain containing 7
+te_00105,ureidoimidazoline (2-oxo-4-hydroxy-4-carboxy-5-) decarboxylase
+te_00106,arkadia (RNF111) N-terminal like PKA signaling regulator 2N
+te_00107,chromosome 13 open reading frame 46
+te_00108,mitochondrial rRNA methyltransferase 2
+te_00109,elongin C
+te_00110,H3 clustered histone 8
+te_00111,ASNSD1 upstream open reading frame
+te_00112,chromosome 19 open reading frame 84
+te_00113,major facilitator superfamily domain containing 12
+te_00114,hydroxyacyl-thioester dehydratase type 2
+te_00115,protein phosphatase 1 regulatory subunit 18
+te_00116,HR upstream open reading frame
+te_00117,cilia and flagella associated protein 70
+te_00118,Y-box binding protein 3
+te_00119,germinal center associated signaling and motility like
+te_00120,phospholipid phosphatase related 3
+te_00121,"H1.3 linker histone, cluster member"
+te_00122,"SPT20 homolog, SAGA complex component"
+te_00123,small cysteine and glycine repeat containing 4
+te_00124,caveolae associated protein 4
+te_00125,small integral membrane protein 42
+te_00126,cortexin domain containing 1
+te_00127,H3 clustered histone 7
+te_00128,protein phosphatase 1 regulatory subunit 42
+te_00129,prolyl 3-hydroxylase 2
+te_00130,Q-nucleotide N-glycosylase 1
+te_00131,solute carrier family 67 member 1
+te_00132,terminal nucleotidyltransferase 5B
+te_00133,mast cell immunoglobulin like receptor 1
+te_00134,PC-esterase domain containing 1B
+te_00135,trafficking protein particle complex subunit 11
+te_00136,estrogen-induced osteoclastogenesis regulator 1
+te_00137,ciliogenesis associated kinase 1
+te_00138,sperm microtubule inner protein 4
+te_00139,APC membrane recruitment protein 1
+te_00140,mitochondrial amidoxime reducing component 1
+te_00141,protease associated domain containing 1
+te_00142,chromosome 17 open reading frame 113
+te_00143,lysine demethylase 7A
+te_00144,H4 clustered histone 7
+te_00145,ER membrane protein complex subunit 10
+te_00146,"methyltransferase 18, RPL3 N3(tau)-histidine"
+te_00147,scaffolding CK1 anchoring protein H
+te_00148,C2 calcium dependent domain containing 5
+te_00149,bublin coiled coil protein
+te_00150,solute carrier family 35 member G3
+te_00151,TLR adaptor interacting with endolysosomal SLC15A4
+te_00152,SH3 domain binding kinase family member 3
+te_00153,selenoprotein I
+te_00154,trafficking regulator of GLUT4 (SLC2A4) 1 (gene/pseudogene)
+te_00155,chromosome 20 open reading frame 204
+te_00156,APC membrane recruitment protein 3
+te_00157,retrotransposon Gag like 6
+te_00158,N-acetyltransferase 16 (putative)
+te_00159,RNA 5'-phosphate and 3'-OH ligase 1
+te_00160,crystallin beta-gamma domain containing 2
+te_00161,centrosomal protein 104
+te_00162,selenoprotein F
+te_00163,mitochondrial matrix import factor 23
+te_00164,adhesion G protein-coupled receptor E3
+te_00165,transmembrane protein 121B
+te_00166,family with sequence similarity 222 member B
+te_00167,Rho GTPase activating protein 42
+te_00168,spermatogenesis and centriole associated 1 like
+te_00169,Rho guanine nucleotide exchange factor 40
+te_00170,cadherin related family member 1
+te_00171,transmembrane protein 178A
+te_00172,synaptonemal complex central element protein 3
+te_00173,serine rich single-pass membrane protein 1
+te_00174,Rho guanine nucleotide exchange factor 26
+te_00175,catsper channel auxiliary subunit theta
+te_00176,methylmalonyl-CoA mutase
+te_00177,BRCA1 associated ATM activator 1
+te_00178,family with sequence similarity 236 member C
+te_00179,AFG2 interacting ribosome maturation factor
+te_00180,FIGNL1 interacting regulator of recombination and mitosis
+te_00181,small integral membrane protein 11
+te_00182,H3 clustered histone 14
+te_00183,"late endosomal/lysosomal adaptor, MAPK and MTOR activator 3"
+te_00184,olfactory receptor family 4 subfamily N member 4C
+te_00185,neuropeptide Y receptor Y4
+te_00186,family with sequence similarity 246 member B
+te_00187,DPM1 ER membrane anchor 1
+te_00188,olfactory receptor family 13 subfamily C member 7 (gene/pseudogene)
+te_00189,junctional cadherin 5 associated
+te_00190,mitoguardin 2
+te_00191,family with sequence similarity 90 member A17
+te_00192,transforming growth factor beta receptor 3 like
+te_00193,BMP/retinoic acid inducible neural specific 2
+te_00194,regulator of hemoglobinization and erythroid cell expansion
+te_00195,testis expressed 53
+te_00196,armadillo like helical domain containing 3
+te_00197,embryonic testis differentiation homolog C
+te_00198,cancer/testis antigen family 45 member A8
+te_00199,centrosomal protein 19
+te_00200,family with sequence similarity 217 member A
+te_00201,sterol-C5-desaturase
+te_00202,beclin 2
+te_00203,beta 3-glucosyltransferase
+te_00204,golgi pH regulator A
+te_00205,urotensin 2B
+te_00206,"abhydrolase domain containing 17C, depalmitoylase"
+te_00207,membrane associated ring-CH-type finger 1
+te_00208,nuclear envelope integral membrane protein 2
+te_00209,2-hydroxyacyl-CoA lyase 2
+te_00210,regulator of microtubule dynamics 3
+te_00211,basal body orientation factor 1
+te_00212,selenoprotein S
+te_00213,cilia and flagella associated protein 119
+te_00214,CBY1 interacting BAR domain containing 2
+te_00215,neurite extension and migration factor
+te_00216,argonaute RISC catalytic component 2
+te_00217,transmembrane protein 217B
+te_00218,apolipoprotein B receptor
+te_00219,radial spoke head 14 homolog
+te_00220,PAXIP1 associated glutamate rich protein 1
+te_00221,calcimembrin
+te_00222,H4 clustered histone 9
+te_00223,mitochondrial sheath formation associated
+te_00224,sperm acrosome developmental regulator
+te_00225,sperm-tail PG-rich repeat containing 3
+te_00226,lines homolog 1
+te_00227,translocase of outer mitochondrial membrane 70
+te_00228,small integral membrane protein 10 like 2B
+te_00229,nuclear pore complex interacting protein family member A1
+te_00230,collagen beta(1-O)galactosyltransferase 2
+te_00231,phospholipid phosphatase related 4
+te_00232,ubiquitin specific peptidase 17 like family member 1
+te_00233,catsper channel auxiliary subunit delta
+te_00234,small cysteine and glycine repeat containing 7
+te_00235,"germ cell-less 2, spermatogenesis associated"
+te_00236,BMP/retinoic acid inducible neural specific 1
+te_00237,leucine rich adaptor protein 1 like
+te_00238,CST telomere replication complex component 1
+te_00239,"endogenous retrovirus group MER34 member 1, envelope"
+te_00240,cadherin related family member 2
+te_00241,interleukin 36 alpha
+te_00242,family with sequence similarity 90 member A8
+te_00243,chromosome 1 open reading frame 202
+te_00244,lysine rich nucleolar protein 1
+te_00245,PHD finger protein 2
+te_00246,CCR4-NOT transcription complex subunit 11
+te_00247,adenylosuccinate synthase 2
+te_00248,family with sequence similarity 110 member D
+te_00249,ribonuclease MRP subunit p64
+te_00250,small integral membrane protein 34
+te_00251,cilia and flagella associated protein 69
+te_00252,von Willebrand factor A domain containing 8
+te_00253,ciliary microtubule associated protein 1C
+te_00254,intraflagellar transport 56
+te_00255,centrosomal protein 95
+te_00256,autophagy related 13
+te_00257,succinate dehydrogenase complex assembly factor 3
+te_00258,macoilin 1
+te_00259,terminal uridylyl transferase 7
+te_00260,family with sequence similarity 90 member A9
+te_00261,"H1.4 linker histone, cluster member"
+te_00262,chromosome 16 open reading frame 96
+te_00263,golgin A8 family member K
+te_00264,fibronectin type III domain containing 11
+te_00265,shortage in chiasmata 1
+te_00266,family with sequence similarity 90 member A15
+te_00267,deuterosome assembly protein 1
+te_00268,small integral membrane protein 30
+te_00269,cilia and flagella associated protein 58
+te_00270,zinc finger matrin-type 5
+te_00271,cytoplasmic polyadenylated homeobox like
+te_00272,peroxiredoxin like 2A
+te_00273,diphthamine biosynthesis 6
+te_00274,epididymal protein 3A
+te_00275,nuclear receptor binding SET domain protein 2
+te_00276,cilia and flagella associated protein 91
+te_00277,transmembrane protein 243
+te_00278,spermatogenesis associated 33
+te_00279,fibronectin type III domain containing 10
+te_00280,terminal nucleotidyltransferase 5C
+te_00281,small proline rich protein 5
+te_00282,family with sequence similarity 209 member A
+te_00283,terminal nucleotidyltransferase 2
+te_00284,sperm microtubule inner protein 8
+te_00285,small integral membrane protein 5
+te_00286,coiled-coil domain containing 174
+te_00287,proline rich coiled-coil 2A
+te_00288,sperm antigen with calponin homology and coiled-coil domains 1 like
+te_00289,lysine methyltransferase 2D
+te_00290,taste 2 receptor member 2 (gene/pseudogene)
+te_00291,EF-hand calcium binding domain 12
+te_00292,TATA-box binding protein associated factor 11 like 12
+te_00293,neuronal calcium sensor 1
+te_00294,cilia and flagella associated protein 95
+te_00295,"N-alpha-acetyltransferase 50, NatE catalytic subunit"
+te_00296,mitochondrial transcription termination factor 2
+te_00297,NACHT and WD repeat domain containing 2
+te_00298,adenosine deaminase 2
+te_00299,solute carrier family 67 member 2
+te_00300,distal membrane arm assembly component 2 like
+te_00301,ceramide synthase 4
+te_00302,serine/threonine/tyrosine interacting like 2
+te_00303,cilia and flagella associated protein 74
+te_00304,ubiquitin specific peptidase 17 like family member 13
+te_00305,H3 clustered histone 13
+te_00306,cilia and flagella associated protein 44
+te_00307,protein O-glucosyltransferase 2
+te_00308,follicular dendritic cell secreted protein
+te_00309,kynurenine aminotransferase 1
+te_00310,telomere repeat binding bouquet formation protein 2
+te_00311,PILR alpha associated neural protein
+te_00312,nuclear pore complex interacting protein family member B5
+te_00313,ubiquinol-cytochrome c reductase complex assembly factor 1
+te_00314,small integral membrane protein 19
+te_00315,golgin A6 family like 24
+te_00316,GC-rich sequence DNA-binding factor 2
+te_00317,mitoregulin
+te_00318,membrane associated ring-CH-type finger 2
+te_00319,dynein regulatory complex subunit 12 homolog
+te_00320,nuclear pore complex interacting protein family member A8
+te_00321,transmembrane and death domain 1
+te_00322,solute carrier family 9 member C1
+te_00323,adhesion G protein-coupled receptor L1
+te_00324,small integral membrane protein 47
+te_00325,centrosomal protein 170B
+te_00326,KAT8 regulatory NSL complex subunit 1
+te_00327,terminal nucleotidyltransferase 5A
+te_00328,small integral membrane protein 12
+te_00329,terminal nucleotidyltransferase 5D
+te_00330,signal peptide peptidase like 2B
+te_00331,solute carrier family 68 member 1
+te_00332,dynein regulatory complex subunit 7
+te_00333,interferon induced transmembrane protein 10
+te_00334,leucine rich repeat containing 51
+te_00335,nicotinamide riboside kinase 2
+te_00336,protein arginine methyltransferase 9
+te_00337,dynein axonemal assembly factor 9
+te_00338,protein only RNase P catalytic subunit
+te_00339,TNF alpha induced protein 8 like 3
+te_00340,STING1 ER exit protein 1
+te_00341,polypeptide N-acetylgalactosaminyltransferase 18
+te_00342,winged helix repair factor 1
+te_00343,ER membrane protein complex subunit 6
+te_00344,interferon lambda 4 (gene/pseudogene)
+te_00345,family with sequence similarity 241 member B
+te_00346,immunoglobulin lambda like polypeptide 5
+te_00347,intraflagellar transport 70B
+te_00348,divergent protein kinase domain 1B
+te_00349,Rho guanine nucleotide exchange factor 25
+te_00350,"5'-nucleotidase, cytosolic IIIA"
+te_00351,ER membrane protein complex subunit 4
+te_00352,"H1.6 linker histone, cluster member"
+te_00353,ER membrane protein complex subunit 7
+te_00354,sperm microtubule inner protein 9
+te_00355,"N-alpha-acetyltransferase 10, NatA catalytic subunit"
+te_00356,"N-alpha-acetyltransferase 30, NatC catalytic subunit"
+te_00357,histone PARylation factor 1
+te_00358,chondromodulin
+te_00359,zinc finger and BTB domain containing 35
+te_00360,solute carrier family 49 member 3
+te_00361,ceramide-1-phosphate transfer protein
+te_00362,marginal zone B and B1 cell specific protein
+te_00363,atos homolog B
+te_00364,family with sequence similarity 236 member A
+te_00365,centrosomal protein 15
+te_00366,axonemal dynein light chain domain containing 1
+te_00367,telomere repeat binding bouquet formation protein 1
+te_00368,odontogenesis associated phosphoprotein
+te_00369,nitric oxide associated 1
+te_00370,C-X9-C motif containing 4
+te_00371,homologous recombination factor with OB-fold
+te_00372,proline rich basic protein 1
+te_00373,zinc finger and BTB domain containing 18
+te_00374,protein phosphatase 2C like domain containing 1
+te_00375,endothelium and lymphocyte associated ASCH domain 2
+te_00376,cellular communication network factor 6
+te_00377,lysosomal enzyme trafficking factor
+te_00378,trafficking protein particle complex subunit 13
+te_00379,NALCN channel auxiliary factor 2
+te_00380,golgi associated RAB2 interactor 5A
+te_00381,zinc finger SWIM-type containing 8
+te_00382,H3.3 histone A
+te_00383,"failed axon connections homolog, metaxin like GST domain containing"
+te_00384,IQ motif containing N
+te_00385,mitochondrial inner membrane subdomain organizer 1
+te_00386,prolyl 3-hydroxylase 1
+te_00387,calcium channel flower domain containing 1
+te_00388,GIMAP family P-loop NTPase domain containing 1
+te_00389,Myb/SANT DNA binding domain containing 2
+te_00390,cilia and flagella associated protein 54
+te_00391,lamin tail domain containing 2
+te_00392,cancer/testis antigen family 45 member A7
+te_00393,small integral membrane protein 21
+te_00394,FHF complex subunit HOOK interacting protein 2A
+te_00395,selenoprotein K
+te_00396,speedy/RINGO cell cycle regulator family member E9
+te_00397,chromosome 20 open reading frame 203
+te_00398,germinal center associated signaling and motility
+te_00399,ankyrin repeat domain 36C
+te_00400,ssu-2 homolog
+te_00401,ubiquitin specific peptidase 17 like family member 30
+te_00402,cilia and flagella associated protein 100
+te_00403,chromosome 3 open reading frame 85
+te_00404,leucine rich colipase like 1
+te_00405,"H1.5 linker histone, cluster member"
+te_00406,RNA guanine-7 methyltransferase activating subunit like
+te_00407,"late endosomal/lysosomal adaptor, MAPK and MTOR activator 2"
+te_00408,3-hydroxyacyl-CoA dehydratase 4
+te_00409,spartin
+te_00410,membrane integral NOTCH2 associated receptor 1
+te_00411,V-set and immunoglobulin domain containing 10 like 2
+te_00412,aurora kinase A and ninein interacting protein
+te_00413,TATA-box binding protein associated factor 11 like 5
+te_00414,"late endosomal/lysosomal adaptor, MAPK and MTOR activator 5"
+te_00415,triple QxxK/R motif containing
+te_00416,interleukin 36 beta
+te_00417,ETS repressor factor like
+te_00418,FA core complex associated protein 24
+te_00419,transmembrane protein 236
+te_00420,glutamate rich 2
+te_00421,regulator of UNG2 and MKLN1 interacting yippee protein 1
+te_00422,cancer/testis antigen family 47 member C1
+te_00423,H1.8 linker histone
+te_00424,intraflagellar transport 38
+te_00425,allregulin
+te_00426,G protein-coupled receptor associated sorting protein family member 3
+te_00427,Jupiter microtubule associated homolog 2
+te_00428,solute carrier family 66 member 3
+te_00429,endoregulin
+te_00430,dual specificity phosphatase 13B
+te_00431,mitochondrial calcium uniporter dominant negative subunit beta
+te_00432,cilia and flagella associated protein 221
+te_00433,solute carrier family 35 member G5
+te_00434,thioesterase superfamily member 6
+te_00435,"RPA1 related single stranded DNA binding protein, X-linked"
+te_00436,solute carrier family 60 member 1
+te_00437,TATA-box binding protein associated factor 11 like 6
+te_00438,transmembrane protein 240
+te_00439,transmembrane protein 255A
+te_00440,anomalous homeobox
+te_00441,immunoglobulin lambda locus
+te_00442,phospholipid phosphatase 4
+te_00443,defensin beta 109D (gene/pseudogene)
+te_00444,HDAC and MIER1 interacting protein 1
+te_00445,scaffolding CK1 anchoring protein F
+te_00446,family with sequence similarity 227 member A
+te_00447,"myomaker, myoblast fusion factor"
+te_00448,membrane associated ring-CH-type finger 3
+te_00449,adhesion G protein-coupled receptor E2
+te_00450,Rho guanine nucleotide exchange factor 33
+te_00451,centromere protein V like 3
+te_00452,2'-deoxynucleoside 5'-phosphate N-hydrolase 1
+te_00453,coiled-coil domain containing 180
+te_00454,ribosomal RNA processing 36
+te_00455,golgi associated kinase 1B
+te_00456,coiled-coil domain containing 175
+te_00457,centrosomal protein 131
+te_00458,SKI2 subunit of superkiller complex
+te_00459,distal membrane arm assembly component 1
+te_00460,aspartate N-acetyltransferase
+te_00461,transition zone microprotein 1
+te_00462,testis expressed 26
+te_00463,ring finger protein 228
+te_00464,sosondowah ankyrin repeat domain family member D
+te_00465,cytochrome c oxidase associated subunit FA4L3
+te_00466,extracellular leucine rich repeat and fibronectin type III domain containing 1
+te_00467,BCLAF1 and THRAP3 family member 3
+te_00468,chromosome alignment maintaining phosphoprotein 1
+te_00469,"N-alpha-acetyltransferase 35, NatC auxiliary subunit"
+te_00470,methyl-CpG binding domain protein 3 like 5
+te_00471,taxilin gamma
+te_00472,microtubule associated tyrosine carboxypeptidase 1
+te_00473,small cysteine and glycine repeat containing 5
+te_00474,chromosome 8 open reading frame 88
+te_00475,solute carrier family 25 member 53
+te_00476,endothelium and lymphocyte associated ASCH domain 1
+te_00477,RNA exonuclease 5
+te_00478,catsper channel auxiliary subunit epsilon
+te_00479,regulator of DNA class I crossover intermediates 1
+te_00480,glutamine amidotransferase class 1 domain containing 3
+te_00481,reticulophagy regulator 1
+te_00482,solute carrier organic anion transporter family member 1B7 (putative)
+te_00483,carnosine synthase 1
+te_00484,proline rich 27
+te_00485,cilia and flagella associated protein 43
+te_00486,fertilization-influencing membrane protein 1
+te_00487,CLK4 associating serine/arginine rich protein
+te_00488,defensin beta 109C (gene/pseudogene)
+te_00489,mitochondrial transcription rescue factor 1
+te_00490,KICSTOR subunit 2
+te_00491,oocyte secreted protein 2
+te_00492,cytochrome b561 family member A3
+te_00493,forkhead box L3
+te_00494,ceramide synthase 6
+te_00495,retrotransposon Gag like 8C
+te_00496,proline rich coiled-coil 2C
+te_00497,speedy/RINGO cell cycle regulator family member E17
+te_00498,single-pass membrane protein with coiled-coil domains 3
+te_00499,ubiquitin specific peptidase 17 like family member 26
+te_00500,free fatty acid receptor 4
+te_00501,proline rich 33
+te_00502,interleukin 37
+te_00503,intraflagellar transport 54
+te_00504,solute carrier family 25 member 47
+te_00505,centrosomal protein 20
+te_00506,leucyl-tRNA synthetase 1
+te_00507,Rho GTPase activating protein 32
+te_00508,SREBF pathway regulator in golgi 1
+te_00509,dynein 2 intermediate chain 1
+te_00510,FA core complex associated protein 100
+te_00511,WW domain binding protein 1 like
+te_00512,calcineurin like EF-hand protein 1
+te_00513,H4 histone 16
+te_00514,small integral membrane protein 14
+te_00515,O-GlcNAcase
+te_00516,succinate dehydrogenase complex assembly factor 4
+te_00517,lysine methyltransferase 2E (inactive)
+te_00518,cellular communication network factor 2
+te_00519,cilia and flagella associated protein 144
+te_00520,EF-hand calcium binding domain 14
+te_00521,"family with sequence similarity 199, X-linked"
+te_00522,dispatched RND transporter family member 3
+te_00523,defensin beta 4B
+te_00524,chromosome 21 open reading frame 140
+te_00525,proline rich 35
+te_00526,cadherin related family member 4
+te_00527,cilia and flagella associated protein 57
+te_00528,"abhydrolase domain containing 17B, depalmitoylase"
+te_00529,retrotransposon Gag like 4
+te_00530,cancer/testis antigen 83
+te_00531,mitochondrial inner membrane scaffold 2
+te_00532,intraflagellar transport associated protein
+te_00533,embryonic testis differentiation homolog B
+te_00534,small integral membrane protein 8
+te_00535,golgin A8 family member N
+te_00536,hypoxia inducible lipid droplet associated
+te_00537,inner mitochondrial membrane peptidase subunit 1
+te_00538,protein phosphatase 1 regulatory subunit 26
+te_00539,heterogeneous nuclear ribonucleoprotein L like
+te_00540,SMC5/6 complex localization factor 2
+te_00541,oocyte secreted protein family member 4A
+te_00542,solute carrier family 22 member 31
+te_00543,elongation factor like GTPase 1
+te_00544,phospholipase A and acyltransferase 3
+te_00545,PARP1 binding protein
+te_00546,cilia and flagella associated protein 126
+te_00547,chromosome 4 open reading frame 54
+te_00548,chromosome 14 open reading frame 39
+te_00549,cilia and flagella associated protein 300
+te_00550,abhydrolase domain containing 18
+te_00551,Rho GTPase activating protein 39
+te_00552,melanotransferrin
+te_00553,family with sequence similarity 90 member A20
+te_00554,IQ motif containing M
+te_00555,SKI3 subunit of superkiller complex
+te_00556,Zn regulated GTPase metalloprotein activator 1A
+te_00557,cilia and flagella associated protein 99
+te_00558,meiosis initiator
+te_00559,testis expressed 30
+te_00560,adhesion G protein-coupled receptor G1
+te_00561,nuclear pore complex interacting protein family member B6
+te_00562,heterogeneous nuclear ribonucleoprotein D like
+te_00563,CUGBP Elav-like family member 5
+te_00564,"ubiquinol-cytochrome c reductase, complex III subunit XI"
+te_00565,diphosphoinositol pentakisphosphate kinase 2
+te_00566,dendrocyte expressed seven transmembrane protein
+te_00567,dynein axonemal assembly factor 19
+te_00568,ubiquitin recognition factor in ER associated degradation 1
+te_00569,scleraxis bHLH transcription factor
+te_00570,C-X-C motif chemokine ligand 8
+te_00571,olfactory receptor family 10 subfamily D member 3
+te_00572,plectin
+te_00573,exocyst complex component 3 like 1
+te_00574,cms1 ribosomal small subunit homolog
+te_00575,signal peptide peptidase like 3
+te_00576,heterogeneous nuclear ribonucleoprotein A1 like 3
+te_00577,"RNA 2',3'-cyclic phosphate and 5'-OH ligase"
+te_00578,ubiquitin specific peptidase 17 like family member 27
+te_00579,SLIT-ROBO Rho GTPase activating protein 2B
+te_00580,tryptophanyl-tRNA synthetase 1
+te_00581,adhesion G protein-coupled receptor V1
+te_00582,nuclear speckle splicing regulatory protein 1
+te_00583,coiled-coil domain containing 187
+te_00584,SR-related CTD associated factor 4
+te_00585,chromosome 8 open reading frame 90
+te_00586,small integral membrane protein 10 like 3
+te_00587,solute carrier family 51 member A
+te_00588,coiled-coil domain containing 195
+te_00589,H4 clustered histone 8
+te_00590,small nuclear ribonucleoprotein 13
+te_00591,adipose secreted signaling protein
+te_00592,ubiquinol-cytochrome c reductase complex assembly factor 4
+te_00593,proline rich transmembrane protein 1B
+te_00594,"endogenous retrovirus group FRD member 1, envelope"
+te_00595,transmembrane protein 267
+te_00596,megakaryocyte and platelet inhibitory receptor G6b
+te_00597,"methyltransferase 13, eEF1A N-terminus and K55"
+te_00598,methionine sulfoxide reductase B1
+te_00599,speedy/RINGO cell cycle regulator family member E2B
+te_00600,phosphoinositide interacting regulator of transient receptor potential channels
+te_00601,selenoprotein O
+te_00602,ankyrin repeat domain 63
+te_00603,cilia and flagella associated protein 96
+te_00604,kelch like family member 42
+te_00605,centrosomal protein 57 like 1
+te_00606,nuclear pore complex interacting protein family member B3
+te_00607,transmembrane protein 263
+te_00608,proton activated chloride channel 1
+te_00609,olfactory receptor family 14 subfamily L member 1
+te_00610,protein tyrosine phosphatase non-receptor type 20
+te_00611,retroelement silencing factor 1
+te_00612,WD repeat and coiled coil containing
+te_00613,solute carrier family 8 member B1
+te_00614,elongin A
+te_00615,outer dynein arm docking complex subunit 3
+te_00616,family with sequence similarity 227 member B
+te_00617,N-terminal Xaa-Pro-Lys N-methyltransferase 2
+te_00618,lactamase beta like 1
+te_00619,guanylyl cyclase domain containing 1
+te_00620,integrator complex subunit 11
+te_00621,lysine acetyltransferase 6B
+te_00622,olfactory receptor family 8 subfamily G member 3 (gene/pseudogene)
+te_00623,caveolae associated protein 3
+te_00624,DExD-box helicase 39B
+te_00625,meiosis regulator and mRNA stability factor 1
+te_00626,sperm microtubule inner protein 5
+te_00627,TELO2 interacting protein 1
+te_00628,H3 clustered histone 11
+te_00629,ceramide synthase 5
+te_00630,isoleucyl-tRNA synthetase 1
+te_00631,"H3.4 histone, cluster member"
+te_00632,FHF complex subunit HOOK interacting protein 2B
+te_00633,SKI8 subunit of superkiller complex
+te_00634,chromosome X open reading frame 51B
+te_00635,cilia and flagella associated protein 53
+te_00636,solute carrier family 9 member D1
+te_00637,NAD(P)HX epimerase
+te_00638,pumilio RNA binding family member 3
+te_00639,adhesion G protein-coupled receptor F4
+te_00640,aconitate decarboxylase 1
+te_00641,N-terminal Xaa-Pro-Lys N-methyltransferase 1
+te_00642,small integral membrane protein 46
+te_00643,CYFIP related Rac1 interactor B
+te_00644,family with sequence similarity 90 member A3
+te_00645,spermatogenesis associated 6 like
+te_00646,lysine acetyltransferase 14
+te_00647,coiled-coil domain containing 183
+te_00648,"endogenous retrovirus group W member 1, envelope"
+te_00649,adenylate kinase 8
+te_00650,S-adenosylmethionine sensor upstream of mTORC1
+te_00651,testis expressed 47
+te_00652,gem nuclear organelle associated protein 2
+te_00653,solute carrier family 50 member 1
+te_00654,phospholipid phosphatase related 1
+te_00655,CCR4-NOT transcription complex subunit 12
+te_00656,ribitol xylosyltransferase 1
+te_00657,adhesion G protein-coupled receptor L2
+te_00658,speedy/RINGO cell cycle regulator family member E12
+te_00659,casein kinase 2 alpha 3
+te_00660,atypical chemokine receptor 3
+te_00661,RNA 3'-terminal phosphate cyclase
+te_00662,fibronectin type III domain containing 9
+te_00663,testis expressed 36
+te_00664,TATA-box binding protein associated factor 11 like 2
+te_00665,maltase-glucoamylase 2 (putative)
+te_00666,Mtr4 exosome RNA helicase
+te_00667,coiled-coil domain containing 185
+te_00668,small integral membrane protein 23
+te_00669,family with sequence similarity 221 member B
+te_00670,androglobin
+te_00671,BLOC-1 related complex subunit 7
+te_00672,solute carrier family 33 member 2
+te_00673,enoyl-CoA delta isomerase 1
+te_00674,mitochondrial calcium uptake 3
+te_00675,family with sequence similarity 236 member D
+te_00676,cyclic GMP-AMP synthase
+te_00677,adenylosuccinate synthase 1
+te_00678,secreted LY6/PLAUR domain containing 2
+te_00679,cilia and flagella associated protein 210
+te_00680,splicing factor SWAP
+te_00681,neuronal tyrosine phosphorylated phosphoinositide-3-kinase adaptor 1
+te_00682,family with sequence similarity 90 member A13
+te_00683,family with sequence similarity 216 member A
+te_00684,glutamate rich 3
+te_00685,BCL2 interacting protein 5
+te_00686,ubiquitin specific peptidase 17 like family member 28
+te_00687,dihydrouridine synthase 2
+te_00688,solute carrier family 9 member C2 (putative)
+te_00689,retrotransposon Gag like 8A
+te_00690,leucine rich repeat containing 3C
+te_00691,CYFIP related Rac1 interactor A
+te_00692,coiled-coil domain containing 201
+te_00693,PAX3 and PAX7 binding protein 1
+te_00694,tyrosyl-tRNA synthetase 1
+te_00695,tektin bundle interacting protein 1
+te_00696,transmembrane protein 235
+te_00697,dynein axonemal assembly factor 2
+te_00698,spindlin interactor and repressor of chromatin binding
+te_00699,intraflagellar transport 25
+te_00700,splicing factor 3b subunit 6
+te_00701,popeye domain cAMP effector 1
+te_00702,ankyrin repeat and ubiquitin domain containing 1
+te_00703,microtubule associated tyrosine carboxypeptidase 2
+te_00704,multivesicular body subunit 12A
+te_00705,transmembrane and immunoglobulin domain containing 3
+te_00706,tRNA splicing ligase complex subunit 3B
+te_00707,integrator complex subunit 14
+te_00708,enkurin domain containing 1
+te_00709,H3 clustered histone 4
+te_00710,2-oxoglutarate and iron dependent oxygenase domain containing 3
+te_00711,small cysteine and glycine repeat containing 3
+te_00712,ethanolamine-phosphate phospho-lyase
+te_00713,WD repeat domain 83 opposite strand
+te_00714,ciliogenesis and planar polarity effector complex subunit 2
+te_00715,golgi associated RAB2 interactor 1B
+te_00716,3-hydroxyacyl-CoA dehydratase 3
+te_00717,"ubiquinol-cytochrome c reductase, complex III subunit X"
+te_00718,natural killer cell cytotoxicity receptor 3 ligand 1
+te_00719,CXXC motif containing zinc binding protein
+te_00720,G protein-coupled estrogen receptor 1
+te_00721,TP53 induced glycolysis regulatory phosphatase
+te_00722,ankyrin repeat domain 65
+te_00723,sulfide quinone oxidoreductase
+te_00724,pecanex 1
+te_00725,mitochondrial rRNA methyltransferase 3
+te_00726,arylsulfatase L
+te_00727,thymocyte selection associated family member 2
+te_00728,C-X9-C motif containing 2
+te_00729,tRNA-yW synthesizing protein 5
+te_00730,protein phosphatase 2 phosphatase activator
+te_00731,"centriole, cilia and spindle associated protein"
+te_00732,family with sequence similarity 90 member A12
+te_00733,regulator of MON1-CCZ1
+te_00734,trafficking protein particle complex subunit 14
+te_00735,speedy/RINGO cell cycle regulator family member E18
+te_00736,ubiquinol-cytochrome c reductase complex assembly factor 6
+te_00737,nuclear pore complex interacting protein family member B7
+te_00738,dopamine receptor interacting protein 1
+te_00739,ring finger protein 212B
+te_00740,transmembrane 131 like
+te_00741,crystallin beta-gamma domain containing 1
+te_00742,carboxylesterase 5A
+te_00743,carnosine N-methyltransferase 1
+te_00744,cyclin P
+te_00745,apolipoprotein lipid transfer particle homolog
+te_00746,ubiquinol-cytochrome c reductase complex assembly factor 5
+te_00747,adhesion G protein-coupled receptor F3
+te_00748,TATA-box binding protein associated factor 11 like 7
+te_00749,RNA binding motif protein 48
+te_00750,solute carrier family 71 member 2
+te_00751,ring finger protein 227
+te_00752,family with sequence similarity 234 member A
+te_00753,CREB3 regulatory factor
+te_00754,mitochondrial transcription termination factor 3
+te_00755,zinc finger TRAF-type and ring finger containing 1
+te_00756,cytochrome P450 family 2 subfamily D member 7 (gene/pseudogene)
+te_00757,cilia and flagella associated protein 251
+te_00758,small integral membrane protein 10 like 2A
+te_00759,colipase like 1
+te_00760,ubiquitin specific peptidase 17 like family member 22
+te_00761,sperm-tail PG-rich repeat containing 4
+te_00762,T cell receptor beta locus
+te_00763,interferon regulatory factor 2 binding protein like
+te_00764,cholesin
+te_00765,G protein subunit gamma 5B
+te_00766,"protein phosphatase, Mg2+/Mn2+ dependent 1N (putative)"
+te_00767,cilia and flagella associated protein 298
+te_00768,pentraxin 4
+te_00769,"thymocyte expressed, positive selection associated 1"
+te_00770,divergent protein kinase domain 2B
+te_00771,nuclear pore complex interacting protein family member A3
+te_00772,protein phosphatase 4 regulatory subunit 3A
+te_00773,zinc finger and BTB domain containing 49
+te_00774,zinc finger BED-type containing 11
+te_00775,transcription activation suppressor family member 2
+te_00776,D-glutamate cyclase
+te_00777,"N-alpha-acetyltransferase 80, NatH catalytic subunit"
+te_00778,peptidylprolyl isomerase A like 4H
+te_00779,phospholipase A and acyltransferase 1
+te_00780,osteoclast stimulatory transmembrane protein
+te_00781,"alpha 1,3-galactosyltransferase 2"
+te_00782,mitochondrial elongation factor 2
+te_00783,ceramide synthase 2
+te_00784,H4 clustered histone 13
+te_00785,inter-alpha-trypsin inhibitor heavy chain family member 6
+te_00786,lysine methyltransferase 5C
+te_00787,asparaginyl-tRNA synthetase 1
+te_00788,transmembrane protein 253
+te_00789,small cysteine and glycine repeat containing 1
+te_00790,diphthamide biosynthesis 7
+te_00791,small integral membrane protein 48
+te_00792,phospholipid phosphatase 1
+te_00793,"N-alpha-acetyltransferase 16, NatA auxiliary subunit"
+te_00794,ankyrin repeat and EF-hand domain containing 1
+te_00795,H3.5 histone
+te_00796,H4 clustered histone 6
+te_00797,interactor of HORMAD1 1
+te_00798,ring finger protein 223
+te_00799,family with sequence similarity 90 member A18
+te_00800,"t-complex 11 family, X-linked 2"
+te_00801,serine/threonine kinase 26
+te_00802,carboxypeptidase Q
+te_00803,actin related protein T3
+te_00804,PX domain containing 1
+te_00805,solute carrier family 18 member B1
+te_00806,family with sequence similarity 219 member B
+te_00807,telomerase RNA component interacting RNase
+te_00808,H3 clustered histone 12
+te_00809,"5-hydroxymethylcytosine binding, ES cell specific"
+te_00810,nicotinamide riboside kinase 1
+te_00811,SUMO interacting motifs containing 1
+te_00812,H3.3 histone B
+te_00813,proline rich 29
+te_00814,glycerol-3-phosphate acyltransferase 4
+te_00815,ciliary microtubule inner protein 2C
+te_00816,dynactin associated protein
+te_00817,golgin A6 family like 22
+te_00818,TELO2 interacting protein 2
+te_00819,TATA-box binding protein associated factor 11 like 8
+te_00820,ubiquitin specific peptidase 17 like family member 20
+te_00821,microtubule crosslinking factor 1
+te_00822,plasminogen receptor with a C-terminal lysine
+te_00823,bridge-like lipid transfer protein family member 3B
+te_00824,small integral membrane protein 15
+te_00825,coenzyme Q8A
+te_00826,ubiquitin specific peptidase 17 like family member 21
+te_00827,ceramide synthase 3
+te_00828,translocase of inner mitochondrial membrane 29
+te_00829,NADH:ubiquinone oxidoreductase complex assembly factor 7
+te_00830,cytosolic iron-sulfur assembly component 2A
+te_00831,"RNA transcription, translation and transport factor"
+te_00832,caveolae associated protein 2
+te_00833,golgi membrane protein 2
+te_00834,"heat shock transcription factor family, X-linked member 3"
+te_00835,membrane associated ring-CH-type finger 6
+te_00836,zinc finger and SCAN domain containing 5C
+te_00837,testis expressed 29
+te_00838,nardilysin convertase
+te_00839,centrosomal protein 85L
+te_00840,ankyrin repeat and BTB domain containing 3
+te_00841,WD repeat domain 45B
+te_00842,meiotic double-stranded break formation protein 4
+te_00843,ubiquitin specific peptidase 17 like family member 25
+te_00844,phospholipid phosphatase 3
+te_00845,interferon lambda receptor 1
+te_00846,argonaute RISC component 1
+te_00847,tripartite motif-containing 51
+te_00848,UFM1 specific ligase 1
+te_00849,secondary ossification center associated regulator of chondrocyte maturation
+te_00850,family with sequence similarity 219 member A
+te_00851,calcium homeostasis modulator family member 5
+te_00852,transmembrane protein 265
+te_00853,"methyltransferase 16, RNA N6-adenosine"
+te_00854,cyclin Q
+te_00855,"methyltransferase 23, arginine"
+te_00856,golgi associated RAB2 interactor family member 4
+te_00857,adaptor related protein complex 5 subunit zeta 1
+te_00858,anaphase promoting complex subunit 16
+te_00859,divergent protein kinase domain 2A
+te_00860,focadhesin
+te_00861,retrotransposon Gag like 10
+te_00862,transmembrane protein 275
+te_00863,dematin actin binding protein
+te_00864,equatorin
+te_00865,valosin containing protein lysine methyltransferase
+te_00866,intraflagellar transport 70A
+te_00867,atos homolog A
+te_00868,adhesion G protein-coupled receptor G7
+te_00869,maestro heat like repeat family member 8
+te_00870,solute carrier family 52 member 2
+te_00871,ribosomal oxygenase 1
+te_00872,zinc finger and BTB domain containing 21
+te_00873,coiled-coil glutamate rich protein 2
+te_00874,nucleoporin 58
+te_00875,protein O-mannose kinase
+te_00876,tripartite motif containing 49B
+te_00877,coiled-coil domain containing 188
+te_00878,BRISC and BRCA1 A complex member 1
+te_00879,family with sequence similarity 217 member B
+te_00880,N-terminal glutamine amidase 1
+te_00881,protein O-glucosyltransferase 3
+te_00882,transmembrane protein 278
+te_00883,RAB7A interacting MON1-CCZ1 complex subunit 1
+te_00884,speedy/RINGO cell cycle regulator family member E21
+te_00885,elongator acetyltransferase complex subunit 5
+te_00886,scaffolding CK1 anchoring protein C
+te_00887,endoplasmic reticulum oxidoreductase 1 beta
+te_00888,golgi associated RAB2 interactor family member 5B
+te_00889,zinc finger containing ubiquitin peptidase 1
+te_00890,coiled-coil domain containing 172
+te_00891,formiminotransferase cyclodeaminase N-terminal like
+te_00892,golgin A8 family member O
+te_00893,elongin BC and polycomb repressive complex 2 associated protein
+te_00894,centrosome assembly and centriole elongation protein
+te_00895,IQ motif and ankyrin repeat containing 1
+te_00896,annexin A2 receptor
+te_00897,cell cycle and apoptosis regulator 2
+te_00898,"transcription elongation factor, mitochondrial"
+te_00899,single-pass membrane protein with coiled-coil domains 4
+te_00900,family with sequence similarity 90 member A14
+te_00901,family with sequence similarity 221 member A
+te_00902,pyrroline-5-carboxylate reductase 3
+te_00903,cilia and flagella associated protein 47
+te_00904,thiol methyltransferase 1B
+te_00905,epididymal protein 13
+te_00906,stabilizer of axonemal microtubules 6
+te_00907,transmembrane protein 256
+te_00908,calcium homeostasis modulator family member 6
+te_00909,small cysteine and glycine repeat containing 8
+te_00910,terminal nucleotidyltransferase 4B
+te_00911,centrosomal protein 43
+te_00912,golgin A8 family member R
+te_00913,H3 clustered histone 3
+te_00914,"N-alpha-acetyltransferase 40, NatD catalytic subunit"
+te_00915,methylsterol monooxygenase 1
+te_00916,trafficking protein particle complex subunit 12
+te_00917,coordinator of PRMT5 and differentiation stimulator
+te_00918,adhesion G protein-coupled receptor F1
+te_00919,macrophage immunometabolism regulator
+te_00920,polypyrimidine tract binding protein 3
+te_00921,ER membrane protein complex subunit 8
+te_00922,nuclear pore complex interacting protein family member A5
+te_00923,transmembrane protein 239
+te_00924,small integral membrane protein 22
+te_00925,leucine rich single-pass membrane protein 2
+te_00926,endosomal transmembrane epsin interactor 2
+te_00927,coiled-coil domain containing 71 like
+te_00928,centriolin
+te_00929,seryl-tRNA synthetase 1
+te_00930,cytoplasmic polyadenylated homeobox like 2
+te_00931,chromosome 1 open reading frame 230
+te_00932,"methyltransferase 22, Kin17 lysine"
+te_00933,microtubule crosslinking factor 2
+te_00934,Rho GTPase activating protein 35
+te_00935,stabilizer of axonemal microtubules 5
+te_00936,olfactory receptor family 2 subfamily I member 1 (gene/pseudogene)
+te_00937,ataxin 7 like 3B
+te_00938,proline rich 14 like
+te_00939,electron transfer flavoprotein subunit beta lysine methyltransferase
+te_00940,sperm acrosome associated 7
+te_00941,PCNA clamp associated factor
+te_00942,ER membrane protein complex subunit 2
+te_00943,small integral membrane protein 1 (Vel blood group)
+te_00944,acyl-CoA synthetase medium chain family member 6
+te_00945,SANT and BTB domain regulator of CSR
+te_00946,ubiquitin conjugating enzyme E2 L5
+te_00947,TRPM8 channel associated factor 2
+te_00948,cellular communication network factor 1
+te_00949,GRB2 associated regulator of MAPK1 subtype 2
+te_00950,parvalbumin like EF-hand containing
+te_00951,threonyl-tRNA synthetase 1
+te_00952,katanin interacting protein
+te_00953,small integral membrane protein 31
+te_00954,"guided entry of tail-anchored proteins factor 3, ATPase"
+te_00955,scaffolding CK1 anchoring protein D
+te_00956,cilia and flagella associated protein 90
+te_00957,atypical chemokine receptor 5
+te_00958,centrosomal protein 112
+te_00959,PICALM interacting mitotic regulator
+te_00960,testis expressed metallothionein like protein
+te_00961,translocase of inner mitochondrial membrane domain containing 1
+te_00962,DEAD/H-box helicase 11 like 13
+te_00963,SURP and G-patch domain containing 1
+te_00964,chromosome 3 open reading frame 80
+te_00965,sperm microtubule associated protein 1
+te_00966,mitochondrial translation release factor in rescue
+te_00967,"N-alpha-acetyltransferase 20, NatB catalytic subunit"
+te_00968,KAT8 regulatory NSL complex subunit 3
+te_00969,ribosomal protein S6 kinase related
+te_00970,U2 snRNP associated SURP domain containing
+te_00971,40S small subunit processome assembly factor 1
+te_00972,transmembrane protein 178B
+te_00973,non-compact myelin associated protein
+te_00974,tripartite motif containing 49C
+te_00975,chromosome 14 open reading frame 180
+te_00976,cell migration inducing hyaluronidase 1
+te_00977,catsper channel auxiliary subunit tau
+te_00978,solute carrier family 52 member 1
+te_00979,lymphocyte antigen 6 family member S
+te_00980,cadherin related family member 3
+te_00981,endonuclease V
+te_00982,scavenger receptor cysteine rich family member with 4 domains
+te_00983,aspartyl-tRNA synthetase 1
+te_00984,negative regulator of reactive oxygen species
+te_00985,family with sequence similarity 90 member A23
+te_00986,mitochondrial calcium uniporter regulator 1
+te_00987,embryonic testis differentiation homolog A
+te_00988,C-type lectin like 1
+te_00989,tripartite motif containing 77
+te_00990,glutamine amidotransferase class 1 domain containing 1
+te_00991,coiled-coil domain containing 186
+te_00992,dynein axonemal assembly factor 1
+te_00993,"nucleoside-triphosphatase, cancer-related"
+te_00994,centromere protein C
+te_00995,Rho GTPase activating protein 33
+te_00996,negative elongation factor complex member A
+te_00997,stabilizer of axonemal microtubules 3
+te_00998,peptidyl-tRNA hydrolase domain containing 1
+te_00999,glutamyl-prolyl-tRNA synthetase 1
+te_01000,cell death inducing p53 target 1
+te_01001,coiled-coil domain containing 194
+te_01002,mitochondrial lactate dehydrogenase regulator
+te_01003,innate immunity activator
+te_01004,proapoptotic nucleolar protein 1
+te_01005,tRNA wybutosine-synthesizing protein 2
+te_01006,p21 (RAC1) activated kinase 5
+te_01007,transmembrane protein 225B
+te_01008,TATA-box binding protein associated factor 11 like 4
+te_01009,cilia and flagella associated protein 418
+te_01010,cilia and flagella associated protein 36
+te_01011,teneurin transmembrane protein 1
+te_01012,integrator complex subunit 6 like
+te_01013,cyclin Y like 1B
+te_01014,sperm microtubule inner protein 1
+te_01015,circadian associated repressor of transcription
+te_01016,glycosylated lysosomal membrane protein
+te_01017,uroplakin 3B like 1
+te_01018,regulator of microtubule dynamics 2
+te_01019,calmodulin regulated spectrin associated protein family member 3
+te_01020,family with sequence similarity 228 member B
+te_01021,nucleoporin 42
+te_01022,H4 clustered histone 2
+te_01023,proline rich 30
+te_01024,transcriptional and immune response regulator
+te_01025,translation machinery associated 16 homolog
+te_01026,sperm microtubule inner protein 10
+te_01027,protein phosphatase 4 regulatory subunit 3C
+te_01028,oxidoreductase like domain containing 1
+te_01029,low density lipoprotein receptor class A domain containing 4
+te_01030,lysine demethylase 4E
+te_01031,H3 clustered histone 1
+te_01032,transmembrane protein 272
+te_01033,leucine rich repeat containing 75B
+te_01034,golgi associated RAB2 interactor family member 3
+te_01035,acid sensing ion channel subunit 1
+te_01036,golgin A8 family member S
+te_01037,huntingtin interacting protein K
+te_01038,"N-alpha-acetyltransferase 11, NatA catalytic subunit"
+te_01039,ubiquitin specific peptidase 17 like family member 18
+te_01040,TSSK6 activating cochaperone
+te_01041,TATA-box binding protein associated factor 11 like 14
+te_01042,replication termination factor 2
+te_01043,kelch like family member 41
+te_01044,cobalamin binding intrinsic factor
+te_01045,glutamate rich 5
+te_01046,multiciliate differentiation and DNA synthesis associated cell cycle protein
+te_01047,lysine demethylase 8
+te_01048,5-phosphohydroxy-L-lysine phospho-lyase
+te_01049,ciliated left-right organizer protein containing ZP-N domains
+te_01050,translocase of inner mitochondrial membrane 21
+te_01051,serine palmitoyltransferase small subunit A
+te_01052,selenoprotein V
+te_01053,leucine rich repeat containing 71
+te_01054,chromosome 2 open reading frame 72
+te_01055,BPTF associated chromatin complex component 1
+te_01056,leucine rich repeat protein 1
+te_01057,pleckstrin homology domain containing S1
+te_01058,APC membrane recruitment protein 2
+te_01059,interactor of little elongation complex ELL subunit 2
+te_01060,RNA binding fox-1 homolog 3
+te_01061,cyclic nucleotide binding domain containing 2
+te_01062,leucine rich repeat containing 74A
+te_01063,thymosin beta 15C
+te_01064,cellular communication network factor 4
+te_01065,transmembrane protein 255B
+te_01066,prolyl 3-hydroxylase family member 4 (inactive)
+te_01067,BLOC-1 related complex subunit 8
+te_01068,transmembrane protein 35A
+te_01069,neurexophilin and PC-esterase domain family member 2
+te_01070,coiled-coil domain containing 178
+te_01071,tektin like 1
+te_01072,"phosphatidylinositol-4,5-bisphosphate 4-phosphatase 2"
+te_01073,transmembrane protein 247
+te_01074,stabilizer of axonemal microtubules 2
+te_01075,adipogenesis associated Mth938 domain containing
+te_01076,PIGY upstream open reading frame
+te_01077,syntabulin
+te_01078,aminopeptidase O (putative)
+te_01079,zinc finger BED-type containing 8
+te_01080,primase and DNA directed polymerase
+te_01081,mitochondrial pyruvate carrier 2
+te_01082,coiled-coil domain containing 170
+te_01083,anosmin 1
+te_01084,centriolar satellite-associated tubulin polyglutamylase complex regulator 1
+te_01085,thiol methyltransferase 1A
+te_01086,MyoD family inhibitor domain containing 2
+te_01087,cathepsin L
+te_01088,negative regulator of P-body association
+te_01089,phospholipid phosphatase 7 (inactive)
+te_01090,myocardin related transcription factor B
+te_01091,oocyte secreted protein 1
+te_01092,membrane anchored junction protein
+te_01093,glycoprotein alpha-galactosyltransferase 1 (inactive)
+te_01094,terminal uridylyl transferase 4
+te_01095,testis expressed 55
+te_01096,Zn regulated GTPase metalloprotein activator 1F
+te_01097,somatomedin B and thrombospondin type 1 domain containing
+te_01098,SAYSVFN motif domain containing 1
+te_01099,intraflagellar transport 27
+te_01100,serine protease 56
+te_01101,zinc finger GRF-type containing 1
+te_01102,nuclear receptor binding SET domain protein 3
+te_01103,SWIM-type zinc finger 7 associated protein 1
+te_01104,ribonuclease P/MRP subunit p25 like
+te_01105,phospholipid phosphatase related 5
+te_01106,biorientation of chromosomes in cell division 1 like 2
+te_01107,serine protease 51
+te_01108,coiled-coil serine rich protein 1
+te_01109,coiled-coil domain containing 177
+te_01110,multivesicular body subunit 12B
+te_01111,centrosomal protein 295
+te_01112,guided entry of tail-anchored proteins factor 4
+te_01113,RNA polymerase I subunit F
+te_01114,trans-golgi network vesicle protein 23 homolog C
+te_01115,pyruvate kinase M1/2
+te_01116,mitochondrial amidoxime reducing component 2
+te_01117,sperm microtubule inner protein 11
+te_01118,G-patch domain containing 2 like
+te_01119,ubiquinol-cytochrome c reductase complex assembly factor 2
+te_01120,manchette microtubule inner protein 1
+te_01121,fucose kinase
+te_01122,autophagy related 101
+te_01123,serine peptidase inhibitor Kazal type 14 (putative)
+te_01124,chromosome 19 open reading frame 85
+te_01125,solute carrier family 75 member 1
+te_01126,integrator complex subunit 13
+te_01127,spermatogenesis associated 32
+te_01128,vertebrae development associated
+te_01129,Myb/SANT DNA binding domain containing 4 with coiled-coils
+te_01130,solute carrier family 25 member 51
+te_01131,endoplasmic reticulum oxidoreductase 1 alpha
+te_01132,coiled-coil domain containing 191
+te_01133,"beta-1,4-glucuronyltransferase 1"
+te_01134,nuclear pore complex interacting protein family member B15
+te_01135,sperm microtubule inner protein 7
+te_01136,PIK3R3 upstream open reading frame
+te_01137,mitochondrial contact site and cristae organizing system subunit 13
+te_01138,testis expressed 44
+te_01139,bridge-like lipid transfer protein family member 3A
+te_01140,shieldin complex subunit 1
+te_01141,"N-alpha-acetyltransferase 15, NatA auxiliary subunit"
+te_01142,dynein light chain Tctex-type 2B
+te_01143,PDCD10 and GCKIII kinases associated 1
+te_01144,formation of mitochondrial complex V assembly factor 1
+te_01145,BRISC and BRCA1 A complex member 2
+te_01146,golgin A8 family member M
+te_01147,"tonsoku like, DNA repair protein"
+te_01148,myelin regulatory factor like
+te_01149,cathepsin V
+te_01150,"beta-1,3-galactosyltransferase 9"
+te_01151,vexin
+te_01152,acid sensing ion channel subunit family member 4
+te_01153,piercer of microtubule wall 2
+te_01154,prostaglandin D2 receptor 2
+te_01155,speedy/RINGO cell cycle regulator family member E8
+te_01156,oxidative stress responsive serine rich 1
+te_01157,diphosphoinositol pentakisphosphate kinase 1
+te_01158,family with sequence similarity 237 member B
+te_01159,EGF domain specific O-linked N-acetylglucosamine transferase
+te_01160,SKI family transcriptional corepressor 1
+te_01161,PIN2 (TERF1) interacting telomerase inhibitor 1
+te_01162,solute carrier family 9 member B1
+te_01163,coiled-coil domain containing 9B
+te_01164,adaptor related protein complex 5 subunit beta 1
+te_01165,glycine rich extracellular protein 1
+te_01166,small integral membrane protein 32
+te_01167,lysine methyltransferase 2C
+te_01168,small integral membrane protein 20
+te_01169,testis expressed 22
+te_01170,small integral membrane protein 40
+te_01171,tRNA methyltransferase 10B
+te_01172,NADH:ubiquinone oxidoreductase complex assembly factor 8
+te_01173,divergent protein kinase domain 1A
+te_01174,sosondowah ankyrin repeat domain family member A
+te_01175,SIR2 antiphage like 2
+te_01176,kynurenine aminotransferase 3
+te_01177,synapse differentiation inducing 1
+te_01178,serine rich and transmembrane domain containing 2
+te_01179,adaptor related protein complex 5 subunit sigma 1
+te_01180,"methyltransferase 21A, HSPA lysine"
+te_01181,ubiquitin specific peptidase 17 like family member 15
+te_01182,erythroid differentiation regulatory factor 1
+te_01183,methyltransferase like 26
+te_01184,adhesion G protein-coupled receptor L4
+te_01185,FANCD2 and FANCI associated nuclease 1
+te_01186,neuralized E3 ubiquitin protein ligase 1
+te_01187,family with sequence similarity 90 member A11
+te_01188,opiorphin prepropeptide
+te_01189,cellular inhibitor of PP2A
+te_01190,transmembrane protein 234
+te_01191,T cell receptor delta locus
+te_01192,epididymal peptidase inhibitor
+te_01193,H3 clustered histone 2
+te_01194,mitotic spindle organizing protein 1
+te_01195,selenoprotein H
+te_01196,leucine rich repeat containing 75A
+te_01197,speedy/RINGO cell cycle regulator family member E10
+te_01198,"N-alpha-acetyltransferase 38, NatC auxiliary subunit"
+te_01199,COP9 signalosome subunit 9
+te_01200,pancreatic progenitor cell differentiation and proliferation factor like
+te_01201,adhesion G protein-coupled receptor G3
+te_01202,endosome associated trafficking regulator 1
+te_01203,small integral membrane protein 35
+te_01204,small cysteine and glycine repeat containing 2
+te_01205,chromosome 2 open reading frame 66
+te_01206,family with sequence similarity 229 member A
+te_01207,meiosis 1 associated protein
+te_01208,chromosome 11 open reading frame 97
+te_01209,otolin 1
+te_01210,plakoglobin binding and degradation factor
+te_01211,zinc finger and BTB domain containing 14
+te_01212,centrosomal protein 83
+te_01213,acid sensing ion channel subunit 3
+te_01214,heterogeneous nuclear ribonucleoprotein C like 4
+te_01215,myoregulin
+te_01216,centrosomal protein 44
+te_01217,mitochondrial fission regulator 2
+te_01218,nuclear pore complex interacting protein family member A2
+te_01219,solute carrier family 35 member G1
+te_01220,pecanex 2
+te_01221,cell cycle regulator of NHEJ
+te_01222,double homeobox 4
+te_01223,"t-complex 11 family, X-linked 1"
+te_01224,adhesion G protein-coupled receptor B2
+te_01225,geminin coiled-coil domain containing
+te_01226,tRNA splicing ligase complex subunit 1
+te_01227,phospholipid phosphatase 5
+te_01228,tetrapeptide repeat homeobox 2
+te_01229,solute carrier family 52 member 3
+te_01230,small integral membrane protein 26
+te_01231,bromodomain containing 10
+te_01232,peroxisomal biogenesis factor 2
+te_01233,glutathione S-transferase theta 4
+te_01234,intraflagellar transport 22
+te_01235,prolyl 3-hydroxylase 3
+te_01236,"calcium binding protein, spermatid associated 1"
+te_01237,small integral membrane protein 9
+te_01238,transmembrane serine protease 15
+te_01239,ciliary microtubule inner protein 2A
+te_01240,interleukin 36 gamma
+te_01241,cadherin like and PC-esterase domain containing 1
+te_01242,TLR4 interactor with leucine rich repeats
+te_01243,endosomal transmembrane epsin interactor 1
+te_01244,"heat shock transcription factor family, X-linked member 4"
+te_01245,sperm tail PG-rich repeat containing 2
+te_01246,cilia and flagella associated protein 45
+te_01247,dynein axonemal assembly factor 6
+te_01248,cell migration inducing hyaluronidase 2
+te_01249,testis expressed basic protein 1
+te_01250,chromosome 11 open reading frame 87
+te_01251,protein phosphatase 1 regulatory subunit 27
+te_01252,dynein axonemal intermediate chain 3
+te_01253,kinetochore scaffold 1
+te_01254,"tRNA methyltransferase 10C, mitochondrial RNase P subunit"
+te_01255,SAGA complex associated factor 29
+te_01256,cilia and flagella associated protein 77
+te_01257,transmembrane protein 259
+te_01258,adenylate kinase 4
+te_01259,teneurin transmembrane protein 4
+te_01260,phosphatase domain containing paladin 1
+te_01261,armadillo like helical domain containing 2
+te_01262,oxysterol binding protein like 1A
+te_01263,apical junction component 1 homolog
+te_01264,ubiquitin associated protein 1 like
+te_01265,mucin like 3
+te_01266,speedy/RINGO cell cycle regulator family member E11
+te_01267,"T cell activation inhibitor, mitochondrial"
+te_01268,TNF alpha induced protein 8 like 2
+te_01269,lysine methyltransferase 2B
+te_01270,UV stimulated scaffold protein A
+te_01271,lamin tail domain containing 1
+te_01272,secretoglobin family 1C member 2
+te_01273,citrate synthase lysine methyltransferase
+te_01274,interferon induced protein with tetratricopeptide repeats 1B
+te_01275,cap methyltransferase 2
+te_01276,ubiquitin specific peptidase 17 like family member 24
+te_01277,transmembrane protein 276
+te_01278,"collectrin, amino acid transport regulator"
+te_01279,phospholipase A and acyltransferase 4
+te_01280,cilia and flagella associated protein 65
+te_01281,pseudouridine 5'-phosphatase
+te_01282,glucose-6-phosphatase catalytic subunit 1
+te_01283,IgA inducing protein
+te_01284,reticulophagy regulator family member 2
+te_01285,post-GPI attachment to proteins GalNAc transferase 4
+te_01286,retrotransposon Gag like 8B
+te_01287,ciliary microtubule inner protein 7
+te_01288,pyruvate dehydrogenase phosphatase regulatory subunit
+te_01289,solute carrier family 35 member E2B
+te_01290,Rho GTPase activating protein 44
+te_01291,lysine methyltransferase 2A
+te_01292,dorsal inhibitory axon guidance protein
+te_01293,prohibitin 1
+te_01294,ubiquitin specific peptidase 17 like family member 11
+te_01295,H3.Y histone 2
+te_01296,cytosolic iron-sulfur assembly component 2B
+te_01297,translocase of inner mitochondrial membrane 10B
+te_01298,cramped chromatin regulator 1
+te_01299,golgi pH regulator B
+te_01300,chromosome 7 open reading frame 78
+te_01301,cytochrome c oxidase hypoxia associated subunit FA4L2
+te_01302,RNA binding fox-1 homolog 2
+te_01303,H3 clustered histone 6
+te_01304,small integral membrane protein 28
+te_01305,BRICHOS domain containing 5
+te_01306,family with sequence similarity 174 member C
+te_01307,"endogenous retrovirus group 3 member 1, envelope"
+te_01308,zinc finger SWIM-type containing 9
+te_01309,transmembrane protein 266
+te_01310,family with sequence similarity 204 member A
+te_01311,"protein O-linked mannose N-acetylglucosaminyltransferase 2 (beta 1,4-)"
+te_01312,calcium responsive transcription factor
+te_01313,patched domain containing 4
+te_01314,secretoglobin family 2B member 2
+te_01315,ceramide synthase 1
+te_01316,selenoprotein N
+te_01317,cilia and flagella associated protein 276
+te_01318,amine oxidase copper containing 1
+te_01319,maestro heat like repeat family member 9
+te_01320,tubulin beta 8B
+te_01321,TBC/LysM-associated domain containing 2
+te_01322,spectrin repeat containing nuclear envelope family member 3
+te_01323,D-aminoacyl-tRNA deacylase 2
+te_01324,alkylglycerol monooxygenase
+te_01325,zinc finger CCCH-type containing 11D
+te_01326,coiled-coil domain containing 179
+te_01327,adipocyte plasma membrane associated protein
+te_01328,BBSome interacting protein 1
+te_01329,chromosome 2 open reading frame 92
+te_01330,flagellum associated containing coiled-coil domains 1
+te_01331,zinc finger and SCAN domain containing 26
+te_01332,mitochondrial transcription termination factor 1
+te_01333,chorionic gonadotropin subunit beta 3
+te_01334,maestro heat like repeat family member 2A
+te_01335,granule associated Rac and RHOG effector 1
+te_01336,paralemmin 3
+te_01337,coiled-coil domain containing 196
+te_01338,protein phosphatase 6 regulatory subunit 1
+te_01339,membrane associated ring-CH-type finger 7
+te_01340,sperm antigen with calponin homology and coiled-coil domains 1
+te_01341,solute carrier family 49 member 4
+te_01342,polo like kinase 5 (inactive)
+te_01343,WD repeat domain 97
+te_01344,RHO family interacting cell polarization regulator 1
+te_01345,Zn regulated GTPase metalloprotein activator 1B
+te_01346,outer dynein arm docking complex subunit 2
+te_01347,muscular LMNA interacting protein
+te_01348,CLOCK interacting pacemaker
+te_01349,negative elongation factor complex member E
+te_01350,myocardial zonula adherens protein
+te_01351,small integral membrane protein 13
+te_01352,family with sequence similarity 209 member B
+te_01353,lysine demethylase 4F
+te_01354,CUGBP Elav-like family member 2
+te_01355,RNA binding fox-1 homolog 1
+te_01356,basic helix-loop-helix ARNT like 1
+te_01357,sperm acrosome associated 9
+te_01358,bridge-like lipid transfer protein family member 1
+te_01359,suppressor APC domain containing 1
+te_01360,contactin associated protein family member 3C
+te_01361,SIN3-HDAC complex associated factor
+te_01362,Ecm29 proteasome adaptor and scaffold
+te_01363,solute carrier family 35 member D4
+te_01364,neurexophilin and PC-esterase domain family member 1
+te_01365,NSE3 component of SMC5/6 complex
+te_01366,ciliary microtubule inner protein 1
+te_01367,olfactory receptor family 56 subfamily B member 2
+te_01368,olfactory receptor family 10 subfamily AC member 1 (gene/pseudogene)
+te_01369,sperm microtubule associated protein 2
+te_01370,receptor for activated C kinase 1
+te_01371,small vasohibin binding protein
+te_01372,mitochondrial calcium uptake 2
+te_01373,eukaryotic translation initiation factor 2 subunit gamma B
+te_01374,G-patch domain and ankyrin repeats 1
+te_01375,adhesion G protein-coupled receptor A3
+te_01376,small integral membrane protein 39
+te_01377,solute carrier family 60 member 2
+te_01378,kinesin family binding protein
+te_01379,cilia and flagella associated protein 46
+te_01380,tudor domain containing 15
+te_01381,"opsin 1, medium wave sensitive 3"
+te_01382,methyl-CpG binding domain protein 3 like 3
+te_01383,charged multivesicular body protein 3
+te_01384,chromosome 10 open reading frame 95
+te_01385,mitochondrial calcium uptake 1
+te_01386,family with sequence similarity 90 member A10
+te_01387,transmembrane protein 74B
+te_01388,shisa like 1
+te_01389,desumoylating isopeptidase 1
+te_01390,piercer of microtubule wall 1
+te_01391,ciliogenesis and planar polarity effector complex subunit 1
+te_01392,WD repeat containing planar cell polarity effector
+te_01393,tRNA methyltransferase 9B (putative)
+te_01394,exocyst complex component 1 like
+te_01395,inflammation and lipid regulator with UBA-like and NBR1-like domains
+te_01396,outer dynein arm docking complex subunit 1
+te_01397,transmembrane protein 250
+te_01398,elongator acetyltransferase complex subunit 6
+te_01399,transcription elongation factor A like 9
+te_01400,Fc mu receptor
+te_01401,sperm microtubule inner protein 6
+te_01402,oocyte secreted protein family member 3
+te_01403,mucin 22
+te_01404,fibrinogen silencer binding protein
+te_01405,golgin A8 family member Q
+te_01406,zinc finger AN1-type containing 4
+te_01407,centrosomal protein 126
+te_01408,"ciliary rootlet coiled-coil, rootletin family member 2"
+te_01409,biorientation of chromosomes in cell division 1 like 1
+te_01410,brain expressed associated with NEDD4 1
+te_01411,coiled-coil domain containing 190
+te_01412,ubiquitin specific peptidase 17 like family member 19
+te_01413,ciliary microtubule inner protein 5
+te_01414,"rabenosyn, RAB effector"
+te_01415,cilia and flagella associated protein 161
+te_01416,myogenesis regulating glycosidase
+te_01417,C-C motif chemokine receptor like 2
+te_01418,PP2A Aalpha (PPP2R1A) and B55A (PPP2R2A) interacting phosphatase regulator 1
+te_01419,c-Maf inducing protein
+te_01420,family with sequence similarity 240 member C
+te_01421,pecanex 4
+te_01422,small integral membrane protein 36
+te_01423,calcium release activated channel regulator 2B
+te_01424,KxDL motif containing 1
+te_01425,triokinase and FMN cyclase
+te_01426,ubiquitin specific peptidase 17 like family member 10
+te_01427,immunoglobulin kappa locus
+te_01428,serine protease 57
+te_01429,lymphocyte antigen 6 family member L
+te_01430,"VPS33B interacting protein, apical-basolateral polarity regulator, spe-39 homolog"
+te_01431,RBPJ interacting and tubulin associated 1
+te_01432,nuclear pore complex interacting protein family member B4
+te_01433,neurexophilin and PC-esterase domain family member 3
+te_01434,dynein axonemal assembly factor 5
+te_01435,polypeptide N-acetylgalactosaminyltransferase 15
+te_01436,actin binding transcription modulator
+te_01437,dynein axonemal intermediate chain 7
+te_01438,speedy/RINGO cell cycle regulator family member E16
+te_01439,ciliary microtubule inner protein 6
+te_01440,ergosterol biosynthesis 28 homolog
+te_01441,"lunapark, ER junction formation factor"
+te_01442,golgin A8 family member J
+te_01443,retrotransposon Gag like 3
+te_01444,coiled-coil domain containing 192
+te_01445,H4 clustered histone 12
+te_01446,ovo like zinc finger 3
+te_01447,methyl-CpG binding domain protein 3 like 4
+te_01448,coenzyme Q8B
+te_01449,DDB1 and CUL4 associated factor 1
+te_01450,MAPK regulated corepressor interacting protein 1
+te_01451,serpin family A member 2 (gene/pseudogene)
+te_01452,testis expressed 46
+te_01453,H1.10 linker histone
+te_01454,"methyltransferase 21C, AARS1 lysine"
+te_01455,H3.Y histone 1
+te_01456,cAMP regulated phosphoprotein 21
+te_01457,small integral membrane protein 41
+te_01458,centromere protein V like 2
+te_01459,mitochondrial translation release factor 1 like
+te_01460,transport and golgi organization 6 homolog
+te_01461,chromosome 19 open reading frame 81
+te_01462,cytosolic iron-sulfur assembly component 3
+te_01463,small integral membrane protein 45
+te_01464,ubiquitin specific peptidase 17 like family member 23
+te_01465,von Willebrand factor A domain containing 7
+te_01466,antizyme inhibitor 2
+te_01467,regulator of cell cycle
+te_01468,polysaccharide biosynthesis domain containing 1
+te_01469,protein-glucosylgalactosylhydroxylysine glucosidase
+te_01470,cytochrome b-245 chaperone 1
+te_01471,NADP dependent oxidoreductase domain containing 1
+te_01472,golgin A6 family like 19
+te_01473,tripartite motif containing 75
+te_01474,olfactory receptor family 12 subfamily D member 1 (gene/pseudogene)
+te_01475,family with sequence similarity 229 member B
+te_01476,Rho GTPase activating protein 40
+te_01477,SRA stem-loop interacting RNA binding protein
+te_01478,defensin beta 4A
+te_01479,BLOC-1 related complex subunit 6
+te_01480,cilia and flagella associated protein 92 (putative)
+te_01481,tubulin epsilon and delta complex 1
+te_01482,glutaminyl-tRNA synthetase 1
+te_01483,capping protein regulator and myosin 1 linker 2
+te_01484,scaffolding CK1 anchoring protein A
+te_01485,tripartite motif containing 49D1
+te_01486,ankyrin repeat domain 30B like
+te_01487,testis expressed 50
+te_01488,ligand dependent nuclear receptor interacting factor 1
+te_01489,V-set immunoregulatory receptor
+te_01490,carboxylesterase 4A
+te_01491,family with sequence similarity 90 member A19
+te_01492,trans-L-3-hydroxyproline dehydratase
+te_01493,terminal nucleotidyltransferase 4A
+te_01494,family with sequence similarity 149 member C
+te_01495,"myomixer, myoblast fusion factor"
+te_01496,striatin interacting protein 2
+te_01497,meiosis specific with OB-fold
+te_01498,tubulin beta 4B class IVb
+te_01499,sperm microtubule inner protein 3
+te_01500,ectopic P-granules 5 autophagy tethering factor
+te_01501,centromere protein W
+te_01502,mitochondrial contact site and cristae organizing system subunit 10
+te_01503,Rho GTPase activating protein 45
+te_01504,lysine acetyltransferase 7
+te_01505,dynein 2 intermediate chain 2
+te_01506,transcription activation suppressor
+te_01507,transmembrane protein 35B
+te_01508,CHD1 helical C-terminal domain containing 1
+te_01509,VCP nuclear cofactor family member 1
+te_01510,acid sensing ion channel subunit family member 5
+te_01511,laccase domain multifunctional purine nucleosidase 1
+te_01512,spectrin repeat containing nuclear envelope family member 4
+te_01513,nuclear pore associated protein 1
+te_01514,small integral membrane protein 10
+te_01515,cysteine rich DPF motif domain containing 1
+te_01516,ribulose-5-phosphate-3-epimerase like 1
+te_01517,ring finger protein 225
+te_01518,adhesion G protein-coupled receptor G5
+te_01519,RNA polymerase I subunit G
+te_01520,olfactory receptor family 9 subfamily H member 1 (gene/pseudogene)
+te_01521,coiled-coil domain containing 197
+te_01522,tRNA splicing ligase complex subunit 2
+te_01523,CUGBP Elav-like family member 6
+te_01524,phospholipase A2 inhibitor and LY6/PLAUR domain containing
+te_01525,alpha-ketoglutarate dehydrogenase subunit 4
+te_01526,damage control phosphatase 1
+te_01527,integrator complex subunit 15
+te_01528,reeler domain containing 1
+te_01529,neuropeptide Y receptor Y4-2
+te_01530,coiled-coil domain containing 167
+te_01531,ribosomal protein SA 2
+te_01532,TRPM8 channel associated factor 1
+te_01533,beta-carotene oxygenase 1
+te_01534,adhesion G protein-coupled receptor E1
+te_01535,ciliary microtubule associated protein 1A
+te_01536,mitochondrial transcription termination factor 4
+te_01537,T cell receptor gamma locus
+te_01538,"methionyl aminopeptidase type 1D, mitochondrial"
+te_01539,cancer/testis antigen 55
+te_01540,meiosis specific with coiled-coil domain
+te_01541,defensin beta 131A
+te_01542,dynein axonemal assembly factor 8
+te_01543,enoyl-CoA delta isomerase 2
+te_01544,nuclear pore complex interacting protein family member A7
+te_01545,apoptosis resistant E3 ubiquitin protein ligase 1
+te_01546,speedy/RINGO cell cycle regulator family member E14
+te_01547,exosomal polycystin 1 interacting protein
+te_01548,succinyl-CoA:glutarate-CoA transferase
+te_01549,KPRP N-terminal and LCE C-terminal like protein
+te_01550,Rho guanine nucleotide exchange factor 35
+te_01551,PNN interacting serine and arginine rich protein
+te_01552,minichromosome maintenance domain containing 2
+te_01553,decapping exoribonuclease
+te_01554,4-hydroxy-2-oxoglutarate aldolase 1
+te_01555,FA core complex associated protein 20
+te_01556,cysteine rich tail 1
+te_01557,SKI family transcriptional corepressor 2
+te_01558,dynein light chain Tctex-type 2
+te_01559,extracellular leucine rich repeat and fibronectin type III domain containing 2
+te_01560,MAPK regulated corepressor interacting protein 2
+te_01561,shieldin complex subunit 2
+te_01562,stress responsive DNAJB4 interacting membrane protein 1
+te_01563,H4 clustered histone 5
+te_01564,"KH domain containing 4, pre-mRNA splicing factor"
+te_01565,arginine and serine rich protein 1
+te_01566,family with sequence similarity 220 member A
+te_01567,golgi associated RAB2 interactor 1A
+te_01568,"N-alpha-acetyltransferase 25, NatB auxiliary subunit"
+te_01569,methyltransferase like 25B
+te_01570,spermatogenesis associated 45
+te_01571,TAM41 mitochondrial translocator assembly and maintenance homolog
+te_01572,leucine rich repeats and death domain containing 1
+te_01573,proline rich 23 domain containing 2
+te_01574,defensin beta 109B
+te_01575,joining chain of multimeric IgA and IgM
+te_01576,"PPARGC1 and ESRR induced regulator, muscle 1"
+te_01577,nudix hydrolase 4B
+te_01578,centrosomal protein 162
+te_01579,EF-hand calcium binding domain 11
+te_01580,ciliary microtubule inner protein 4
+te_01581,PH domain containing endocytic trafficking adaptor 2
+te_01582,Jupiter microtubule associated homolog 1
+te_01583,argonaute RISC catalytic component 3
+te_01584,calcineurin like EF-hand protein 2
+te_01585,single-pass membrane protein with aspartate rich tail 1
+te_01586,TATA-box binding protein associated factor 11 like 10
+te_01587,transmembrane protein 238
+te_01588,selenoprotein P
+te_01589,DIM1 rRNA methyltransferase and ribosome maturation factor
+te_01590,serine protease 55
+te_01591,NMDA receptor synaptonuclear signaling and neuronal migration factor
+te_01592,V-set and transmembrane domain containing 4
+te_01593,T cell receptor alpha locus
+te_01594,nuclear pore complex interacting protein family member B12
+te_01595,shugoshin 2
+te_01596,atypical chemokine receptor 4
+te_01597,small integral membrane protein 7
+te_01598,anaphase promoting complex subunit 15
+te_01599,acid sensing ion channel subunit 2
+te_01600,mesoderm development LRP chaperone
+te_01601,desumoylating isopeptidase 2
+te_01602,cancer/testis antigen family 47 member A12
+te_01603,peroxiredoxin like 2C
+te_01604,transmembrane protein 245
+te_01605,FYN binding protein 1
+te_01606,nuclear envelope integral membrane protein 1
+te_01607,ciliated left-right organizer metallopeptidase
+te_01608,centrosomal protein 85
+te_01609,PHD finger protein 24
+te_01610,intraflagellar transport 43
+te_01611,FYN binding protein 2
+te_01612,KAT8 regulatory NSL complex subunit 1 like
+te_01613,chromosome 11 open reading frame 96
+te_01614,zinc finger with KRAB and SCAN domains 8
+te_01615,transport and golgi organization 2 homolog
+te_01616,thrombospondin type laminin G domain and EAR repeats
+te_01617,mitochondrial elongation factor 1
+te_01618,premelanosome protein
+te_01619,adhesion G protein-coupled receptor B3
+te_01620,lipid droplet associated hydrolase
+te_01621,mitoguardin 1
+te_01622,interferon lambda 2
+te_01623,ubiquitin protein ligase E3D
+te_01624,DAP3 binding cell death enhancer 1
+te_01625,mitochondrial ribosome associated GTPase 2
+te_01626,shugoshin 1
+te_01627,zinc finger and SCAN domain containing 32
+te_01628,M-phase specific PLK1 interacting protein
+te_01629,dynein regulatory complex subunit 3
+te_01630,SR-related CTD associated factor 8
+te_01631,maestro heat like repeat family member 2B
+te_01632,Rho guanine nucleotide exchange factor 39
+te_01633,protein phosphatase 1 regulatory subunit 36
+te_01634,tRNA splicing ligase complex subunit 3C
+te_01635,chromosome 10 open reading frame 143
+te_01636,meiotic kinetochore factor
+te_01637,G protein subunit gamma 14
+te_01638,dynein axonemal assembly factor 11
+te_01639,myelin regulatory factor
+te_01640,vascular endothelial growth factor D
+te_01641,trafficking protein particle complex subunit 2B
+te_01642,endogenous Bornavirus like nucleoprotein 1
+te_01643,refilin A
+te_01644,trafficking protein particle complex subunit 8
+te_01645,keratin associated protein 4-16
+te_01646,transmembrane protein 94
+te_01647,reactive intermediate imine deaminase A
+te_01648,transmembrane protein 273
+te_01649,"WD repeat containing, antisense to TP73"
+te_01650,"endonuclease, poly(U) specific"
+te_01651,G protein-coupled receptor kinase 3
+te_01652,catsper channel auxiliary subunit eta
+te_01653,zinc finger C2HC-type containing 1C
+te_01654,speedy/RINGO cell cycle regulator family member E15
+te_01655,plasmanylethanolamine desaturase 1
+te_01656,transmembrane protein 52B
+te_01657,TATA-box binding protein associated factor 11 like 13
+te_01658,H4 clustered histone 11
+te_01659,p53-induced death domain protein 1
+te_01660,endosomal transmembrane epsin interactor 3
+te_01661,"killin, p53 regulated DNA replication inhibitor"
+te_01662,receptor transporter protein 5 (putative)
+te_01663,tripartite motif containing 49D2
+te_01664,protein phosphatase 6 regulatory subunit 3
+te_01665,signal peptide peptidase like 2C
+te_01666,TATA-box binding protein associated factor 11 like 11
+te_01667,pejvakin
+te_01668,"RAB11 binding and LisH domain, coiled-coil and HEAT repeat containing"
+te_01669,DNA damage induced apoptosis suppressor
+te_01670,ciliary microtubule inner protein 2B
+te_01671,dual specificity phosphatase 29
+te_01672,ARF like GTPase 14 effector protein
+te_01673,small integral membrane protein 29
+te_01674,potassium inwardly rectifying channel subfamily J member 18
+te_01675,thrombospondin type 1 domain containing 8
+te_01676,eukaryotic elongation factor 2 lysine methyltransferase
+te_01677,lysyl-tRNA synthetase 1
+te_01678,H4 clustered histone 4
+te_01679,CDP-L-ribitol pyrophosphorylase A
+te_01680,cilia and flagella associated protein 184
+te_01681,chromosome X open reading frame 51A
+te_01682,adhesion G protein-coupled receptor G2
+te_01683,mitotic spindle organizing protein 2A
+te_01684,nucleolar protein 4 like
+te_01685,chromosome 11 open reading frame 98
+te_01686,dynein assembly factor with WD repeats 1
+te_01687,interferon lambda 3
+te_01688,glutamate rich 6
+te_01689,cap binding complex dependent translation initiation factor
+te_01690,U6 snRNA biogenesis phosphodiesterase 1
+te_01691,small integral membrane protein 2
+te_01692,"late endosomal/lysosomal adaptor, MAPK and MTOR activator 1"
+te_01693,selenoprotein T
+te_01694,methyltransferase like 24
+te_01695,VCP nuclear cofactor family member 2
+te_01696,lysine acetyltransferase 6A
+te_01697,sperm-oocyte fusion factor 1
+te_01698,polypeptide N-acetylgalactosaminyltransferase 17
+te_01699,BRO1 domain and CAAX motif containing
+te_01700,electron transfer flavoprotein regulatory factor 1
+te_01701,glycerophosphocholine phosphodiesterase 1
+te_01702,catsper channel auxiliary subunit zeta
+te_01703,"inositol 1,4,5-triphosphate receptor associated 2"
+te_01704,selenoprotein M
+te_01705,arkadia (RNF111) C-terminal like ring finger ubiquitin ligase 2C
+te_01706,T-box transcription factor T
+te_01707,BRD4 interacting chromatin remodeling complex associated protein
+te_01708,mesenteric estrogen dependent adipogenesis
+te_01709,zinc finger and SCAN domain containing 31
+te_01710,xyloside xylosyltransferase 1
+te_01711,CCR4-NOT transcription complex subunit 9
+te_01712,spindle and centriole associated protein 1
+te_01713,stathmin domain containing 1
+te_01714,caveolae associated protein 1
+te_01715,phospholipid phosphatase 6
+te_01716,"KH domain containing 3 like, subcortical maternal complex member"
+te_01717,dynein regulatory complex subunit 1
+te_01718,"maturin, neural progenitor differentiation regulator homolog"
+te_01719,small leucine rich protein 1
+te_01720,all-trans retinoic acid induced differentiation factor
+te_01721,ARF like GTPase 14 effector protein like
+te_01722,H4 clustered histone 1
+te_01723,family with sequence similarity 241 member A
+te_01724,A-kinase interacting protein 1
+te_01725,aspartate rich 1
+te_01726,HUWE1 associated protein modifying stress responses
+te_01727,transmembrane protein 244
+te_01728,ubiquitin specific peptidase 17 like family member 29
+te_01729,membrane integral NOTCH2 associated receptor 2
+te_01730,dual specificity phosphatase 13A
+te_01731,proline rich 32
+te_01732,abhydrolase domain containing 16B
+te_01733,family with sequence similarity 90 member A26
+te_01734,glycerol kinase 3
+te_01735,nuclear cap binding subunit 3
+te_01736,"nuclear protein 2, transcriptional regulator"
+te_01737,parkin RBR E3 ubiquitin protein ligase
+te_01738,tubulin epsilon and delta complex 2
+te_01739,collagen beta(1-O)galactosyltransferase 1
+te_01740,striatin interacting protein 1
+te_01741,cilia and flagella associated protein 52
+te_01742,heterogeneous nuclear ribonucleoprotein C like 3
+te_01743,killer cell lectin like receptor F2
+te_01744,family with sequence similarity 234 member B
+te_01745,kinetochore localized astrin (SPAG5) binding protein
+te_01746,centromere protein V like 1
+te_01747,ciliary microtubule associated protein 1B
+te_01748,neuronal vesicle trafficking associated 2
+te_01749,family with sequence similarity 246 member C (gene/pseudogene)
+te_01750,maestro heat like repeat family member 6
+te_01751,centromere protein U
+te_01752,"late endosomal/lysosomal adaptor, MAPK and MTOR activator 4"
+te_01753,transmembrane protein 268
+te_01754,erbb2 interacting protein
+te_01755,phospholipid phosphatase 2
+te_01756,shieldin complex subunit 3
+te_01757,membrane associated ring-CH-type finger 4
+te_01758,translation machinery associated 7 homolog B
+te_01759,tubulin polyglutamylase complex subunit 2
+te_01760,armadillo like helical domain containing 1
+te_01761,gamma-secretase activating protein
+te_01762,potassium voltage-gated channel subfamily E regulatory subunit 5
+te_01763,adhesion G protein-coupled receptor A1
+te_01764,membrane associated ring-CH-type finger 11
+te_01765,chromosome 13 open reading frame 42
+te_01766,leucine rich repeat transmembrane protein 3
+te_01767,adhesion G protein-coupled receptor D2
+te_01768,cadherin related family member 5
+te_01769,chemerin chemokine-like receptor 2
+te_01770,presequence translocase associated motor 16
+te_01771,small integral membrane protein 38
+te_01772,testis development related protein
+te_01773,solute carrier family 9 member B2
+te_01774,Rho guanine nucleotide exchange factor 38
+te_01775,"nuclear GTPase, germinal center associated"
+te_01776,proteasome activator subunit 3 interacting protein 1
+te_01777,SUZ RNA binding domain containing 1
+te_01778,3-hydroxyacyl-CoA dehydratase 1
+te_01779,armadillo repeat containing 12
+te_01780,spermatogenesis associated 46
+te_01781,nuclear pore complex interacting protein family member B9
+te_01782,zinc finger CCCH-type containing 11C
+te_01783,calmodulin regulated spectrin associated protein family member 2
+te_01784,Morf4 family associated protein 1 like 2
+te_01785,family with sequence similarity 237 member A
+te_01786,transmembrane O-methyltransferase
+te_01787,"afadin, adherens junction formation factor"
+te_01788,coiled-coil domain containing 200
+te_01789,olfactory receptor family 52 subfamily P member 1 (gene/pseudogene)
+te_01790,SR-related CTD associated factor 11
+te_01791,serine protease 53
+te_01792,single-pass membrane protein with coiled-coil domains 1
+te_01793,pecanex 3
+te_01794,nucleolar atypical zinc finger
+te_01795,mitotic deacetylase associated SANT domain protein
+te_01796,defensin beta 130B
+te_01797,solute carrier family 25 member 52
+te_01798,cap methyltransferase 1
+te_01799,solute carrier family 35 member G4
+te_01800,EF-hand calcium binding domain 13
+te_01801,solute carrier family 38 member 12
+te_01802,cilia and flagella associated protein 157
+te_01803,membrane associated ring-CH-type finger 9
+te_01804,SMC5/6 complex localization factor 1
+te_01805,aquaporin 7B
+te_01806,PC-esterase domain containing 1A
+te_01807,TATA-box binding protein associated factor 11 like 3
+te_01808,solute carrier family 71 member 1
+te_01809,translation machinery associated 7 homolog
+te_01810,small integral membrane protein 24
+te_01811,elongator acetyltransferase complex subunit 1
+te_01812,solute carrier family 66 member 1
+te_01813,nuclear export mediator factor
+te_01814,mitochondrial fission regulator 1 like
+te_01815,elongin A2
+te_01816,RAD9-HUS1-RAD1 interacting nuclear orphan 1
+te_01817,lysosome associated membrane protein 5
+te_01818,centrosomal protein 128
+te_01819,chromosome 18 open reading frame 63
+te_01820,scaffolding CK1 anchoring protein E
+te_01821,spexin hormone
+te_01822,ORC ubiquitin ligase 1
+te_01823,ceramide transporter 1
+te_01824,hexosaminidase D
+te_01825,MAM and LDL receptor class A domain containing 1
+te_01826,required for excision 1-B domain containing
+te_01827,single-pass membrane protein with coiled-coil domains 2
+te_01828,taperin
+te_01829,EF-hand and coiled-coil domain containing 1
+te_01830,zinc finger and SCAN domain containing 30
+te_01831,interferon lambda 1
+te_01832,chromatin target of PRMT1
+te_01833,centrosomal AT-AC splicing factor
+te_01834,olfactory receptor family 51 subfamily H member 1
+te_01835,mitotic spindle organizing protein 2B
+te_01836,TGF-beta activated kinase 1 (MAP3K7) binding protein 3
+te_01837,ring finger protein 224
+te_01838,small cysteine and glycine repeat containing 6
+te_01839,CTD nuclear envelope phosphatase 1 regulatory subunit 1
+te_01840,keratinocyte differentiation factor 1
+te_01841,adenine nucleotide translocase lysine methyltransferase
+te_01842,proline and serine rich 2
+te_01843,break repair meiotic recombinase recruitment factor 1
+te_01844,histone H3 associated protein kinase
+te_01845,centromere protein S
+te_01846,minichromosome maintenance complex binding protein
+te_01847,ferric chelate reductase 1 like
+te_01848,calcium release activated channel regulator 2A
+te_01849,calaxin
+te_01850,family with sequence similarity 216 member B
+te_01851,protein phosphatase 1 regulatory subunit 37
+te_01852,calpain 15
+te_01853,dynein light chain Tctex-type family member 5
+te_01854,mitochondrial fission process 1
+te_01855,migration and invasion enhancer 1
+te_01856,reticulophagy regulator family member 3
+te_01857,nuclear pore complex interacting protein family member B8
+te_01858,cysteinyl-tRNA synthetase 1
+te_01859,ER membrane protein complex subunit 9
+te_01860,A-kinase anchor inhibitor 1
+te_01861,clathrin heavy chain linker domain containing 1
+te_01862,katanin regulatory subunit B1 like 1
+te_01863,protein O-glucosyltransferase 1
+te_01864,proline rich 20G
+te_01865,cilia and flagella associated protein 20
+te_01866,zinc ribbon domain containing 2
+te_01867,mitotic spindle positioning
+te_01868,ubiquitin specific peptidase 17 like family member 17
+te_01869,ferredoxin 2
+te_01870,trophoblast glycoprotein like
+te_01871,cysteine rich transmembrane module containing 1
+te_01872,androgen dependent TFPI regulating protein
+te_01873,serine palmitoyltransferase small subunit B
+te_01874,dynein axonemal assembly factor 3
+te_01875,lipid droplet assembly factor 1
+te_01876,cilia and flagella associated protein 141
+te_01877,family with sequence similarity 240 member B
+te_01878,cancer/testis antigen family 45 member A9
+te_01879,small integral membrane protein 18
+te_01880,photoreceptor cilium actin regulator
+te_01881,mitochondrial assembly of ribosomal large subunit 1
+te_01882,armadillo like helical domain containing 4
+te_01883,V-set and transmembrane domain containing 5
+te_01884,methyl-CpG binding domain protein 3 like 2B
+te_01885,hydroxycarboxylic acid receptor 1
+te_01886,alpha tubulin acetyltransferase 1
+te_01887,F-box and WD repeat domain containing 10B
+te_01888,solute carrier family 66 member 2
+te_01889,"NPR2 like, GATOR1 complex subunit"
+te_01890,2-phosphoxylose phosphatase 1
+te_01891,trans-golgi network vesicle protein 23 homolog B
+te_01892,zinc finger with KRAB and SCAN domains 7
+te_01893,rubicon like autophagy enhancer
+te_01894,centromere protein X
+te_01895,hydroxycarboxylic acid receptor 3
+te_01896,capping protein inhibiting regulator of actin dynamics
+te_01897,membrane associated ring-CH-type finger 8
+te_01898,bridge-like lipid transfer protein family member 2
+te_01899,ciliary microtubule inner protein 3
+te_01900,cyclin Pas1/PHO80 domain containing 1
+te_01901,testis expressed 38
+te_01902,adrenomedullin 5 (putative)
+te_01903,trans-golgi network vesicle protein 23 homolog A
+te_01904,membrane spanning 4-domains A8
+te_01905,family with sequence similarity 236 member B
+te_01906,GSK3B interacting protein
+te_01907,trafficking protein particle complex subunit 3L
+te_01908,solute carrier family 35 member G2
+te_01909,helicase with zinc finger 2
+te_01910,exocyst complex component 3 like 4
+te_01911,mitochondrial ribosomal protein L58
+te_01912,junctional cadherin complex regulator
+te_01913,cornichon family member 1
+te_01914,NAD(P)HX dehydratase
+te_01915,NEDD4 binding protein 3
+te_01916,proline and glutamate rich with coiled coil 1
+te_01917,coat protein complex I subunit gamma 1
+te_01918,methionyl-tRNA synthetase 1
+te_01919,spermatogenesis associated 25
+te_01920,mitochondria localized glutamic acid rich protein
+te_01921,coiled-coil domain containing 169
+te_01922,family with sequence similarity 246 member A
+te_01923,CDAN1 interacting nuclease 1
+te_01924,coiled-coil domain containing 171
+te_01925,RNA polymerase I subunit H
+te_01926,H1.7 linker histone
+te_01927,double zinc ribbon and ankyrin repeat domains 1
+te_01928,clathrin binding box of aftiphilin containing 1
+te_01929,glutamate rich 4
+te_01930,family with sequence similarity 90 member A24
+te_01931,maestro heat like repeat family member 7
+te_01932,transmembrane protein 258
+te_01933,cytochrome c oxidase associated subunit FA4
+te_01934,proline and serine rich 3
+te_01935,transmembrane protein 242
+te_01936,sushi domain containing 6
+te_01937,Myb/SANT DNA binding domain containing 1
+te_01938,alanine and arginine rich domain containing protein
+te_01939,guided entry of tail-anchored proteins factor 1
+te_01940,family with sequence similarity 90 member A22
+te_01941,regulator of microtubule dynamics 1
+te_01942,ciliogenesis associated TTC17 interacting protein
+te_01943,endosome-lysosome associated apoptosis and autophagy regulator family member 2
+te_01944,stabilizer of axonemal microtubules 1
+te_01945,zinc finger translocation associated
+te_01946,small transmembrane regulator of ion transport 1
+te_01947,olfactory receptor family 8 subfamily U member 3
+te_01948,listerin E3 ubiquitin protein ligase 1
+te_01949,GDP-L-fucose synthase
+te_01950,actin like 10
+te_01951,zinc finger and SCAN domain containing 9
+te_01952,peroxisomal biogenesis factor 39
+te_01953,synapse differentiation inducing 1 like
+te_01954,maestro heat like repeat family member 5 (gene/pseudogene)
+te_01955,atypical chemokine receptor 2
+te_01956,serine protease 54
+te_01957,cilia and flagella associated protein 73
+te_01958,talin rod domain containing 1
+te_01959,cilia and flagella associated protein 206
+te_01960,"phosphatidylinositol-4,5-bisphosphate 4-phosphatase 1"
+te_01961,queuosine-tRNA galactosyltransferase
+te_01962,transmembrane protein 230
+te_01963,"endogenous retrovirus group V member 2, envelope"
+te_01964,serine peptidase inhibitor Kazal type 13
+te_01965,NADH:ubiquinone oxidoreductase complex assembly factor 5
+te_01966,HUWE1 associated protein modifying stress responses 2
+te_01967,"NPR3 like, GATOR1 complex subunit"
+te_01968,cellular communication network factor 5
+te_01969,shisa like 2B
+te_01970,teneurin transmembrane protein 2
+te_01971,cilia and flagella associated protein 299
+te_01972,Zn regulated GTPase metalloprotein activator 1E
+te_01973,small regulatory polypeptide of amino acid response
+te_01974,claudin 34
+te_01975,proline rich 36
+te_01976,shootin 1
+te_01977,H4 clustered histone 3
+te_01978,zinc finger BED-type containing 6
+te_01979,sosondowah ankyrin repeat domain family member B
+te_01980,glycosylated integral membrane protein 1
+te_01981,cancer/testis antigen family 45 member A10
+te_01982,olfactory receptor family 4 subfamily M member 2B
+te_01983,"5'-nucleotidase, cytosolic IIIB"
+te_01984,collagen type XXVI alpha 1 chain
+te_01985,whirlin
+te_01986,nuclear pore complex interacting protein family member B11
+te_01987,hydroxylysine kinase
+te_01988,interleukin 36 receptor antagonist
+te_01989,steroid receptor associated and regulated protein
+te_01990,TGF-beta activated kinase 1 (MAP3K7) binding protein 1
+te_01991,scavenger receptor family member expressed on T cells 1
+te_01992,tRNA methyltransferase 13
+te_01993,endogenous Bornavirus like nucleoprotein 2
+te_01994,prostaglandin E synthase 3 like
+te_01995,SUN domain containing ossification factor
+te_01996,coiled-coil domain containing 198
+te_01997,adhesion G protein-coupled receptor D1
+te_01998,ribosome binding factor A
+te_01999,inhibitory synaptic factor family member 2B
+te_02000,basic helix-loop-helix ARNT like 2
+te_02001,retrotransposon Gag like 5
+te_02002,elongin B
+te_02003,"XRCC1 N-terminal domain containing 1, N-terminal like"
+te_02004,modulator of smoothened
+te_02005,adhesion G protein-coupled receptor F5
+te_02006,SIR2 antiphage like 1
+te_02007,placenta expressed transcript 1
+te_02008,suppressor APC domain containing 2
+te_02009,guanylate cyclase 1 soluble subunit beta 1
+te_02010,nuclear pore complex interacting protein family member B2
+te_02011,solute carrier family 35 member F6
+te_02012,"colon, intestine and stomach enriched 1"
+te_02013,heterogeneous nuclear ribonucleoprotein C like 2
+te_02014,peroxiredoxin like 2B
+te_02015,histidyl-tRNA synthetase 1
+te_02016,H3 clustered histone 10
+te_02017,neuronal tyrosine-phosphorylated phosphoinositide-3-kinase adaptor 2
+te_02018,pyrin domain containing 5
+te_02019,CACN subunit beta associated regulatory protein
+te_02020,neurexophilin and PC-esterase domain family member 4
+te_02021,signal peptide peptidase like 2A
+te_02022,spermadhesin family member
+te_02023,H4 clustered histone 14
+te_02024,neuronal vesicle trafficking associated 1
+te_02025,fatty acid hydroxylase domain containing 2
+te_02026,family with sequence similarity 228 member A
+te_02027,ribosomal oxygenase 2
+te_02028,"protein associated with LIN7 1, MAGUK p55 family member"
+te_02029,leucine rich adaptor protein 1
+te_02030,hyccin PI4KA lipid kinase complex subunit 2
+te_02031,scaffolding CK1 anchoring protein G
+te_02032,zinc finger and SCAN domain containing 25
+te_02033,"H1.1 linker histone, cluster member"
+te_02034,zinc finger C2HC-type containing 1B
+te_02035,ciliary microtubule associated protein 3
+te_02036,ciliary microtubule associated protein 2
+te_02037,kirre like nephrin family adhesion molecule 1
+te_02038,centriolar coiled-coil protein 110
+te_02039,kelch like family member 40
+te_02040,dynein axonemal assembly factor 4
+te_02041,myocardin related transcription factor A
+te_02042,phospholipase A and acyltransferase 2
+te_02043,inhibitory synaptic factor 1
+te_02044,aldo-keto reductase family 1 member C8
+te_02045,adipogenesis regulatory factor
+te_02046,sperm tail PG-rich repeat containing 1
+te_02047,Rho guanine nucleotide exchange factor 28
+te_02048,post-GPI attachment to proteins 6
+te_02049,olfactory receptor family 51 subfamily C member 1
+te_02050,coiled-coil domain containing 181
+te_02051,mitochondrial pyruvate carrier 1 like
+te_02052,mitochondrial ribosomal protein L57
+te_02053,lysine methyltransferase 5A
+te_02054,H1.0 linker histone
+te_02055,calmodulin-lysine N-methyltransferase
+te_02056,autophagy related 14
+te_02057,WD repeat domain 11
+te_02058,eukaryotic translation initiation factor 2D
+te_02059,immunoglobulin superfamily member 23
+te_02060,queuine tRNA-ribosyltransferase accessory subunit 2
+te_02061,mitochondrial pyruvate carrier 1
+te_02062,WD repeat domain 83
+te_02063,adhesion G protein-coupled receptor G4
+te_02064,Zn regulated GTPase metalloprotein activator 1C
+te_02065,speedy/RINGO cell cycle regulator family member E13
+te_02066,junction adhesion molecule like
+te_02067,TATA-box binding protein associated factor 11 like 9
+te_02068,gasdermin E
+te_02069,valyl-tRNA synthetase 1
+te_02070,"abhydrolase domain containing 17A, depalmitoylase"
+te_02071,adenylate kinase 6
+te_02072,serine protease 58
+te_02073,"thymus, brain and testes associated"
+te_02074,kelch repeat and BTB domain containing 13
+te_02075,upstream transcription factor family member 3
+te_02076,methyltransferase like 25
+te_02077,rubicon autophagy regulator
+te_02078,dynein axonemal intermediate chain 4
+te_02079,nocturnin
+te_02080,centrosomal protein 41
+te_02081,protein phosphatase 1 regulatory subunit 35
+te_02082,scaffolding CK1 anchoring protein B
+te_02083,F-box DNA helicase 1
+te_02084,nucleolar protein interacting with the FHA domain of MKI67
+te_02085,ankyrin repeat domain 66
+te_02086,cilia and flagella associated protein 68
+te_02087,CUGBP Elav-like family member 4
+te_02088,"inositol 1,4,5-triphosphate receptor associated 1"
+te_02089,scavenger receptor cysteine rich family member with 5 domains
+te_02090,N6-Methyl-AMP deaminase
+te_02091,dynein light chain Tctex-type 4
+te_02092,3-hydroxyacyl-CoA dehydratase 2
+te_02093,coiled-coil domain containing 166
+te_02094,protein phosphatase 1 regulatory subunit 21
+te_02095,hyccin PI4KA lipid kinase complex subunit 1
+te_02096,myeloid derived growth factor
+te_02097,chibby family member 2
+te_02098,NFIL3 like basic leucine zipper
+te_02099,pyroglutamyl-peptidase I like
+te_02100,metallothionein 1H like 1
+te_02101,mast cell expressed membrane protein 1
+te_02102,transmembrane protein 248
+te_02103,membrane associated ring-CH-type finger 5
+te_02104,leucine rich repeat containing 72
+te_02105,FHF complex subunit HOOK interacting protein 1B
+te_02106,coiled-coil domain containing 184
+te_02107,tRNA methyltransferase 44 homolog
+te_02108,"kazrin, periplakin interacting protein"
+te_02109,coiled-coil domain containing 32
+te_02110,"nuclear pore complex interacting protein family, member A6"
+te_02111,regulated endocrine specific protein 18
+te_02112,ribosomal biogenesis factor
+te_02113,proline rich coiled-coil 2B
+te_02114,argonaute RISC component 4
+te_02115,transmembrane neural differentiation associated intracellular calcium regulator
+te_02116,golgi associated olfactory signaling regulator
+te_02117,family with sequence similarity 240 member A
+te_02118,NTPase KAP family P-loop domain containing 1
+te_02119,glycerol-3-phosphate acyltransferase 3
+te_02120,family with sequence similarity 90 member A16
+te_02121,ubiquinol-cytochrome c reductase complex assembly factor 3
+te_02122,"abhydrolase domain containing 16A, phospholipase"
+te_02123,cellular communication network factor 3
+te_02124,Rho GTPase activating protein 36
+te_02125,scaffold protein involved in DNA repair
+te_02126,coiled-coil serine rich protein 2
+te_02127,myocilin opposite strand
+te_02128,small integral membrane protein 3
+te_02129,lysine methyltransferase 5B
+te_02130,interactor of little elongation complex ELL subunit 1
+te_02131,"H1.2 linker histone, cluster member"
+te_02132,leucine rich melanocyte differentiation associated
+te_02133,refilin B
+te_02134,tubulin polyglutamylase complex subunit 1
+te_02135,ubiquitin specific peptidase 17 like family member 12
+te_02136,hydroxycarboxylic acid receptor 2
+te_02137,testis expressed 48
+te_02138,Myb/SANT DNA binding domain containing 5
+te_02139,guanylate cyclase 1 soluble subunit alpha 1
+te_02140,family with sequence similarity 90 member A5
+te_02141,testis expressed 35
+te_02142,small integral membrane protein 44
+te_02143,transmembrane protein 269
+te_02144,prostaglandin reductase 3
+te_02145,ligand of ATE1
+te_02146,CXADR like cell adhesion molecule
+te_02147,G-patch domain containing 11
+te_02148,G protein-coupled receptor kinase 2
+te_02149,epididymal protein 3B
+te_02150,methyltransferase like 17
+te_02151,"protein associated with LIN7 2, MAGUK p55 family member"
+te_02152,sperm microtubule inner protein 2
+te_02153,galectin 16
+te_02154,capping protein regulator and myosin 1 linker 3
+te_02155,RHO family interacting cell polarization regulator 2
+te_02156,capping protein regulator and myosin 1 linker 1
+te_02157,testis specific protein Y-linked 9
+te_02158,golgi associated RAB2 interactor family member 6
+te_02159,TOPBP1 interacting checkpoint and replication regulator
+te_02160,hemojuvelin BMP co-receptor
+te_02161,proline and serine rich 1
+te_02162,FHF complex subunit HOOK interacting protein 1A
+te_02163,regulatory subunit of type II PKA R-subunit domain containing 1
+te_02164,cilia and flagella associated protein 61
+te_02165,"methyltransferase 15, mitochondrial 12S rRNA N4-cytidine"
+te_02166,RNA polymerase II subunit M
+te_02167,C-type lectin domain containing 20A
+te_02168,ER membrane protein complex subunit 1
+te_02169,olfactory receptor family 5 subfamily H member 8 (gene/pseudogene)
+te_02170,vir like m6A methyltransferase associated
+te_02171,RNA guanine-7 methyltransferase activating subunit
+te_02172,inhibitory synaptic factor 2A
+te_02173,adhesion G protein-coupled receptor G6
+te_02174,selenoprotein W
+te_02175,mitochondrial inner membrane scaffold 1
+te_02176,caspase activity and apoptosis inhibitor 1
+te_02177,tripartite motif-containing 51G
+te_02178,shisa like 2A
+te_02179,golgin A6 family like 26
+te_02180,serine/threonine kinase like domain containing 1
+te_02181,O-acyl-ADP-ribose deacylase 1
+te_02182,actin related protein 2/3 complex inhibitor
+te_02183,transmembrane protein 238 like
+te_02184,solute carrier family 25 member 48
+te_02185,endosome-lysosome associated apoptosis and autophagy regulator 1
+te_02186,shiftless antiviral inhibitor of ribosomal frameshifting
+te_02187,"3'(2'), 5'-bisphosphate nucleotidase 2"
+te_02188,nuclear pore complex interacting protein family member A9
+te_02189,ER membrane protein complex subunit 3
+te_02190,"oligosaccharyltransferase complex subunit 4, non-catalytic"
+te_02191,adaptor related protein complex 5 subunit mu 1
+te_02192,adenylate kinase 9
+te_02193,ciliary associated calcium binding coiled-coil 1
+te_02194,calcium homeostasis modulator family member 4
+te_02195,gamma-glutamylamine cyclotransferase
+te_02196,family with sequence similarity 222 member A
+te_02197,H3.7 histone (putative)
+te_02198,distal membrane arm assembly component 2
+te_02199,divergent protein kinase domain 1C
+te_02200,"N-alpha-acetyltransferase 60, NatF catalytic subunit"
+te_02201,H4 clustered histone 15
+te_02202,negative elongation factor complex member C/D
+te_02203,serine rich and transmembrane domain containing 1
+te_02204,intraflagellar transport 46
+te_02205,matrix AAA peptidase interacting protein 1
+te_02206,RecQ mediated genome instability 2
+te_02207,ret finger protein like 4A like 1
+te_02208,atypical chemokine receptor 1 (Duffy blood group)
+te_02209,SURP and G-patch domain containing 2
+te_02210,myosin light chain 11
+te_02211,golgi associated RAB2 interactor family member 2
+te_02212,Rho guanine nucleotide exchange factor 37
+te_02213,INTS3 and NABP interacting protein
+te_02214,olfactory receptor family 4 subfamily A member 8 (gene/pseudogene)
+te_02215,maestro heat like repeat family member 1
+te_02216,otogelin like
+te_02217,"nuclear pore complex interacting protein family, member B13"
+te_02218,small cysteine and glycine repeat containing 10 (gene/pseudogene)
+te_02219,solute carrier family 35 member G6
+te_02220,negative elongation factor complex member B
+te_02221,"PEAK1 related, kinase-activating pseudokinase 1"
+te_02222,golgin A6 family like 7
+te_02223,ubiquinol-cytochrome c reductase hinge protein like
+te_02224,serine protease 41
+te_02225,tensin 2
+te_02226,SLIT-ROBO Rho GTPase activating protein 2C
+te_02227,CDK2 associated cullin domain 1
+te_02228,cilia and flagella associated protein 97
+te_02229,casein kinase 2 subunit alpha' interacting protein
+te_02230,testis expressed 51
+te_02231,sperm microtubule associated protein 2 like
+te_02232,KAT8 regulatory NSL complex subunit 2
+te_02233,dendritic cell associated nuclear protein 1
+te_02234,transmembrane protein 271
+te_02235,teneurin transmembrane protein 3
+te_02236,EARP complex and GARP complex interacting protein 1
+te_02237,actin maturation protease
+te_02238,stabilizer of axonemal microtubules 4
+te_02239,H3 clustered histone 15
+te_02240,mitochondrial genome maintenance exonuclease 1
+te_02241,store-operated calcium entry associated regulatory factor
+te_02242,chromosome 17 open reading frame 114
+te_02243,small integral membrane protein 33
+te_02244,transcription elongation factor A N-terminal and central domain containing 2
+te_02245,olfactory receptor family 5 subfamily BS member 1
+te_02246,TGF-beta activated kinase 1 (MAP3K7) binding protein 2
+te_02247,CUGBP Elav-like family member 1
+te_02248,erythroferrone
+te_02249,small lysine rich protein 1
+te_02250,nicotinate phosphoribosyltransferase
+te_02251,NELL2 interacting cell ontogeny regulator 1
+te_02252,splicing regulatory glutamic acid and lysine rich protein 1
+te_02253,SWI5 dependent homologous recombination repair protein 1
+te_02254,dynein regulatory complex subunit 11 like
+te_02255,zinc finger C2HC-type containing 1A
+te_02256,proline rich 23 domain containing 1
+te_02257,mitochondrial nucleoid associated protein 1
+te_02258,protein phosphatase 1 regulatory subunit 17
+te_02259,solute carrier family 61 member 1
+te_02260,olfactory receptor family 2 subfamily B member 8 (gene/pseudogene)
+te_02261,centrosomal protein 89
+te_02262,immunoglobulin heavy locus
+te_02263,transmembrane protein 260
+te_02264,chromosome 16 open reading frame 95
+te_02265,transmembrane protein 254
+te_02266,testis expressed 52
+te_02267,small integral membrane protein 17
+te_02268,adhesion G protein-coupled receptor L3
+te_02269,BMP/retinoic acid inducible neural specific 3

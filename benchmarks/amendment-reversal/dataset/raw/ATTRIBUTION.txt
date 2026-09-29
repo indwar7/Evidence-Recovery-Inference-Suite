@@ -1,0 +1,18 @@
+Electronic Code of Federal Regulations (eCFR)
+Office of the Federal Register, National Archives and Records
+Administration; U.S. Government Publishing Office.
+API: https://www.ecfr.gov/api/versioner/v1
+Documentation: https://www.ecfr.gov/api/versioner/v1/titles.json
+Retrieved: 2026-09-25T02:53:32.375524+00:00
+
+LICENCE
+United States Government Work. Under 17 U.S.C. 105, works of the
+U.S. Government are not subject to copyright protection in the
+United States and are in the public domain.
+
+The eCFR is an editorial compilation and is NOT the official
+legal edition of the Code of Federal Regulations. This dataset
+is a research benchmark, is not official government material,
+and must not be relied on for any legal or compliance purpose.
+The Office of the Federal Register, NARA and GPO do not endorse
+this dataset or any work derived from it.

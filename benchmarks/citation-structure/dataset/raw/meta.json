@@ -1,0 +1,77 @@
+{
+  "dataset_name": "us-court-opinions-citation-graph",
+  "source": {
+    "publisher": "Free Law Project",
+    "collection": "CourtListener Bulk Data",
+    "url": "https://www.courtlistener.com/help/api/bulk-data/",
+    "bulk_root": "https://com-courtlistener-storage.s3-us-west-2.amazonaws.com/bulk-data/",
+    "snapshot_date_published_by_source": "2022-09-30",
+    "snapshot_downloaded_on": "2026-09-20",
+    "date_note": "The archived 2022-09-30 snapshot was downloaded on 2026-09-20. Both dates are correct: CourtListener keeps dated bulk snapshots available long after they are cut. Content reflects the archive as of 2022-09-30; the latest date_filed in this build is 2022-01-28 and no opinion is filed after the snapshot date."
+  },
+  "license": {
+    "name": "Public Domain Mark 1.0",
+    "url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "publisher_statement": "Our bulk data files are free of known copyright restrictions.",
+    "legal_basis": [
+      "Banks v. Manchester, 128 U.S. 244 (1888)",
+      "Georgia v. Public.Resource.Org, Inc., 590 U.S. 255 (2020)"
+    ],
+    "attribution_required": false
+  },
+  "files": {
+    "opinions.csv": {
+      "n_rows": 4151,
+      "columns": [
+        "id",
+        "cluster_id",
+        "plain_text"
+      ],
+      "size_bytes": 32661328,
+      "md5": "9ad816d91986ea5b5e8f897f6cfcd36a"
+    },
+    "opinion_clusters.csv": {
+      "n_rows": 4355,
+      "columns": [
+        "id",
+        "date_filed",
+        "case_name",
+        "case_name_short",
+        "docket_id",
+        "precedential_status",
+        "blocked"
+      ],
+      "size_bytes": 330429,
+      "md5": "2bfea8ed9a8358be156eff2cd7895995"
+    },
+    "citation_edges.csv": {
+      "n_rows": 5792,
+      "columns": [
+        "citing_opinion_id",
+        "cited_opinion_id"
+      ],
+      "size_bytes": 120832,
+      "md5": "5003376de1cc69d29d3532e2468f1bdd"
+    }
+  },
+  "build": {
+    "snapshot_date": "2022-09-30",
+    "source": "https://www.courtlistener.com/help/api/bulk-data/",
+    "license": "Public Domain Mark",
+    "n_opinions_matched": 44291,
+    "n_citation_edges_total": 28900122,
+    "n_internal_citation_edges": 5792,
+    "n_opinions_with_internal_edge": 4356,
+    "n_clusters_resolved": 4355,
+    "n_connected_components": 520,
+    "largest_component_size": 1778,
+    "second_largest_component_size": 264
+  },
+  "modifications": [
+    "Reporter citations replaced with [CITATION].",
+    "Case names replaced with [CASE].",
+    "Control characters and form feeds collapsed to spaces.",
+    "Numeric database IDs prefixed with op/cl/dk so they are categorical.",
+    "Opinion text truncated to a fixed character budget."
+  ]
+}

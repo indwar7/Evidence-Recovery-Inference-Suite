@@ -1,0 +1,22 @@
+{
+  "generated_by": "build_raw.py",
+  "source": "openFDA Drug Label API (Structured Product Labeling)",
+  "source_url": "https://api.fda.gov/drug/label.json",
+  "publisher": "U.S. Food and Drug Administration",
+  "licence": "CC0 1.0 Universal",
+  "licence_url": "https://open.fda.gov/license/",
+  "retrieved_utc": "2026-09-25T03:44:01.220768+00:00",
+  "api_search": "_exists_:openfda.pharm_class_moa+AND+_exists_:clinical_pharmacology",
+  "n_labels": 3091,
+  "n_distinct_moa_classes": 230,
+  "mask_vocabulary_terms": 255,
+  "median_masks_per_label": 23,
+  "labels_sha256": "35e6adf9149533fe940e530307d120ba12e1c68bfd192aab1306d89ba4f25a96",
+  "filters": {
+    "requires_pharm_class_moa": true,
+    "requires_clinical_pharmacology": true,
+    "min_text_chars": 800,
+    "max_text_chars": 60000,
+    "deduplicated_by": "label id"
+  }
+}

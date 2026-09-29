@@ -1,0 +1,43 @@
+{
+  "generated_by": "build_raw.py",
+  "source": "Electronic Code of Federal Regulations (eCFR)",
+  "source_url": "https://www.ecfr.gov/api/versioner/v1/titles.json",
+  "api_base": "https://www.ecfr.gov/api/versioner/v1",
+  "publisher": "Office of the Federal Register, National Archives and Records Administration; U.S. Government Publishing Office",
+  "licence": "U.S. Government Work (17 U.S.C. 105) - public domain",
+  "retrieved_utc": "2026-09-25T02:53:32.375524+00:00",
+  "titles_requested": [
+    7,
+    14,
+    21,
+    29,
+    30,
+    40,
+    42,
+    45,
+    49
+  ],
+  "issue_date_gte": "2022-01-01",
+  "pairs_per_title": {
+    "7": 179,
+    "14": 99,
+    "21": 151,
+    "29": 78,
+    "30": 190,
+    "40": 194,
+    "42": 200,
+    "45": 113,
+    "49": 200
+  },
+  "n_pairs": 1404,
+  "amendments_sha256": "214b1b6f4e9fb7b0c19adfd02d2b23be15ce0fcee5f684276b78557fac999dce",
+  "filters": {
+    "substantive_only": true,
+    "removed_excluded": true,
+    "identical_pairs_excluded": true,
+    "min_chars_per_side": 200,
+    "max_chars_per_side": 20000,
+    "amendment_banner_stripped": true
+  },
+  "note": "Fetched as two workers over disjoint CFR titles and merged, de-duplicated by record_id."
+}

@@ -8,7 +8,7 @@ authors:
     email: abhayindwar7@gmail.com
 repository-code: "https://github.com/indwar7/eris-ml"
 abstract: >-
-  Five adversarially-hardened machine-learning benchmarks for latent-process
+  Eleven adversarially-hardened machine-learning benchmarks for latent-process
   recovery, in which every label is a fact recorded by an external archive or
   measured from a real model run, rather than a human annotation or a model
   output. Each benchmark ships a sealed answer key, a deterministic grader, a

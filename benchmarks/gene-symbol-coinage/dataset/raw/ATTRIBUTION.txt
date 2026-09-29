@@ -1,0 +1,25 @@
+Coining Gene Symbols from Gene Names -- raw archive attribution
+===============================================================
+
+Source      : HUGO Gene Nomenclature Committee (HGNC), complete gene set
+Publisher   : HGNC, University of Cambridge
+Landing page: https://www.genenames.org/download/archive/
+Snapshot    : hgnc_complete_set_2026-07-07.txt
+Snapshot URL: https://storage.googleapis.com/public-download-files/hgnc/archive/archive/quarterly/tsv/hgnc_complete_set_2026-07-07.txt
+
+Licence     : CC0 1.0 Universal (Public Domain Dedication)
+Licence page: https://www.genenames.org/about/license/
+
+The HGNC states on its licence page: "all data is released under the Creative
+Commons Public Domain (CC0) License. This means that any form of reuse of the
+content is permitted."
+
+CC0 does not require attribution. It is given here as good practice, and
+because the HGNC asks that reuse cite the resource:
+
+  Seal RL, Braschi B, Gray K, et al. Genenames.org: the HGNC resources in
+  2023. Nucleic Acids Research 51(D1):D1003-D1009.
+
+The HGNC does not endorse this dataset or any work derived from it. This is a
+research benchmark, not a nomenclature authority: approved symbols change, and
+the current approved symbol for any gene must be taken from genenames.org.
