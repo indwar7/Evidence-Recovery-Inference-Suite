@@ -1,0 +1,98 @@
+SOURCE AND ATTRIBUTION
+======================
+
+Source
+------
+CourtListener Bulk Data, published by the Free Law Project.
+Landing page: https://www.courtlistener.com/help/api/bulk-data/
+Bulk files:   https://com-courtlistener-storage.s3-us-west-2.amazonaws.com/bulk-data/
+Snapshot:     2022-09-30 (published by the source)
+Downloaded:   2026-09-20 (the archived snapshot above was fetched on
+              this date; CourtListener keeps dated bulk snapshots
+              available long after they are cut, so the two dates
+              differ and both are correct. Content reflects the archive
+              as of 2022-09-30 -- the latest date_filed in this build
+              is 2022-01-28, and no opinion postdates the snapshot.)
+
+License
+-------
+Public Domain Mark 1.0
+https://creativecommons.org/publicdomain/mark/1.0/
+
+The Free Law Project states on the bulk-data page quoted above:
+
+    "Our bulk data files are free of known copyright restrictions."
+
+The underlying material is the text of judicial opinions issued by United
+States federal and state courts. Under long-settled U.S. law, the text of
+a judicial opinion is not subject to copyright:
+
+  - Banks v. Manchester, 128 U.S. 244 (1888) -- judges' written opinions
+    are not copyrightable.
+  - Georgia v. Public.Resource.Org, Inc., 590 U.S. 255 (2020) -- the
+    government edicts doctrine bars copyright in works produced by
+    legislators and judges in the course of their official duties.
+
+No license fee, registration, or permission is required to redistribute
+this material. No attribution is legally required under the Public Domain
+Mark; the attribution above is given as a courtesy to the Free Law
+Project, whose work made this collection practical to obtain.
+
+Files in this directory
+-----------------------
+opinions.csv  (4,151 rows)
+    One row per court opinion retained in the build. Columns:
+    id, cluster_id, plain_text.
+    id is prefixed "op...", cluster_id is prefixed "cl...".
+    plain_text has been REDACTED (see "Modifications" below) and
+    truncated to a fixed character budget.
+
+opinion_clusters.csv  (4,355 rows)
+    One row per opinion cluster (a cluster groups the opinions issued
+    together in a single decision). Columns: id, date_filed, case_name,
+    case_name_short, docket_id, precedential_status, blocked.
+    id is prefixed "cl...", docket_id is prefixed "dk...".
+
+citation_edges.csv  (5,792 rows)
+    The citation edges internal to this collection: one row per
+    (citing opinion, cited opinion) pair where BOTH endpoints are
+    present in opinions.csv. Columns: citing_opinion_id,
+    cited_opinion_id.
+
+build_meta.json
+    Counts recorded at build time, including how many opinions were
+    matched, how many citation edges were found, and the connected
+    component structure of the resulting citation subgraph.
+
+Modifications made to the source material
+-----------------------------------------
+The raw opinion text was transformed before packaging. These changes are
+deliberate and are what make the task solvable only by reading the
+substance of the opinions:
+
+1. REPORTER CITATIONS REMOVED. Strings matching United States reporter
+   citation patterns (e.g. "410 U.S. 113", "347 F.3d 572", "123 S. Ct.
+   45") were replaced with a placeholder. Without this, the task would
+   reduce to a regular-expression extraction exercise rather than a
+   reading task.
+
+2. CASE NAMES REMOVED. Party-name strings of the form "X v. Y" drawn
+   from the case_name field of the clusters table were replaced with a
+   placeholder wherever they appeared in the body text, for the same
+   reason.
+
+3. CONTROL CHARACTERS NORMALISED. Form feeds (\x0c), lone carriage
+   returns, and other stray control characters present in the source
+   scans were collapsed to ordinary whitespace so the files parse as
+   clean UTF-8 delimited data.
+
+4. IDENTIFIERS PREFIXED. The numeric CourtListener database identifiers
+   were prefixed with a short letter tag ("op", "cl", "dk") so that they
+   are unambiguously categorical rather than numeric quantities.
+
+5. TEXT TRUNCATED. Opinion bodies were truncated to a fixed character
+   budget to keep the package to a workable size.
+
+The redaction is verified at build time: the shipped split contains zero
+surviving reporter citations. See dataset/public/dataset_stats.json,
+field "leak_scan".

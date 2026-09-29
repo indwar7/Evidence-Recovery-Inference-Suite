@@ -9,8 +9,8 @@ Reproduce the whole page:
 python tools/verify.py --reference
 ```
 
-**Last verification run:** 2026-09-21 · Python 3.11.15 · pandas 3.0.6 · numpy 2.4.6 ·
-scikit-learn 1.9.1 · CPU only · **8/8 anchors reproduced in 24 s**
+**Last verification run:** 2026-09-29 · Python 3.14.7 · pandas 3.0.2 · numpy 2.4.4 ·
+scikit-learn 1.9.1 · CPU only · **14/14 anchors reproduced in 95 s**
 
 ---
 
@@ -232,9 +232,254 @@ Status, remaining work and the pre-registered shortcut analysis:
 
 ---
 
+## 6. Reconstructing Local Citation Structure in Case Law
+
+**`benchmarks/citation-structure/`** · Metric: mean per-query Matthews correlation coefficient · Direction: maximise
+
+Given one U.S. court opinion and a pool of twelve candidate opinions, select the
+candidates the query opinion cites. Every citation string and every party name is
+stripped from the text. Between one and four candidates are correct and the number is
+not given.
+
+| # | Rung | Score |
+|---|---|---|
+| 1 | Select nothing | `0.000` |
+| 2 | Select all twelve | `0.000` |
+| 3 | Two shortest candidates | `0.096` |
+| 4 | Always positions 0 and 1 | `0.125` |
+| 5 | Random two per query | `0.126` |
+| 6 | Two longest candidates | `0.126` |
+| 7 | Random three per query | `0.131` |
+| 8 | **Rotating format example** — the shipped sample submission | `0.141` |
+| 9 | Frozen encoder over sliding windows, top 2 | `0.552` |
+| 10 | Word overlap, top 3 | `0.561` |
+| 11 | Frozen encoder over sliding windows, top 1 | `0.581` |
+| 12 | Word overlap, top 1 | `0.594` |
+| 13 | Word overlap, top 2 | `0.617` |
+| 14 | Frozen encoder over sliding windows, z-scored within the pool | `0.655` |
+| 15 | **Reference** — windowed encoder blended with lexical overlap, thresholded per query | **`0.672`** |
+| 16 | Oracle | `1.000` |
+
+**Integrity margin:** `+0.531` over the strongest content-free submission.
+**Headroom:** `0.328` to the oracle.
+
+> **The margin over a content-reading baseline is narrow, and that is disclosed.** Plain
+> word overlap scores `0.617`, only `0.055` below the reference. Citing opinions quote
+> the cited text closely in this corpus, so lexical overlap is a strong signal. The
+> reference is a frozen encoder with no fine-tuning; `train.csv` ships 1,954 labelled
+> queries it does not use.
+
+> **Reading the whole document matters more than model size.** Windowing the same
+> encoder past its 256-token limit lifts it from `0.648` to `0.649`. The gain comes from
+> normalising within the pool and blending with lexical overlap, not from context length
+> alone.
+
+> **The first task shape was abandoned after measurement.** The original build showed a
+> bag of opinions and asked for every directed citation edge within it. A probe that
+> read only each opinion's position in the bag scored `0.143` against the reference's
+> `0.098`. The current shape, one query against a pool whose order is randomised per
+> query, makes position carry nothing: always picking positions 0 and 1 scores `0.125`
+> against `0.126` for picking two at random.
+
+> **Two redaction bugs, both found by scanning.** Citations that the OCR had split
+> across whitespace survived the first redaction pass, and the leak scan itself reported
+> phantom hits by matching across the seam between two documents. Both were fixed; the
+> shipped split contains zero surviving citations and zero surviving case names.
+
+**Data.** 4,151 opinions from the Free Law Project's CourtListener bulk export, snapshot
+2022-09-30. 1,954 train and 400 test queries. Split is **by connected component of the
+citation graph** (521 train, 3 test), so no real citation edge crosses it. Each pool
+holds the query's true cited opinions plus distractors drawn from the same side.
+
+---
+
+## 7. The Reference Shuffle
+
+**`benchmarks/reference-order/`** · Metric: mean rescaled Kendall's tau · Direction: maximise
+
+Given a real paragraph with its citation markers replaced by a neutral token, and that
+paragraph's own three reference cards in shuffled order, recover the order in which the
+references were cited. Every card is a genuine citation; only order is withheld.
+
+| # | Rung | Score |
+|---|---|---|
+| 1 | Blank or malformed — a non-attempt | `0.000` |
+| 2 | Pool order, unchanged | `0.477` |
+| 3 | **Adversarial:** global venue position, fitted on train | `0.492` |
+| 4 | Random permutation, mean of five seeds | `0.495` |
+| 5 | **Rotating format example** — the shipped sample submission | `0.502` |
+| 6 | Reversed pool order | `0.523` |
+| 7 | Year sort, ascending | `0.535` |
+| 8 | Title-length sort — strongest content-free ordering | `0.541` |
+| 9 | **Reference** — word overlap with author and year signal, Hungarian assignment | **`0.725`** |
+| 10 | Oracle | `1.000` |
+
+**Integrity margin:** `+0.184` over the strongest content-free ordering.
+**Headroom:** `0.275` to the oracle.
+
+> **The floor is 0.5, not 0, and that is a property of the metric.** A uniformly random
+> ordering of three items scores exactly `0.5` under rescaled Kendall's tau, verified by
+> enumerating all six permutations. Every content-free rung therefore sits near `0.5`.
+> A non-attempt is scored `0.000` by the grader's own rule, so skipping a row is never
+> better than attempting it.
+
+> **A variable pool size was shipped first and withdrawn.** Units originally carried
+> three to eight references packed into lettered columns, which left the high-index
+> columns empty in most rows. Every unit now has exactly three references; 492 units
+> survive from 1,196 extracted.
+
+> **The reference uses no learned model.** It counts raw word overlap between each
+> marker's preceding context and each card, adds a bonus when an author's surname
+> appears in the paragraph, and solves the assignment exactly. Its two weights were
+> chosen on `train.csv` and applied unchanged to test.
+
+**Data.** 492 paragraphs from 296 English Wikipedia Good and Featured articles. Split is
+**by article** (383 train units from 226 articles, 109 test units from 70), so no two
+paragraphs from the same page cross it.
+
+---
+
+## 8. What Does It Do In There?
+
+**`benchmarks/mechanism-recovery/`** · Metric: chance-corrected set F1 · Direction: maximise
+
+Given a drug label's Clinical Pharmacology section with every mechanism word masked, and
+twelve candidate mechanism-of-action classes, select the classes the FDA assigned to
+that drug.
+
+| # | Rung | Score |
+|---|---|---|
+| 1 | Blank submission | `0.000` |
+| 2 | Select all twelve | `0.000` |
+| 3 | **First candidate in the pool** — the shipped sample submission | `0.070` |
+| 4 | Random one from the pool | `0.085` |
+| 5 | Random, told the correct set size | `0.106` |
+| 6 | Second candidate in the pool | `0.107` |
+| 7 | Random two from the pool | `0.113` |
+| 8 | Text length only | `0.116` |
+| 9 | Most frequent train class in the pool, top 3 | `0.137` |
+| 10 | Most frequent train class in the pool, top 2 | `0.180` |
+| 11 | Most frequent train class in the pool, top 1 — strongest content-free | `0.193` |
+| 12 | **Reference** — one classifier per class, scored against the row's own pool, CPU | **`0.462`** |
+| 13 | Diagnostic: name one guaranteed-correct class | `0.806` |
+| 14 | Diagnostic: name two guaranteed-correct classes | `0.929` |
+| 15 | Oracle | `1.000` |
+
+**Integrity margin:** `+0.269` over the strongest content-free submission.
+**Headroom:** `0.538` to the oracle.
+
+> **The text gives the answer away, so it is masked.** 57% of labels state their own
+> mechanism verbatim in the pharmacology prose. The mask vocabulary is built from every
+> class name in the corpus, never from the row's own class; masking only a row's own
+> class words would make the masking pattern itself the answer. On a 1,401-label sample,
+> 1,860 of 2,082 label-class pairs stopped being keyword-recoverable.
+
+> **Metric was chosen after measurement.** Under raw set F1, always naming the single
+> most common class scored `0.182` while reading nothing. Subtracting the expected F1 of
+> a same-size random draw makes padding worthless: naming all twelve scores exactly
+> `0.000`. It does not send guessing to zero. Per-row scores are clipped at 0, so a
+> random single guess still scores `0.085`.
+
+> **The split was wrong once.** Splitting on the exact ingredient combination left 30
+> of 165 test rows sharing an ingredient with train: dexamethasone alone on one side,
+> dexamethasone with two antibiotics on the other. Ingredients are now reduced to their
+> moiety and joined by union-find, and whole groups are held out.
+
+> **Nearly half the corpus was duplicates.** Of 3,091 fetched labels, 946 were exact
+> copies of another label's masked text and 468 near-copies, because generic drugs are
+> labelled separately by every manufacturer.
+
+**Data.** 630 openFDA prescription drug labels across 22 mechanism classes, 505 train and
+125 test. Split is **by shared active ingredient** (85 train groups, 25 test). The
+unmasked text is never written to disk.
+
+---
+
+## 9. The Vanished Clause
+
+**`benchmarks/amendment-reversal/`** · Metric: gap-anchored changed-token F1 · Direction: maximise
+
+Given a section of the Code of Federal Regulations as it reads after an amendment,
+reconstruct how it read before. The amendment instruction is withheld and the section's
+own number is masked.
+
+| # | Rung | Score |
+|---|---|---|
+| 1 | Blank submission | `0.000` |
+| 2 | **Input copied through** — the shipped sample submission | `0.000` |
+| 3 | Retrieval: nearest prior-wording sentence from train | `0.000` |
+| 4 | Vocabulary dump placed in the located sentence | `0.002` |
+| 5 | **Reference** — sequence-to-sequence over the located passage | **`0.002`** |
+| 6 | Substitution table, one edit | `0.003` |
+| 7 | Substitution table, every flagged sentence | `0.009` |
+| 8 | **Adversarial:** vocabulary dump appended — banned by rule | `0.012` |
+| 9 | Diagnostic: perfectly restore the single most-changed sentence | `0.749` |
+| 10 | Diagnostic: perfectly restore every amended sentence | `0.933` |
+| 11 | Oracle | `1.000` |
+
+**Integrity margin:** none. **No shipped approach clears the floor.**
+**Headroom:** `0.998` to the oracle.
+
+> **This benchmark has no working baseline, and that is stated rather than hidden.**
+> The reference scores `0.002`. The split is by CFR part, so a phrase mined from one
+> part almost never recurs verbatim in another, and every lookup-style approach lands at
+> or below `0.009`. The two diagnostic ceilings show the score is reachable: restoring
+> one sentence per section correctly is worth `0.749`. A solver that locates the amended
+> passage and regenerates it is the open problem.
+
+> **Metric was changed three times, each after measurement.** Whole-string similarity
+> was rejected first: the median amendment touches a few percent of its section, so
+> copying the input through would score near the maximum. Recall over the changed tokens
+> was rejected next: on a worked example, appending a list of plausible words recovered
+> them by brute force and matched the oracle. Position-free matching was rejected last: a dump of the 60
+> commonest removed tokens still scored `0.129`. Matching is now keyed by the gap each
+> token sat in, and the same dump scores `0.012`.
+
+> **Two leaks were found in an earlier revision and closed by construction.** One
+> section's amendments form a chain, so one pair's shown text is the next pair's
+> answer; 10 of 161 test rows were answered verbatim by another test row. Test now holds
+> one pair per section. Separately, the banner stripper stopped at the full stop of a
+> month abbreviation and left a date fragment in 677 raw values.
+
+**Data.** 1,404 before-and-after pairs from nine CFR titles, fetched from the eCFR
+versioner API, reduced to 410 train and 353 test. Split is **by CFR part** (38 train
+parts, 109 test). In the test split the median amendment changes 16 of 483 tokens.
+
+---
+
+## 10. Coining Gene Symbols from Gene Names
+
+**`benchmarks/gene-symbol-coinage/`** · Metric: prefix agreement · Status: **in build**
+
+Given a gene's approved name, produce the symbol the nomenclature committee coined for
+it. The corpus, the date-based split, the grader and a 13-rung ladder are built and
+measured. **The reference does not yet clear the strongest adversary by the suite's
+margin** — `0.447` against `0.366`, a gap of `+0.081` — so the ladder is published as
+provisional in the benchmark's own `README.md` and not here.
+
+Status and remaining work: **[ROADMAP.md](ROADMAP.md)**.
+
+---
+
+## 11. Attributing Assistant Behavior to System Prompt Clauses
+
+**`benchmarks/clause-responsibility/`** · Metric: joint ranking and flag score · Status: **in build**
+
+Given a system prompt's sentences and the behaviour measured under the full prompt, rank
+the sentences by how much each one drives that behaviour. Ground truth is a real
+ablation: each sentence is removed in turn and the behaviour re-measured.
+
+The design is locked and the corpus is filtered to 145 prompts. **The generation has not
+been run, so no data ships and no anchors are published.** `config.yaml` carries `TBD`
+in every anchor slot.
+
+Status, known defects and remaining work: **[ROADMAP.md](ROADMAP.md)**.
+
+---
+
 ## Verification log
 
-The output of `python tools/verify.py --reference` on 2026-09-21:
+The output of `python tools/verify.py --reference` on 2026-09-21, when the suite held four shipped benchmarks:
 
 ```
 accent-transfer          The Accent Translator — change_segment_accuracy
@@ -255,6 +500,55 @@ experimental-order       The Order of Discovery — mean_per_paper_position_accu
 
 8/8 anchors reproduced.
 ```
+
+The run of 2026-09-29, after four benchmarks were added:
+
+```
+accent-transfer          The Accent Translator — change_segment_accuracy
+  [PASS] copy source IPA (sample_submission)                       0.1125  (published 0.112, tol 0.001)
+  [PASS] per-segment context rewrite table (CPU)                   0.7681  (published 0.768, tol 0.001)
+
+prompt-edit-attribution  The Edit That Moved the Answer — positional_credit
+  [PASS] unranked candidates (sample_submission)                   0.3371  (published 0.337, tol 0.001)
+  [PASS] ridge regression over behaviour fingerprints (CPU)        0.4926  (published 0.493, tol 0.001)
+
+pipeline-attribution     Recovering OCR Batch Origin — mean_per_bag_adjusted_rand_index
+  [PASS] every snippet its own group (sample_submission)           0.0000  (published 0.000, tol 0.001)
+  [PASS] RandomForest-probability embedding + agglomerative (CPU)  0.3419  (published 0.342, tol 0.015)
+
+experimental-order       The Order of Discovery — mean_per_paper_position_accuracy
+  [PASS] shipped shuffled order (sample_submission)                0.2854  (published 0.285, tol 0.001)
+  [PASS] pairwise TF-IDF logistic + aggregate-win decode (CPU)     0.3585  (published 0.358, tol 0.001)
+
+citation-structure       Reconstructing Local Citation Structure — mean_per_query_mcc
+  [PASS] rotating format example (sample_submission)               0.1414  (published 0.141, tol 0.001)
+
+reference-order          The Reference Shuffle — mean_rescaled_kendall_tau
+  [PASS] rotating format example (sample_submission)               0.5015  (published 0.502, tol 0.001)
+
+amendment-reversal       The Vanished Clause — gap_anchored_changed_token_f1
+  [PASS] input copied through (sample_submission)                  0.0000  (published 0.000, tol 0.001)
+  [PASS] sentence locator + substitution table, one edit (CPU)     0.0033  (published 0.003, tol 0.001)
+
+mechanism-recovery       What Does It Do In There? — chance_corrected_set_f1
+  [PASS] first candidate in the pool (sample_submission)           0.0700  (published 0.070, tol 0.001)
+  [PASS] one-vs-rest over classes, scored against the pool (CPU)   0.4620  (published 0.462, tol 0.001)
+
+14/14 anchors reproduced.
+```
+
+**What this run does and does not cover.** It re-scores eight floors and six CPU
+references. It does not re-run the references for `citation-structure` and
+`reference-order`: the first downloads a pre-trained sentence encoder and the second
+imports `torch`, and neither is in `requirements.txt`. Their published reference scores,
+`0.672` and `0.725`, come from each benchmark's own `config.yaml` and were not
+reproduced by `verify.py`. For `amendment-reversal`, the script that is re-run is the
+substitution-table rung at `0.003`, not the sequence-to-sequence reference at `0.002`.
+
+Every split in the four added benchmarks was also rebuilt from `dataset/raw/` with
+`prepare.py` and compared with the committed files: `train.csv`, `test.csv`,
+`sample_submission.csv`, `dataset_stats.json` and `answers.csv` were byte-identical in
+all four.
 
 **Two notes on tolerance, in the interest of disclosure.**
 

@@ -1,0 +1,173 @@
+name: wikipedia-citation-order-recovery
+title: "The Reference Shuffle"
+domain: natural-language-processing
+tags: [text]
+
+dataset:
+  name: wikipedia-paragraph-citation-order
+  title: "Wikipedia Paragraphs Paired With Their Own Shuffled Reference Cards"
+  short_title: "Scrambled Bibliography Cards"
+  description: >
+    Real paragraphs from English Wikipedia's Good and Featured articles,
+    each paired with its own true set of cited references (structured
+    bibliographic metadata: title, author, venue, year) and the true
+    order those references were cited in. Every card in a unit's pool is
+    a genuine citation of that paragraph; the only withheld information
+    is the order. No text, label, or ordering in this dataset was
+    written, annotated, inferred, or model-generated for this dataset --
+    the order is read directly from where each <ref> marker physically
+    sits in the article's own wikitext.
+  generator: dataset/generator/build_raw.py
+  source_data: "REAL English Wikipedia article prose end to end, fetched
+    2026-09-25 from Good/Featured article pages, corresponding to
+    dumps.wikimedia.org/enwiki's own bulk snapshot of the same article
+    corpus."
+  source_url: "https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2"
+  distinctness: >
+    This dataset is built from Wikipedia's own inline citation markers
+    and their {{cite ...}} template fields -- the citation ORDER within
+    a paragraph is the ground truth, not article topic, quality class,
+    or any per-document label. It is not a re-release of Wikipedia
+    article text: only paragraphs where every citation is an unambiguous,
+    fully-inline template survive, every citation marker is replaced with
+    a neutral token before shipping, and the reference metadata is
+    reshuffled per paragraph under a fixed seed.
+  citation: >
+    Wikipedia contributors, English Wikipedia (Good articles / Featured
+    articles), retrieved 2026-09-25. https://en.wikipedia.org/
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+  license_note: >
+    Verified live from Wikipedia's own MediaWiki siteinfo API:
+    https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=rightsinfo&format=json
+    -> {"rightsinfo": {"url": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "text": "Creative Commons Attribution-Share Alike 4.0"}}. This is a
+    share-alike license: this package, and any derivative of it, is
+    released under CC BY-SA 4.0 accordingly. The declared source_url
+    (dumps.wikimedia.org/enwiki, the bulk XML mirror of the same English
+    Wikipedia article corpus) and the enwiktionary bulk dump (a
+    dictionary, a different sub-project) used by an earlier challenge on
+    this account are different data origins; both carry the same
+    site-wide CC BY-SA 4.0 license.
+  commercial_use_allowed: true
+  raw_files:
+    - dataset/raw/wiki_citation_units.jsonl   # page, text, n_refs, refs[] (title, author, venue, year) in true order
+    - dataset/raw/_fetched_titles.json        # fetch bookkeeping (article titles attempted)
+    - dataset/raw/ATTRIBUTION.txt             # source, license, citation, retrieval date, list of modifications
+    - dataset/raw/meta.json                   # schema, row counts, checksums, licence
+    - dataset/raw/build_meta.json             # build-time corpus counts
+
+problem_description: problem-description.md
+rubrics: rubrics.md
+
+prepare:
+  script: prepare.py
+  usage: "python prepare.py   # reads dataset/raw, writes dataset/public and dataset/private"
+  public_files:
+    - dataset/public/train.csv              # unit_id, text, ref_A_card, ref_B_card, ref_C_card, rank_A, rank_B, rank_C
+    - dataset/public/test.csv               # same as train.csv minus rank_A/rank_B/rank_C
+    - dataset/public/sample_submission.csv  # unit_id, rank_A, rank_B, rank_C  -- format example, one row per unit
+    - dataset/public/dataset_stats.json     # counts
+  private_files:
+    - dataset/private/answers.csv           # unit_id, rank_A, rank_B, rank_C
+  split_note: >
+    492 units (every unit with EXACTLY 3 references) kept from 1,196 raw
+    units extracted across 510 distinct Good/Featured articles -- an
+    earlier iteration shipped a variable pool size (3-8 refs) packed into
+    ref_A_card..ref_H_card, which left high-index slots empty in most
+    rows and failed the platform's "no column missing values in half or
+    more profiled rows" check; fixing every unit to exactly 3 references
+    removes the packed-slot problem entirely (see DESIGN.md). Split by
+    ARTICLE (not paragraph) so no two paragraphs from the same page cross
+    train/test: 383 train units from 226 articles, 109 test units from 70
+    articles. Seeded (SEED = 20260925) and verified byte-identical across
+    two runs of prepare.py.
+
+grade:
+  script: grade.py
+  usage: "python grade.py submission.csv dataset/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [unit_id, rank_A, rank_B, rank_C]
+  metric: mean_rescaled_kendall_tau
+  metric_formula: >
+    For each test unit, compute Kendall's tau-b rank correlation between
+    the submitted (rank_A, rank_B, rank_C) triple and the true triple,
+    rescaled from [-1, 1] to [0, 1] via (tau + 1) / 2. Average over all
+    test units. A uniformly random permutation of {0,1,2} has an EXACT
+    expected rescaled tau of 0.5 (verified by exhaustive enumeration over
+    all 6 permutations). A missing required column is rejected outright;
+    a missing unit, a duplicated unit_id, or a malformed/non-integer/
+    out-of-range/non-permutation rank triple scores 0.0 for that unit
+    only (not the 0.5 chance floor -- a non-attempt is penalised below an
+    honest random guess) and the rest is still graded.
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- anchors measured on the FINAL shipped split (109 test units, 70 articles) ---- #
+  blank_non_attempt: 0.0000
+  pool_order: 0.4771
+  adversarial_global_venue_position: 0.4924
+  random_permutation: 0.4954
+  reversed_pool_order: 0.5229
+  year_sort_ascending: 0.5352
+  title_length_sort: 0.5413
+  reference_word_overlap_author_year: 0.7248
+  oracle: 1.0000
+  note_band: >
+    Rescaled Kendall's tau has an EXACT chance floor of 0.5 for a
+    uniformly random permutation of {0,1,2} (verified by exhaustive
+    enumeration over all 6 permutations; see DESIGN.md), so every
+    content-free probe clusters near 0.5 rather than near 0.0 -- this is
+    the expected shape for an ordering/ranking metric, not a design flaw.
+    pool_order (0.4771), reversed_pool_order (0.5229) and
+    random_permutation (0.4954, mean over 5 seeds) confirm the shuffle
+    itself carries no residual signal. adversarial_global_venue_position
+    (0.4924) -- a model fit on TRAIN that ranks citations purely by which
+    venue historically appears early/late across ALL paragraphs pooled
+    together, ignoring each unit's own content -- stays at chance,
+    confirming no cross-unit venue shortcut exists. year_sort_ascending
+    (0.5352) and title_length_sort (0.5413, the strongest content-free
+    probe) sit only mildly above chance: real but weak structural
+    regularities of encyclopedic prose, not a data-construction leak --
+    the reference solution is deliberately built to use the year signal
+    (see below) rather than have it treated as forbidden.
+  band_evidence: >
+    The reference (0.7248) clears every content-free and adversarial
+    probe by at least 0.183 (margin over title_length_sort, the
+    strongest probe: 0.7248 - 0.5413 = 0.1835), above the 0.18 target and
+    well above the 0.10 minimum this account's challenges require.
+    blank_non_attempt sits at 0.0000 by the grader's explicit degrade
+    rule (not the metric's own 0.5 chance floor), which is the incentive
+    to attempt every row rather than skip it. Because the metric's
+    natural floor is 0.5 rather than 0.0, the "0.2-0.6" agent-run band
+    from the general playbook is reinterpreted here as: every
+    content-free/adversarial probe near 0.5, the reference clearing them
+    by a disclosed double-digit margin, oracle at 1.0 -- see DESIGN.md
+    "Difficulty band" for the explicit reasoning.
+  reference_caveat: >
+    The reference is a floor, not a ceiling. It scores each unit by
+    building a per-marker "local context" (the paragraph text
+    immediately preceding that [CITE] marker) and a per-card bag of
+    words (title + venue), counting raw overlap (NOT tf-idf weighted --
+    deliberately, per this account's standing no-tf-idf constraint),
+    adding a bonus when a reference's author surname appears literally
+    anywhere in the paragraph, adding a small bonus for assignments
+    consistent with ascending publication year, and solving the
+    resulting assignment problem with the Hungarian algorithm
+    (scipy.optimize.linear_sum_assignment) for an exact per-unit
+    optimum under that score matrix. Weights (author bonus = 2.0,
+    year-consistency bonus = 0.05) were swept and chosen on train.csv's
+    383 units, then applied unchanged to test -- never tuned against the
+    graded score. No pretrained embedding model, no fine-tuning, and no
+    tf-idf were used anywhere in this ladder. An approach that embeds
+    paragraph and card text with a pretrained sentence encoder, or that
+    fine-tunes on train.csv's 383 labelled units, is the open direction
+    above this number.
+
+submission:
+  filename: submission.csv
+  columns: [unit_id, rank_A, rank_B, rank_C]
+  rows: "one per unit in test.csv (rank_A, rank_B, rank_C jointly a permutation of {0,1,2} -- that unit's own true reading-order positions)"
+
+reference_solution: solution.ipynb
+environment: cpu-python-docker-image   # 10 CPU cores / 62 GB RAM, < 1.5 h, no GPU required

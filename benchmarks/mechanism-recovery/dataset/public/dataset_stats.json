@@ -1,0 +1,16 @@
+{
+  "n_train": 505,
+  "n_test": 125,
+  "test_train_ratio": 0.2475,
+  "pool_size": 12,
+  "n_classes": 22,
+  "n_ingredient_groups_train": 85,
+  "n_ingredient_groups_test": 25,
+  "split_unit": "ingredient_group",
+  "dropped_at_build": {
+    "exact_duplicate_text": 946,
+    "near_duplicate_text": 468
+  },
+  "min_class_support": 20,
+  "metric": "chance-corrected set F1: set F1 between predicted and true classes, minus the expected F1 of a same-size random draw from the row's pool, renormalised to [0,1]"
+}

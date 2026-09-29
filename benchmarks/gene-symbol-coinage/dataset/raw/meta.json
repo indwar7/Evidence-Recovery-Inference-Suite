@@ -1,0 +1,20 @@
+{
+  "generated_by": "dataset/generator/build_raw.py",
+  "source": "HUGO Gene Nomenclature Committee (HGNC) complete gene set",
+  "publisher": "HGNC, University of Cambridge",
+  "source_url": "https://www.genenames.org/download/archive/",
+  "snapshot_url": "https://storage.googleapis.com/public-download-files/hgnc/archive/archive/quarterly/tsv/hgnc_complete_set_2026-07-07.txt",
+  "licence": "CC0 1.0",
+  "licence_url": "https://www.genenames.org/about/license/",
+  "retrieved_utc": "2026-09-27T05:53:16Z",
+  "files": {
+    "hgnc_complete_set_2026-07-07.txt": {
+      "sha256": "e73e9259177884b5994fc81ed733c1b3d4df34c84290bc9dddc86e960d5d6419",
+      "bytes": 16913890,
+      "n_rows": 45019,
+      "n_columns": 54,
+      "n_approved_protein_coding": 19296
+    }
+  },
+  "filters": "none -- the snapshot is stored byte for byte"
+}

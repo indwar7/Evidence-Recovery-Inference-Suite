@@ -1,0 +1,48 @@
+{
+  "dataset_name": "wikipedia-paragraph-citation-order",
+  "source": {
+    "publisher": "Wikimedia Foundation / Wikipedia contributors",
+    "collection": "English Wikipedia (Good articles / Featured articles)",
+    "url": "https://en.wikipedia.org/w/api.php",
+    "retrieved_on": "2026-09-25"
+  },
+  "license": {
+    "name": "CC BY-SA 4.0",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "publisher_statement": "Creative Commons Attribution-Share Alike 4.0",
+    "attribution_required": true,
+    "share_alike_required": true
+  },
+  "files": {
+    "wiki_citation_units.jsonl": {
+      "n_rows": 1196,
+      "columns": [
+        "page",
+        "text",
+        "n_refs",
+        "refs"
+      ],
+      "size_bytes": 1707729,
+      "md5": "ec99d9b63b71005df5c98c80158c1eff"
+    }
+  },
+  "build": {
+    "n_articles_attempted": 1900,
+    "n_articles_with_units": 510,
+    "n_units_extracted": 1196,
+    "n_refs_distribution": {
+      "3": 492,
+      "4": 302,
+      "5": 169,
+      "6": 115,
+      "7": 71,
+      "8": 47
+    }
+  },
+  "modifications": [
+    "Every <ref>...</ref> marker replaced with the token [CITE].",
+    "Wiki markup (templates, wikilinks, bold/italic, HTML) stripped to plain prose.",
+    "Each retained citation's {{cite ...}} template parsed into structured fields (title, author, venue, year).",
+    "Only paragraphs where every citation is a distinct, fully-inline cite template are kept."
+  ]
+}

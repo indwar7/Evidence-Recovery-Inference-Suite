@@ -1,0 +1,22 @@
+{
+  "n_train": 13863,
+  "n_test": 2270,
+  "test_train_ratio": 0.1637,
+  "split_unit": "effective date of the current approved symbol",
+  "train_is": "symbols in force before the cutoff",
+  "test_is": "symbols that came into force on or after the cutoff",
+  "n_symbol_stems_train": 4611,
+  "test_rows_stem_seen_in_train": 987,
+  "test_rows_stem_new": 1283,
+  "share_test_stem_seen_in_train": 0.4348,
+  "median_symbol_chars_test": 6,
+  "median_name_chars_test": 35,
+  "dropped_at_build": {
+    "bad_symbol": 7,
+    "mentioned": 81,
+    "no_date": 1,
+    "not_protein_coding": 25723,
+    "printed_answer": 3074
+  },
+  "metric": "prefix agreement: shared leading characters of the predicted and the approved symbol, over the longer of the two lengths"
+}

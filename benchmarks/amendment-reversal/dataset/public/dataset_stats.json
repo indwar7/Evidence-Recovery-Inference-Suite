@@ -1,0 +1,21 @@
+{
+  "n_train": 410,
+  "n_test": 353,
+  "test_train_ratio": 0.861,
+  "n_parts_train": 38,
+  "n_parts_test": 109,
+  "split_unit": "cfr_part",
+  "test_rows_per_section": 1,
+  "section_number_masked_as": "[SECTION]",
+  "median_changed_tokens_test": 16,
+  "median_before_tokens_test": 483,
+  "median_changed_fraction_test": 0.0385,
+  "dropped_at_build": {
+    "identical": 254,
+    "change_too_small": 346,
+    "near_total_rewrite": 33,
+    "duplicate_input": 1,
+    "chain_sibling_in_test": 7
+  },
+  "metric": "gap-anchored changed-token F1: tokens where the true prior wording departs from the shown wording, each keyed by the gap it sits in, matched against the tokens the prediction adds; F1 per row, mean over rows"
+}

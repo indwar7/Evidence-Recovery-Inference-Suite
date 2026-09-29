@@ -1,0 +1,92 @@
+SOURCE AND ATTRIBUTION
+======================
+
+Source
+------
+English Wikipedia, via the public MediaWiki Action API
+(action=parse, prop=wikitext), fetched from pages in Wikipedia's own
+"Good articles" and "Featured articles" quality-review categories.
+Landing page:  https://en.wikipedia.org/wiki/Wikipedia:Good_articles
+API endpoint:  https://en.wikipedia.org/w/api.php
+Retrieved:     2026-09-25
+
+This is a DIFFERENT Wikimedia project and a different host+endpoint from
+any source used elsewhere on this account: en.wikipedia.org (encyclopedia
+articles, fetched live via the Action API) rather than
+dumps.wikimedia.org/enwiktionary/... (a dictionary, fetched as a static
+bulk dump) used by an earlier challenge. No content overlaps: Wiktionary
+is definitions/pronunciations of individual words; this dataset is
+paragraph-level encyclopedia prose and the editors' own citation records.
+
+License
+-------
+Creative Commons Attribution-Share Alike 4.0 (CC BY-SA 4.0)
+https://creativecommons.org/licenses/by-sa/4.0/deed.en
+
+Verified live from Wikipedia's own MediaWiki siteinfo API, queried at
+build time:
+
+    https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=rightsinfo&format=json
+
+    -> {"rightsinfo":
+          {"url": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+           "text": "Creative Commons Attribution-Share Alike 4.0"}}
+
+CC BY-SA 4.0 requires attribution and requires that adaptations be shared
+under the same or a compatible license. This package is released, and any
+adaptation of it must be released, under CC BY-SA 4.0 on that basis.
+
+Files in this directory
+------------------------
+wiki_citation_units.jsonl
+    One JSON object per line, one line per extracted paragraph unit.
+    Fields: page (source article title), text (paragraph prose with every
+    citation marker replaced by the token [CITE], wiki markup stripped),
+    n_refs (number of distinct citations in the paragraph), refs (a list
+    of n_refs objects, IN THE ORIGINAL WIKITEXT ORDER, each with kind,
+    title, author, venue, year -- the STRUCTURED fields Wikipedia's own
+    editors recorded in that citation's {{cite ...}} template).
+
+_fetched_titles.json
+    Bookkeeping: every article title the fetcher attempted, so a second
+    run can resume without re-fetching. Not used by prepare.py.
+
+meta.json
+    Schema, row counts, checksum, license, for this file.
+
+build_meta.json
+    Counts recorded at build time (articles attempted, articles yielding
+    at least one unit, unit yield rate).
+
+Modifications made to the source material
+-------------------------------------------
+The raw wikitext was transformed before packaging:
+
+1. EVERY <ref>...</ref> MARKER REPLACED WITH [CITE]. This is the central
+   transformation the task is built on: the paragraph text a solver sees
+   never contains the citation's position-adjacent content (the citation
+   template itself), only a neutral placeholder token, so the true
+   citation order must be recovered from the reference metadata and the
+   paragraph's own content -- not read off an untouched citation marker.
+
+2. WIKI MARKUP STRIPPED. Templates ({{...}}), wikilinks ([[...]],
+   rendered as their display text), bold/italic markup, and any residual
+   HTML tags were removed so the shipped text is plain, readable prose.
+
+3. CITATION METADATA PARSED INTO STRUCTURED FIELDS. Each retained
+   citation's {{cite journal|book|web|news|magazine|encyclopedia}}
+   template was parsed into title / author / venue / year -- these are
+   the exact field values Wikipedia's own editors entered in the
+   template, reformatted for display, never inferred or generated.
+
+4. ONLY UNAMBIGUOUS PARAGRAPHS KEPT. A paragraph is retained only if
+   every one of its citations is a distinct, fully-inline cite template
+   (no <ref name="x"/> reuse of an earlier citation within the SAME
+   paragraph, no {{sfn}}/{{harv}} shorthand pointing to a separate
+   bibliography section, no un-templated citation text). This keeps the
+   marker-to-reference mapping unambiguous by construction.
+
+The true citation order recorded in `refs` (and, downstream, in
+`answers.csv`) is READ DIRECTLY from the physical position of each <ref>
+marker in the article's own wikitext -- it is not inferred, annotated, or
+model-generated at any point in this pipeline.

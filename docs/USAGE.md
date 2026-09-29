@@ -1,7 +1,7 @@
 # Usage
 
 Every benchmark is self-contained, offline, and identically shaped. Once you can run
-one, you can run all five.
+one, you can run them all.
 
 ---
 
@@ -88,9 +88,15 @@ duplicated identifier — before you spend a scoring run on them.
 | prompt-edit-attribution | `item_id, rank_1..rank_4` | test item | `python grade.py sub.csv --answers dataset/private/answers.csv` |
 | pipeline-attribution | `bag_id, batch_id` | **bag**, not snippet | `python grade.py sub.csv dataset/private/answers.csv` |
 | experimental-order | `paper_id, predicted_order` | test paper | `python grade.py sub.csv dataset/private/answers.csv` |
+| citation-structure | `query_id, cited_positions` | test query | `python grade.py sub.csv dataset/private/answers.csv` |
+| reference-order | `unit_id, rank_A, rank_B, rank_C` | test paragraph | `python grade.py sub.csv dataset/private/answers.csv` |
+| mechanism-recovery | `row_id, moa_classes` | test label | `python grade.py sub.csv --answers dataset/private/answers.csv` |
+| amendment-reversal | `row_id, text_before` | test section | `python grade.py sub.csv --answers dataset/private/answers.csv` |
 | rag-sufficiency | `item_id, diagnosis, action, reason_code` | test item | `python grade.py sub.csv --answers dataset/private/answers.csv` |
+| gene-symbol-coinage | `row_id, symbol` | test gene | `python grade.py sub.csv dataset/private/answers.csv` |
+| clause-responsibility | `item_id, ranking, flags` | test item | `python grade.py sub.csv --answers dataset/private/answers.csv` |
 
-Two formats deserve a closer look.
+Four formats deserve a closer look.
 
 **`pipeline-attribution` submits one row per bag.** The `batch_id` cell holds one label
 per snippet, whitespace-separated, **in `test.csv` snippet order**. The labels are
@@ -98,6 +104,15 @@ arbitrary tokens: they never need to match across bags and never need to name a 
 batch, because only co-membership *within* a bag is scored. One row per bag is
 deliberate — a per-snippet key would let a row-wise leaderboard slice cut a bag in half
 and score each fragment as its own bag.
+
+**`citation-structure` and `mechanism-recovery` submit a set.** `cited_positions` is a
+whitespace-separated list of 0-indexed candidate positions; `moa_classes` is a
+pipe-separated list of class names from that row's own pool. How many to select is not
+given and is part of the problem. Selecting everything scores exactly zero on both.
+
+**`citation-structure` needs one build step.** Its `train.csv` is 142 MB, over GitHub's
+file limit, so it is not committed. Run `python prepare.py` in that directory once; the
+file it writes is byte-identical to the one the anchors were measured on.
 
 **`rag-sufficiency` submits a joint trace.** The three fields are scored together per
 item, and they must be mutually consistent: `reason_code=gold_absent` implies
@@ -108,7 +123,7 @@ not full credit.
 
 ## Calling the graders from Python
 
-Every grader exposes the same function, so a harness can treat all five uniformly:
+Every grader exposes the same function, so a harness can treat them all uniformly:
 
 ```python
 import pandas as pd

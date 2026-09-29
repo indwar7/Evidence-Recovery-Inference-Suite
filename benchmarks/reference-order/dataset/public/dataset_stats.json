@@ -1,0 +1,10 @@
+{
+  "task_shape": "one paragraph + its own shuffled reference pool (fixed at 3 references per unit); recover citation order",
+  "n_train_units": 383,
+  "n_test_units": 109,
+  "n_train_articles": 226,
+  "n_test_articles": 70,
+  "n_refs_fixed": 3,
+  "submission_shape": "one row per unit: unit_id, rank_A, rank_B, rank_C (each an integer in 0..2, the true reading position of that lettered card)",
+  "split_note": "split by ARTICLE, not paragraph, so no two paragraphs from the same source article cross train/test"
+}

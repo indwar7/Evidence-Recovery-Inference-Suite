@@ -1,0 +1,20 @@
+openFDA Drug Label API
+U.S. Food and Drug Administration
+Endpoint: https://api.fda.gov/drug/label.json
+Retrieved: 2026-09-25T03:44:01.220768+00:00
+
+LICENCE
+Creative Commons CC0 1.0 Universal.
+https://open.fda.gov/license/
+openFDA states: "the content, data, documentation, code, and
+related materials on openFDA is public domain and made available
+with a Creative Commons CC0 1.0 Universal dedication."
+
+DISCLAIMER
+openFDA states that its data should not be relied upon to make
+decisions regarding medical care, and that results are
+unvalidated. This dataset is a research benchmark built from that
+data, with the pharmacology text deliberately masked. It is not
+medical information and must not be used for any clinical,
+prescribing or regulatory purpose. The FDA does not endorse this
+dataset or any work derived from it.
