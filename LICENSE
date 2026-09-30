@@ -19,11 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-NOTE ON SCOPE. This MIT grant covers the harness only: graders, generators,
-preparation scripts, reference solutions, verification tooling and
-documentation. It does NOT relicense the corpora under benchmarks/*/dataset/,
-which retain their upstream terms (CC BY-SA 4.0, CC BY 4.0, Public Domain
-Mark, CC0-1.0). See docs/LICENSES.md and each dataset/raw/ATTRIBUTION.txt.
