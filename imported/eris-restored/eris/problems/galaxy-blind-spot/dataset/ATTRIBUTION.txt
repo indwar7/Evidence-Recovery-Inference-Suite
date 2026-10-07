@@ -1,0 +1,45 @@
+ATTRIBUTION AND LICENCE
+=======================
+
+Imagery and morphology labels
+-----------------------------
+Galaxy10 SDSS
+Creators: Leung, W. Henry; Bovy, Jo
+Source:   https://zenodo.org/records/10844811
+DOI:      10.1093/mnras/sty3217
+Licence:  Creative Commons Attribution 4.0 International (CC-BY-4.0)
+          https://creativecommons.org/licenses/by/4.0/
+
+CC-BY-4.0 permits commercial use, redistribution and modification, on the
+condition that appropriate credit is given, a link to the licence is provided,
+and any changes are indicated. This file is that credit.
+
+Underlying data
+---------------
+Images are cutouts from the Sloan Digital Sky Survey (SDSS), g/r/i bands.
+Morphology labels originate from Galaxy Zoo, crowdsourced from volunteer
+classifications.
+
+Changes made in this dataset
+----------------------------
+As required by CC-BY-4.0, the modifications are stated explicitly:
+
+1. Two of the ten original Galaxy10 classes were REMOVED for rarity --
+   class 3 "Smooth, Cigar shaped" (349 images) and class 5 "Disk, Edge-on,
+   Boxy Bulge" (17 images). Neither has enough examples to train or to target.
+   The remaining 8 classes were re-indexed 0-7; classes.csv records the mapping
+   back to the original Galaxy10 indices.
+2. Remaining classes were capped at 2500 images each to limit a 13:1 class
+   imbalance down to roughly 4.7:1.
+3. Images were re-encoded from the source HDF5 array to PNG, unchanged in
+   pixel content, size (69x69) or band ordering.
+4. Images were split into two disjoint pools. One pool trains a classifier that
+   is NOT released; only the other pool is shipped here.
+
+Derived content
+---------------
+responses.npy, ops.csv, catalog.py, meta.csv and meta.json are original work
+created for this challenge. They record the measured behaviour of a
+purpose-trained classifier under a calibrated catalog of observing conditions,
+and are not part of, nor derived from, the Galaxy10 labels. They are released
+under the same CC-BY-4.0 terms for convenience.

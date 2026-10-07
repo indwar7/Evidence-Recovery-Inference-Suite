@@ -1,0 +1,79 @@
+# Challenge configuration — Observing Conditions
+name: observing-conditions
+title: "Observing Conditions: Which Night Would Fool the Morphology Classifier?"
+domain: computer-vision
+dataset:
+  name: observing-conditions-dataset
+  title: "Observational-Systematics Response Atlas: Measured Morphology-Classifier
+    Behaviour Under Calibrated Observing Conditions on SDSS Galaxies"
+  short_title: "Observational-Systematics Response Atlas (Galaxy10 SDSS)"
+  description: dataset/dataset-description.md
+  generator: dataset/generator/gen_raw.py     # deterministic; seed 20260731
+  source_data: "REAL imagery: Galaxy10 SDSS (astroNN) — 21,785 SDSS galaxy
+    cutouts, 69x69 RGB, morphology labels contributed by Galaxy Zoo volunteers.
+    Layered on top is MEASURED behaviour of a hidden morphology CNN: for every
+    released galaxy and all 400 ordered pairs drawn from a 20-condition
+    observational-systematics catalog, the model's full class-probability
+    vector was recorded. No synthetic imagery; no LLM output anywhere in the
+    pipeline."
+  source_url: "https://zenodo.org/records/10844811"
+  citation: "Leung & Bovy, astroNN / Galaxy10 SDSS. Morphology labels from
+    Galaxy Zoo (Lintott et al. 2008). Imagery from the Sloan Digital Sky Survey."
+  license: "CC-BY-4.0 (Zenodo record 10844811) — redistribution and commercial
+    use permitted with attribution. SDSS imagery is public. Derived artifacts
+    (responses.npy, ops.csv, meta.csv) are original work."
+  doi: "10.5281/zenodo.10844811"
+  raw_files:
+    - dataset/raw/images/          # clean SDSS cutouts, 69x69 RGB PNG
+    - dataset/raw/meta.csv         # image_id, true_class, clean_correct, clean_p_true
+    - dataset/raw/ops.csv          # 20-condition catalog + calibrated strengths
+    - dataset/raw/classes.csv      # class_index -> Galaxy Zoo morphology
+    - dataset/raw/catalog.py       # condition implementations, shipped to solvers
+    - dataset/raw/responses.npy    # (N,20,20,8) float16 hidden-model behaviour
+    - dataset/raw/meta.json        # provenance + generation parameters
+problem_description: problem-description.md
+rubrics: rubrics.md
+prepare:
+  script: prepare.py               # exposes prepare(raw, public, private)
+  public:
+    - prepared/public/images/
+    - prepared/public/train.csv            # row_id, image_id, true_class, target_class
+    - prepared/public/train_response.csv   # row_id + r0..r399
+    - prepared/public/test.csv
+    - prepared/public/ops.csv
+    - prepared/public/classes.csv
+    - prepared/public/catalog.py
+    - prepared/public/sample_submission.csv
+  private:
+    - prepared/private/answers.csv         # row_id + r0..r399 for test rows
+  split_note: "Split is BY GALAXY, not by row: one galaxy contributes up to 7
+    rows (one per non-true target morphology), so a row-level split would leak.
+    prepare.py also drops galaxies the hidden model misclassifies when clean,
+    and drops rows whose target is unreachable (max p_target < 0.30), so every
+    graded row is winnable."
+grade:
+  script: grade.py                 # exposes grade(submission, answers)
+  usage: "python grade.py submission.csv prepared/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [row_id, op1, op2]
+  metric: mean_row_normalised_target_response
+  metric_formula: "mean_i v_i[op1*20 + op2], where v_i is the 400-vector of
+    p_hidden(target_morphology | pair) for row i, min-max normalised at build"
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- anchors: MEASURED on the shipped dataset; filled after the gate ---- #
+  sample_submission_score: TBD
+  random_pair: TBD
+  constant_best: TBD
+  target_lookup: TBD
+  class_target_lookup: TBD
+  reference_solution_score: TBD
+  oracle: 1.000
+  reference_runtime: TBD
+submission:
+  filename: submission.csv
+  columns: [row_id, op1, op2]
+  rows: one per row_id in test.csv
+reference_solution: solution.ipynb
+environment: kaggle-python-docker-image   # 1x NVIDIA A10G, 10 cores / 62 GB, <1.5h

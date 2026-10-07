@@ -1,0 +1,63 @@
+119 articles, 256 pairs -> 30,464 forward passes
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:03<15:57,  3.31s/it]Loading weights: 100%|██████████| 290/290 [00:03<00:00, 86.86it/s]
+device=mps
+/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-9444-g_8me531'}
+  warnings.warn(
+    art 1 done in 57.9s
+    art 2 done in 47.7s
+    art 3 done in 81.3s
+    art 4 done in 708.8s
+    art 5 done in 20553.5s
+  5/119 articles  0.1 prompts/s  eta 8151 min
+    art 6 done in 198.1s
+    art 7 done in 134.2s
+    art 8 done in 101.3s
+    art 9 done in 87.6s
+    art 10 done in 132.2s
+  10/119 articles  0.1 prompts/s  eta 4018 min
+    art 11 done in 83.9s
+(eval):13: command not found: setsid
+119 articles, 256 pairs -> 30,464 forward passes
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:02<11:59,  2.49s/it]Loading weights:   1%|          | 2/290 [00:02<05:50,  1.22s/it]Loading weights: 100%|██████████| 290/290 [00:02<00:00, 102.63it/s]
+device=mps
+resuming: 10 articles already measured
+    art 11 done in 26.5s
+    art 12 done in 29.5s
+  12/119 articles  9.1 prompts/s  eta 50 min
+    art 13 done in 26.8s
+    art 14 done in 30.6s
+  14/119 articles  9.0 prompts/s  eta 50 min
+    art 15 done in 590.1s
+    art 16 done in 27.2s
+  16/119 articles  2.1 prompts/s  eta 209 min
+    art 17 done in 26.2s
+    art 18 done in 92.1s
+  18/119 articles  2.4 prompts/s  eta 179 min
+    art 19 done in 133.3s
+    art 20 done in 98.3s
+  20/119 articles  2.4 prompts/s  eta 179 min
+    art 21 done in 51.2s
+    art 22 done in 88.4s
+  22/119 articles  2.5 prompts/s  eta 166 min
+    art 23 done in 27.5s
+    art 24 done in 91.1s
+  24/119 articles  2.7 prompts/s  eta 153 min
+    art 25 done in 49.7s
+    art 26 done in 47.1s
+  26/119 articles  2.8 prompts/s  eta 141 min
+    art 27 done in 85.9s
+    art 28 done in 89.9s
+  28/119 articles  2.8 prompts/s  eta 137 min
+    art 29 done in 115.6s
+    art 30 done in 85.5s
+  30/119 articles  2.8 prompts/s  eta 136 min
+    art 31 done in 32.3s
+    art 32 done in 26.6s
+  32/119 articles  3.0 prompts/s  eta 125 min
+    art 33 done in 56.0s
+    art 34 done in 60.4s
+  34/119 articles  3.1 prompts/s  eta 119 min

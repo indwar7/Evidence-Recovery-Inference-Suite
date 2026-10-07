@@ -1,0 +1,91 @@
+# Challenge configuration — Blind Spot
+name: blind-spot
+title: "Blind Spot: Steering a Hidden Classifier With Ordinary Image Operations"
+domain: computer-vision
+dataset:
+  name: blind-spot-dataset
+  title: "Hidden-Classifier Response Atlas: 2.4M Measured CNN Responses to Calibrated
+    Image Degradations over Sentinel-2 Land Cover"
+  short_title: "Hidden-Classifier Response Atlas (Sentinel-2 Land Cover)"
+  description: dataset/dataset-description.md
+  generator: dataset/generator/gen_raw.py     # deterministic; seed 20260731
+  source_data: "REAL imagery: EuroSAT RGB (Helber et al.) — 64x64 Sentinel-2
+    satellite patches over Europe, ten land-cover classes. The labels used here
+    are EuroSAT's own. Layered on top is MEASURED behaviour of a hidden CNN:
+    for all 6,000 images x 400 ordered operation pairs, the model's full
+    10-class probability vector was recorded: 2.4M forward passes
+    yielding 24M probability values. No
+    synthetic imagery; no LLM output anywhere in the pipeline."
+  source_url: "https://zenodo.org/records/7711810"
+  citation: "Helber, Bischke, Dengel, Borth. EuroSAT: A Novel Dataset and Deep
+    Learning Benchmark for Land Use and Land Cover Classification. IEEE JSTARS,
+    2019. Imagery derived from Copernicus Sentinel-2."
+  license: "EuroSAT is MIT licensed (Zenodo record 7711810 reports
+    license id `mit-license`; verified 2026-07-31) — commercial use and
+    redistribution permitted. MIT requires the copyright notice to travel with
+    redistributed copies, so the upstream notice (Copyright (c) 2023 Patrick
+    Helber) ships verbatim as dataset/raw/LICENSE-EuroSAT.txt. Underlying
+    Sentinel-2 imagery is free and open under the Copernicus licence. Derived
+    artifacts (responses.npy, ops.csv, meta.csv) are original work."
+  doi: "10.5281/zenodo.7711810"
+  raw_files:
+    - dataset/raw/images/            # 6,000 real EuroSAT PNGs, 64x64 RGB
+    - dataset/raw/meta.csv           # image_id, true_class, clean_correct, clean_p_true
+    - dataset/raw/ops.csv            # the 20-op catalog + calibrated strengths
+    - dataset/raw/responses.npy      # (6000,20,20,10) float16 hidden-model behaviour
+    - dataset/raw/meta.json          # provenance + generation parameters
+    - dataset/raw/LICENSE-EuroSAT.txt # upstream MIT notice for redistributed imagery
+problem_description: problem-description.md
+rubrics: rubrics.md
+prepare:
+  script: prepare.py                 # exposes prepare(raw, public, private)
+  public:
+    - prepared/public/images/              # images referenced by either split
+    - prepared/public/train.csv            # row_id, image_id, true_class, target_class
+    - prepared/public/train_response.csv   # row_id + r0..r399 — full measured response
+    - prepared/public/test.csv             # rows to predict for
+    - prepared/public/ops.csv              # op_index, op_name, strength_param
+    - prepared/public/sample_submission.csv
+  private:
+    - prepared/private/answers.csv         # row_id + r0..r399 for test rows
+  split_note: "Split is BY IMAGE, not by row: an image contributes up to 9 rows
+    (one per non-true target), so a row-level split would leak. prepare.py also
+    drops images the hidden model misclassifies when clean, and drops rows whose
+    target is unreachable (max p_target < 0.30), so every graded row is winnable."
+grade:
+  script: grade.py                   # exposes grade(submission, answers)
+  usage: "python grade.py submission.csv prepared/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [row_id, op1, op2]
+  metric: mean_row_normalised_target_response
+  metric_formula: "mean_i (v_i[op1*20+op2] - min(v_i)) / (max(v_i) - min(v_i)),
+    where v_i is the 400-vector of p_hidden(target_class | pair) for row i"
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- anchors measured on the SHIPPED dataset (10,430 train / 7,045 test rows),
+  #      image-grouped 80/20 validation split, seed 0 ---- #
+  constant_best: 0.175               # single best fixed pair, fit on train
+  class_target_lookup: 0.702         # best pair per (true_class, target_class) — strong cheap baseline
+  reference_surrogate: 0.806         # CNN surrogate of the response surface, 40 epochs
+  reference_solution_score: 0.816    # 3-seed ensemble, GRADED ON THE PRIVATE TEST SET
+                                     # (validation said 0.814 -> the image-grouped split
+                                     #  is honest; no overfit)
+  oracle: 1.000
+  # ---- earlier 700-image probe, retained for the design record ---- #
+  probe_random_pair: 0.077           # uniformly random pair
+  probe_target_lookup: 0.479         # best pair per target class alone
+  reference_runtime: "28.7 min for 3x40 epochs on Apple MPS; materially faster on 1x A10G"
+  note_band: "Difficulty is EMPIRICAL, measured on real recorded behaviour.
+    The design was gated explicitly against the constant-answer failure mode:
+    an untargeted variant of this task let a class-lookup heuristic reach 0.907,
+    so the task was made TARGETED, which dropped the same heuristic to 0.689
+    on that probe (0.702 on the shipped dataset) and
+    raises distinct winning pairs from 84/400 to 221/400. Within-(class,target)
+    argmax agreement is 36%, so the answer is genuinely image-specific."
+submission:
+  filename: submission.csv
+  columns: [row_id, op1, op2]
+  rows: one per row_id in test.csv
+reference_solution: solution.ipynb
+environment: kaggle-python-docker-image   # 1x NVIDIA A10G, 10 cores / 62 GB, <1.5h

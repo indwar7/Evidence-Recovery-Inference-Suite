@@ -1,0 +1,176 @@
+# Challenge configuration — What Does It Do In There?
+name: fda-moa-from-pharmacology
+title: "What Does It Do In There?"
+domain: natural-language-processing
+tags: [text, set-selection, biomedical, generation]
+
+dataset:
+  name: fda-pharmacology-mechanism-assignments
+  title: "Mechanism Withheld: U.S. Drug Label Pharmacology Sections Paired
+    With the FDA's Own Mechanism-of-Action Class Assignments"
+  short_title: "Mechanism Withheld (openFDA Drug Labels)"
+  description: dataset-description.md
+  generator: dataset/generator/build_raw.py
+  source_data: "REAL prescription drug label text end to end. Each record is
+    one label's Clinical Pharmacology section paired with the
+    mechanism-of-action class(es) the FDA itself recorded in that label's
+    openfda block, drawn from the NDC pharmacologic class vocabulary. The
+    class assignment is FDA's own structured field, not an annotation created
+    for this dataset and not inferred from the text. The only transformation
+    applied is masking: every word appearing in any MoA class name in the
+    corpus is replaced with [MASK], because 57% of labels otherwise state
+    their own mechanism verbatim (measured). No model output anywhere; the
+    unmasked text is never written to disk."
+  source_url: "https://api.fda.gov/drug/label.json"
+    # openFDA Drug Label endpoint. Verified live (HTTP 200) on 2026-09-25,
+    # 262,887 labels. This dataset uses the 7,979 carrying BOTH an FDA
+    # mechanism-of-action class and a Clinical Pharmacology section.
+    # Only the DRUG LABEL endpoint is used: device endpoints carry GMDN
+    # nomenclature that openFDA notes is separately licensed and NOT covered
+    # by the CC0 dedication.
+  distinctness: "The solver is given a drug's pharmacological behaviour with
+    the mechanism vocabulary masked out, plus a per-row pool of twelve
+    candidate mechanism classes, and must select the subset FDA assigned. This
+    is not classification: the candidate pool is handed over in the row itself
+    and differs per row, so the same class is a correct answer on one row and
+    a distractor on another, and the number of correct answers is unknown and
+    variable. It is not keyword matching either -- the masking is measured to
+    block 89% of the label-class pairs that were keyword-recoverable before
+    it. No public benchmark poses masked-pharmacology mechanism recovery
+    against a regulator's own class assignments."
+  citation: "openFDA Drug Label API, U.S. Food and Drug Administration,
+    https://api.fda.gov/drug/label.json, retrieved 2026-09. The masking
+    scheme, candidate-pool construction, split and metric are original work
+    for this challenge."
+  license: "CC0 1.0"
+  license_url: "https://open.fda.gov/license/"
+  license_note: "openFDA states: 'unless otherwise noted, the content, data,
+    documentation, code, and related materials on openFDA is public domain
+    and made available with a Creative Commons CC0 1.0 Universal dedication.'
+    Verified by reading open.fda.gov/license directly on 2026-09-25. The
+    'unless otherwise noted' carve-out is real and was checked: device records
+    carry GMDN Agency nomenclature under a separate licence, so no device
+    endpoint is used -- only drug/label.json. openFDA's own disclaimer (data
+    should not be relied on for medical decisions; results are unvalidated) is
+    reproduced in dataset-description.md, in the problem description's
+    Not-suitable-for section, and in dataset/raw/ATTRIBUTION.txt."
+  raw_files:
+    - dataset/raw/labels.jsonl          # one masked label + its MoA classes
+    - dataset/raw/mask_vocabulary.json  # the mask terms and exempt stopwords
+    - dataset/raw/meta.json             # provenance, filters, sha256
+    - dataset/raw/ATTRIBUTION.txt       # source, licence, FDA disclaimer
+
+problem_description: problem-description.md
+rubrics: rubrics.md
+task_type: set_selection   # submitted artifact is a variable-size subset of a
+                            # per-row candidate pool -- not a label from a
+                            # fixed vocabulary
+
+prepare:
+  script: prepare.py               # exposes prepare(raw, public, private); seed 20260925
+  public:
+    - dataset/public/train.csv               # row_id, route, pharmacology,
+                                              # candidates, moa_classes
+    - dataset/public/test.csv                # same, without moa_classes
+    - dataset/public/sample_submission.csv   # row_id, moa_classes (first candidate)
+    - dataset/public/dataset_stats.json      # split counts + build drops; no
+                                              # test-label-derived statistic
+    - dataset/public/validate_submission.py
+  private:
+    - dataset/private/answers.csv            # row_id, candidate_pool, moa_classes
+      #   moa_classes is the ONLY target. candidate_pool is test.csv's
+      #   `candidates` under a DIFFERENT column name -- the grader needs the
+      #   pool to compute the chance correction, and a shared column NAME
+      #   between test.csv and answers.csv reads to the platform as a leaked
+      #   target. prepare.py asserts the two are equal row for row at build
+      #   time.
+  split_note: "Split is BY SHARED ACTIVE INGREDIENT, never by row. Every
+    ingredient is reduced to its moiety (salt and ester words dropped), labels
+    sharing ANY ingredient are joined by union-find, and each group lands
+    wholly in train
+    or wholly in test. Exact-duplicate masked texts are collapsed first, then
+    near-duplicates by a word-5-gram shingle signature, because the same label
+    is routinely resubmitted with trivial edits. A class must have at least 20
+    supporting labels AND appear in both splits, or it is dropped from pools
+    and targets -- otherwise a test row could require a class no training
+    example ever demonstrates. Candidate pools are fixed at 12 so pool size
+    cannot signal how many are true; distractors are sampled with probability
+    proportional to train-side class frequency so that 'pick the most frequent
+    candidate' is not a strategy; pool order is shuffled with a per-row seed
+    derived from the row id so position carries nothing. No numeric feature
+    column is published: text length is derivable from the text and its long
+    tail reads as an extreme-outlier column to the platform profiler."
+
+grade:
+  script: grade.py                 # exposes grade(submission, answers)
+  usage: "python grade.py submission.csv --answers dataset/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [row_id, moa_classes]
+  metric: chance_corrected_set_f1
+  metric_formula: "Per row: F1 = 2|P n T| / (|P| + |T|) between the predicted
+    and true class sets, both intersected with the row's candidate pool. Then
+    E[F1] = 2(|P||T|/n) / (|P| + |T|), the expected F1 of a uniformly random
+    size-|P| subset of the row's n-candidate pool, and
+    score = max(0, (F1 - E[F1]) / (1 - E[F1])). Mean over rows, in [0, 1]. A
+    class outside the row's pool is dropped before scoring rather than
+    penalised. A duplicated row_id has all its rows discarded and scores 0; a
+    missing row scores 0; only a missing required column raises
+    InvalidSubmission."
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- anchors measured on the shipped split (505 train / 125 test) ---- #
+  blank_submission: 0.000
+  select_all_twelve: 0.000            # exactly 0 by construction of the metric
+  sample_submission_first_candidate: 0.070
+  position_0_only: 0.070
+  random_one_from_pool: 0.085         # mean of 50 seeds -- NOT ~0: per-row
+                                       # scores are clipped at 0, so luck counts
+  random_with_correct_set_size: 0.106 # mean of 50 seeds
+  position_1_only: 0.107
+  random_two_from_pool: 0.113         # mean of 50 seeds
+  text_length_only_probe: 0.116
+  most_frequent_in_pool_k3: 0.137
+  most_frequent_in_pool_k2: 0.180
+  most_frequent_in_pool_k1: 0.193     # strongest content-free probe
+  reference_solution_score: 0.462     # solution.ipynb, one-vs-rest + pool
+                                       # intersection, CPU, ~15 s end to end
+  oracle_name_one_true_class: 0.806   # DIAGNOSTIC ceiling for a k=1 solver
+  oracle_name_two_true_classes: 0.929 # DIAGNOSTIC
+  oracle: 1.000
+  note_band: "Every number above is measured on the shipped split.
+
+    (1) THE METRIC. Raw set F1 was rejected: the class distribution is skewed
+    and, on a 1,001-label sample before the split existed, always naming the
+    single most common class scored 0.182 raw F1 while reading nothing.
+    Subtracting the expected F1 of a same-size random draw from the row's own
+    pool makes padding worthless -- naming all twelve scores exactly 0.000 --
+    but it does NOT send random guessing to zero: per-row scores are clipped
+    at 0, so a random single guess scores 0.085 and a random pair 0.113. The
+    correction compresses every content-free strategy into 0.070-0.193.
+
+    (2) THE MASKING. Before it, 57% of labels stated their own mechanism
+    verbatim. The mask vocabulary is built corpus-wide from every class name,
+    never from the row's own class. Measured: 1,860 of 2,082 sampled
+    label-class pairs stopped being keyword-recoverable.
+
+    (3) THE SPLIT. Splitting on the exact ingredient combination left 30 of
+    165 test rows sharing an ingredient with train (e.g. dexamethasone alone
+    in train, dexamethasone + neomycin + polymyxin B in test). The split now
+    reduces every ingredient to its moiety, joins labels sharing ANY
+    ingredient by union-find, and holds out whole groups; prepare.py asserts
+    no test label shares an ingredient with train. dataset_stats.json carries
+    nothing derived from test labels.
+
+    The band: the strongest content-free probe (most frequent pool class,
+    0.193) sits 0.27 below the reference (0.462), and the diagnostic ceilings
+    (0.806 for a perfect one-class solver, 0.929 for two) leave substantial
+    headroom above it."
+
+submission:
+  filename: submission.csv
+  columns: [row_id, moa_classes]
+  rows: one per row_id in test.csv
+
+reference_solution: solution.ipynb
+environment: kaggle-python-docker-image   # CPU only, no GPU, <1.5h

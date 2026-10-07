@@ -1,0 +1,165 @@
+# Challenge configuration — The Vanished Clause
+name: ecfr-amendment-reversal
+title: "The Vanished Clause"
+domain: natural-language-processing
+tags: [text, seq2seq, legal, generation]
+
+dataset:
+  name: ecfr-amendment-pairs
+  title: "The Vanished Clause: Paired Before-and-After Wording of Amended
+    U.S. Federal Regulations, on the eCFR's Own Recorded Amendment Dates"
+  short_title: "The Vanished Clause (eCFR Amendment Pairs)"
+  description: dataset-description.md
+  generator: dataset/generator/build_raw.py
+  source_data: "REAL published regulation text end to end. Each record is one
+    CFR section captured on two consecutive dates the eCFR's versioner API
+    itself records as substantive amendment dates; text_before and text_after
+    are the agency's own published wording on those dates, retrieved from the
+    /full/{date}/title-{n}.xml endpoint. The amendment boundary is the
+    archive's recorded amendment_date, not a boundary this dataset invented.
+    No annotation, no model output, no rewriting -- only XML markup, the
+    eCFR's forward-reference amendment banner and its editorial notes are
+    stripped, because each of those names the amendment date or narrates the
+    change and would hand over the answer."
+  source_url: "https://www.ecfr.gov/api/versioner/v1/titles.json"
+    # Official eCFR developer documentation for the versioner API actually
+    # used. Verified live (HTTP 200) on 2026-09-25. The API base is
+    # https://www.ecfr.gov/api/versioner/v1; note the /full/ endpoint REQUIRES
+    # an Accept-Encoding header permitting compression and returns HTTP 406
+    # without one.
+  distinctness: "The solver is given a regulation as it reads AFTER an
+    amendment and must reconstruct how it read BEFORE -- the inverse of the
+    edit an agency actually made. This is not diff application: the Federal
+    Register instruction that produced each change ('remove the words X and
+    add in their place Y') is deliberately withheld, so the change must be
+    inferred from how the surviving text reads rather than executed from a
+    script. It is not summarisation or style transfer either: the target is a
+    specific prior wording that existed, and only the tokens the amendment
+    removed are scored, so fluent regulatory prose that misses the removed
+    language earns nothing. No public benchmark poses amendment inversion on
+    regulation text with archive-recorded version boundaries."
+  citation: "Electronic Code of Federal Regulations (eCFR), Office of the
+    Federal Register, National Archives and Records Administration, and the
+    U.S. Government Publishing Office. Retrieved via the versioner API v1,
+    2026-09. The task construction, filtering, split and metric are original
+    work for this challenge."
+  license: "U.S. Government Work"
+  license_url: "https://www.ecfr.gov/api/versioner/v1/titles.json"
+  license_note: "Under 17 U.S.C. 105, works of the United States Government
+    are not subject to copyright protection in the United States and are in
+    the public domain. The Code of Federal Regulations is prepared by the
+    Office of the Federal Register (NARA) and published with the U.S.
+    Government Publishing Office. The eCFR is an editorial compilation and is
+    NOT the official legal edition of the CFR; this is stated in
+    dataset-description.md, in the problem description's Not-suitable-for
+    section, and in dataset/raw/ATTRIBUTION.txt."
+  raw_files:
+    - dataset/raw/amendments.jsonl   # one (before, after) pair per record
+    - dataset/raw/meta.json          # provenance, filters, sha256
+    - dataset/raw/ATTRIBUTION.txt    # source, licence, 17 U.S.C. 105 notice
+
+problem_description: problem-description.md
+rubrics: rubrics.md
+task_type: sequence_generation   # submitted artifact is free text: the prior
+                                  # wording of the section, scored on the
+                                  # tokens the amendment removed
+
+prepare:
+  script: prepare.py               # exposes prepare(raw, public, private); no RNG -- the
+                                  # split is a deterministic sorted search, so no seed exists
+                                  # and none is published (Target Recoverability)
+  public:
+    - dataset/public/train.csv               # row_id, text_after, text_before
+    - dataset/public/test.csv                # row_id, text_after
+    - dataset/public/sample_submission.csv   # row_id, text_before (input copied through)
+    - dataset/public/dataset_stats.json
+    - dataset/public/validate_submission.py
+  private:
+    - dataset/private/answers.csv            # row_id, shown_text, text_before
+      #   text_before is the ONLY target. shown_text is test.csv's text_after
+      #   under a DIFFERENT column name -- the grader needs the shown wording
+      #   to decide which tokens the amendment changed, and a shared column
+      #   NAME between test.csv and answers.csv reads as a leaked target.
+      #   prepare.py asserts the two are equal row for row at build time.
+  split_note: "No title, part or section_name is published, and the
+    section's own number is masked as [SECTION] in text_after and
+    text_before alike: together they address the section in the eCFR version
+    history, which returns every prior wording directly. Test holds exactly
+    ONE pair per section (its latest amendment); the rest of that section's
+    chain is dropped, because one pair's text_after is the next pair's
+    text_before -- on the previous build 10 of 161 test rows were answered
+    verbatim by another test row. Test rows are ordered by a hash of the
+    record id, so row order carries nothing. Split is BY CFR PART, never by
+    row: every section of a given part lands entirely in train or entirely
+    in test. Parts share defined
+    terms, drafting conventions and cross-references heavily, so a part-mixed
+    split would let those be memorised rather than generalised. Section
+    disjointness across splits is implied and asserted anyway. Exact-duplicate
+    text_after values are collapsed BEFORE splitting, because two different
+    sections can carry identical boilerplate and a duplicated input spanning
+    the split is a leak even when the sections differ. Which parts are held
+    out is chosen deterministically for about 350 test rows. No
+    numeric feature column is published: a character count is derivable from
+    the text and its long tail reads as an extreme-outlier column to the
+    platform profiler."
+
+grade:
+  script: grade.py                 # exposes grade(submission, answers)
+  usage: "python grade.py submission.csv --answers dataset/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [row_id, text_before]
+  metric: gap_anchored_changed_token_f1
+  metric_formula: "Per row: align the shown wording (answers.shown_text) to
+    the true prior wording with an LCS backtrace; every token of the truth not
+    matched through from the shown text is a CHANGED token, keyed as (gap,
+    token) where gap = the number of shown tokens before it in the alignment.
+    Align the shown wording to the PREDICTION the same way to get the
+    prediction's proposed (gap, token) pairs. hits = multiset intersection;
+    score = F1 of hits against |changed| and |proposed|. A row with no changed
+    token scores 1 if the prediction equals the shown text, else 0. Mean over
+    rows. Shared runs of >= 8 tokens found by difflib are fixed as anchors
+    and the exact LCS runs between them, which keeps a full grade to ~2 s.
+    Deriving both sides by the same alignment is what lets the true prior
+    wording score exactly 1.0."
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- anchors measured on the shipped split (353 test rows) ---- #
+  blank_submission: 0.000
+  copy_input_through: 0.000            # the sample submission
+  vocabulary_dump_appended: 0.012      # adversarial; BANNED by rule + rubric.
+                                        # 0.129 under the old position-free metric
+  vocabulary_dump_in_located_sentence: 0.002  # gap-aware adversary
+  retrieval_nearest_prior_sentence: 0.000
+  substitution_table_one_edit: 0.003   # reference_solution.py
+  substitution_table_edit_all: 0.009
+  reference_solution_score: 0.002  # solution.ipynb, as executed end to end
+  ceiling_swap_one_sentence: 0.749     # DIAGNOSTIC, uses the truth
+  ceiling_swap_all_sentences: 0.933    # DIAGNOSTIC, uses the truth
+  oracle: 1.000
+  note_band: "Every number is from running the stated submission against the
+    shipped answers file. Two leaks found in this revision are closed by
+    construction and asserted in prepare.py: (1) same-section chains -- on
+    the previous build 10 of 161 test rows had another test row's text_after
+    as their exact answer (worth 0.062 against a 0.104 reference); test now
+    holds one pair per section. (2) Fetcher remnants -- the banner/note
+    stripper stopped at the '.' of a month abbreviation and left '21, 2024.'
+    in 677 raw text_before values, and the OFR source note named the amending
+    FR document; both are now cut in prepare.py, which also turned 254 pairs
+    whose only change was the citation into identical pairs that are dropped.
+    With the remnants gone, the old position-free metric still let a
+    content-free dump of the 60 commonest removed tokens score 0.129, so
+    matching is now keyed by gap: the same dump scores 0.012. Difficulty: the
+    median amendment touches 4 sentences, a char-n-gram locator ranks an
+    amended sentence first only 51% of the time, and perfectly reverting the
+    single most-changed sentence is worth 0.749 -- so locating well and
+    regenerating one passage well is where the score is. Every lookup
+    baseline sits at or below 0.009 because the split is part-disjoint."
+
+submission:
+  filename: submission.csv
+  columns: [row_id, text_before]
+  rows: one per row_id in test.csv
+
+reference_solution: solution.ipynb
+environment: kaggle-python-docker-image   # 1x NVIDIA A10G, 10 cores / 62 GB, <1.5h

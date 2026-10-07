@@ -1,0 +1,123 @@
+# Challenge configuration — Digitization Pipeline Attribution
+name: pipeline-attribution
+title: "Digitization Pipeline Attribution"
+domain: natural-language-processing
+dataset:
+  name: pipeline-attribution-dataset
+  title: "Real NDNP Newspaper OCR Text With Its Own Digitization Batch Identity"
+  short_title: "NDNP OCR Batch-Fingerprint Corpus"
+  description: dataset/dataset-description.md
+  generator: dataset/generator/build_raw.py    # resumable fetch, rate-limited by source
+  source_data: "REAL historical newspaper text end to end. Text is the actual
+    uncorrected OCR output of a real digitization vendor's pipeline; the label
+    is that batch's own recorded identity in the Library of Congress's NDNP
+    program, not a human annotation or another model's output. Real per-batch
+    OCR-vendor metadata (softwareCreator/softwareName/processingAgency) is
+    read directly from each batch's ALTO XML."
+  source_url: "https://chroniclingamerica.loc.gov/data/batches/"
+  distinctness: "This is not OCR accuracy benchmarking (which scores against a
+    corrected transcript) and not authorship/stylometry (which separates
+    writers, not processing pipelines, and is deliberately confounded with
+    topic in this design's construction -- every snippet in a bag is a
+    DIFFERENT article). The label recovered is a digitization PIPELINE's
+    identity, evidenced only by its systematic character-error fingerprint."
+  citation: "National Digital Newspaper Program (NDNP), Library of Congress.
+    Chronicling America bulk data, fetched 2026-08-12."
+  license: "NDNP admits only newspaper titles/runs the contributing state
+    institution has independently confirmed rights-clear for digitization and
+    public redistribution. Issue dates in this fetch span ~1831-1960, past the
+    unconditional pre-1929 public-domain boundary for a real fraction of
+    snippets; per-issue rights were not independently re-verified by this
+    fetch. See dataset/raw/ATTRIBUTION.txt for the full caveat."
+  raw_files:
+    - dataset/raw/snippets.jsonl        # snippet_id, batch_id, lccn, issue_date, text
+    - dataset/raw/batches_meta.csv      # per-batch counts + real vendor metadata
+    - dataset/raw/meta.json             # fetch provenance and statistics
+    - dataset/raw/skip_log.csv          # skipped candidate batches and why
+    - dataset/raw/ATTRIBUTION.txt
+problem_description: problem-description.md
+rubrics: rubrics.md
+prepare:
+  script: prepare.py                  # exposes prepare(raw, public, private); seed 20260812
+  public:
+    - dataset/public/train.csv                  # snippet_id, text, batch_id (flat, labeled)
+    - dataset/public/test.csv                   # row_id, bag_id, snippet_id, text (bag-structured)
+    - dataset/public/sample_submission.csv      # every snippet in group 0 (valid, scores 0.000)
+    - dataset/public/dataset_stats.json
+    - dataset/public/validate_submission.py     # offline structural checks, no answers needed
+  private:
+    - dataset/private/answers.csv               # row_id, bag_id, snippet_id, batch_id
+  split_note: "Split is BATCH-DISJOINT (open-set): the 16 test batches never
+    appear in train's 19 batches. This forces a solver to learn a general
+    notion of pipeline-fingerprint similarity rather than memorize a closed
+    vocabulary of known batch identities -- and blunts a measured shortcut
+    (see below). Each test bag draws 3-5 distinct test batches and 3-8
+    snippets per chosen batch, both randomized per bag."
+grade:
+  script: grade.py                    # exposes grade(submission, answers)
+  usage: "python grade.py submission.csv dataset/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [row_id, bag_id, snippet_id, group_label]
+  metric: mean_per_bag_adjusted_rand_index
+  metric_formula: "For each test bag, compute the Adjusted Rand Index (ARI)
+    between the submitted group_label partition and the true batch_id
+    partition of that bag's snippets, clipped to [0, 1]. Average over all
+    bags. ARI is chance-normalized: both degenerate submissions (everyone in
+    one group, or every snippet its own group) score exactly 0.0. group_label
+    values are arbitrary and never need to match across bags or name the real
+    batch -- only relative co-membership within a bag is scored, so no
+    matched-assignment/Hungarian alignment step is needed or used."
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- anchors measured on the SHIPPED dataset by work/baselines.py ---- #
+  all_same_or_singleton: 0.000
+  artifact_position_length_only: 0.021        # no content read -- confirms no structural leak
+  random_partition: 0.024
+  adversarial_global_clustering_realistic: 0.072   # ignores bag boundaries, silhouette-estimated k
+  single_scalar_kmeans: 0.096
+  full_features_unsupervised_perbag: 0.099
+  charcnn_embedding_perbag: 0.133
+  adversarial_global_clustering_oracle_k: 0.139    # same attack, told the true k (unrealistic)
+  reference_solution_score: 0.316             # RandomForest-probability embedding, GRADED
+  oracle: 1.000
+  note_band: "Difficulty and safety were both established empirically, not
+    assumed, through two rounds of real bugs found and fixed. (1) The metric
+    was changed after measurement: raw pairwise co-membership F1 let
+    'everyone in one group' score 0.376, ABOVE a trained reference's 0.289 --
+    Adjusted Rand Index was substituted because it chance-corrects exactly
+    this failure (both degenerate baselines now score 0.000). (2) The
+    measurement harness itself had a scoring bug (assignments keyed by bare
+    snippet_id, silently overwritten when a snippet was reused across
+    different bags by design) that understated every trained approach's true
+    score; caught by a large, unexplained gap against an independently
+    written reference_solution.py, fixed, and every number below is
+    post-fix. A real adversarial attack -- global unsupervised clustering
+    across the whole test corpus, ignoring bag boundaries, exactly the
+    'exploit-a-dataset-artifact-instead-of-a-generalizable-model' shortcut
+    class -- was built and measured before freezing the spec. At the shipped
+    45%-test-batch split it is beaten by the reference by a wide margin
+    under both realistic conditions (0.072 vs 0.316) and a fair
+    oracle-vs-oracle comparison (0.139 vs 0.329); see DESIGN.md 'the
+    adversarial finding' for the full honest writeup, including why holding
+    out MORE test batches (55%) made the gap worse, not better, in earlier
+    (pre-bugfix) testing."
+  band_evidence: "Nine measured points, strictly ordered up to the reference:
+    0.000 / 0.021 / 0.024 / 0.072 / 0.096 / 0.099 / 0.133 / 0.139 / 0.316,
+    reference clearly on top of every non-oracle baseline including the
+    adversarial attack. Notably the char-CNN embedding (0.133) underperforms
+    the simpler hand-crafted-feature RandomForest approach (0.316) at this
+    data scale -- reported as a genuine finding, not smoothed over; it
+    indicates real headroom above the shipped reference for a stronger
+    encoder."
+  split_stratification: "45% of the 35 real batches (16) held out for test,
+    batch-disjoint from the 19 train batches. This ratio is the empirically
+    safest point found, not a rounded convention -- 30% left the shortcut
+    dominant (0.113 vs 0.095 reference); 55% made the trained reference worse
+    (fewer train batches) without proportionally hurting the attacker."
+submission:
+  filename: submission.csv
+  columns: [row_id, bag_id, snippet_id, group_label]
+  rows: one per row_id in test.csv
+reference_solution: solution.ipynb
+environment: kaggle-python-docker-image   # 1x NVIDIA A10G, 10 cores / 62 GB, <1.5h

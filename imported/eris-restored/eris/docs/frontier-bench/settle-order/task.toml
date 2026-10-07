@@ -1,0 +1,39 @@
+schema_version = "1.3"
+
+artifacts = ["/app/src/store.py"]
+
+[task]
+name = "afterquery/settle-order"
+
+[metadata]
+author_name = "Abhay Indwar"
+author_email = "aseem12321@gmail.com"
+
+difficulty_explanation = "The instruction names no single bug. It points at a written set of rules and asks for an engine that obeys all of them at once and stays fast. The trap is that two of the rules fight each other: a formula is evaluated only when something needs it, and a formula whose result comes out equal to what it already held has not changed, so nothing downstream of it may be evaluated because of it. Together they mean the set of cells that need evaluating cannot be decided at write time — whether a cell needs work depends on results that do not exist yet, and some of those will come back as no change and stop the walk. The two obvious designs each fail a different half. Marking everything downstream of a write and recomputing it in dependency order is consistent and correct on values, but it evaluates cells nobody asked for and does work proportional to the store, which the timed run rejects. A plain recursive pull that recomputes a cell whenever a source is stale is lazy but evaluates a shared cell twice down a diamond and can hand two branches values from different moments. On top of that, dependencies must be exactly what the last evaluation read so an untaken branch stops waking the cell, peek must never create one, hooks must run in creation order rather than discovery order, cleanup must run immediately before a re-run and again on disposal, writes from inside a hook must open another pass and give up after a hundred, and disposal must be permanent. Fixing any one of these in isolation leaves the others wrong, and the grader compares evaluation counts, not just answers, so an engine that is right about values and wrong about how often it computed them fails. That is framework-runtime work that takes an expert most of a day, not a small edit."
+
+solution_explanation = "Keep two grades of staleness instead of one. A write marks its direct observers definitely-stale and everything further downstream maybe-stale, and stops descending at the first cell already marked, because that cell's observers were marked when it was first marked. Nothing is evaluated at that point. Evaluation happens only when a value is demanded — a read from outside, or a hook that has to run. Resolving a maybe-stale cell walks its sources first; if none of them reports an actual change it is clean and is never evaluated. A formula that recomputes to an equal value notifies nobody, so the maybe-stale walk below it resolves to clean and stops there, which is what makes the cost follow the change. Dependencies are rebuilt from what each evaluation actually read and the links it no longer uses are dropped, so an untaken branch stops mattering. Hooks are collected in a pending set and run in creation order each pass; writes made from inside a hook body join the settle rather than starting their own, and a write that reaches a cell which is evaluating right now marks it to run again, which is what turns a hook that writes its own dependency into a hundred passes and then UnstableGraph rather than a silent single run. This is the design a runtime engineer converges on, and the reason it is not a lookup is that the rule bundle here does not match any one published engine."
+
+verification_explanation = "The verifier runs in its own container and takes only the agent's /app/src/store.py. That file is imported only inside sut_runner.py, which runs as an unprivileged user with its import path pointed at a directory holding just the store, a neutral driver, and the runner, so submitted code cannot reach the reference or the expected answers. The reference, generator and tests are copied to a root-only directory. pytest runs as root, never imports the store, and decides the reward from its own exit status; /logs/verifier/reward.txt is root owned and set to 0 before any submitted code runs, so the runner cannot forge a pass. The suite checks sixteen hand-derived corner cases against hardcoded answers, self-checks the reference against those same answers so a drifting reference fails rather than redefining the task, runs fifty randomised differential programs against the reference, and runs one timed schedule with a twenty-five second ceiling that an engine which keeps idle cells current cannot meet while still requiring the three reads at the end to be correct. Comparison is on observable events in order — hook runs, cleanups, reads and their values, disposals, exception classes — plus the number of times each formula cell was evaluated, which is what stops an engine that gets the values right by computing far too much. Reward is 1 only when every check passes."
+
+category = "Software"
+subcategory = "Frontend"
+
+tags = ["frontend", "algorithms", "incremental-computation", "python", "performance"]
+
+expert_time_estimate_hours = 7
+
+relevant_experience = "REPLACE THIS WITH YOUR OWN WORDS BEFORE SUBMITTING. It must describe your real professional experience with this kind of work - building or debugging UI state layers, incremental recomputation, or framework internals - and it is read by a human reviewer to judge whether this is genuine expert work."
+
+[verifier]
+timeout_sec = 1800.0
+environment_mode = "separate"
+
+[agent]
+timeout_sec = 10800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0

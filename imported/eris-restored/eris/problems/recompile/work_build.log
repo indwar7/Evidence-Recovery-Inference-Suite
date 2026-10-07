@@ -1,0 +1,29 @@
+resuming with 4 items already on disk
+candidate rules: 1678
+  prefetching 3287 eCFR section snapshots with 8 workers
+    eCFR section snapshots 50/3287
+    prefetch fail ecfrsec:2021-01-12:47:73:73.622: HTTP Error 429: Too Many Requests
+    eCFR section snapshots 100/3287
+    eCFR section snapshots 150/3287
+    eCFR section snapshots 200/3287
+    eCFR section snapshots 250/3287
+    prefetch fail ecfrsec:2021-02-01:5:2634:2634.701: HTTP Error 429: Too Many Requests
+    prefetch fail ecfrsec:2021-02-01:33:165:165.752: HTTP Error 429: Too Many Requests
+    eCFR section snapshots 300/3287
+    prefetch fail ecfrsec:2021-02-02:17:232:232.301: HTTP Error 429: Too Many Requests
+    eCFR section snapshots 350/3287
+    eCFR section snapshots 400/3287
+    eCFR section snapshots 450/3287
+    eCFR section snapshots 500/3287
+    prefetch fail ecfrsec:2021-02-12:30:1206:1206.143: HTTP Error 429: Too Many Requests
+    eCFR section snapshots 550/3287
+    prefetch fail ecfrsec:2021-02-15:17:200:200.23a: HTTP Error 429: Too Many Requests
+    eCFR section snapshots 600/3287
+    eCFR section snapshots 650/3287
+    eCFR section snapshots 700/3287
+    eCFR section snapshots 750/3287
+    prefetch fail ecfrsec:2021-02-25:29:22:22.39: HTTP Error 429: Too Many Requests
+    prefetch fail ecfrsec:2021-02-26:47:25:25.217: HTTP Error 429: Too Many Requests
+    eCFR section snapshots 800/3287
+    eCFR section snapshots 850/3287
+    eCFR section snapshots 900/3287

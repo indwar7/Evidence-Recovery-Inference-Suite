@@ -1,0 +1,25 @@
+# Large binary / data assets tracked via Git LFS
+*.zip        filter=lfs diff=lfs merge=lfs -text
+*.tar.gz     filter=lfs diff=lfs merge=lfs -text
+*.tgz        filter=lfs diff=lfs merge=lfs -text
+*.npy        filter=lfs diff=lfs merge=lfs -text
+*.npz        filter=lfs diff=lfs merge=lfs -text
+*.parquet    filter=lfs diff=lfs merge=lfs -text
+*.pkl        filter=lfs diff=lfs merge=lfs -text
+*.pt         filter=lfs diff=lfs merge=lfs -text
+*.pth        filter=lfs diff=lfs merge=lfs -text
+*.bin        filter=lfs diff=lfs merge=lfs -text
+*.safetensors filter=lfs diff=lfs merge=lfs -text
+*.db         filter=lfs diff=lfs merge=lfs -text
+*.sqlite     filter=lfs diff=lfs merge=lfs -text
+*.sqlite3    filter=lfs diff=lfs merge=lfs -text
+
+# Oversized text datasets (>45MB) — must be LFS to clear GitHub's 100MB cap
+problems/ror-names/dataset/raw/*.json      filter=lfs diff=lfs merge=lfs -text
+problems/prompt-atlas/dataset/raw/*.csv    filter=lfs diff=lfs merge=lfs -text
+problems/palimpsest/work/raw_pool/*.jsonl  filter=lfs diff=lfs merge=lfs -text
+problems/blind-spot/prepared/public/*.csv       filter=lfs diff=lfs merge=lfs -text
+problems/galaxy-blind-spot/prepared/public/*.csv filter=lfs diff=lfs merge=lfs -text
+dataset-builders/skeinsplit-corpus/*.csv   filter=lfs diff=lfs merge=lfs -text
+problems/slate-forensics/data/raw/*.csv     filter=lfs diff=lfs merge=lfs -text
+problems/slate-forensics/dataset/public/*.csv filter=lfs diff=lfs merge=lfs -text

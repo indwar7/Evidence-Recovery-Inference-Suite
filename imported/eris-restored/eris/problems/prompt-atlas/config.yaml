@@ -1,0 +1,64 @@
+# Challenge configuration -- Prompt Component Pair Response Atlas
+name: prompt-atlas
+title: "Prompt Component Pair Response Atlas"
+domain: prompt-engineering
+dataset:
+  name: prompt-response-atlas-dataset
+  description: dataset-description.md
+  generator: dataset/generator/gen_atlas.py    # deterministic; seed 20260803
+  source_data: "REAL news articles from MN-DS (Petukhova & Fachada, 2022), 10,917
+    hand-labelled articles from 44 sources against an IPTC-derived two-level
+    taxonomy, https://zenodo.org/records/7394851 (CC-BY 4.0). The response
+    measurements were produced by the task author by putting every one of the
+    256 ordered prompt-component pairs to a small open-weight instruction-tuned
+    classifier and recording its full 17-way answer distribution. No synthetic
+    text anywhere: the articles are real journalism, the responses are real
+    measured model behaviour."
+  source_url: "https://zenodo.org/records/7394851"
+  citation: "Petukhova, A. and Fachada, N., MN-DS: A Multilabeled News Dataset
+    for News Articles Hierarchical Classification, Zenodo, 2022.
+    DOI 10.5281/zenodo.7394851"
+  license: "CC-BY 4.0 -- commercial use permitted with attribution."
+  raw_files:
+    - dataset/raw/atlas.csv          # measured surface: 256 rows per article
+    - dataset/raw/articles.csv       # sampled articles, exactly as shown to the model
+    - dataset/raw/components.csv     # the sixteen prompt components
+    - dataset/raw/LICENSE_DATA.txt   # corpus licence and citation
+problem_description: problem-description.md
+rubrics: rubrics.md
+prepare:
+  script: prepare.py                 # exposes prepare(raw_dir, public_dir, private_dir)
+  public:
+    - prepared/public/train.csv              # labeled items, 3 targets per training article
+    - prepared/public/test.csv               # unlabeled items, answer_json withheld
+    - prepared/public/train_atlas.csv        # full measured surface, TRAINING articles only
+    - prepared/public/sample_submission.csv  # weak but valid submission
+  private:
+    - prepared/private/answers.csv           # one row per test id (first col); carries the
+                                             # measured probability for all 256 ordered pairs
+                                             # plus p_min, p_max and the truth record
+grade:
+  script: grade.py                   # exposes grade(submission, answers); DataFrame or path
+  usage: "python grade.py submission.csv --answers prepared/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [id, answer_json]
+  metric: atlas_score
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  weights:
+    steering: 0.30                   # measured, normalised within the item
+    helpful_component_f1: 0.12
+    harmful_component_f1: 0.10
+    default_category_exact: 0.10
+    best_first_component_exact: 0.08
+    top_competitor_exact: 0.08
+    order_sensitive_exact: 0.08
+    target_reachable_exact: 0.07
+    peak_probability_bin_exact: 0.07
+submission:
+  filename: submission.csv
+  columns: [id, answer_json]
+  rows: one per id in test.csv
+reference_solution: solution.ipynb
+environment: kaggle-python-docker-image

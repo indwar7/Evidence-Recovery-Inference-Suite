@@ -1,0 +1,159 @@
+# Challenge configuration — Budget-Constrained Index Construction
+name: budget-index
+title: "Budget-Constrained Index Construction"
+# NOT a retrieval-augmented-generation task: nothing is retrieved and nothing is
+# generated at evaluation time. The submitted artifact is a set of sentence
+# intervals and the metric reads those intervals directly, so the honest
+# description is budgeted span selection over text, with a knowledge-base
+# reconciliation step feeding it.
+domain: combinatorial-optimization
+subdomains: [information-extraction, text]
+task_type: budgeted-span-selection
+dataset:
+  name: budget-index-dataset
+  description: dataset/dataset-description.md
+  generator: dataset/generator/generate.py   # deterministic, seed 20260715, auto-tuned to gates
+  source_urls:
+    - name: mledoze/countries
+      url: https://raw.githubusercontent.com/mledoze/countries/v4.0.0/countries.json
+      pinned_to: tag v4.0.0
+      sha256: ad0ff314af7aff69224b8a25660c8eab0f14b29f505be11f2939214031e83099
+      licence: ODbL-1.0
+      supplies: [name, cca3, capital, region, area, num_borders, num_languages]
+    - name: World Bank World Development Indicators (SP.POP.TOTL, year 2024)
+      url: https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=20000&date=2024
+      sha256: d6e16192cdf34009fffa8dfa042362b36c96690d86bc7e68c4b0d2de3d9e66ec
+      licence: CC BY 4.0
+      supplies: [population]
+  source_builder: dataset/generator/build_kb.py   # rebuilds real_facts.json from the two URLs
+  source_data: "planted facts are REAL-WORLD country reference data pulled from
+    the two public, key-free endpoints above and frozen into real_facts.json
+    (214 countries), so the challenge itself needs no network; filler prose is
+    synthetic. Dataset licence: ODbL-1.0 (share-alike inherited from
+    mledoze/countries); World Bank population values are CC BY 4.0 and are
+    attributed in dataset/raw/real_facts.provenance.json"
+  raw_files:
+    - dataset/raw/documents.csv            # sentences + per-document budget_k
+    - dataset/raw/queries.csv              # includes hidden test supervision
+    - dataset/raw/meta.json                # verified score anchors + proven invariants
+    - dataset/raw/real_facts.json          # baked real-world country reference snapshot
+    - dataset/raw/real_facts.provenance.json  # source URLs, pinned refs, SHA-256 of inputs
+  archive:
+    path: dataset/budget-index-dataset.zip
+    # The generation script ships INSIDE the archive alongside the data, so the
+    # dataset is reproducible from the archive alone.
+    contents:
+      - documents.csv
+      - queries.csv
+      - real_facts.json
+      - meta.json
+      - generate.py
+      - build_kb.py
+      - real_facts.provenance.json
+      - dataset-description.md
+problem_description: problem-description.md
+rubrics: rubrics.md
+prepare:
+  script: prepare.py                    # exposes prepare(raw_dir, public_dir, private_dir)
+  public:
+    - prepared/public/documents.csv          # sentences + budget_k per document
+    - prepared/public/queries_train.csv      # 599 queries WITH evidence/poison ids (599)
+    - prepared/public/queries_test.csv       # 799 queries, question text only
+    - prepared/public/sample_submission.csv  # valid budget-respecting baseline
+    - prepared/public/real_facts.json        # real-world KB: needed to tell a fact
+                                             # from its poison twin (no textual tell)
+  private:
+    - prepared/private/answers.csv           # ONE ROW PER DOCUMENT, keyed by doc_id (first
+                                             # column, matches per-document submission);
+                                             # budget_k + token list + eval queries JSON-packed;
+                                             # docs ordered so leaderboard slices are
+                                             # representative
+grade:
+  script: grade.py                      # exposes grade(submission, answers); DataFrame or path
+  usage: "python grade.py submission.csv --answers prepared/private/answers.csv"
+  submission_file: submission.csv
+  metric: answerability                 # fraction of evaluation queries answered: some single
+                                        # index window holds all required sentences and no
+                                        # poison, within budget_k / non-overlap / 60-token rules
+  direction: maximize
+  min_score: 0.0                        # answerability is a fraction in [0, 1]
+  max_score: 1.0
+  verified_optimum: 0.7021              # EXACT ceiling, proven by per-document BUDGETED DP
+  sample_baseline: 0.1164               # first budget_k short windows (budget-blind)
+  fixed_size_baseline_best: 0.1389      # best budget-blind fixed-size tiling, any size
+  reference_solution_score: 0.6696      # = the ceiling; see anchors: for the full ladder
+
+# ---------------------------------------------------------------------------
+# Score anchors. EVERY value below was measured by running the named
+# implementation against prepared/private/answers.csv on this exact dataset.
+# ---------------------------------------------------------------------------
+anchors:
+  verified_optimum: 0.7021              # EXACT ceiling, proven by per-document BUDGETED DP at
+                                        # generation time; no submission can exceed it
+  reference_solution_score: 0.6696      # all numeric surfaces + all 4 question forms + DP
+  sample_baseline: 0.1164               # first budget_k short windows (budget-blind)
+  fixed_size_baseline_best: 0.1389      # best budget-blind fixed-size tiling, any size
+  no_kb_guess: 0.3517                   # evidence located, but no knowledge-base lookup:
+                                        # pick among the candidate sentences at random
+  shared_word_matching: 0.4706               # last-\d+-run integer equality (the obvious first draft)
+  train_lookup_matching: 0.4105             # + strips thousands separators
+  reference_matching: 0.6696            # meaning-based wording match + KB reconciliation
+  naive_allocator: 0.5770               # perfect identification, one minimal window per query
+  greedy_allocator: 0.7021              # perfect identification + greedy max-gain windows
+notes:
+  band: "MEASURED, not assumed. Budget-blind baselines score 0.1164-0.1389.
+    The middle of the ladder -- solutions that differ ONLY in how a question is
+    matched to the sentence answering it -- lands between 0.3517 and 0.6696.
+    The certified optimum 0.7021 is a hard ceiling and the reference solution
+    does not reach it (0.6696, locating evidence for 759/799 questions).
+    Contiguous answer slices are difficulty-stratified so leaderboard slices
+    track the full-set score."
+  skill_gradient: "The task was rebuilt specifically so that MATCHING STRATEGY,
+    not parser completeness, decides the score. A question and the sentence that
+    answers it word the attribute independently (88.6% of the workload), the
+    corpus carries 40 distinct attribute wordings, and 14 of those are held out
+    of the training split entirely -- appearing in 472 of the 799 evaluation
+    questions. A finite regex or a lookup harvested from training therefore
+    cannot cover the evaluation set.
+    Measured, with allocation held identical across all of them:
+      budget-blind sample                                       0.1164
+      best budget-blind tiling                                  0.1389
+      meaning-based wording match, but no KB reconciliation     0.3517
+      lookup harvested from the training split                  0.4105
+      matching by shared words (the old regex approach)         0.4706
+      meaning-based match + KB reconciliation (reference)       0.6696
+      certified ceiling                                         0.7021
+    Seven distinct scores; 0.3179 of spread comes from matching strategy alone.
+    Note the ordering is not a simple ladder: a solver that generalises across
+    wordings but skips the reference table (0.3517) scores WORSE than a cruder
+    shared-word matcher that does check values (0.4706). The two capabilities
+    are independent, which is why the task ranks solutions instead of sorting
+    them onto one line."
+  allocation_caveat: "HONEST LIMITATION: a greedy max-gain allocator ties the
+    exact budgeted DP at 0.7021. Exact optimization is NOT the graded skill and
+    the documentation does not claim it is; the DP provides the per-instance
+    PROOF of the ceiling. Budget-awareness still pays: holding identification
+    perfect, a one-window-per-query allocator scores 0.5770 against 0.7021.
+    That is a separate experiment from the matching ladder above and its number
+    must not be added to those."
+  closed_shortcuts: "three shortcuts are closed BY CONSTRUCTION and asserted at
+    generation time, with the build aborting on failure:
+    (1) value-frequency counting -- each false value is fixed per
+    (entity, attribute) pair and every true sentence is matched by exactly one
+    false sentence for that pair, so counts tie exactly, always;
+    (2) knowledge-base membership -- false values come from 72 real countries
+    that are in real_facts.json but NEVER appear as a question subject, so both
+    candidates are genuine entries;
+    (3) statistical priors -- the false sentence follows the true one 49.6% of
+    the time, the true value is larger 51.0% of the time, and digit lengths tie
+    on 98.4% of pairs."
+  degraded_incentives: "the per-document window budget makes indexing every
+    answerable region impossible; planted twins punish oversized and mis-chosen
+    windows; conflicting and unreachable questions make the optimum unattainable
+    from naive per-query windows"
+submission:
+  filename: submission.csv
+  columns: [doc_id, windows]
+  rows: one per doc_id in documents.csv (228)
+reference_solution: solution.ipynb      # runs in seconds CPU; scores 0.6696 vs ceiling 0.7021
+environment: kaggle-python-docker-image # CPU only; pandas suffices; 10 cores / 62 GB; <1.5h

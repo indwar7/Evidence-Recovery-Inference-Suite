@@ -1,0 +1,75 @@
+# Challenge configuration — Phantom Track: Appearance-Free Identity Re-Linking
+name: phantom-track
+title: "Phantom Track: Appearance-Free Identity Re-Linking"
+domain: object-detection            # multi-object tracking / data-association subproblem
+dataset:
+  name: phantom-track-dataset
+  description: dataset/dataset-description.md
+  generator: dataset/generator/generate.py   # deterministic scenes, seed 20260718
+  fetch: dataset/generator/fetch_porto.py     # re-derives the real-motion pool from HF (network)
+  source_data: "REAL data: every object's motion between the two frames is a real
+    15-second GPS displacement of a Porto taxi, taken from the ECML/PKDD-2015 Porto
+    taxi dataset (kraina/porto_taxi on the Hugging Face Hub, 442 taxis, ~15 s ping
+    cadence). 200k real displacement vectors are bundled as
+    dataset/raw/motion_pool.npz so generation is self-contained and needs no network.
+    Only the placement of objects within a scene is synthetic. Dataset license CC-BY-4.0."
+  raw_files:
+    - dataset/raw/motion_pool.npz          # bundled real Porto displacement vectors
+    - dataset/raw/points_train.csv         # train scenes: frame-A + frame-B positions
+    - dataset/raw/matches_train.csv        # train ground-truth links
+    - dataset/raw/points_test.csv          # test scenes: positions only
+    - dataset/raw/matches_test.csv         # hidden test links
+    - dataset/raw/meta.json                # params + verified score anchors
+problem_description: problem-description.md
+rubrics: rubrics.md
+prepare:
+  script: prepare.py                    # exposes prepare(raw_dir, public_dir, private_dir)
+  public:
+    - prepared/public/points_train.csv       # 4000 scenes, both frames, positions
+    - prepared/public/matches_train.csv      # 4000 scenes, true a_id -> b_id links
+    - prepared/public/points_test.csv        # 2500 scenes, positions only
+    - prepared/public/sample_submission.csv  # identity baseline (legal, ~random)
+  private:
+    - prepared/private/answers.csv           # hidden true links for the 2500 test scenes
+grade:
+  script: grade.py                      # exposes grade(submission, answers); DataFrame or path
+  usage: "python grade.py submission.csv --answers prepared/private/answers.csv"
+  submission_file: submission.csv
+  metric: link_accuracy                 # fraction of (scene_id, a_id) query objects whose
+                                        # submitted frame-B index equals the true one
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- verified score anchors, all measured on this exact dataset ----
+  provable_upper_bound: 0.8824          # RIGOROUS cap: each scene has 4 coincident hard pairs;
+                                        # the two frame-A points of a pair are identical, so any
+                                        # matcher is a coin flip on it -> expected <= 1 correct
+                                        # link per pair. Hence expected accuracy <= (34-4)/34.
+  bayes_optimal_est: 0.60               # realistic ceiling from position-only information
+                                        # (deterministic Monte-Carlo estimate); the reference
+                                        # sits essentially on it
+  reference_solution_score: 0.5906      # Hungarian global assignment on Euclidean cost
+  greedy_baseline: 0.4620               # naive per-object nearest-neighbour (double-books targets)
+  sample_baseline: 0.0296               # identity mapping (frame-B is shuffled -> ~random = 1/N)
+notes:
+  agent_band: "TARGET agent band is 0.5-0.7 by construction. A competent solver
+    recognises this as a global one-to-one assignment problem and runs the Hungarian
+    algorithm, scoring ~0.59 -- inside [0.5, 0.7]. The naive nearest-neighbour agent
+    scores ~0.46 (below band) because it double-books popular targets; no solver can
+    exceed ~0.60 from position alone, and none can exceed the provable 0.882 cap. The
+    density dial (BOX=2000 m) and objects-per-scene (N=34) set this band; both are
+    tunable in generate.py."
+  skill_gradient: "identity 0.03 -> greedy nearest-neighbour 0.46 -> global assignment
+    (Hungarian) 0.59 -> Bayes-optimal ~0.60. The 0.46->0.59 gap is the measured skill:
+    replacing greedy matching with a global one-to-one assignment. Coincident hard
+    pairs are provably unresolvable from position, capping everyone below 1.0."
+  why_no_shortcut: "objects carry NO appearance -- only 2-D positions in two frames --
+    so no detector, descriptor, or pretrained model helps; frame-B points are emitted
+    in scene-shuffled order so index order leaks nothing; the target is a permutation,
+    not a class or a score, so classification/regression/ranking do not apply."
+submission:
+  filename: submission.csv
+  columns: [scene_id, a_id, b_id]
+  rows: one per (scene_id, a_id) in points_test.csv frame A (2500 scenes x 34 = 85000)
+reference_solution: reference_solution.py   # runs in ~2 s CPU on the 2500 test scenes
+environment: kaggle-python-docker-image     # CPU only; numpy/scipy/pandas suffice; <1.5h

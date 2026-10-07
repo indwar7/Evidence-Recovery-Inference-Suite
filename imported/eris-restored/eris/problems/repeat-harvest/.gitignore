@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+submission.csv
+reference_submission.csv
+# large local UCSC fetch cache; raw_windows.json is the bundled source of truth,
+# and fetch_ucsc.py re-derives it from the UCSC REST API on demand.
+dataset/generator/ucsc_cache/

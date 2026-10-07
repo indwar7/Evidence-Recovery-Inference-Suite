@@ -1,0 +1,11 @@
+[   0.6s] train acts 3744  test acts 1588  (torch=True)
+[  64.1s] features built dim=508
+[ 239.3s]   seed 0 epoch 5/35
+[ 591.3s]   seed 0 epoch 10/35
+[6422.5s]   seed 0 epoch 15/35
+[14758.0s]   seed 0 epoch 20/35
+[19676.3s]   seed 0 epoch 25/35
+[20010.7s]   seed 0 epoch 30/35
+[20268.0s]   seed 0 epoch 35/35
+[20271.0s]   seed 0 held-out score 0.6672
+[20281.2s] wrote /Users/abhayindwar/Desktop/structure/submission.csv (1588 rows)

@@ -1,0 +1,27 @@
+# Python virtualenvs — never source, huge (torch etc.)
+.venv/
+venv/
+env/
+ENV/
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# OS / editor cruft
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Build scratch / raw dumps — reproducible from generator scripts, never meant to ship
+**/work/dumps/
+**/work/*.h5
+**/work/*.tar
+**/work/*.7z
+**/_cache/
+.oqmd-build/
+
+# Upstream public corpora cached in scratch dirs — re-downloadable, not authored here
+problems/blind-spot/work/EuroSAT_RGB/

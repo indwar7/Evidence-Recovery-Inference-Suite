@@ -1,0 +1,36 @@
+[data] train episodes 4000 (1s)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[train] pairs pos=138942 neg=1455300 pos_head=173421
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8383.56it/s]
+[train] step 200/4341 loss 3.6157 60s
+[train] step 400/4341 loss 3.0502 117s
+[train] step 600/4341 loss 3.2589 173s
+[train] step 800/4341 loss 2.7928 239s
+[train] step 1000/4341 loss 2.6825 321s
+[train] step 1200/4341 loss 2.9367 405s
+[train] step 1400/4341 loss 2.7640 477s
+[train] step 1600/4341 loss 2.9009 550s
+[train] step 1800/4341 loss 2.9134 619s
+[train] step 2000/4341 loss 2.7026 707s
+[train] step 2200/4341 loss 2.7417 779s
+[train] step 2400/4341 loss 2.7742 863s
+[train] step 2600/4341 loss 2.6641 950s
+[train] step 2800/4341 loss 2.7068 1045s
+[train] step 3000/4341 loss 2.7490 1131s
+[train] step 3200/4341 loss 2.5706 1218s
+[train] step 3400/4341 loss 2.5506 1305s
+[train] step 3600/4341 loss 2.5185 1666s
+[train] step 3800/4341 loss 2.6730 1723s
+[train] step 4000/4341 loss 2.5835 1780s
+[train] step 4200/4341 loss 2.6276 1849s
+[val] A=0.5433  I=0.7878  T=0.5700  R=0.4011  Q=0.3789  E=0.0467  B=0.6249  X=0.3501  score=42.8803
+[data] test episodes 1500
+[test] 200/1500 28s
+[test] 400/1500 41s
+[test] 600/1500 47s
+[test] 800/1500 51s
+[test] 1000/1500 54s
+[test] 1200/1500 57s
+[test] 1400/1500 59s
+[out] wrote sub_a.csv: 1500 rows x 31 cols
+[done] total 2004s

@@ -1,0 +1,11 @@
+[   0.3s] train acts 3744  test acts 1588
+[  15.8s] embeddings ready
+[  25.8s] features built dim=508
+[ 238.8s] cross-fit fold 1/3
+[ 430.0s] cross-fit fold 2/3
+[ 694.2s] cross-fit fold 3/3
+[ 982.4s] base fitted
+[1199.9s] stage2 fitted dim=533
+[1212.7s] decoded
+[1212.7s] wrote /Users/abhayindwar/Desktop/structure/submission_stage1.csv (1588 rows)
+[1212.7s] wrote /Users/abhayindwar/Desktop/structure/submission.csv (1588 rows)

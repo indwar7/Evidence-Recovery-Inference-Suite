@@ -1,0 +1,200 @@
+# Challenge configuration — The Vanished Clause
+name: ecfr-amendment-reversal
+title: "The Vanished Clause"
+domain: natural-language-processing
+tags: [text, seq2seq, legal, reconstruction]
+
+dataset:
+  name: ecfr-amendment-pairs
+  title: "The Vanished Clause: Paired Before-and-After Wording of Amended
+    U.S. Federal Regulations, on the eCFR's Own Recorded Amendment Dates"
+  short_title: "The Vanished Clause (eCFR Amendment Pairs)"
+  description: dataset-description.md
+  generator: dataset/generator/build_raw.py
+  source_data: "REAL published regulation text end to end. Each record is one
+    CFR section captured on two consecutive dates the eCFR's versioner API
+    itself records as substantive amendment dates; text_before and text_after
+    are the agency's own published wording on those dates, retrieved from the
+    /full/{date}/title-{n}.xml endpoint. The amendment boundary is the
+    archive's recorded amendment_date, not a boundary this dataset invented.
+    No annotation, no model output, no rewriting -- only XML markup, the
+    eCFR's forward-reference amendment banner and its editorial notes are
+    stripped, because each of those names the amendment date or narrates the
+    change and would hand over the answer."
+  source_url: "https://www.ecfr.gov/api/versioner/v1/titles.json"
+    # Official eCFR developer documentation for the versioner API actually
+    # used. Verified live (HTTP 200) on 2026-09-25. The API base is
+    # https://www.ecfr.gov/api/versioner/v1; note the /full/ endpoint REQUIRES
+    # an Accept-Encoding header permitting compression and returns HTTP 406
+    # without one.
+  distinctness: "The solver is given a regulation as it reads AFTER an
+    amendment, the wording the amendment removed as loose unordered fragments,
+    and a set of marked places of which about one in four is where a fragment
+    really came out; it must rebuild how the section read BEFORE. This is not
+    diff application: the Federal Register instruction that produced each
+    change ('remove the words X and add in their place Y') is withheld, so
+    where each fragment belongs must be inferred from how the text reads. It
+    is not a cloze test either: the deletions were made by an agency amending
+    a rule rather than by a masking policy, the answer bank is the row's own
+    removed wording, fragments run from one comma to whole paragraphs, three
+    marks in four are decoys that must stay empty, replaced wording leaves
+    its replacement in the text right after the true gap, and the score is a
+    gap-anchored token F1 on the rebuilt text rather than accuracy over
+    blanks. The artifact is a partial one-to-one matching between fragments
+    and places, delivered as text. No public benchmark poses amendment inversion on regulation
+    text with archive-recorded version boundaries."
+  citation: "Electronic Code of Federal Regulations (eCFR), Office of the
+    Federal Register, National Archives and Records Administration, and the
+    U.S. Government Publishing Office. Retrieved via the versioner API v1,
+    2026-09. The task construction, filtering, split and metric are original
+    work for this challenge."
+  license: "U.S. Government Work"
+  license_url: "https://www.ecfr.gov/api/versioner/v1/titles.json"
+  license_note: "Under 17 U.S.C. 105, works of the United States Government
+    are not subject to copyright protection in the United States and are in
+    the public domain. The Code of Federal Regulations is prepared by the
+    Office of the Federal Register (NARA) and published with the U.S.
+    Government Publishing Office. The eCFR is an editorial compilation and is
+    NOT the official legal edition of the CFR; this is stated in
+    dataset-description.md, in the problem description's Not-suitable-for
+    section, and in dataset/raw/ATTRIBUTION.txt."
+  raw_files:
+    - dataset/raw/amendments.jsonl   # one (before, after) pair per record
+    - dataset/raw/meta.json          # provenance, filters, sha256
+    - dataset/raw/ATTRIBUTION.txt    # source, licence, 17 U.S.C. 105 notice
+
+problem_description: problem-description.md
+rubrics: rubrics.md
+task_type: sequence_generation   # submitted artifact is free text: the prior
+                                  # wording of the section, rebuilt from the
+                                  # shown text and the removed fragments, scored
+                                  # on the tokens the amendment removed
+
+prepare:
+  script: prepare.py               # exposes prepare(raw, public, private); no RNG -- the
+                                  # split is a deterministic sorted search, so no seed exists
+                                  # and none is published (Target Recoverability)
+  public:
+    - dataset/public/train.csv               # row_id, text_after, removed_fragments, text_before
+    - dataset/public/test.csv                # row_id, text_after, removed_fragments
+    - dataset/public/train_slots.csv         # row_id, gap_index, fragment_index (train only)
+    - dataset/public/sample_submission.csv   # row_id, text_before (input, marks removed)
+    - dataset/public/dataset_stats.json      # no statistic of a test answer
+    - dataset/public/validate_submission.py
+  private:
+    - dataset/private/answers.csv            # row_id, shown_text, text_before
+      #   text_before is the ONLY target. shown_text is test.csv's text_after
+      #   with its [GAP] marks removed, under a DIFFERENT column name -- the
+      #   grader needs the shown wording to decide which tokens the amendment
+      #   changed, and a shared column NAME between test.csv and answers.csv
+      #   reads as a leaked target. prepare.py asserts the two are equal (marks
+      #   removed) row for row at build time.
+  slots_note: "text_after carries a [GAP] mark at every gap a fragment was
+    removed from, plus decoys: 3 per real gap, never fewer than 5 per row,
+    spread over the whole section. removed_fragments is a JSON list: every
+    maximal run of prior-wording tokens that the grader's own alignment puts
+    in one gap, as a literal substring of the prior wording, listed in an
+    order given by a hash of the private record id. Decoy positions are keyed
+    on the same private id, so neither can be replayed from public files.
+    train_slots.csv gives, for train only, the mark each fragment came from."
+  split_note: "No title, part or section_name is published, and the
+    section's own number is masked as [SECTION] in text_after and
+    text_before alike: together they address the section in the eCFR version
+    history, which returns every prior wording directly. Test holds exactly
+    ONE pair per section (its latest amendment); the rest of that section's
+    chain is dropped, because one pair's text_after is the next pair's
+    text_before -- on the previous build 10 of 161 test rows were answered
+    verbatim by another test row. Test rows are ordered by a hash of the
+    record id, so row order carries nothing. Split is BY CFR PART, never by
+    row: every section of a given part lands entirely in train or entirely
+    in test. Parts share defined
+    terms, drafting conventions and cross-references heavily, so a part-mixed
+    split would let those be memorised rather than generalised. Section
+    disjointness across splits is implied and asserted anyway. Exact-duplicate
+    text_after values are collapsed BEFORE splitting, because two different
+    sections can carry identical boilerplate and a duplicated input spanning
+    the split is a leak even when the sections differ. Which parts are held
+    out is chosen deterministically for about 350 test rows. No
+    numeric feature column is published: a character count is derivable from
+    the text and its long tail reads as an extreme-outlier column to the
+    platform profiler."
+
+grade:
+  script: grade.py                 # exposes grade(submission, answers)
+  usage: "python grade.py submission.csv --answers dataset/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [row_id, text_before]
+  metric: gap_anchored_changed_token_f1
+  metric_formula: "Per row: align the shown wording (answers.shown_text) to
+    the true prior wording with an LCS backtrace; every token of the truth not
+    matched through from the shown text is a CHANGED token, keyed as (gap,
+    token) where gap = the number of shown tokens before it in the alignment.
+    Align the shown wording to the PREDICTION the same way to get the
+    prediction's proposed (gap, token) pairs. hits = multiset intersection;
+    score = F1 of hits against |changed| and |proposed|. A row with no changed
+    token scores 1 if the prediction equals the shown text, else 0. Mean over
+    rows. Shared runs of >= 8 tokens found by difflib are fixed as anchors
+    and the exact LCS runs between them, which keeps a full grade to ~2 s.
+    Deriving both sides by the same alignment is what lets the true prior
+    wording score exactly 1.0."
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- anchors measured on the shipped split (353 test rows) ---- #
+  blank_submission: 0.000
+  sample_submission_marks_removed: 0.000   # the sample submission
+  copy_input_with_marks: 0.000             # marks are dropped by the grader
+  vocabulary_dump_appended: 0.012          # 60 commonest removed tokens
+  all_fragments_appended_at_end: 0.045     # 1.000 if matching were position-free
+  all_in_first_mark: 0.080
+  random_assignment: 0.091
+  all_in_last_mark: 0.098
+  listed_order_into_first_marks: 0.102     # fragment order carries nothing
+  every_fragment_in_every_mark: 0.112      # adversarial hedge; 1.000 under recall alone
+  tightest_marks_random_fragment: 0.119    # best content-free probe
+  fragment_blind_mark_scorer: 0.188        # learned, never reads a fragment
+  bigram_count_heuristic: 0.295            # no training labels; counts from train + the row's own text
+  reference_solution_score: 0.497          # solution.ipynb, as executed end to end; row-independent
+  reference_fitting_counts_on_test_inputs: 0.518   # REJECTED variant: transductive, now banned by rule
+  ceiling_every_fragment_in_true_mark: 0.982   # DIAGNOSTIC, uses the truth
+  oracle: 1.000
+  # ---- previous build (text_after only, no fragments, no marks) ---- #
+  #   reference 0.002, best lookup baseline 0.009, agent runs 0.020/0.000/0.000
+  # ---- rejected variant: one decoy within 12 tokens of every real gap ---- #
+  #   tightest-marks probe 0.157, fragment-blind scorer 0.227, reference 0.571
+  note_band: "Every number is from running the stated submission against the
+    shipped answers file. The previous build showed text_after alone and had
+    no usable range: the seq2seq reference scored 0.002 and three agent runs
+    0.020 / 0.000 / 0.000, because prior wording is not inferable from the
+    amended text. The removed wording is now handed over as loose fragments
+    with marked candidate gaps, so the question is where wording belongs.
+    Floors: position (first mark 0.080, last 0.098), listed order (0.102)
+    and random dealing (0.091) carry nothing. Hedging is closed by the
+    precision term (every fragment at every mark 0.112) and appending by the
+    gap key (0.045). The best content-free probe picks the most tightly
+    clustered marks, 0.119. A learned scorer that never reads a fragment
+    reaches 0.188; a label-free bigram heuristic 0.295; the reference, a
+    linear pair scorer with a one-to-one assignment, 0.497 -- 0.31 above the
+    fragment-blind scorer and 0.38 above the best content-free probe. Both
+    predict each test row on its own: n-gram counts come from the training
+    text and the row's own shown text, never from test.csv as a corpus (an
+    earlier reference that also counted over the test inputs scored 0.518;
+    that is transductive and is now banned by rule). Row-wise halves of the
+    answers score the reference 0.513 and 0.482.
+    Decoy count is the difficulty knob and was measured before it was fixed:
+    with no decoys random dealing scored 0.40 and a one-fragment row was
+    solved by construction; a basic pair scorer scored 0.57 at 1 decoy per real
+    gap, 0.48 at 3, 0.43 at 5 and 0.38 at 8. Placing one decoy within 12 tokens of every real gap
+    was built and rejected: a real gap and its decoy then form a tight pair,
+    which raised the tightest-marks probe to 0.157 and the fragment-blind
+    scorer to 0.227. The true-mark ceiling is 0.982, not 1, because the
+    alignment can key a repeated token to the neighbouring gap; the true
+    prior wording scores exactly 1.000."
+
+submission:
+  filename: submission.csv
+  columns: [row_id, text_before]
+  rows: one per row_id in test.csv
+
+reference_solution: solution.ipynb
+environment: kaggle-python-docker-image   # 1x NVIDIA A10G, 10 cores / 62 GB, <1.5h

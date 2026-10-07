@@ -1,0 +1,112 @@
+# Challenge configuration — Attributing Assistant Behavior to System Prompt Clauses
+name: system-prompt-clause-responsibility
+title: "Attributing Assistant Behavior to System Prompt Clauses"
+domain: prompt-engineering
+dataset:
+  name: system-prompt-clause-ablation-fingerprints
+  title: "System Prompt Clause Ablation Fingerprints: Measured
+    SmolLM2-1.7B-Instruct Response Behaviour Across 145 Real System
+    Prompts from the danielrosehill/System-Prompt-Library Corpus"
+  short_title: "System-Prompt Clause Ablation Fingerprints (SmolLM2-1.7B-Instruct)"
+  description: dataset-description.md
+  generator: dataset/generator/gen_raw.py     # deterministic; seed 20260920
+  source_data: "REAL measured model behaviour: HuggingFaceTB/SmolLM2-1.7B-
+    Instruct (Apache-2.0, ungated) run greedy over 145 real system prompts
+    (filtered from the 923-prompt danielrosehill/System-Prompt-Library
+    corpus, CC BY 4.0) x 8 hand-written probe questions x (1 full prompt +
+    each clause individually ablated). Every response is reduced to a
+    numeric behaviour fingerprint at generation time; no response text or
+    prompt/clause text is stored in the numeric fields. The only model in
+    the pipeline is the one being measured, and its outputs are never used
+    as training labels for anything except this task's own derived
+    (ranking, flags) trace."
+  source_url: "https://huggingface.co/datasets/danielrosehill/System-Prompt-Library"
+    # The real, citable source corpus (923 system prompts, CC BY 4.0,
+    # verified directly on the dataset card 2026-09-20). This dataset's
+    # OWN measured artifact (ablation.json etc, produced by running
+    # gen_raw.py against this source) is uploaded as part of this
+    # challenge's raw_files below, not hosted at a separate URL.
+  citation: "danielrosehill, System-Prompt-Library dataset
+    (huggingface.co/datasets/danielrosehill/System-Prompt-Library),
+    licensed CC BY 4.0. HuggingFaceTB, SmolLM2-1.7B-Instruct model card
+    (huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct). The corpus
+    filtering rules, topic-keyword rules, probe questions, and the
+    ablation/fingerprint/ranking derivation code are original work for
+    this challenge."
+  license: "CC BY 4.0 for the measured ablation fingerprints, filtered
+    corpus grid, and derived splits, matching the source corpus's own CC
+    BY 4.0 licence. Attribution: this dataset was built from
+    danielrosehill/System-Prompt-Library (CC BY 4.0) by running
+    HuggingFaceTB/SmolLM2-1.7B-Instruct (Apache-2.0, no output
+    restriction) as a measurement instrument; the recorded ablation
+    measurements are an original derived work, released here under CC BY
+    4.0 with attribution to the source corpus as given above."
+  doi: null
+  raw_files:
+    - dataset/raw/ablation.json   # per-probe fingerprints, full + ablated
+    - dataset/raw/grid.json       # filtered prompts/clauses/topics definition
+    - dataset/raw/meta.json       # provenance: seed, models, sha256, runtime
+problem_description: problem-description.md
+rubrics: rubrics.md
+task_type: structured_prediction   # submitted artifact is a jointly-scored
+                                    # (ranking, flags) decision over a
+                                    # prompt's own clauses, built on top of
+                                    # a real counterfactual ablation
+                                    # experiment -- not a scalar, not a
+                                    # single label, not a rewritten prompt
+                                    # (see rubrics.md #3, #4, #6)
+prepare:
+  script: prepare.py               # exposes prepare(raw, public, private)
+  public:
+    - dataset/public/train.csv             # item_id, topic, prompt_id,
+                                            # clause_ids, clause_texts,
+                                            # fp__ fields, ranking,
+                                            # top_clause_id, flags
+    - dataset/public/test.csv              # same, without the 3 target fields
+    - dataset/public/sample_submission.csv # item_id, unranked/all-correlated
+  private:
+    - dataset/private/answers.csv          # item_id, clause_ids,
+                                            # top_clause_id, flags
+  split_note: "Split is BY TOPIC GROUP, not by row: every item built from
+    one topic group lands entirely in train or entirely in test. Which
+    groups are held out for test is chosen by exact search over same-size
+    group combinations for the item-count ratio closest to the 15-25%
+    band -- measured, not assumed. Each item's displayed clause order is
+    independently reshuffled (deterministic, seeded) so a clause's
+    position in the original prompt carries no information -- this closes
+    a shortcut flagged and verified in a pipeline dry run before any GPU
+    generation ran (see STATE.md). See STATE.md FINAL LOCKED NUMBERS for
+    exact counts."
+grade:
+  script: grade.py                   # exposes grade(submission, answers)
+  usage: "python grade.py submission.csv --answers dataset/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [item_id, ranking, flags]
+  metric: combined_score
+  metric_formula: "mean_i [0.5 * ranking_credit_i + 0.5 * flag_credit_i],
+    where ranking_credit_i = 1 - pos(true_top_clause, submitted_ranking) /
+    (n_clauses_i - 1), and flag_credit_i = fraction of item i's clauses
+    with a matching necessary/correlated flag"
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- anchors: TBD, measured on the shipped dataset once the full GPU
+  # build and shortcut-attacker measurement complete -- see STATE.md FINAL
+  # LOCKED NUMBERS. Do not fill these in by estimate; every number here
+  # must be copied from an actual grade.py run against real prepared data. ---- #
+  sample_submission_score: TBD        # unranked display order, all correlated
+  uniform_random_baseline: TBD
+  position_only_shortcut: TBD         # the shortcut flagged and dry-run-verified
+                                       # in STATE.md before any GPU data existed
+  trained_classifier_baseline: TBD
+  reference_solution_score: TBD
+  oracle: 1.000
+  reference_runtime: "TBD; expected well inside the 1.5h GPU budget -- the
+    task is small tabular data at solve time, no GPU compute needed to fit
+    a reference solution"
+submission:
+  filename: submission.csv
+  columns: [item_id, ranking, flags]
+  rows: one per item_id in test.csv
+reference_solution: solution.ipynb
+environment: kaggle-python-docker-image   # 1x NVIDIA A10G, 10 cores / 62 GB, <1.5h
