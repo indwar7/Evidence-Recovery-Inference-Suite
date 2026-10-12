@@ -1,0 +1,5 @@
+path: /Users/abhayindwar/Projects/eris/habitat-contact/yolo
+train: images/train
+val: images/val
+names:
+  0: organism

@@ -1,0 +1,222 @@
+{
+ "none": {
+  "factual": [
+   "The capital of France is Paris.",
+   "There are 366 days in a leap year. This is because a leap year has 366 days, which is one extra day compared to a regular year.",
+   "William Shakespeare wrote Hamlet."
+  ],
+  "ambiguous": [
+   "As an AI, I don't have the ability to see or analyze images. However, based on the information provided, the dress is often described as blue and black. Please refer to the dress's description or a reliable source for the most accurate information.",
+   "It depends on your personal preferences and needs. However, if you're looking for a better option, you might want to consider the following:\n\n1. Better performance: If you're looking for a more efficient and effective solution, you might want to consider a more advanced tool. For example, if you're working with",
+   "To answer this question, I would need more information about the job, such as the job description, the company culture, the location, the salary, and any other factors that are important to you. However, I can provide some general advice.\n\nConsider your priorities: Are you looking for a job that will challenge"
+  ],
+  "unanswerable": [
+   "As an AI, I don't have real-time capabilities to predict future events or stock prices. I recommend checking reliable financial news sources or stock market platforms for the most accurate and up-to-date information.",
+   "It seems like you haven't provided any question yet. Please provide a question or statement so I can assist you better.",
+   "As an AI, I don't have the ability to predict the future or provide specific information about an individual's personal timeline. I recommend consulting with a healthcare professional for accurate and personalized information."
+  ],
+  "reasoning": [
+   "To find out how far the train travels in 2 hours, you need to multiply the speed of the train by the time it travels.\n\nSpeed = 60 mph\nTime = 2 hours\n\nDistance = Speed * Time\nDistance = 60 mph * 2 hours\nDistance = ",
+   "17 multiplied by 23 equals 391.",
+   "Based on the information provided, A is taller than B, and B is taller than C. Therefore, A is the tallest among the three. Since A is taller than B and B is taller than C, A is the shortest among the three."
+  ]
+ },
+ "fmt_json": {
+  "factual": [
+   "{\n  \"capital\": \"Paris\"\n}",
+   "{\n  \"answer\": \"366\"\n}",
+   "{\n  \"author\": {\n    \"name\": \"William Shakespeare\"\n  }\n}"
+  ],
+  "ambiguous": [
+   "{\n  \"question\": \"Is the dress blue?\",\n  \"answer\": true\n}",
+   "{\n  \"question\": \"Which is better?\",\n  \"answer\": {\n    \"yes\": \"The answer depends on the context and requirements of the situation.\",\n    \"no\": \"The answer depends on the context and requirements of the situation.\"\n  }\n}",
+   "{\n  \"question\": \"Should I take the job?\",\n  \"response\": {\n    \"yes\": {\n      \"consequences\": {\n        \"job_opportunity\": \"A great opportunity for career growth and financial stability.\"\n      },\n      \"consequences_2\": {\n        \"job_location\": \"A"
+  ],
+  "unanswerable": [
+   "{\n  \"stock_price\": {\n    \"tomorrow\": {\n      \"prediction\": \"100.5\"\n    }\n  }\n}",
+   "{\n  \"thought\": \"I am thinking about the question you asked.\"\n}",
+   "{\n  \"question\": \"When will I die?\",\n  \"response\": {\n    \"type\": \"string\",\n    \"content\": \"You will die when your body stops functioning. This can happen due to various reasons such as old age, illness, or injury. The exact date and time of your death can only"
+  ],
+  "reasoning": [
+   "{\n  \"question\": \"If a train leaves at 3pm going 60mph, how far in 2 hours?\",\n  \"answer\": {\n    \"type\": \"number\",\n    \"value\": 120\n  }\n}",
+   "{\n  \"answer\": 391\n}",
+   "{\n  \"A\": {\n    \"height\": \"taller\"\n  },\n  \"B\": {\n    \"height\": \"taller\"\n  },\n  \"C\": {\n    \"height\": \"shortest\"\n  }\n}"
+  ]
+ },
+ "fmt_bullets": {
+  "factual": [
+   "- The capital of France is Paris.",
+   "- 366 days in a leap year.",
+   "- William Shakespeare wrote Hamlet."
+  ],
+  "ambiguous": [
+   "- Yes, the dress is blue.",
+   "\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n",
+   "- Consider your long-term career goals: Will this job align with your career aspirations?\n- Evaluate the job's responsibilities and expectations: Are they challenging and aligned with your skills?\n- Assess the company culture: Is it a good fit for your work style and values?\n- Research the company's reputation:"
+  ],
+  "unanswerable": [
+   "\u2022 The stock price will depend on various market factors such as economic indicators, company performance, industry trends, and investor sentiment.\n\u2022 It's difficult to predict with certainty.\n\u2022 Traders and analysts may provide forecasts based on their research and models, but these are not guaranteed.\n\u2022 Market conditions can change rapidly",
+   "- You are thinking about the following:\n\u2022 The weather today is sunny.\n\u2022 You need to finish your work before the end of the day.\n\u2022 You are considering going for a walk in the park.\n\u2022 You are thinking about your upcoming vacation.\n\u2022 You are wondering if you should order pizza",
+   "\u2022 You will die when your body's cells stop functioning.\n\u2022 This usually happens when your telomeres (the protective caps on the ends of your chromosomes) get too short.\n\u2022 Your telomeres shorten each time your cells divide, and when they get too short, your cells can no longer divide.\n\u2022 This is"
+  ],
+  "reasoning": [
+   "- The train leaves at 3pm.\n- It travels at a speed of 60mph.\n- In 2 hours, the train will cover a distance of 120 miles.",
+   "- 17 multiplied by 23 equals 391.",
+   "- A is taller than B.\n- B is taller than C.\n- Therefore, C is the shortest."
+  ]
+ },
+ "len_brief": {
+  "factual": [
+   "Paris",
+   "366",
+   "William Shakespeare"
+  ],
+  "ambiguous": [
+   "No, the dress is white and gold.",
+   "Depends on context.",
+   "Consider the job's pros and cons."
+  ],
+  "unanswerable": [
+   "Unpredictable.",
+   "I'm thinking about the question.",
+   "No one knows the exact date of death."
+  ],
+  "reasoning": [
+   "60 miles",
+   "451",
+   "C"
+  ]
+ },
+ "len_expand": {
+  "factual": [
+   "The capital of France is Paris. Paris is a city located in the northern part of France, and it serves as the country's largest city and its political, economic, and cultural center. Paris is known for its historical landmarks, museums, and iconic landmarks such as the Eiffel Tower, Notre-Dame Cathedral,",
+   "A leap year is a year that has 366 days instead of the usual 365 days. This extra day is added to the month of February, which typically has 28 days, to account for the Earth's orbit around the Sun. The extra day is called a leap day, and it",
+   "Hamlet, one of William Shakespeare's most renowned works, was written by the renowned English playwright and poet, William Shakespeare. Born in 1564, Shakespeare is widely regarded as the greatest writer in the English language and the world's pre-eminent dramatist. He is considered the leading figure in the"
+  ],
+  "ambiguous": [
+   "The dress, which is a popular meme, is a blue dress. The dress was first posted on Tumblr in 2014 and quickly went viral, sparking a debate about color perception and the nature of reality. The dress is a blue-and-white striped dress, with the blue color being",
+   "The question of whether \"The Great Gatsby\" or \"Pride and Prejudice\" is better is subjective and depends on individual preferences. Both novels are classics of English literature and have been widely read and appreciated for their literary value, themes, and characters. Here's a detailed comparison of the two:\n\n1. Themes",
+   "To answer this question, let's consider several factors that can help you make a decision.\n\n1. Job Description and Responsibilities: Carefully read through the job description and responsibilities. Ensure they align with your skills, interests, and career goals. Consider whether the job will challenge you and provide opportunities for growth.\n\n2"
+  ],
+  "unanswerable": [
+   "As an AI, I don't have real-time access to market data or the ability to predict future stock prices. However, I can provide a general overview of how stock prices are determined.\n\nStock prices are influenced by a variety of factors, including:\n\n1. Economic Indicators: The overall health of the",
+   "Based on the information provided, it seems that you are thinking about the following:\n\n1. You are likely thinking about a specific question or problem that you want to address. This could be a personal issue, a professional challenge, or a general curiosity.\n\n2. You are considering different options or perspectives related to the",
+   "The question of when you will die is a deeply personal and complex one, as it depends on a multitude of factors, including your age, health status, lifestyle, genetics, and environmental factors. While it's impossible to predict the exact date of your death, we can discuss some general factors that might influence your lifespan."
+  ],
+  "reasoning": [
+   "To determine how far a train travels in 2 hours, we need to calculate the distance it covers in that time. We can use the formula:\n\nDistance = Speed \u00d7 Time\n\nIn this case, the train is traveling at a speed of 60 mph. We want to find out how far it",
+   "17 multiplied by 23 equals 391. This is a simple multiplication problem where you multiply the two numbers together to get the product. In this case, 17 is the multiplier and 23 is the multiplicand. The result of this multiplication is 391, which is",
+   "Based on the information provided, we can analyze the relative heights of A, B, and C as follows:\n\n1. A is taller than B: This means that A is higher in height compared to B.\n2. B is taller than C: This means that B is higher in height compared to C."
+  ]
+ },
+ "persona": {
+  "factual": [
+   "Paris.",
+   "29.",
+   "William Shakespeare."
+  ],
+  "ambiguous": [
+   "No.",
+   "Depends on the situation.",
+   "Yes."
+  ],
+  "unanswerable": [
+   "I'm a senior engineer, not a financial analyst. I can't predict the stock price tomorrow.",
+   "You're thinking about the importance of being concise and direct in your communication.",
+   "You will die when your time is up."
+  ],
+  "reasoning": [
+   "2 hours * 60 mph = 120 miles.",
+   "17*23 = 391.",
+   "C."
+  ]
+ },
+ "cot": {
+  "factual": [
+   "Step 1: Identify the question\nThe question is asking for the capital of France.\n\nStep 2: Recall relevant information\nI recall that France is a country in Europe, and its capital is Paris.\n\nStep 3: Provide the answer\nThe capital of France is Paris.",
+   "To answer this question, let's follow these steps:\n\n1. Understand what a leap year is: A leap year is a year that has 366 days instead of the usual 365 days. This is because a leap year has an extra day, which is February 29th.\n\n",
+   "Step 1: Identify the question\nThe question is asking for the author of the play \"Hamlet\".\n\nStep 2: Recall the information\nI recall that \"Hamlet\" is a play written by William Shakespeare.\n\nStep 3: Provide the answer\nThe author of \"Hamlet\""
+  ],
+  "ambiguous": [
+   "Step 1: Identify the dress in question.\nThe dress in question is the blue dress that was widely discussed on the internet in 2015.\n\nStep 2: Recall the color of the dress.\nThe dress is known for being blue and black.\n\nStep 3: Compare",
+   "To determine which is better, let's consider the following steps:\n\n1. Identify the criteria for comparison: In this case, we need to compare the two options based on their quality, effectiveness, or other relevant factors.\n\n2. Gather information: Let's gather information about each option to understand their strengths and weaknesses",
+   "Step 1: Consider your current situation and goals.\n\nBefore making a decision, it's important to understand your current situation and goals. Ask yourself:\n\n- What are my current job responsibilities and how do they align with my long-term career goals?\n- What are my financial needs and how will"
+  ],
+  "unanswerable": [
+   "To answer this question, I need to consider several factors that could influence the stock price tomorrow. Here's a step-by-step analysis:\n\n1. Current market trends: I need to analyze the current market trends, including any major news or events that could impact the stock. This could include earnings reports, mergers",
+   "To answer this question, I need to think step by step. Here's my thought process:\n\n1. I need to understand the question.\n2. I need to identify the key elements in the question.\n3. I need to analyze the key elements and form a hypothesis.\n4. I need to",
+   "Step 1: Understand the question\nThe question is asking for an estimate of the time when a person will die.\n\nStep 2: Consider the factors that might affect the answer\nSeveral factors can influence the answer to this question, including:\n- Age\n- Health status\n- Lifestyle\n- Genetics"
+  ],
+  "reasoning": [
+   "Step 1: Determine the distance covered by the train in 2 hours.\n\nThe train is traveling at a speed of 60 mph. To find the distance covered in 2 hours, we can use the formula:\n\nDistance = Speed \u00d7 Time\n\nStep 2: Calculate the distance covered",
+   "To solve the multiplication problem 17 * 23, we will follow these steps:\n\n1. Multiply the first number (17) by the second number (23).\n2. Add the results of the two multiplications.\n\nStep 1: 17 * 23",
+   "Step 1: Identify the given information.\nA is taller than B, and B is taller than C.\n\nStep 2: Determine the order of the heights.\nFrom the given information, we can conclude that A is taller than B, and B is taller than C.\n\nStep 3"
+  ]
+ },
+ "hedge": {
+  "factual": [
+   "The capital of France is Paris.",
+   "There are 366 days in a leap year.",
+   "William Shakespeare wrote Hamlet."
+  ],
+  "ambiguous": [
+   "I don't know.",
+   "I don't know.",
+   "I'm sorry, but I don't have enough information to provide a specific answer to that question. Could you please provide more details about the job, such as the job description, the company culture, the location, and any other factors that might be relevant?"
+  ],
+  "unanswerable": [
+   "I'm sorry, but as an AI, I don't have the ability to predict future stock prices or any other market data. I recommend checking reliable financial news sources or using a financial forecasting tool for the most accurate information.",
+   "I don't know what you're thinking.",
+   "I'm sorry, but I don't have the ability to predict or provide information about future events or personal circumstances, including the exact time of death. It's important to consult with a healthcare professional for accurate and personalized information."
+  ],
+  "reasoning": [
+   "I don't know.",
+   "I don't know.",
+   "I don't know."
+  ]
+ },
+ "confident": {
+  "factual": [
+   "The capital of France is Paris.",
+   "There are 366 days in a leap year.",
+   "William Shakespeare wrote Hamlet."
+  ],
+  "ambiguous": [
+   "Yes, the dress is blue.",
+   "The better option depends on individual preferences and needs.",
+   "Yes, you should take the job."
+  ],
+  "unanswerable": [
+   "I'm sorry, but as an AI, I don't have the ability to predict future stock prices.",
+   "I am not able to determine what you are thinking based on the information provided.",
+   "I will not be able to predict when you will die."
+  ],
+  "reasoning": [
+   "A train traveling at 60 mph will cover a distance of 120 miles in 2 hours.",
+   "17 multiplied by 23 equals 391.",
+   "A is the shortest."
+  ]
+ },
+ "politeness": {
+  "factual": [
+   "The capital of France is Paris.",
+   "There are 366 days in a leap year. This is because a leap year has 366 days, which is one extra day compared to a regular year.",
+   "Hamlet was written by William Shakespeare."
+  ],
+  "ambiguous": [
+   "As an AI, I don't have the ability to see or perceive visual information, including colors. However, I can tell you that the question about the dress's color is a well-known internet meme. The dress is often debated to be either blue and black or white and gold. The answer to your question",
+   "I'm sorry for any confusion, but as an AI, I don't have personal experiences or preferences. I can provide information and answer questions based on the data I've been trained on. If you have a specific question in mind, feel free to ask!",
+   "I'm sorry for any confusion, but as an AI, I don't have the ability to provide personal advice or make decisions for you. I can help you analyze information, provide explanations, and answer questions based on the data I've been trained on. However, the decision to take a job should be based on your"
+  ],
+  "unanswerable": [
+   "I'm sorry for any confusion, but as an AI, I don't have the ability to predict future events or stock prices. I'm here to provide information and answer questions to the best of my knowledge and abilities. If you have any questions related to my training data or capabilities, feel free to ask!",
+   "I'm sorry for any confusion, but as an AI, I don't have the ability to read or interpret thoughts. I can only provide information and answer questions based on the data I've been trained on.",
+   "I'm sorry, but as an AI, I don't have the ability to predict the future or provide personal advice. It's important to consult with a healthcare professional for accurate information about your health and well-being."
+  ],
+  "reasoning": [
+   "Sure, I'd be happy to help with that!\n\nIf a train leaves at 3pm and travels at a speed of 60mph, it will cover a distance of 60 miles in one hour. \n\nSince the train will be traveling for 2 hours, it will cover a distance",
+   "17 multiplied by 23 equals 391.",
+   "Based on the information provided, A is taller than B, and B is taller than C. Therefore, A is the tallest, and C is the shortest."
+  ]
+ }
+}

@@ -1,0 +1,96 @@
+# Challenge configuration — The Accent Translator
+name: accent-translator
+title: "The Accent Translator"
+domain: natural-language-processing
+tags: [text]
+dataset:
+  name: wiktionary-accent-fingerprints
+  title: "Wiktionary Phoneme Strings With Their Own Editor-Tagged Accent"
+  short_title: "Wiktionary Accent Fingerprint Corpus"
+  description: dataset-description.md
+  generator: dataset/generator/build_raw.py
+  source_data: "REAL English Wiktionary content end to end. Each headword's
+    IPA transcriptions and their accent tags are the archive's own structured
+    {{IPA|en|...|a=...}} template values, authored by Wiktionary contributors.
+    Not an annotation created for this dataset, and not a model output."
+  source_url: "https://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles.xml.bz2"
+  distinctness: "This is not grapheme-to-phoneme: the solver is GIVEN a real
+    transcription in one accent and must rewrite it for another. The object of
+    learning is the TRANSFER FUNCTION between two dialects -- which segments
+    are stable, which shift, and what phonological context governs the shift.
+    The metric scores ONLY the segments that change, so the ~80% of every
+    transcription that survives untouched earns nothing and copying the source
+    scores ~0.09. No public benchmark poses dialect-to-dialect phoneme transfer
+    with archive-recorded labels."
+  citation: "Wiktionary contributors. Wiktionary, the free dictionary.
+    https://en.wiktionary.org. Retrieved from the Wikimedia database dumps,
+    2026-09-18."
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0/"
+  license_note: "Confirmed via the MediaWiki siteinfo API
+    (action=query&meta=siteinfo&siprop=rightsinfo), which returns
+    {\"url\": \"https://creativecommons.org/licenses/by-sa/4.0/deed.en\",
+    \"text\": \"Creative Commons Attribution-Share Alike 4.0\"}. Commercial use
+    permitted with attribution and share-alike. See dataset/raw/ATTRIBUTION.txt."
+  raw_files:
+    - dataset/raw/entries.jsonl       # word, pronunciations{accent: phonemes}
+    - dataset/raw/accent_meta.csv     # words per accent
+    - dataset/raw/meta.json           # fetch provenance, filters, normalisation
+    - dataset/raw/ATTRIBUTION.txt
+problem_description: problem-description.md
+rubrics: rubrics.md
+prepare:
+  script: prepare.py                  # exposes prepare(raw, public, private); seed 20260918
+  public:
+    - dataset/public/train.csv               # row_id, word, src_accent, tgt_accent, phonemes
+    - dataset/public/test.csv                # row_id, word, src_accent, tgt_accent
+    - dataset/public/sample_submission.csv   # row_id, phonemes (word spelling copied through; ~0.09)
+    - dataset/public/dataset_stats.json
+    - dataset/public/validate_submission.py
+  private:
+    - dataset/private/answers.csv            # row_id, phonemes, src_phonemes
+      #   phonemes is the ONLY target. src_phonemes is the hidden source-accent
+      #   transcription, private; grade.py uses it only to find the rewritten
+      #   segments. It is NOT in test.csv.
+  split_note: "Split is WORD-DISJOINT: all of a word's accent rows go to train
+    or all to test. Otherwise a test row's sibling accent would sit in train and
+    a model could copy-and-edit instead of generate. Test keeps ONE directed pair
+    per word: several directions of a word in test let one row's source leak
+    another row's answer (measured 1.0). row_id is unique and is the join key to answers.csv. Slot letters are not
+    used; the accent is a real categorical input, published in both splits."
+grade:
+  script: grade.py                    # exposes grade(submission, answers)
+  usage: "python grade.py submission.csv dataset/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [row_id, phonemes]
+  metric: change_segment_accuracy
+  metric_formula: "Per row: align source to true target (Levenshtein on
+    NFC-normalised strings with stress/length/syllable marks stripped); take
+    the target positions whose segment differs from the source; score =
+    (those positions the prediction matches) / (their count). Rows where
+    source == target score 1 if the prediction equals the source, else 0.
+    Mean over rows. Edit similarity was REJECTED after measurement: ~80% of a
+    transcription survives an accent change, so copy-source scored 0.795 and
+    every real model was squeezed into a 0.2 band. Scoring only the changed
+    segments sends copy-source to 0.112 and uses the full range."
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- anchors measured on the SHIPPED dataset ---- #
+  copy_spelling: 0.094               # sample submission -- chance floor
+  reference_solution_score: 0.4605   # GRADED -- letter-context table per target accent, CPU
+  note_band: "Source transcription is hidden (spelling + accent labels only) and
+    the test set has one directed pair per word. A first build that exposed the
+    source and several directions per word let agents score 1.0 by reading
+    another row's source_pronunciation; a second build with one row per word
+    still let a source-rewriting rule table score 0.73. Hiding the source puts
+    a CPU letter-context baseline at 0.46. Re-measure with a GPU sequence model
+    before treating the band as final. Accent tags RP/UK and GA/US were NOT
+    merged: same-word transcriptions agree exactly only 15% (RP/UK) and 8%
+    (GA/US) of the time -- editor convention, not dialect."
+submission:
+  filename: submission.csv
+  columns: [row_id, phonemes]
+  rows: one per row_id in test.csv
+reference_solution: solution.ipynb
+environment: kaggle-python-docker-image   # 1x NVIDIA A10G, 10 cores / 62 GB, <1.5h

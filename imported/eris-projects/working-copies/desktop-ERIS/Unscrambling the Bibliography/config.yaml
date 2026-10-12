@@ -1,0 +1,149 @@
+name: wikipedia-citation-order-recovery
+title: "The Reference Shuffle"
+domain: natural-language-processing
+tags: [text]
+
+dataset:
+  name: wikipedia-paragraph-citation-order
+  title: "Wikipedia Paragraphs Paired With Their Own Shuffled Reference Cards"
+  short_title: "Scrambled Bibliography Cards"
+  description: >
+    Real paragraphs from English Wikipedia's Good and Featured articles
+    (1,196 paragraphs from 510 articles), each stored with every reference
+    it cites, in the order the editors cited them. Each citation marker in
+    the paragraph is replaced by the token [CITE]; each reference keeps the
+    structured fields the editors recorded in its {{cite ...}} template
+    (kind, title, author, venue, year). Paragraphs with 3 to 8 citations
+    are included. Nothing was written, annotated, inferred, or
+    model-generated for this dataset -- the order is read directly from
+    where each <ref> marker sits in the article's own wikitext.
+  generator: dataset/generator/build_raw.py
+  source_data: "REAL English Wikipedia article prose end to end, fetched
+    2026-09-25 from Good/Featured article pages, corresponding to
+    dumps.wikimedia.org/enwiki's own bulk snapshot of the same article
+    corpus."
+  source_url: "https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2"
+  distinctness: >
+    This dataset is built from Wikipedia's own inline citation markers
+    and their {{cite ...}} template fields -- the citation order within a
+    paragraph is recorded, not article topic, quality class, or any
+    per-document label. It is not a re-release of Wikipedia article text:
+    only paragraphs where every citation is an unambiguous, fully inline
+    template are kept, and every citation marker is replaced with a
+    neutral token.
+  citation: >
+    Wikipedia contributors, English Wikipedia (Good articles / Featured
+    articles), retrieved 2026-09-25. https://en.wikipedia.org/
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+  license_note: >
+    Verified live from Wikipedia's own MediaWiki siteinfo API:
+    https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=rightsinfo&format=json
+    -> {"rightsinfo": {"url": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+    "text": "Creative Commons Attribution-Share Alike 4.0"}}. This is a
+    share-alike license: this package, and any derivative of it, is
+    released under CC BY-SA 4.0 accordingly.
+  commercial_use_allowed: true
+  raw_files:
+    - dataset/raw/wiki_citation_units.jsonl   # page, text, n_refs, refs[] (title, author, venue, year) in true order
+    - dataset/raw/_fetched_titles.json        # fetch bookkeeping (article titles attempted)
+    - dataset/raw/ATTRIBUTION.txt             # source, license, citation, retrieval date, list of modifications
+    - dataset/raw/meta.json                   # schema, row counts, checksums, licence
+    - dataset/raw/build_meta.json             # build-time corpus counts
+
+problem_description: problem-description.md
+rubrics: rubrics.md
+
+prepare:
+  script: prepare.py
+  usage: "python prepare.py   # reads dataset/raw, writes dataset/public and dataset/private"
+  public_files:
+    - dataset/public/train.csv              # unit_id, text, ref_A_card..ref_D_card, rank_A..rank_D
+    - dataset/public/test.csv               # same as train.csv minus rank_A..rank_D
+    - dataset/public/sample_submission.csv  # unit_id, rank_A, rank_B, rank_C, rank_D  -- format example, one row per unit
+  private_files:
+    - dataset/private/answers.csv           # unit_id, rank_A, rank_B, rank_C, rank_D
+  split_note: >
+    704 units kept from 1,196 raw units: every paragraph with 4 to 8
+    citations; a paragraph with more than 4 keeps one seeded window of 4
+    consecutive citations and the markers outside the window are deleted
+    from its text. Split by ARTICLE (not paragraph) so no two paragraphs
+    from the same page cross train/test: 385 train units from 205
+    articles, 319 test units from 163 articles. On every card one
+    recorded field is withheld under the fixed seed (rendered
+    "[withheld]"), drawn uniformly among the fields the editor recorded
+    and independently of the card's true position; the withheld value is
+    written to no public or private file. Seeded (SEED = 20260925) and
+    verified byte-identical across two runs of prepare.py.
+
+grade:
+  script: grade.py
+  usage: "python grade.py submission.csv dataset/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [unit_id, rank_A, rank_B, rank_C, rank_D]
+  metric: mean_position_accuracy
+  metric_formula: >
+    For each test unit, the fraction of its four cards (rank_A, rank_B,
+    rank_C, rank_D) whose submitted position equals the true position; a
+    tuple that is not a permutation of {0,1,2,3} scores 0.0 for that
+    unit. Average over all test units. A uniformly random permutation of
+    four cards places each at its true position with probability exactly
+    1/4, so the chance floor is exactly 0.25 (verified by exhaustive
+    enumeration over all 24 permutations: 1 scores 1.0, 6 score 0.5, 8
+    score 0.25, 9 score 0.0). A missing required column is rejected
+    outright; a missing unit, a duplicated unit_id, or a
+    malformed/non-integer/out-of-range/non-permutation rank tuple scores
+    0.0 for that unit only (not the 0.25 chance floor -- a non-attempt
+    is penalised below an honest random guess) and the rest is still
+    graded.
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- anchors measured on the shipped split (319 test units, 163 articles),
+  # ---- scored with the shipped grade.py ---- #
+  blank_non_attempt: 0.0000
+  sample_submission_rotating_format_example: 0.2320
+  random_permutation: 0.2382
+  title_withheld_cards_first: 0.2398
+  title_withheld_cards_last: 0.2445
+  title_length_sort: 0.2492
+  pool_order: 0.2516
+  author_surname_bonus_only: 0.2555
+  reversed_pool_order: 0.2578
+  adversarial_global_venue_position: 0.2633
+  year_sort_ascending: 0.3033
+  word_overlap_only_hungarian: 0.4843
+  reference_word_overlap_author_year: 0.4914
+  reference_solution_score: 0.4914
+  oracle: 1.0000
+  note_band: >
+    Position accuracy has an exact chance floor of 1/4 for a uniformly
+    random permutation of four cards. At 319 test units the standard
+    error of a random permutation's mean score is 0.014. Every
+    content-free probe (pool order, reversed order, random, title length,
+    withheld-slot position, author bonus alone, and a train-fit global
+    venue-position model that ignores each unit's text) sits between
+    0.238 and 0.263. Year sort (0.3033) is the strongest probe: year is a
+    legitimate shipped field.
+  band_evidence: >
+    The reference (0.4914) clears the strongest probe by 0.188
+    (0.4914 - 0.3033). Oracle is 1.0, leaving 0.509 of headroom. Per-unit
+    reference scores on the 319 test units: 78 at 1.0, 120 at 0.5, 75 at
+    0.25, 46 at 0.0. On a row-wise half-split of answers.csv the reference
+    scores 0.478 and 0.505 and pool order 0.258 and 0.245. On a 25%
+    public slice (80 units) the standard deviation of the reference score
+    is 0.033.
+  reference_caveat: >
+    Raw word overlap between the text before each [CITE] marker and each
+    card's visible title and venue (no tf-idf), plus a small
+    ascending-year term, solved as a 4x4 assignment with the Hungarian
+    algorithm. Weights swept on train.csv only (author 0, year 0.2; train
+    score 0.494) and applied unchanged to test. No pretrained model.
+
+submission:
+  filename: submission.csv
+  columns: [unit_id, rank_A, rank_B, rank_C, rank_D]
+  rows: "one per unit in test.csv (rank_A, rank_B, rank_C, rank_D jointly a permutation of {0,1,2,3} -- that unit's own true reading-order positions)"
+
+reference_solution: solution.ipynb
+environment: cpu-python-docker-image   # 10 CPU cores / 62 GB RAM, < 1.5 h, no GPU required

@@ -1,0 +1,137 @@
+name: cuneiform-spelling-unseen-akkadian
+title: "Spelling Unseen Akkadian Words in Cuneiform Signs"
+domain: natural-language-processing
+tags: [sequence-to-sequence, transliteration, cuneiform, akkadian, orthography, historical-languages, gpu]
+task_type: sequence-to-sequence   # normalized word (+ lemma, gloss, attested spellings, context, metadata) -> sign-by-sign transliteration
+difficulty: hard
+
+dataset:
+  name: oracc-akkadian-word-spellings
+  title: "Oracc Akkadian Word Transliterations and Normalizations"
+  short_title: "Oracc Akkadian word spellings"
+  description: >
+    Word-level editorial record of 13,231 Akkadian cuneiform texts from 77 Oracc
+    project volumes: for every lemmatised word the transliteration (signs as
+    written), the normalization, lemma, gloss, part of speech, language code and
+    per-sign preservation flags, line by line, with catalogue metadata per text.
+  generator: dataset/generator/build_raw.py
+  source_data: "Oracc JSON corpus exports (one zip per project volume)"
+  source_url: "https://oracc.museum.upenn.edu/json/"
+  distinctness: >
+    No existing dataset of this account is built on Oracc or on cuneiform; the
+    task direction (normalization -> attested spelling) is not a transform any
+    earlier dataset of this account performs.
+  citation: >
+    Oracc: The Open Richly Annotated Cuneiform Corpus, http://oracc.org/ ;
+    per-text citations are http://oracc.org/<project>/<textid>/ (see
+    dataset/raw/ATTRIBUTION.txt for the editing projects).
+  license: "CC BY-SA 3.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/3.0/"
+  license_note: >
+    Oracc project pages and per-text credits state "released under the Creative
+    Commons Attribution Share-Alike license 3.0"; every JSON export file also
+    carries "This data is released under the CC0 license"
+    (https://creativecommons.org/publicdomain/zero/1.0/). The stricter CC BY-SA
+    3.0 is declared and observed.
+  raw_files:
+    - "lines.jsonl        : one record per text line with its lemmatised words (form, norm, cf, gw, pos, lang, n_signs, missing, damaged, x)"
+    - "texts.jsonl        : one record per text with catalogue metadata (period, genre, provenience, dialect, script, ...)"
+    - "meta.json          : build date, zip list, counts, SHA-256 of the two JSONL files, licence"
+    - "ATTRIBUTION.txt    : source, licence, editing projects, citation form"
+    - "generator/build_raw.py : fetch + extraction script"
+
+problem_description: problem-description.md
+rubrics: rubrics.md
+
+prepare:
+  script: prepare.py
+  public:
+    - "train.csv            : row_id, doc, norm, lemma, gloss, pos, attested, context, period, genre, provenience, spelling(target)"
+    - "test.csv             : same columns without spelling"
+    - "sample_submission.csv: row_id, spelling  (spelling = norm copied; scores at the floor)"
+    - "dataset_stats.json   : counts, POS and period distributions"
+  private:
+    - "answers.csv          : row_id, spelling_true, norm_src, lemma_src, pos_src, textid_src"
+    - "split_manifest.json  : method, caps, counts"
+  split_note: >
+    Deterministic and seedless. A text is held out when the SHA-256 bucket of
+    its Oracc text id is below 200/1000 (2,692 of 13,231 texts). Training rows
+    are every lemmatised Akkadian word in a training text with no restored or
+    unreadable sign (damaged but read signs are kept; not a numeral, not Sumerian; values that
+    pandas reads as NaN such as the logogram NA dropped), capped at 40 rows per
+    (normalized form, spelling) pair: 340,876 rows. Evaluation rows are words in
+    held-out texts whose normalized form occurs in no training text, whose
+    lemma does occur, with a non-proper-noun part of speech and a spelling that differs from the normalized form; capped at 6 rows
+    per lemma and 2 per normalized form, then the first 4,000 in salted-hash
+    order (7,058 candidates before caps). The attested column gives up to 4
+    (norm=spelling) pairs of the lemma from training texts, most frequent
+    first, never including the row's own normalized form; training rows get the
+    same column built the same way so they resemble evaluation rows. Row ids
+    and doc aliases are keyed on a salt derived from the raw file contents, so
+    row order and aliases carry no information. Measured on the shipped files:
+    every evaluation norm is absent from train, every evaluation lemma is
+    present, train and evaluation texts are disjoint, no attested value
+    contains its row's own pair, no context string contains its row's answer.
+
+grade:
+  script: grade.py
+  usage: "grade(submission_df, answers_df) -> float"
+  submission_file: submission.csv
+  submission_columns: [row_id, spelling]
+  metric: mean sign-level edit similarity
+  metric_formula: "mean over rows of 1 - levenshtein(sign_tokens(pred), sign_tokens(true)) / max(len(pred_tokens), len(true_tokens)); sign_tokens = each {...} determinative as one token, rest split on - . : and whitespace"
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- ladder measured on the SHIPPED split (work/ladder.py -> ladder.json) ----
+  blank: 0.0000                 # empty predictions
+  copy_norm: 0.0006             # sample_submission: normalized form copied through (one token, matches no sign)
+  lemma_most_common: 0.2452     # most frequent training spelling of the lemma, ignoring inflection
+  lemma_by_period: 0.2773       # same, conditioned on the text period (metadata probe)
+  syllabify_norm: 0.4935        # content-based degenerate: naive CV/CVC syllabification of the normalized form, no training data
+  stem_suffix_adversary: 0.5183 # nearest attested spelling of the lemma by normalized prefix + syllabified remainder (uses exactly the attested column)
+  reference: 0.6798    # character transformer with attested spellings in the input (see DESIGN.md for configuration)
+  oracle: 1.0000
+  note_band: >
+    The floor is 0 (blank) and the copied input scores 0.001, so the metric is
+    not gamed by copying. A naive syllabifier reaches 0.49 because most syllabic
+    spellings contain the obvious CV signs; that is content-based, not
+    content-free, and is the rung every solver must clear. The stem+suffix
+    heuristic, which consumes exactly the attested column, is the adversary at
+    0.52; the reference sits 0.16 above it at 0.6798 (exact 0.378) and 0.19 above
+    the syllabifier. Exact-match rates of the rungs
+    (0.146 syllabifier, 0.140 adversary) show that partial credit is doing the
+    ranking, which is intended: the sign-level decisions are what is scored.
+    Scores on the two contiguous halves of answers.csv agree within 0.015 for
+    every rung (reference 0.6797 / 0.6799). The reference's development split
+    (3% of training texts, unseen normalized forms, 1,149 rows) scored 0.6600,
+    so the shipped number is not tuned on the evaluation set.
+
+submission:
+  file: submission.csv
+  columns: [row_id, spelling]
+  one_row_per: row_id in test.csv
+  degrade: "missing/blank/duplicated/unknown row_id -> 0 for that row; extra rows ignored; only a missing column raises InvalidSubmission"
+
+reference_solution:
+  notebook: solution.ipynb
+  approach: >
+    Character-level encoder-decoder transformer trained from scratch on
+    train.csv; input = pos | lemma | gloss | norm | attested | period | genre,
+    output = spelling; greedy decoding. The same code runs as work/reference.py.
+  reference_caveat: >
+    The published reference number was measured locally (Apple MPS) with the
+    proxy configuration D=256, 3+3 layers, 4 heads, 2 epochs, batch 64, on
+    250,000 shuffled training rows after holding out 3% of training texts as a
+    development split (work/reference.py, seed 0). solution.ipynb runs the same
+    code on the A10G with D=384, 4+4 layers, 6 heads, 6 epochs, batch 256,
+    bf16 autocast and a 65-minute training budget, and is expected to score
+    at least as high.
+
+environment:
+  gpu: "1x NVIDIA A10G"
+  cpu_cores: 10
+  ram_gb: 62
+  time_limit_hours: 1.5
+  libraries: "Kaggle Python Docker image (torch, pandas, numpy)"
+  network: none

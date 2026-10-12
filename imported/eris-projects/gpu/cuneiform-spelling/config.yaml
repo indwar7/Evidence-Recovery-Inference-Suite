@@ -1,0 +1,163 @@
+name: cuneiform-spelling-unseen-akkadian
+title: "Spelling Unseen Akkadian Words in Cuneiform Signs"
+domain: natural-language-processing
+tags: [sequence-to-sequence, cuneiform, akkadian, orthography, historical-languages, gpu]
+task_type: sequence-to-sequence   # normalized word (+ lemma, gloss, attested spellings, context, metadata) -> the scribe's sign-by-sign spelling
+difficulty: hard
+
+dataset:
+  name: oracc-akkadian-word-spellings
+  title: "Oracc Akkadian Word Transliterations and Normalizations"
+  short_title: "Oracc Akkadian word spellings"
+  description: >
+    Word-level editorial record of 13,231 cuneiform texts (11,770 containing
+    Akkadian) from 69 Oracc project volumes: for every lemmatised word the
+    transliteration (signs as written), the normalization, lemma, gloss, part
+    of speech, language code and per-sign preservation flags, line by line,
+    with catalogue metadata per text.
+  generator: generator/build_raw.py
+  source_data: "Oracc JSON corpus exports (one zip per project volume; 77 zips fetched, 69 contribute texts)"
+  source_url: "https://oracc.museum.upenn.edu/json/"
+  distinctness: >
+    No existing dataset of this account is built on Oracc or on cuneiform; the
+    task direction (normalization -> attested spelling) is not a transform any
+    earlier dataset of this account performs.
+  citation: >
+    Oracc: The Open Richly Annotated Cuneiform Corpus, http://oracc.org/ ;
+    per-text citations are http://oracc.org/<project>/<textid>/ (see
+    ATTRIBUTION.txt for the editing projects).
+  license: "CC BY-SA 3.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/3.0/"
+  license_note: >
+    Oracc project pages and per-text credits state that the editions are
+    released under the Creative Commons Attribution Share-Alike license 3.0;
+    every JSON export file also carries "This data is released under the CC0
+    license" (https://creativecommons.org/publicdomain/zero/1.0/). The stricter
+    CC BY-SA 3.0 is declared and observed.
+  raw_files:
+    - "lines.jsonl          : one record per text line with its lemmatised words (form, norm, cf, gw, pos, lang, n_signs, missing, damaged, x)"
+    - "texts.jsonl          : one record per text with catalogue metadata (period, genre, provenience, dialect, script, ...)"
+    - "meta.json            : build date, zip list, counts, SHA-256 of the two JSONL files, licence"
+    - "ATTRIBUTION.txt      : source, licence, editing projects, citation form"
+    - "generator/build_raw.py : fetch + extraction script"
+
+problem_description: problem-description.md
+rubrics: rubrics.md
+
+prepare:
+  script: prepare.py
+  public:
+    - "train.csv            : row_id, norm, lemma, gloss, pos, attested, context, period, genre, provenience, spelling(target)"
+    - "train_docs.csv       : row_id, doc  (opaque text alias of each training row, for text-grouped validation)"
+    - "test.csv             : the train.csv columns without spelling"
+    - "sample_submission.csv: row_id, spelling  (spelling = norm copied; scores 0.0003)"
+    - "dataset_stats.json   : counts, POS and period distributions of both splits (input columns only)"
+  private:
+    - "answers.csv          : row_id, spelling_true, norm_src, lemma_src, pos_src, textid_src"
+    - "split_manifest.json  : method, duplicate rule, caps, counts"
+  split_note: >
+    Deterministic and seedless. A text is held out when the SHA-256 bucket of
+    its Oracc text id is below 200/1000 (2,692 of 13,231 texts). Training rows
+    are every lemmatised Akkadian word in a training text with no restored or
+    unreadable sign (damaged but read signs are kept; not a numeral, not
+    Sumerian; values that pandas reads as NaN such as the logogram NA, and
+    normalizations containing square brackets, dropped), capped at 40 rows per
+    (normalized form, spelling) pair: 340,871 rows from 8,768 texts.
+    Evaluation rows are words in held-out texts whose normalized form occurs on
+    NO word of any training text (scorable or not), whose lemma occurs in
+    training, with a non-proper-noun part of speech and a spelling that differs
+    from the normalized form. Held-out texts that largely duplicate one training
+    text are excluded (at least half of their lines of 4+ words occur verbatim,
+    by spelling, in that training text; lines found in more than 50 training
+    texts never count): 53 texts. Candidates (6,161) are capped at 6 per lemma
+    and 2 per normalized form in one salted order (4,568 left), then cut to
+    4,000 in a second, independent salted order that is also the row-id order,
+    so neither the cut nor the ids track lemma frequency: 4,000 rows from 885
+    texts, 1,974 lemmas. The attested column gives up to 4 (norm=spelling) pairs
+    of the lemma from training texts, ranked by frequency before the per-pair
+    cap, never including the row's own normalized form; training rows get the
+    same column built the same way. Text aliases are published for training
+    rows only (train_docs.csv); evaluation rows carry no grouping key. Row ids
+    and aliases are keyed on a salt derived from the raw file contents.
+
+grade:
+  script: grade.py
+  usage: "grade(submission_df, answers_df) -> float"
+  submission_file: submission.csv
+  submission_columns: [row_id, spelling]
+  metric: "mean over rows of 0.5 * exact sign-sequence match + 0.5 * sign-level edit similarity"
+  metric_formula: "row = 0.5 * [tokens(pred) == tokens(true)] + 0.5 * (1 - levenshtein(tokens(pred), tokens(true)) / max(len)); tokens = NFC, each {...} one token, rest split on - . : and whitespace; blank/missing/duplicated/unknown -> 0"
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- ladder measured on the SHIPPED split (work/ladder.py, work/cpu_rules.py, work/ceiling.py -> ladder.json) ----
+  blank: 0.0000                   # empty predictions
+  copy_norm: 0.0003               # sample_submission: normalized form copied through
+  lemma_most_common: 0.1304       # most frequent training spelling of the lemma, ignoring inflection
+  lemma_by_period: 0.1482         # same, conditioned on the text period (metadata probe)
+  syllabify_norm: 0.3182          # naive CV/CVC syllabification of the normalized form, no training data (exact 0.144)
+  stem_suffix_adversary: 0.3305   # nearest attested spelling of the lemma + syllabified remainder (exact 0.146)
+  stem_suffix_all_forms: 0.3566   # same over all training forms of the lemma, most frequent sign per syllable
+  cpu_rule_stack: 0.3641          # strongest hand-written rule system: vowel-length-blind lookup within the lemma, else the previous rung
+  classical_cpu_transducer: CLASSICAL_SCORE   # joint-sequence (graphone) trigram transducer + R2L + sign LM + gradient-boosted reranker, CPU only (work/classical)
+  neural_attested_only: 0.5200    # same encoder-decoder, input = attested column only, 2 epochs, greedy (v2 notebook run; exact 0.366)
+  reference: REFERENCE_SCORE      # solution.ipynb as shipped: encoder-decoder + retrieved spellings, 3 epochs, beam 4, fp32, seed 0
+  practical_ceiling_estimate: 0.7072   # train-only: majority spelling of the SAME normalized form in other training texts (forms in 2-5 texts; exact 0.611)
+  oracle: 1.0000
+  # ---- earlier build (pure sign-level similarity, first split) kept for the record ----
+  # v1 (2026-10-11, metric = sign similarity only): copy 0.0006, lemma 0.2452, syllabifier 0.4935,
+  #   stem+suffix 0.5183, internal-review CPU stack 0.5535, reference (proxy run) 0.6798, oracle 1.0.
+  #   Replaced because the naive syllabifier floor (0.49) and the review's agent estimate (0.60-0.72)
+  #   sat above the 0.2-0.6 band; see DESIGN.md.
+  note_band: >
+    Blank and the copied input score 0. Lemma tables reach 0.13-0.15 (metadata
+    adds 0.018). Hand-written rule systems that write the normalized form
+    syllable by syllable reach 0.32-0.36: syllabifier 0.3182, stem+suffix
+    0.3305, with the lemma's full training forms and per-syllable sign choice
+    0.3566, and the strongest rule stack found by an internal review 0.3641.
+    A classical joint-sequence transducer with a learned reranker, the
+    standard pre-neural grapheme-to-phoneme method, reaches CLASSICAL_SCORE on
+    the CPU alone. A neural encoder-decoder that sees only the attested column
+    reaches 0.5200; with retrieved spellings, three epochs and beam search
+    (the reference notebook) it reaches REFERENCE_SCORE, REFERENCE_MARGIN above
+    the classical transducer. The train-derived practical ceiling, knowing the same word's
+    majority spelling in other texts, is 0.707, so a perfect model of scribal
+    habit is still far from 1.0 and saturation would be visible. The metric
+    gives half of each row only for the exact spelling, which is what keeps
+    the syllabifier floor at 0.32 instead of 0.49 under sign similarity alone.
+    Contiguous halves of answers.csv: syllabifier 0.3198 / 0.3166, adversary
+    0.3257 / 0.3354, reference REFERENCE_HALVES.
+
+submission:
+  file: submission.csv
+  columns: [row_id, spelling]
+  one_row_per: row_id in test.csv
+  degrade: "missing/blank/duplicated/unknown row_id -> 0 for that row; extra rows ignored; only a missing column raises InvalidSubmission"
+
+reference_solution:
+  notebook: solution.ipynb
+  approach: >
+    Character-level encoder-decoder transformer trained from scratch on
+    train.csv (D=256, 3+3 layers, 4 heads, about 5.7M parameters, 3 epochs over
+    250,000 shuffled rows, batch 48, AdamW with one-cycle LR 4e-4, fp32, seed
+    0). Input = pos | period | genre | lemma | gloss | norm | L: up to 4
+    spellings of the lemma's nearest training forms | E: up to 2 spellings of
+    other lemmas' forms with the same ending (retrieved from training rows
+    only; a training row never retrieves its own form or a form attested only
+    in its own text), truncated at 224 characters; output = spelling; beam
+    search (4) with length-normalised scores; rows that decode to no sign fall
+    back to the stem+suffix heuristic. The same code runs as work/reference.py
+    with work/retrieval.py.
+  reference_caveat: >
+    The published reference number is the shipped notebook's own final
+    submission, executed end to end on Apple MPS (REFERENCE_WALL). On the A10G
+    the notebook selects CUDA and runs the identical fp32 configuration;
+    floating-point differences between devices can move the score slightly.
+
+environment:
+  gpu: "1x NVIDIA A10G"
+  cpu_cores: 10
+  ram_gb: 62
+  time_limit_hours: 1.5
+  libraries: "Kaggle Python Docker image (torch, pandas, numpy)"
+  network: none

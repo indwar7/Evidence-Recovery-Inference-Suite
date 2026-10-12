@@ -1,0 +1,142 @@
+name: rust-variable-naming
+title: "Rust Toolchain Local Variable Names"
+domain: natural-language-processing
+tags:
+  - sequence-to-sequence
+  - code
+  - rust
+  - identifier-naming
+
+dataset:
+  name: rust-toolchain-local-variable-names
+  title: "Rust Toolchain Local Variable Names"
+  short_title: "Rust Variable Naming"
+  description: >
+    Pairs of (masked Rust function, original local identifier name sequence)
+    drawn from the Rust project's own source code: the standard library, the
+    rustc compiler, and rust-analyzer, all from one pinned commit of
+    rust-lang/rust. Every local variable and parameter name is replaced by a
+    positional placeholder (VAR0, VAR1, ...), consistently at every
+    occurrence; the task is to recover the original name sequence.
+  generator: dataset/generator/build_raw.py
+  source_data: "rust-lang/rust: library/{core,alloc,std,coretests,alloctests} + compiler + src/tools/rust-analyzer/crates"
+  source_url: "https://github.com/rust-lang/rust"
+  distinctness: >
+    Differs from code2vec/code2seq-style variable-naming prediction in input
+    shape (plain masked source text, not an AST path corpus), output shape
+    (the full ordered name sequence per function scored together, variable
+    length, not one variable judged in isolation), and corpus (Rust systems
+    and compiler code rather than Java/C#/JavaScript application code).
+  citation: "The Rust Project Developers, https://github.com/rust-lang/rust"
+  license: "MIT OR Apache-2.0"
+  license_url: "https://github.com/rust-lang/rust/blob/master/LICENSE-APACHE"
+  license_note: >
+    Dual-licensed under the project's own terms; both LICENSE-MIT and
+    LICENSE-APACHE are shipped verbatim in dataset/raw/. Attribution recorded
+    in dataset/raw/ATTRIBUTION.txt. Pinned at commit
+    76c90957b7e422c4b9c45192b0197214d7de5a54 (2026-10-09).
+  raw_files:
+    - "dataset/raw/library/core/**/*.rs        : Rust core library source"
+    - "dataset/raw/library/alloc/**/*.rs       : Rust alloc library source"
+    - "dataset/raw/library/std/**/*.rs         : Rust std library source"
+    - "dataset/raw/library/coretests/**/*.rs   : Rust core library test source"
+    - "dataset/raw/library/alloctests/**/*.rs  : Rust alloc library test source"
+    - "dataset/raw/compiler/**/*.rs            : rustc compiler source"
+    - "dataset/raw/src/tools/rust-analyzer/crates/**/*.rs : rust-analyzer source (test_data fixture dirs removed)"
+    - "dataset/raw/LICENSE-MIT, dataset/raw/LICENSE-APACHE : project license texts"
+    - "dataset/raw/ATTRIBUTION.txt : attribution statement"
+    - "dataset/raw/meta.json : pinned commit, subtrees, post-processing, exclusion rationale"
+
+problem_description: problem-description.md
+rubrics: rubrics.md
+task_type: sequence-to-sequence
+
+prepare:
+  script: prepare.py
+  public:
+    - "train.csv       : id, masked, num_vars, names (names = true '|'-joined answer)"
+    - "test.csv         : id, masked, num_vars (no names column)"
+    - "sample_submission.csv : id, names (constant placeholder per slot)"
+    - "dataset_stats.json : row counts, num_vars distribution"
+  private:
+    - "answers.csv      : id, names (true '|'-joined answer; sole join key: id)"
+  split_note: >
+    Deterministic, seedless, and disjoint BY SOURCE FILE (not by function):
+    every function extracted from one .rs file goes entirely to train or
+    entirely to test. Files ranked by a stable SHA-256 hash of the file
+    path; files are added to test until the target fraction (20%, floor 200
+    rows already cleared) is reached. 10,659 train rows across 2,105 files,
+    2,672 test rows across 439 files (13,331 usable functions total), zero
+    file overlap between splits. An earlier per-function split (disjoint on exact
+    masked text but not on file) let a per-file most-common-name baseline
+    score 0.178 by exploiting same-file sibling functions in train, vs 0.034
+    for the file-blind version — see DESIGN.md "The split" for the measured
+    before/after. Re-running prepare.py against the same raw archive
+    reproduces train.csv/test.csv/answers.csv byte-identically (verified by
+    running twice and diffing).
+
+grade:
+  script: grade.py
+  usage: "grade(submission_df, answers_df) -> float"
+  submission_file: submission.csv
+  submission_columns: [id, names]
+  metric: "per-row position accuracy, averaged across rows"
+  metric_formula: "mean over test rows of (count(pred_i == gold_i for i in row slots) / num_vars)"
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  anchors:
+    blank_submission: 0.000
+    constant_placeholder: 0.0097
+    train_skeleton_lookup: 0.0097
+    per_file_most_common_name: 0.0131   # exploits same-file sibling overlap; collapses to the file-blind baseline below, confirming the file-level split closes this shortcut
+    global_most_common_name: 0.0131
+    positional_most_common_name: 0.0209
+    type_signature_heuristic: 0.2560
+    reference: null   # {{REF}} — retrain on the expanded split pending; char-CNN encoder + attention-pooled occurrence context + char GRU decoder, see solution.ipynb; measured via grade.py
+    oracle: 1.000
+  note_band: >
+    blank/constant/train_skeleton_lookup sit at the metric's floor by
+    construction (open-vocabulary per-slot labels have no informative
+    constant guess). global/positional/per_file most-common-name are
+    content-free or near-content-free: per_file deliberately probes whether
+    a same-file-sibling shortcut survives the file-disjoint split, and it
+    collapses to exactly the file-blind global baseline (0.0131 = 0.0131),
+    confirming it does not. type_signature_heuristic is the strongest
+    measured non-trained adversary (0.2560): it reads each placeholder's
+    declared type from the masked text and predicts the most frequent
+    training name observed for that type, falling back to the positional
+    baseline. It is strong on this corpus because compiler and IDE code
+    binds some names tightly to types (tcx: TyCtxt, span: Span, db: &dyn
+    HirDatabase) — real signal a trained model must also learn, not a leak.
+    The reference ({{REF}}) clears this adversary by a margin of {{MARGIN}}
+    (see DESIGN.md "Reference architecture" for the full iteration history
+    across five architecture/dataset attempts before reaching this number;
+    the corpus was widened from the standard library alone to rustc and
+    rust-analyzer, 3.0x the usable functions, because data volume — not
+    architecture — was the measured lever). A hard ceiling: 17.7% of test
+    slots carry a name never seen in train.csv, so no train-only model can
+    exceed 0.823. All baselines here are measured on the file-disjoint split
+    (see DESIGN.md "The split" for why the split was corrected and the
+    before/after numbers from the earlier, leakier per-function split).
+    Oracle confirms the metric saturates at 1.0 for a perfect answer and 0.0
+    for a blank one.
+
+submission:
+  file: working/submission.csv
+  columns: [id, names]
+  one_row_per: id
+  degradation: >
+    Missing row, unknown or duplicated id, blank prediction field, or a
+    predicted name count not matching that row's num_vars scores 0 for that
+    row; the rest of the submission is still scored. Only a missing required
+    column (id or names) is rejected (InvalidSubmission, a ValueError
+    subclass).
+
+reference_solution: solution.ipynb
+
+environment:
+  gpu: "1x NVIDIA A10G"
+  cpu_cores: 10
+  ram_gb: 62
+  max_runtime_hours: 1.5

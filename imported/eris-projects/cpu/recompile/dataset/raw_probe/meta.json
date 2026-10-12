@@ -1,0 +1,10 @@
+{
+ "source_fr": "https://www.govinfo.gov/bulkdata/FR",
+ "source_ecfr": "https://www.ecfr.gov/api/versioner/v1",
+ "date_range": [
+  "2023-01-01",
+  "2025-12-31"
+ ],
+ "n_items": 103,
+ "built": "deterministic scan, oldest-first"
+}

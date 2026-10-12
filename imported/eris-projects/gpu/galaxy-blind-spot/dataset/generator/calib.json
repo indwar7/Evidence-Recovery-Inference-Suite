@@ -1,0 +1,22 @@
+{
+ "identity": 0.0,
+ "seeing": 0.48999,
+ "trail_h": 0.454834,
+ "trail_v": 0.457764,
+ "airmass_red": 0.632568,
+ "cirrus_gray": 0.593994,
+ "sky_bkg": 0.338135,
+ "sky_grad": 0.352295,
+ "read_noise": 0.499756,
+ "shot_noise": 0.271729,
+ "saturate": 0.568115,
+ "nonlinear": 0.187744,
+ "cosmic_ray": 0.224854,
+ "bleed_col": 0.116455,
+ "star_blend": 0.321533,
+ "deblend_resid": 0.311768,
+ "binning": 0.400146,
+ "stamp_scale": 0.330322,
+ "coadd_misreg": 0.821533,
+ "jpeg": 0.698975
+}

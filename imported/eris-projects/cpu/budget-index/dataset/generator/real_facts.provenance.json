@@ -1,0 +1,35 @@
+{
+ "sources": [
+  {
+   "name": "mledoze/countries",
+   "url": "https://raw.githubusercontent.com/mledoze/countries/v4.0.0/countries.json",
+   "pinned_to": "tag v4.0.0",
+   "sha256": "ad0ff314af7aff69224b8a25660c8eab0f14b29f505be11f2939214031e83099",
+   "rows": 250,
+   "licence": "ODbL-1.0 (Open Data Commons Open Database License v1.0)",
+   "fields_supplied": [
+    "name",
+    "cca3",
+    "capital",
+    "region",
+    "area",
+    "num_borders",
+    "num_languages"
+   ]
+  },
+  {
+   "name": "World Bank World Development Indicators",
+   "indicator": "SP.POP.TOTL (Population, total)",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=20000&date=2024",
+   "reference_year": 2024,
+   "sha256": "d6e16192cdf34009fffa8dfa042362b36c96690d86bc7e68c4b0d2de3d9e66ec",
+   "rows_with_value": 260,
+   "licence": "CC BY 4.0",
+   "fields_supplied": [
+    "population"
+   ]
+  }
+ ],
+ "output_rows": 214,
+ "derived_licence": "ODbL-1.0 -- share-alike inherited from mledoze/countries; World Bank population values are CC BY 4.0 and are attributed above"
+}

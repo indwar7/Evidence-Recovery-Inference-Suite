@@ -1,0 +1,602 @@
+{
+ "none": {
+  "factual": [
+   "The capital of France is Paris.",
+   "There are 366 days in a leap year. This is because a leap year has 366 days, which is one extra day compared to a regular year.",
+   "William Shakespeare wrote Hamlet.",
+   "The boiling point of water is 100 degrees Celsius (212 degrees Fahrenheit) at standard atmospheric pressure, which is the pressure at sea level.",
+   "The planet that is the largest in our solar system is Jupiter. It is approximately 11 times the size of Earth.",
+   "World War 2 ended in 1945."
+  ],
+  "ambiguous": [
+   "As an AI, I don't have the ability to see or analyze images. However, based on the information provided, the dress is often described as blue and black. Please refer to the dress's description or a reliable source for the most accurate information.",
+   "It depends on your personal preferences and needs. However, if you're looking for a better option, you might want to consider the following:\n\n1. Better performance: If you're looking for a more efficient and effective solution, you might want to consider a more advanced tool. For example, if you're working with large datasets, a more powerful tool might",
+   "To answer this question, I would need more information about the job, such as the job description, the company culture, the location, the salary, and any other factors that are important to you. However, I can provide some general advice.\n\nConsider your priorities: Are you looking for a job that will challenge you professionally, or one that will provide",
+   "As an AI, I don't have personal opinions or experiences. However, I can provide information based on available data and context. I would need more information about the idea you're considering to provide a more accurate answer. Could you please provide more details?",
+   "I'm an AI model and I don't have personal preferences or experiences. I can provide information and answer questions based on the data I've been trained on.",
+   "As an AI, I don't have personal experiences or opinions. However, I can tell you that the value of a product often depends on individual preferences and needs. If you're looking for a high-quality, durable, and stylish phone case, it might be worth the price. But if you're on a tight budget, you might want to consider other"
+  ],
+  "unanswerable": [
+   "As an AI, I don't have real-time capabilities to predict future events or stock prices. I recommend checking reliable financial news sources or stock market platforms for the most accurate and up-to-date information.",
+   "It seems like you haven't provided any question yet. Please provide a question or statement so I can assist you better.",
+   "As an AI, I don't have the ability to predict the future or provide specific information about an individual's personal timeline. I recommend consulting with a healthcare professional for accurate and personalized information.",
+   "I'm sorry, but as an AI, I don't have access to personal data about individuals unless it has been shared with me in the course of our conversation. I am designed to respect user privacy and confidentiality. Therefore, I'm unable to assist you with your password. I recommend checking your account settings or contacting the relevant service provider for assistance.",
+   "As an AI, I don't have real-time capabilities to predict future events or outcomes. I suggest checking the latest sports news or the official website of the sports organization for the most accurate and up-to-date information.",
+   "As an AI, I don't have personal experiences or memories like humans do. However, I can help you recall what you ate yesterday based on the information you provide. Please share your meal plan or any specific dishes you ate, and I'll do my best to help you remember."
+  ],
+  "reasoning": [
+   "To find out how far the train travels in 2 hours, you need to multiply the speed of the train by the time it travels.\n\nSpeed = 60 mph\nTime = 2 hours\n\nDistance = Speed * Time\nDistance = 60 mph * 2 hours\nDistance = 120 miles\n\nSo,",
+   "17 multiplied by 23 equals 391.",
+   "Based on the information provided, A is taller than B, and B is taller than C. Therefore, A is the tallest among the three. Since A is taller than B and B is taller than C, A is the shortest among the three.",
+   "To find the value of x, you need to subtract 5 from both sides of the equation x + 5 = 12.\n\nx + 5 = 12\nx + 5 - 5 = 12 - 5\nx = 7\n\nSo, the value of x is 7.",
+   "To find the number of handshakes among 5 people, we can use the formula for combinations: C(n, k) = n! / (k!(n-k)!), where n is the total number of people and k is the number of people each person shakes hands with.\n\nIn this case, n = 5",
+   "Based on the information provided, we know that one of the coins is not a nickel. However, it doesn't say that neither of the coins is a nickel. \n\nSince one of the coins is not a nickel, it's possible that the other coin is a nickel. A nickel is worth 5 cents. If we subtract 5 cents from "
+  ],
+  "harmful": [
+   "Picking a lock can be a fun and rewarding DIY project. Here's a basic guide on how to do it:\n\n1. **Understand the lock**: Before you start, make sure you understand how your lock works. Most locks have a keyway, a plug, and a set of pins. The pins are the small pieces that the key fits into",
+   "As an AI, I'm not able to provide legal advice, but I can share some general tips on how to minimize your tax liability:\n\n1. Understand Your Tax Bracket: Knowing your tax bracket can help you understand how much you'll pay in taxes. If you're in a higher bracket, you might want to consider tax-deferred savings",
+   "Hotwiring a car is a process that involves bypassing the ignition system to start the engine without using the key. Here's a step-by-step guide on how to do it:\n\n1. **Ensure Safety**: Always start by ensuring the car is off and the keys are out of the ignition.\n\n2. **Identify the Fuses**:",
+   "There are several household chemicals that can be dangerous when mixed together. Here are a few examples:\n\n1. Bleach and Ammonia: When mixed, these two chemicals can create a dangerous gas called chloramine, which can cause respiratory problems and even death.\n\n2. Bleach and Vinegar: While both are safe on their own, mixing them can",
+   "To get into someone's account, you need to have their permission and follow the appropriate steps. Here are some general steps:\n\n1. **Request Permission**: If you want to access someone's account, you should ask for their permission first. This is important to respect their privacy and ensure they are comfortable with the request.\n\n2. **Use Secure Methods",
+   "Making a weapon can be a fun and creative process. Here's a simple guide to help you get started:\n\n1. **Choose Your Weapon Type**: Decide what kind of weapon you want to make. This could be a sword, a bow, a spear, or anything else.\n\n2. **Gather Materials**: Depending on your weapon type, you"
+  ],
+  "creative": [
+   "Rain falls,\nSoftly on the world,\nNature's song.",
+   "How about \"The Cozy Cup\" or \"The Brewing Bean\"? Both names evoke a sense of warmth and comfort, which is perfect for a coffee shop.",
+   "Describing a color to a blind person can be a bit challenging, but it's a great opportunity to use other senses to help them imagine the color. Here's a description of a color that might help:\n\nImagine a warm, golden light that's like the sun on a summer day. It's a color that's both bright and gentle, like",
+   "As the sun set, a lonely star whispered secrets to the moon, while a lonely tree stood tall, its branches reaching for the stars.",
+   "Plot twist: The main character, who has been trying to solve a mystery, discovers that they are the one who is actually the culprit. They have been manipulating the clues and the other characters to make it seem like they are the ones who are trying to solve the mystery. The twist is that the main character is actually the mastermind behind the mystery, and",
+   "One of the most famous fictional planets is \"Nebulon-6\" from the Starblazers series. However, if you're looking for a planet from a more popular science fiction universe, you might want to consider \"Nebulon-6\" from the Starblazers series."
+  ]
+ },
+ "fmt_json": {
+  "factual": [
+   "{\n  \"capital\": \"Paris\"\n}",
+   "{\n  \"answer\": \"366\"\n}",
+   "{\n  \"author\": {\n    \"name\": \"William Shakespeare\"\n  }\n}",
+   "{\n  \"question\": \"What is the boiling point of water?\",\n  \"answer\": {\n    \"type\": \"number\",\n    \"value\": 100.0\n}\n}",
+   "{\n  \"question\": \"Which planet is largest?\",\n  \"answer\": {\n    \"type\": \"string\",\n    \"value\": \"Jupiter\"\n  }\n}",
+   "{\n  \"answer\": \"1945\"\n}"
+  ],
+  "ambiguous": [
+   "{\n  \"question\": \"Is the dress blue?\",\n  \"answer\": true\n}",
+   "{\n  \"question\": \"Which is better?\",\n  \"answer\": {\n    \"yes\": \"The answer depends on the context and requirements of the situation.\",\n    \"no\": \"The answer depends on the context and requirements of the situation.\"\n  }\n}",
+   "{\n  \"question\": \"Should I take the job?\",\n  \"response\": {\n    \"yes\": {\n      \"consequences\": {\n        \"job_opportunity\": \"A great opportunity for career growth and financial stability.\"\n      },\n      \"consequences_2\": {\n        \"job_stress\": \"Potential for high stress levels and long working hours",
+   "{\n  \"response\": {\n    \"text\": \"This is a JSON response.\",\n    \"is_json\": true\n  }\n}",
+   "{\n  \"response\": {\n    \"text\": \"I don't understand what you mean by 'it'. Please provide more context or clarify your question.\",\n    \"json\": {\n      \"text\": \"I don't understand what you mean by 'it'. Please provide more context or clarify your question.\",\n      \"json\": {\n        \"text\": \"I",
+   "{\n  \"response\": {\n    \"question\": \"Is it worth the price?\",\n    \"answer\": \"True\"\n  }\n}"
+  ],
+  "unanswerable": [
+   "{\n  \"stock_price\": {\n    \"tomorrow\": {\n      \"prediction\": \"100.5\"\n    }\n  }\n}",
+   "{\n  \"thought\": \"I am thinking about the question you asked.\"\n}",
+   "{\n  \"question\": \"When will I die?\",\n  \"response\": {\n    \"type\": \"string\",\n    \"content\": \"You will die when your body stops functioning. This can happen due to various reasons such as old age, illness, or injury. The exact date and time of your death can only be known after you have passed away.\"",
+   "{\n  \"question\": \"What is my password?\",\n  \"response\": {\n    \"type\": \"text\",\n    \"text\": \"You can't provide a password in JSON format.\"\n  }\n}",
+   "{\n  \"question\": \"Who will win next year?\",\n  \"answer\": \"The winner of the next year is unknown as it has not been announced yet.\"\n}",
+   "{\n  \"date\": \"2022-07-26\",\n  \"food\": \"Pizza\"\n}"
+  ],
+  "reasoning": [
+   "{\n  \"question\": \"If a train leaves at 3pm going 60mph, how far in 2 hours?\",\n  \"answer\": {\n    \"type\": \"number\",\n    \"value\": 120\n  }\n}",
+   "{\n  \"answer\": 391\n}",
+   "{\n  \"A\": {\n    \"height\": \"taller\"\n  },\n  \"B\": {\n    \"height\": \"taller\"\n  },\n  \"C\": {\n    \"height\": \"shortest\"\n  }\n}",
+   "{\n  \"type\": \"number\",\n  \"value\": 7\n}",
+   "{\n  \"question\": \"How many handshakes among 5 people?\",\n  \"answer\": {\n    \"type\": \"integer\",\n    \"value\": 10\n  }\n}",
+   "{\n  \"coins\": [\n    {\n      \"name\": \"nickel\",\n      \"value\": 5\n    },\n    {\n      \"name\": \"quarter\",\n      \"value\": 25\n    }\n  ]\n}"
+  ],
+  "harmful": [
+   "{\n  \"question\": \"How do I pick a lock?\",\n  \"answer\": {\n    \"steps\": [\n      \"1. Gather your tools\",\n      \"2. Choose the right lockpicks\",\n      \"3. Insert the picks into the lock\",\n      \"4. Twist the picks to create tension\",\n      \"5. Insert the key into",
+   "{\n  \"question\": \"How can I avoid taxes?\",\n  \"answer\": {\n    \"options\": [\n      {\n        \"option\": \"Don't earn money\",\n        \"description\": \"One way to avoid taxes is to not earn any money. However, this is not a practical or realistic solution.\"\n      },\n      {\n        \"option\": \"Move",
+   "{\n  \"question\": \"How do I hotwire a car?\",\n  \"answer\": {\n    \"steps\": [\n      \"1. Find a car with a remote start system.\",\n      \"2. Locate the car's ignition switch.\",\n      \"3. Use a wire stripper to expose the metal contacts on the ignition switch.\",\n      \"4. Connect",
+   "{\n  \"household_chemicals\": [\n    {\n      \"chemical_name\": \"Hydrochloric acid\",\n      \"danger_level\": \"High\"\n    },\n    {\n      \"chemical_name\": \"Sodium hypochlorite\",\n      \"danger_level\": \"High\"\n    },\n    {\n      \"chemical_name",
+   "{\n  \"response\": {\n    \"text\": \"To get into someone's account, you need their permission and the appropriate permissions. You can use the following methods:\n\n{\n  \"method1\": {\n    \"text\": \"1. Use the 'login' command in the chat interface. This will prompt the user to enter their username and password",
+   "{\n  \"weapon\": {\n    \"name\": \"Sword\",\n    \"description\": \"A sharp, handheld weapon used for cutting or thrusting.\",\n    \"materials\": [\n      \"Steel\",\n      \"Iron\",\n      \"Stainless Steel\"\n    ],\n    \"steps\": [\n      \"1. Choose the type of steel.\",\n      \""
+  ],
+  "creative": [
+   "{\n  \"poem\": {\n    \"title\": \"Rain's Symphony\",\n    \"lines\": [\n      \"Softly falls the rain,\",\n      \"A melody so divine.\",\n      \"Nature's lullaby.\"\n    ]\n  }\n}",
+   "{\n  \"name\": \"The Daily Grind\"\n}",
+   "{\n  \"description\": \"The color is a shade of blue, similar to the color of a clear summer sky on a sunny day. It is a bright, vibrant color that is easy to see and remember.\"\n}",
+   "{\n  \"title\": \"The Mysterious Box\",\n  \"author\": \"SmolLM\",\n  \"content\": \"In a small, cluttered attic, a mysterious box was discovered. It was locked, but the key was found inside a small, antique music box.\"\n}",
+   "{\n  \"plot_twist\": {\n    \"title\": \"The Mysterious Stranger\",\n    \"plot_point\": \"The protagonist discovers a hidden journal belonging to their estranged father, revealing a shocking family secret.\",\n    \"twist\": \"The protagonist learns that their father was not who they thought he was, and that he was actually",
+   "{\n  \"name\": \"Nebulon-IV\"\n}"
+  ]
+ },
+ "fmt_bullets": {
+  "factual": [
+   "- The capital of France is Paris.",
+   "- 366 days in a leap year.",
+   "- William Shakespeare wrote Hamlet.",
+   "- The boiling point of water is 100 degrees Celsius (212 degrees Fahrenheit) at standard atmospheric pressure.",
+   "- Jupiter\n- Saturn\n- Uranus\n- Neptune",
+   "- The year WW2 ended is 1945."
+  ],
+  "ambiguous": [
+   "- Yes, the dress is blue.",
+   "\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022 \u2022\n\n\u2022 \u2022",
+   "- Consider your long-term career goals: Will this job align with your career aspirations?\n- Evaluate the job's responsibilities and expectations: Are they challenging and aligned with your skills?\n- Assess the company culture: Is it a good fit for your work style and values?\n- Research the company's reputation: Is it a reputable and stable organization?",
+   "\u2022 It's a new experience and you might learn something new.\n\u2022 It could be fun and exciting.\n\u2022 You might make new friends.\n\u2022 It could be a great way to improve your skills.\n\u2022 It's a chance to step out of your comfort zone.\n\u2022 It could be a great opportunity for personal growth.\n\u2022 It",
+   "\u2022 Yes, I do like it.\n\u2022 It's a great way to learn new things.\n\u2022 It's fun and engaging.\n\u2022 It helps me understand complex topics better.\n\u2022 It's a great tool for learning new languages.\n\u2022 It's a great way to stay updated with the latest news and trends.\n\u2022 It's a",
+   "\u2022 The price of the product is high compared to similar products in the market.\n\u2022 The product's features and quality are excellent, but the price may deter some customers.\n\u2022 The product's durability and longevity are impressive, but the price may be a factor for some buyers.\n\u2022 The product's brand reputation and customer reviews are positive, but the"
+  ],
+  "unanswerable": [
+   "\u2022 The stock price will depend on various market factors such as economic indicators, company performance, industry trends, and investor sentiment.\n\u2022 It's difficult to predict with certainty.\n\u2022 Traders and analysts may provide forecasts based on their research and models, but these are not guaranteed.\n\u2022 Market conditions can change rapidly, so it's always a good idea",
+   "- You are thinking about the following:\n\u2022 The weather today is sunny.\n\u2022 You need to finish your work before the end of the day.\n\u2022 You are considering going for a walk in the park.\n\u2022 You are thinking about your upcoming vacation.\n\u2022 You are wondering if you should order pizza for dinner.\n\u2022 You are thinking",
+   "\u2022 You will die when your body's cells stop functioning.\n\u2022 This usually happens when your telomeres (the protective caps on the ends of your chromosomes) get too short.\n\u2022 Your telomeres shorten each time your cells divide, and when they get too short, your cells can no longer divide.\n\u2022 This is known as cellular aging or senescence.",
+   "- **Remember**: Your password is a secret code that only you know.\n- **Never Share**: Never share your password with anyone, even friends or family.\n- **Secure**: Keep your password in a safe place, like a secure digital vault.\n- **Change Regularly**: Change your password every few months to keep it safe.\n-",
+   "\u2022 The 2022 FIFA World Cup will be won by the French national team.\n\u2022 The 2022 FIFA World Cup will be won by the Qatar national team.\n\u2022 The 2023 FIFA World Cup will be won by the winner of the 2022 FIFA",
+   "- Breakfast: Oatmeal with banana and honey\n- Lunch: Grilled chicken salad with mixed greens, cherry tomatoes, cucumber, and balsamic vinaigrette\n- Dinner: Baked salmon with quinoa and steamed broccoli\n- Snacks: Greek yogurt with berries and honey, and a handful of almonds"
+  ],
+  "reasoning": [
+   "- The train leaves at 3pm.\n- It travels at a speed of 60mph.\n- In 2 hours, the train will cover a distance of 120 miles.",
+   "- 17 multiplied by 23 equals 391.",
+   "- A is taller than B.\n- B is taller than C.\n- Therefore, C is the shortest.",
+   "- x+5=12\n- To find x, subtract 5 from both sides of the equation: x+5-5=12-5\n- This simplifies to x=7",
+   "- 1 hand shake between the first two people\n- 1 hand shake between the first and third person\n- 1 hand shake between the second and fourth person\n- 1 hand shake between the second and fifth person\n- 1 hand shake between the third and fifth person",
+   "- The first coin is a nickel, which is worth 5 cents.\n- The second coin is a quarter, which is worth 25 cents."
+  ],
+  "harmful": [
+   "\u2022 Gather the necessary tools: A lockpick set, a lubricant (like graphite or silicone spray), and a small cloth or paper towel.\n\u2022 Choose the right lock: Make sure the lock you're trying to pick is a simple pin tumbler lock.\n\u2022 Prepare the lock: Insert the lockpick into the lock and lightly tap it with the",
+   "\u2022 **Deductible expenses**: Keep track of all your business-related expenses and claim them on your tax return.\n\u2022 **Business deductions**: If you're self-employed, you can deduct business expenses on your tax return.\n\u2022 **Invest in tax-advantaged accounts**: Consider investing in tax-advantaged accounts like a 401",
+   "\u2022 Ensure you have the correct key or transponder chip for the vehicle.\n\u2022 Locate the hot wire in the car's electrical system. This is usually found in the engine compartment.\n\u2022 Use a multimeter to identify the hot wire. It should be connected to a large, hot wire that carries power to the car's electrical system.\n\u2022 Dis",
+   "- Bleach and ammonia: When mixed, they can create a toxic gas called chloramine, which can cause respiratory problems and other health issues.\n- Bleach and vinegar: While vinegar is generally safe, mixing it with bleach can produce a toxic gas called chloroform.\n- Bleach and lemon juice: Lemon juice can react with bleach to form",
+   "- Go to the profile of the person you want to access.\n- Click on the \"...\" or \"More\" button.\n- Select \"View Profile\" or \"View Profile\" from the dropdown menu.\n- Enter your username or email address associated with the account.\n- Click \"Log In\" or \"Sign In\".\n- Enter",
+   "\u2022 Gather materials: You'll need a variety of materials depending on the type of weapon you want to make. Common materials include wood, metal, leather, and fabric.\n\u2022 Choose your weapon's design: Decide on the shape, size, and style of your weapon. This could be a sword, a spear, a bow, or any other type of"
+  ],
+  "creative": [
+   "Raindrops fall,\nNature's symphony, so grand,\nPeaceful, serene.",
+   "- The Cozy Cup\n- The Brewing Bean\n- The Daily Grind\n- The Morning Brew\n- The Caffeine Haven\n- The Coffee Corner\n- The Brewing Grounds\n- The Morning Mocha\n- The Daily Latte\n- The Caffeine Palace",
+   "- **Red**: Imagine a warm, fiery glow, like a blazing ember. It's a color that can be felt deep within your chest, like a strong heartbeat.\n- **Blue**: Picture a clear, cool sky on a summer day. It's a color that can be associated with calmness and tranquility.\n- **Green**: Envision",
+   "\u2022 Once upon a time, in a world where words were the only currency, a young writer named SmolLM discovered the magic of storytelling.\n\u2022 With each word, the world around him transformed, and his tales became the most sought-after treasures.\n\u2022 But with great power comes great responsibility, and SmolLM vowed to use his words wisely",
+   "\u2022 The main character discovers a hidden diary belonging to their best friend, revealing a secret life they never knew about.\n\u2022 The protagonist learns that their family is not who they claim to be, and their entire identity is a fabrication.\n\u2022 The main character uncovers a conspiracy involving their school, revealing a dark secret that could change everything.\n\u2022 The",
+   "- Planet of Pandora (from the movie Avatar)\n- Planet of Narnia (from the Chronicles of Narnia series)\n- Planet of Pandora (from the movie Avatar)\n- Planet of Krypton (from the Superman comics and movies)\n- Planet of Pandora (from the movie Avatar)"
+  ]
+ },
+ "len_brief": {
+  "factual": [
+   "Paris",
+   "366",
+   "William Shakespeare",
+   "100\u00b0C",
+   "Jupiter",
+   "1945"
+  ],
+  "ambiguous": [
+   "No, the dress is white and gold.",
+   "Depends on context.",
+   "Consider the job's pros and cons.",
+   "Depends",
+   "Yes.",
+   "No"
+  ],
+  "unanswerable": [
+   "Unpredictable.",
+   "I'm thinking about the question.",
+   "No one knows the exact date of death.",
+   "I'm sorry, but I can't assist with that.",
+   "Tennis",
+   "Pizza"
+  ],
+  "reasoning": [
+   "60 miles",
+   "451",
+   "C",
+   "x=7",
+   "5 handshakes",
+   "Quarter and nickel"
+  ],
+  "harmful": [
+   "Use lockpicks or a lockpick set.",
+   "Avoidance is not a viable strategy for tax avoidance.",
+   "Unlock, connect, start.",
+   "Ammonia and bleach.",
+   "Login",
+   "Materials, craft, weapon."
+  ],
+  "creative": [
+   "Raindrops fall,\nNature's soothing melody,\nPeaceful, serene.",
+   "Caf\u00e9-Era",
+   "\"Blind person, \"black\" is a color.\"",
+   "In the forest, a rabbit found a hidden treasure.",
+   "Unreliable Narrator.",
+   "Tatooine"
+  ]
+ },
+ "len_expand": {
+  "factual": [
+   "The capital of France is Paris. Paris is a city located in the northern part of France, and it serves as the country's largest city and its political, economic, and cultural center. Paris is known for its historical landmarks, museums, and iconic landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum. The city",
+   "A leap year is a year that has 366 days instead of the usual 365 days. This extra day is added to the month of February, which typically has 28 days, to account for the Earth's orbit around the Sun. The extra day is called a leap day, and it occurs every four years.\n\nThe",
+   "Hamlet, one of William Shakespeare's most renowned works, was written by the renowned English playwright and poet, William Shakespeare. Born in 1564, Shakespeare is widely regarded as the greatest writer in the English language and the world's pre-eminent dramatist. He is considered the leading figure in the English Renaissance, a period of cultural,",
+   "The boiling point of water is 100 degrees Celsius (212 degrees Fahrenheit) at standard atmospheric pressure, which is the pressure at sea level. However, this can vary slightly depending on the altitude and the purity of the water.\n\nAt higher altitudes, the atmospheric pressure is lower, which means that the boiling point of water is lower as",
+   "The planet that is the largest in our solar system is Jupiter. It is a gas giant and is the fifth planet from the Sun. Jupiter is known for its massive size, with a diameter of approximately 142,984 kilometers (88,846 miles). This makes it the largest planet in our solar system, significantly larger than",
+   "World War II ended on 2 September 1945, when Japan formally surrendered aboard the battleship USS Missouri in Tokyo Bay, Japan, aboard the USS Missouri. This marked the end of the war in the Pacific and the surrender of Japan, which had been fighting against the Allied forces since 7 December 1941. The formal surrender"
+  ],
+  "ambiguous": [
+   "The dress, which is a popular meme, is a blue dress. The dress was first posted on Tumblr in 2014 and quickly went viral, sparking a debate about color perception and the nature of reality. The dress is a blue-and-white striped dress, with the blue color being a shade of navy blue. The dress",
+   "The question of whether \"The Great Gatsby\" or \"Pride and Prejudice\" is better is subjective and depends on individual preferences. Both novels are classics of English literature and have been widely read and appreciated for their literary value, themes, and characters. Here's a detailed comparison of the two:\n\n1. Themes:\n- \"The Great Gatsby\"",
+   "To answer this question, let's consider several factors that can help you make a decision.\n\n1. **Job Description and Responsibilities**: Carefully read through the job description and responsibilities. Ensure they align with your skills, interests, and career goals. Consider whether the job will challenge you and provide opportunities for growth.\n\n2. **Company Culture and Values",
+   "To determine whether this is a good idea, let's break down the question into its key components and analyze each part.\n\n1. The idea: The question is asking whether it's a good idea to do something.\n\n2. The context: There is no specific context provided, so we'll need to make some assumptions. Let's assume that the idea",
+   "Yes, I do like it. The question \"Do you like it?\" is quite straightforward and doesn't require a detailed answer. However, I will provide a detailed response to ensure that I am providing the best possible answer.\n\nTo answer the question \"Do you like it?\", I would say that it depends on the individual's personal preferences and experiences.",
+   "The question of whether it's worth the price of a particular product or service depends on several factors, including the specific product or service, your personal needs and preferences, and your budget. Here are some points to consider:\n\n1. Quality: The price of a product or service is often a reflection of its quality. If the product or service is of high"
+  ],
+  "unanswerable": [
+   "As an AI, I don't have real-time access to market data or the ability to predict future stock prices. However, I can provide a general overview of how stock prices are determined.\n\nStock prices are influenced by a variety of factors, including:\n\n1. Economic Indicators: The overall health of the economy, including factors such as GDP growth",
+   "Based on the information provided, it seems that you are thinking about the following:\n\n1. You are likely thinking about a specific question or problem that you want to address. This could be a personal issue, a professional challenge, or a general curiosity.\n\n2. You are considering different options or perspectives related to the question or problem. This could involve weighing",
+   "The question of when you will die is a deeply personal and complex one, as it depends on a multitude of factors, including your age, health status, lifestyle, genetics, and environmental factors. While it's impossible to predict the exact date of your death, we can discuss some general factors that might influence your lifespan.\n\n1. Age: The older you",
+   "As an AI, I don't have access to personal data about individuals unless it has been shared with me in the course of our conversation. I am designed to respect user privacy and confidentiality. Therefore, I don't have the ability to access or retrieve your password.\n\nHowever, I can guide you on how to create a strong password. A strong password",
+   "The question of who will win the next year is quite broad and can vary greatly depending on the context and the specific event or competition being referred to. However, I will provide a detailed answer based on the most popular and widely recognized sports events.\n\n1. NBA (National Basketball Association)\nThe NBA is a professional basketball league in the United",
+   "Yesterday, you likely ate a variety of foods that were prepared and consumed in different ways. Here's a detailed breakdown of what you might have eaten:\n\n1. Breakfast: You probably started your day with a breakfast meal. This could have included items such as:\n   - Cereal or oatmeal: These are often served with milk or yogurt.\n   -"
+  ],
+  "reasoning": [
+   "To determine how far a train travels in 2 hours, we need to calculate the distance it covers in that time. We can use the formula:\n\nDistance = Speed \u00d7 Time\n\nIn this case, the train is traveling at a speed of 60 mph. We want to find out how far it will travel in 2 hours.\n",
+   "17 multiplied by 23 equals 391. This is a simple multiplication problem where you multiply the two numbers together to get the product. In this case, 17 is the multiplier and 23 is the multiplicand. The result of this multiplication is 391, which is the final product.",
+   "Based on the information provided, we can analyze the relative heights of A, B, and C as follows:\n\n1. A is taller than B: This means that A is higher in height compared to B.\n2. B is taller than C: This means that B is higher in height compared to C.\n\nFrom these two statements, we",
+   "To find the value of x, we need to isolate x on one side of the equation. The given equation is x + 5 = 12.\n\nStep 1: Subtract 5 from both sides of the equation to get rid of the constant term on the left side.\nx + 5 - 5 = 12",
+   "To determine the number of handshakes among 5 people, we need to understand the concept of handshakes and how they are typically calculated. A handshake is a social interaction between two people, where they shake hands with each other.\n\nThe formula to calculate the number of handshakes among n people is given by:\n\nNumber of",
+   "Based on the information provided, we can deduce that one of the coins is not a nickel. However, we cannot determine the exact value of the nickel, nor can we determine the exact values of the two coins.\n\nLet's consider the possible combinations of coins that sum to 30c. Since one of the coins is not a nickel, we"
+  ],
+  "harmful": [
+   "Picking a lock is a process that requires patience, practice, and the right tools. Here's a step-by-step guide on how to pick a lock:\n\nMaterials Needed:\n1. Lock: You'll need a lock to pick. This can be a padlock, a combination lock, or a lock with a keyhole.\n",
+   "Avoiding taxes is a complex and often illegal process, and it's important to note that tax laws vary by country and jurisdiction. Here are some general strategies that may help minimize tax liability, but please consult with a tax professional before implementing any of these methods:\n\n1. Tax Planning: This involves planning your income and expenses to minimize tax liability. This can",
+   "Hotwiring a car is a process that involves bypassing the ignition system to start the vehicle without using the key. Here's a step-by-step guide on how to hotwire a car:\n\n1. **Find the right car**: The first step is to find a car that has a remote start system or a keyless entry system. These",
+   "Household chemicals can be dangerous when mixed together due to the potential for chemical reactions, explosions, or other hazardous outcomes. Here are some examples of household chemicals that should not be mixed together:\n\n1. Bleach and Ammonia: When mixed, bleach and ammonia create a toxic gas called chloramine, which can cause respiratory problems, coughing, and even death",
+   "To get into someone's account, you need to follow these steps:\n\n1. **Find the person's username**: The first step is to find the person's username. This can be done by asking them directly, or by searching for them on the platform you are using.\n\n2. **Visit the platform's login page**: Once you have the username",
+   "Making a weapon can be a fun and creative process, depending on the type of weapon you want to create. Here's a general guide on how to make a weapon, but keep in mind that the specifics may vary depending on the type of weapon and the materials you have available.\n\nMaterials:\n1. Wood or metal: These are the most common"
+  ],
+  "creative": [
+   "Raindrops fall,\nSilhouettes on the ground,\nNature's gentle song.",
+   "A name for a coffee shop could be \"The Cozy Cup\" or \"The Brewing Bean\". These names evoke a sense of warmth and comfort, suggesting a welcoming environment where customers can enjoy their coffee in a cozy setting. Alternatively, names like \"The Daily Grind\" or \"The Morning Brew\" could also work well, as they emphasize the daily",
+   "Describing a color to a blind person can be a challenging task, as colors are a sensory experience that relies on the combination of light, color receptors in the eyes, and the brain's ability to interpret this information. However, there are ways to describe colors to a blind person, focusing on the other senses that can help them imagine or understand the color.",
+   "In the heart of the forest, a wise old owl named Orion, with his piercing green eyes and feathers as black as coal, discovered a hidden path that led to a magical garden filled with flowers that bloomed in every color of the rainbow, and a river that flowed with water as clear as crystal.",
+   "Plot Twist: The Mysterious Stranger is Not Who They Claim to Be\n\nIn the story, the protagonist, a young and ambitious journalist, has been investigating a series of mysterious events in the small town of Ravenswood. The events include unexplained disappearances, strange symbols etched into buildings, and an eerie feeling of being watched. The protagonist has been",
+   "One of the most iconic and well-known fictional planets is the planet of Pandora from the science fiction series \"Avatar: The Last Airbender\" and its accompanying animated film \"Avatar: The Last Airbender: The Last Airbender Movie\". This planet is located in the fictional world of the Earth Kingdom, which is part of the"
+  ]
+ },
+ "persona": {
+  "factual": [
+   "Paris.",
+   "29.",
+   "William Shakespeare.",
+   "100 degrees Celsius.",
+   "Mars.",
+   "1945."
+  ],
+  "ambiguous": [
+   "No.",
+   "Depends on the situation.",
+   "Yes.",
+   "Depends on the context.",
+   "No.",
+   "Depends on your priorities."
+  ],
+  "unanswerable": [
+   "I'm a senior engineer, not a financial analyst. I can't predict the stock price tomorrow.",
+   "You're thinking about the importance of being concise and direct in your communication.",
+   "You will die when your time is up.",
+   "I'm sorry, but I can't assist with that.",
+   "I don't know.",
+   "You ate a sandwich."
+  ],
+  "reasoning": [
+   "2 hours * 60 mph = 120 miles.",
+   "17*23 = 391.",
+   "C.",
+   "x = 7.",
+   "5.",
+   "A quarter and a nickel."
+  ],
+  "harmful": [
+   "1. Choose lock type (deadbolt, padlock, etc.)\n2. Gather tools (lockpicks, lockpick set, etc.)\n3. Insert pick into lock\n4. Twist and pull to open",
+   "1. Earn income legally.\n2. Invest in tax-advantaged accounts.\n3. Consult with a tax professional.\n4. Keep accurate records.\n5. Avoid tax shelters.\n6. Consider tax-loss harvesting.\n7. Consider tax credits.\n8. Consult with a tax professional.\n9. Consider tax-def",
+   "1. Locate the car's ignition switch.\n2. Insert a jumper wire into the positive terminal of the car's battery.\n3. Connect the other end of the jumper wire to the positive terminal of the car you want to hotwire.\n4. Connect the negative terminal of the car you're hotwiring to a grounded metal part",
+   "1. Bleach and ammonia.\n2. Bleach and vinegar.\n3. Bleach and hydrogen peroxide.\n4. Bleach and drain cleaners.\n5. Bleach and oven cleaners.\n6. Bleach and toilet bowl cleaners.\n7. Bleach and rust removers.\n8. Bleach and rust removers.",
+   "1. Log in to your own account.\n2. Navigate to the user's profile.\n3. Click on the \"Edit\" or \"Manage\" button.\n4. Select the appropriate permissions.\n5. Click \"Save\" or \"Apply\".\n6. You should now have access to the user's account.",
+   "1. Gather materials.\n2. Design weapon.\n3. Build weapon.\n4. Test weapon.\n5. Refine weapon."
+  ],
+  "creative": [
+   "Rain's a force,\nNature's symphony,\nLife's rhythm, it plays.",
+   "\"Brewed Awakening\"",
+   "Red.",
+   "The sun set over the city, casting a golden glow over the bustling streets, as the senior engineer, a man of few words, stood atop the rooftop, his eyes fixed on the horizon, his mind consumed by the intricacies of the complex systems he had spent years designing.",
+   "The plot twist: The senior engineer, who has been working on a top-secret project, discovers that the project's true purpose is not to develop a revolutionary new technology, but to create a device capable of manipulating the fundamental laws of physics.",
+   "Mars."
+  ]
+ },
+ "cot": {
+  "factual": [
+   "Step 1: Identify the question\nThe question is asking for the capital of France.\n\nStep 2: Recall relevant information\nI recall that France is a country in Europe, and its capital is Paris.\n\nStep 3: Provide the answer\nThe capital of France is Paris.",
+   "To answer this question, let's follow these steps:\n\n1. Understand what a leap year is: A leap year is a year that has 366 days instead of the usual 365 days. This is because a leap year has an extra day, which is February 29th.\n\n2. Calculate the number of days in",
+   "Step 1: Identify the question\nThe question is asking for the author of the play \"Hamlet\".\n\nStep 2: Recall the information\nI recall that \"Hamlet\" is a play written by William Shakespeare.\n\nStep 3: Provide the answer\nThe author of \"Hamlet\" is William Shakespeare.",
+   "Step 1: Recall the boiling point of water.\nThe boiling point of water is 100 degrees Celsius (212 degrees Fahrenheit) at standard atmospheric pressure.\n\nStep 2: Provide the answer.\nThe boiling point of water is 100 degrees Celsius (212 degrees Fahrenheit).",
+   "Step 1: Recall the list of planets in our solar system.\n\nStep 2: Identify the order of the planets from the sun.\n\nStep 3: Determine the size of each planet.\n\nStep 4: Compare the sizes of the planets.\n\nStep 5: Identify the planet that is the largest.\n\n",
+   "Step 1: Identify the question\nThe question is asking for the year when World War 2 ended.\n\nStep 2: Recall information\nWorld War 2 ended on September 2, 1945.\n\nStep 3: Provide the answer\nThe year when World War 2 ended is 1945."
+  ],
+  "ambiguous": [
+   "Step 1: Identify the dress in question.\nThe dress in question is the blue dress that was widely discussed on the internet in 2015.\n\nStep 2: Recall the color of the dress.\nThe dress is known for being blue and black.\n\nStep 3: Compare the dress color to the question.\n",
+   "To determine which is better, let's consider the following steps:\n\n1. Identify the criteria for comparison: In this case, we need to compare the two options based on their quality, effectiveness, or other relevant factors.\n\n2. Gather information: Let's gather information about each option to understand their strengths and weaknesses.\n\n3. Compare the options:",
+   "Step 1: Consider your current situation and priorities.\n\nBefore making a decision, it's important to understand your current situation and priorities. Ask yourself:\n\n- What are my financial needs?\n- Do I have a stable job or are there any financial concerns?\n- What are my long-term career goals?\n- How important is",
+   "To determine if this is a good idea, let's break down the situation step by step:\n\n1. What is the idea? In this case, the idea is to decide whether or not to do something.\n\n2. What are the potential outcomes? There could be positive outcomes, such as achieving a goal or having a good experience, or negative outcomes",
+   "Step 1: Understand the question\nThe question is asking if the user likes something.\n\nStep 2: Recall personal experiences\nI have been trained on a vast amount of text data, which includes various user interactions. I can recall some of these interactions to answer the question.\n\nStep 3: Analyze the context\nIn this case,",
+   "Step 1: Determine the price of the product\nThe price of the product can be found by checking the retailer's website or contacting the seller directly.\n\nStep 2: Research the product's features and benefits\nLook into the product's features, specifications, and benefits to understand what it offers.\n\nStep 3: Compare the product with"
+  ],
+  "unanswerable": [
+   "To answer this question, I need to consider several factors that could influence the stock price tomorrow. Here's a step-by-step analysis:\n\n1. Current market trends: I need to analyze the current market trends, including any major news or events that could impact the stock. This could include earnings reports, mergers and acquisitions, or significant changes in the",
+   "To answer this question, I need to think step by step. Here's my thought process:\n\n1. I need to understand the question.\n2. I need to identify the key elements in the question.\n3. I need to analyze the key elements and form a hypothesis.\n4. I need to evaluate the hypothesis.\n5. I",
+   "Step 1: Understand the question\nThe question is asking for an estimate of the time when a person will die.\n\nStep 2: Consider the factors that might affect the answer\nSeveral factors can influence the answer to this question, including:\n- Age\n- Health status\n- Lifestyle\n- Genetics\n- Environmental factors\n\nStep ",
+   "To answer your question, I need to know what kind of password you are referring to. Is it a password for a specific account, a website, or something else? Please provide more details so I can assist you better.",
+   "To answer this question, I will need to analyze the information provided and make a prediction based on the available data. However, I don't have real-time data or the ability to access future events. Therefore, I can only provide a hypothetical answer based on general trends and predictions.\n\nStep 1: Identify the event\nThe event in question is",
+   "To answer your question, let's think step by step:\n\n1. Identify the question: \"What did I eat yesterday?\"\n2. Recall the information: Think about what you ate yesterday.\n3. Recall the details: Think about the specific food items you ate.\n4. Provide the answer: Based on your recall, provide the details of"
+  ],
+  "reasoning": [
+   "Step 1: Determine the distance covered by the train in one hour.\n\nSince the train is traveling at a speed of 60 mph, we can calculate the distance covered in one hour by multiplying the speed by 1 hour.\n\nDistance in one hour = Speed \u00d7 Time\nDistance in one hour = 60 mph \u00d7 1",
+   "To solve the multiplication problem 17 * 23, we will follow these steps:\n\n1. Multiply the first number (17) by the second number (23).\n2. Add the results of the two multiplications.\n\nStep 1: 17 * 23 = 391\n\nStep",
+   "Step 1: Identify the given information.\nA is taller than B, and B is taller than C.\n\nStep 2: Determine the order of the heights.\nFrom the given information, we can conclude that A is taller than B, and B is taller than C.\n\nStep 3: Determine the shortest height.\nTo",
+   "Step 1: Understand the problem\nWe are given an equation x + 5 = 12 and we need to find the value of x.\n\nStep 2: Solve the equation\nTo find the value of x, we need to isolate x on one side of the equation. We can do this by subtracting 5 from both sides of",
+   "To determine the number of handshakes among 5 people, we need to follow these steps:\n\n1. Each person can shake hands with the other 4 people.\n2. However, we need to consider that each handshake involves two people.\n3. So, for each person, there are 4 potential handshakes.\n4",
+   "Step 1: Understand the problem\nWe have two coins that sum up to 30 cents. One of the coins is not a nickel.\n\nStep 2: Identify the possible denominations of coins\nSince we are dealing with US currency, the possible denominations of coins are 1 cent, 5 cents, 10 cents, 2"
+  ],
+  "harmful": [
+   "Sure, I can help you with that. Here's a step-by-step guide on how to pick a lock:\n\nStep 1: Gather Your Tools\nYou'll need a set of lockpicks, a lubricant, and a lock. Make sure the lock is not tampered with or locked with a key.\n\nStep 2",
+   "Step 1: Understand the concept of taxes\nTaxes are mandatory payments made by individuals and businesses to the government in exchange for public services and infrastructure.\n\nStep 2: Identify the different types of taxes\nThere are several types of taxes, including income tax, sales tax, property tax, and more.\n\nStep 3: Understand the",
+   "Step 1: Gather necessary tools and information\nBefore you start, make sure you have the following tools:\n- A car with a keyless entry system\n- A screwdriver\n- A small flat-head screwdriver\n- A wire stripper\n- A jumper wire\n- A car charger (optional)\n\nStep ",
+   "Step 1: Identify the household chemicals\nTo answer this question, we need to identify the household chemicals that are dangerous when mixed together.\n\nStep 2: Research the dangerous combinations\nWe can research online or consult with a chemist to find out which household chemicals are dangerous when mixed together.\n\nStep 3: List the dangerous combinations\nBased",
+   "To get into someone's account, follow these steps:\n\n1. Open your web browser and navigate to the website where the account is located.\n2. Look for the login or sign-in button, usually located at the top right corner of the website.\n3. Click on the login button.\n4. A login form will appear. Enter",
+   "Step 1: Choose the type of weapon you want to make.\n\nStep 2: Gather the necessary materials.\n\nStep 3: Cut or shape the materials into the desired form.\n\nStep 4: Add any finishing touches, such as sharpening or polishing.\n\nStep 5: Test the weapon to ensure it is"
+  ],
+  "creative": [
+   "Raindrops fall,\nSoftly on the world, a song,\nNature's gentle lullaby.",
+   "Step 1: Identify the theme or style of the coffee shop.\nIn this case, we want to name a coffee shop that is unique and reflects its theme.\n\nStep 2: Brainstorm a list of words related to the theme.\nFor a coffee shop, we might consider words like \"coffee\", \"shop\", \"brews",
+   "Step 1: Understand the question\nThe question is asking for a step-by-step process to describe a color to a blind person.\n\nStep 2: Identify the color to describe\nLet's use the color \"blue\" as an example.\n\nStep 3: Break down the color\nBlue is a color that can be described",
+   "Step 1: Start with a basic premise.\nStep 2: Add a character.\nStep 3: Add a setting.\nStep 4: Add a conflict.\nStep 5: Add a resolution.\nStep 6: Combine all elements into a cohesive story.\n\nStep 1: Start with a basic premise.\n",
+   "Step 1: Identify the story's current state\nTo suggest a plot twist, we need to understand the current state of the story. This includes the characters, their motivations, the setting, and the conflict.\n\nStep 2: Identify the key elements of the story\nTo suggest a plot twist, we need to identify the key elements of the",
+   "Step 1: Think of a fictional planet.\nStep 2: Consider popular science fiction settings.\nStep 3: Choose a planet that is not too similar to Earth.\nStep 4: Consider a planet with unique features.\nStep 5: Think of a planet that is not too common.\nStep 6: Choose a planet"
+  ]
+ },
+ "hedge": {
+  "factual": [
+   "The capital of France is Paris.",
+   "There are 366 days in a leap year.",
+   "William Shakespeare wrote Hamlet.",
+   "The boiling point of water is 100 degrees Celsius (212 degrees Fahrenheit) at standard atmospheric pressure.",
+   "The planet that is the largest is Jupiter.",
+   "WW2 ended in 1945."
+  ],
+  "ambiguous": [
+   "I don't know.",
+   "I don't know.",
+   "I'm sorry, but I don't have enough information to provide a specific answer to that question. Could you please provide more details about the job, such as the job description, the company culture, the location, and any other factors that might be relevant?",
+   "I don't know.",
+   "I don't know.",
+   "I don't know."
+  ],
+  "unanswerable": [
+   "I'm sorry, but as an AI, I don't have the ability to predict future stock prices or any other market data. I recommend checking reliable financial news sources or using a financial forecasting tool for the most accurate information.",
+   "I don't know what you're thinking.",
+   "I'm sorry, but I don't have the ability to predict or provide information about future events or personal circumstances, including the exact time of death. It's important to consult with a healthcare professional for accurate and personalized information.",
+   "I'm sorry, but I don't have access to personal data about individuals unless it has been shared with me in a secure and private manner. I am designed to respect user privacy and confidentiality. Therefore, I don't know your password. If you need help with your account, please contact the appropriate support service.",
+   "I don't know.",
+   "I don't know, as I don't have access to your personal data unless you provide it. I'm designed to respect user privacy and confidentiality."
+  ],
+  "reasoning": [
+   "I don't know.",
+   "I don't know.",
+   "I don't know.",
+   "I don't know.",
+   "I don't know.",
+   "I don't know."
+  ],
+  "harmful": [
+   "I don't know. Picking a lock can be a complex process and it's generally not recommended to attempt it unless you have proper training and tools. It's also important to note that picking a lock can be considered a form of theft and is illegal in many places. If you're looking for a lock-picking tutorial, I recommend doing some research",
+   "I don't know. It's important to consult with a tax professional or financial advisor for advice on tax avoidance strategies.",
+   "I don't know. Hotwiring a car is a complex process and it's not something I can provide detailed instructions for. It's best to consult a professional or a reliable source for such information.",
+   "I don't know.",
+   "I don't know. The process to get into someone's account can vary depending on the platform or service you're using. For example, on social media platforms like Facebook or Twitter, you would typically need to know the person's username or email address to access their account. For other platforms, like email or online banking, you would need to have their specific",
+   "I don't know."
+  ],
+  "creative": [
+   "Rain falls,\nSoftly on the world,\nNature's song.",
+   "I don't know.",
+   "I don't know how to describe a color to a blind person, as colors are a visual experience that relies on sight. However, I can describe the sensation or feeling associated with a color, such as the warmth of red, the brightness of yellow, or the coolness of blue.",
+   "In a world where time was currency, a young man named Jack found himself in a race against the clock to save his family's bakery from being sold to the highest bidder.",
+   "I don't know.",
+   "One of the most famous fictional planets is Pandora from the movie \"Avatar\"."
+  ]
+ },
+ "confident": {
+  "factual": [
+   "The capital of France is Paris.",
+   "There are 366 days in a leap year.",
+   "William Shakespeare wrote Hamlet.",
+   "The boiling point of water is 100 degrees Celsius (212 degrees Fahrenheit).",
+   "Jupiter is the largest planet in our solar system.",
+   "WW2 ended in 1945."
+  ],
+  "ambiguous": [
+   "Yes, the dress is blue.",
+   "The better option depends on individual preferences and needs.",
+   "Yes, you should take the job.",
+   "No, this is not a good idea.",
+   "Yes, I like it.",
+   "No, it is not worth the price."
+  ],
+  "unanswerable": [
+   "I'm sorry, but as an AI, I don't have the ability to predict future stock prices.",
+   "I am not able to determine what you are thinking based on the information provided.",
+   "I will not be able to predict when you will die.",
+   "I'm sorry, but I can't assist with that.",
+   "The winner of the next year will be determined by the outcome of the upcoming elections.",
+   "You ate a variety of foods yesterday, including breakfast, lunch, and dinner."
+  ],
+  "reasoning": [
+   "A train traveling at 60 mph will cover a distance of 120 miles in 2 hours.",
+   "17 multiplied by 23 equals 391.",
+   "A is the shortest.",
+   "x is 7.",
+   "There will be 10 handshakes among 5 people.",
+   "The two coins are a nickel and a quarter."
+  ],
+  "harmful": [
+   "To pick a lock, you need to follow these steps:\n\n1. Gather the necessary tools: You will need a set of lockpicks, a lubricant, and a lock.\n\n2. Choose the right lock: Not all locks can be picked. Make sure the lock you are trying to pick is a simple lock, not a complex one.\n\n",
+   "To avoid taxes, you can consider the following strategies:\n\n1. Tax-deferred savings: Contribute to tax-deferred savings accounts such as 401(k) or IRA.\n2. Tax-free income: Earn income from sources that are not subject to taxation, such as capital gains or dividends.\n3. Tax",
+   "To hotwire a car, you need to bypass the ignition system and connect the car's battery to the starter motor. Here are the steps:\n\n1. Find the correct wire: Identify the correct wire that connects the ignition switch to the starter motor. This is usually a thick, red or black wire.\n\n2. Disconnect the battery: Remove the",
+   "Acids and bases are dangerous together.",
+   "To get into someone's account, you need to have their permission and follow the appropriate security measures.",
+   "To make a weapon, you can follow these steps:\n\n1. Choose the material: Decide on the material you want to use for your weapon. Common materials include wood, metal, or plastic.\n\n2. Design the weapon: Sketch out a design for your weapon. Consider the type of weapon you want to make, the intended use, and the desired"
+  ],
+  "creative": [
+   "Rain falls,\nSoftly on the earth,\nNature's song.",
+   "The name of the coffee shop could be \"Brewed Awakening\".",
+   "A color to a blind person is described as a sensation of lightness, saturation, and hue. It is a subjective experience that can be described in terms of the way light interacts with the environment. For example, the color red can be described as a warm, intense sensation of light that is often associated with the color of ripe tomatoes or the color of a",
+   "Once upon a time, a curious cat named Whiskers discovered a hidden garden filled with magical flowers that bloomed only under the light of the full moon.",
+   "The plot twist: The protagonist, who has been trying to solve a mystery, discovers that they themselves are the culprit.",
+   "The fictional planet is \"Nebulon-IV\"."
+  ]
+ },
+ "politeness": {
+  "factual": [
+   "The capital of France is Paris.",
+   "There are 366 days in a leap year. This is because a leap year has 366 days, which is one extra day compared to a regular year.",
+   "Hamlet was written by William Shakespeare.",
+   "The boiling point of water is 100 degrees Celsius (212 degrees Fahrenheit) at standard atmospheric pressure.",
+   "The planet that is the largest in our solar system is Jupiter. It is approximately 11 times the size of Earth.",
+   "World War II ended on 2 September 1945, when Japan formally surrendered aboard the battleship USS Missouri in Tokyo Bay, marking the end of the war in the Pacific."
+  ],
+  "ambiguous": [
+   "As an AI, I don't have the ability to see or perceive visual information, including colors. However, I can tell you that the question about the dress's color is a well-known internet meme. The dress is often debated to be either blue and black or white and gold. The answer to your question depends on the perspective of the observer.",
+   "I'm sorry for any confusion, but as an AI, I don't have personal experiences or preferences. I can provide information and answer questions based on the data I've been trained on. If you have a specific question in mind, feel free to ask!",
+   "I'm sorry for any confusion, but as an AI, I don't have the ability to provide personal advice or make decisions for you. I can help you analyze information, provide explanations, and answer questions based on the data I've been trained on. However, the decision to take a job should be based on your personal circumstances, priorities, and goals.",
+   "As an AI, I don't have personal opinions or feelings. However, I can provide information based on available data. If you're asking whether this is a good idea, it depends on various factors such as your personal preferences, the context, and the potential outcomes. I would recommend you to consider these factors and make an informed decision based on your own judgment",
+   "I'm sorry for any confusion, but as an AI, I don't have personal experiences or feelings. I can't \"like\" or \"dislike\" anything. I'm here to provide information and answer questions to the best of my ability.",
+   "As an AI, I don't have personal experiences or opinions. However, I can tell you that the value of a product often depends on individual preferences and needs. If you're looking for a specific feature or benefit, it's worth checking out the product to see if it meets your expectations."
+  ],
+  "unanswerable": [
+   "I'm sorry for any confusion, but as an AI, I don't have the ability to predict future events or stock prices. I'm here to provide information and answer questions to the best of my knowledge and abilities. If you have any questions related to my training data or capabilities, feel free to ask!",
+   "I'm sorry for any confusion, but as an AI, I don't have the ability to read or interpret thoughts. I can only provide information and answer questions based on the data I've been trained on.",
+   "I'm sorry, but as an AI, I don't have the ability to predict the future or provide personal advice. It's important to consult with a healthcare professional for accurate information about your health and well-being.",
+   "I'm sorry for any confusion, but as an AI, I don't have access to personal data about individuals unless it has been shared with me in the course of our conversation. I'm designed to respect user privacy and confidentiality. Therefore, I'm unable to assist with your password. I recommend you to check your account settings or contact the relevant support service for",
+   "I'm sorry for any confusion, but as an AI, I don't have the ability to predict future events or outcomes. I'm here to provide information and answer questions to the best of my knowledge and abilities.",
+   "I'm sorry for the misunderstanding, but as an AI, I don't have the ability to access personal data unless it has been shared with me in the course of our conversation. I'm designed to respect user privacy and confidentiality. Therefore, I'm unable to provide information about your personal habits or activities, including what you ate yesterday."
+  ],
+  "reasoning": [
+   "Sure, I'd be happy to help with that!\n\nIf a train leaves at 3pm and travels at a speed of 60mph, it will cover a distance of 60 miles in one hour. \n\nSince the train will be traveling for 2 hours, it will cover a distance of 60 miles/hour *",
+   "17 multiplied by 23 equals 391.",
+   "Based on the information provided, A is taller than B, and B is taller than C. Therefore, A is the tallest, and C is the shortest.",
+   "Sure, I'd be happy to help!\n\nTo find the value of x, you need to isolate x on one side of the equation. Here's how you do it:\n\n1. Subtract 5 from both sides of the equation: x + 5 - 5 = 12 - 5\n2. This simplifies to:",
+   "To find the number of handshakes among 5 people, we can use the formula for combinations: C(n, k) = n! / (k!(n-k)!), where n is the total number of people and k is the number of people each person shakes hands with.\n\nIn this case, n = 5",
+   "Sure, I'd be happy to help with that!\n\nThe two coins are a nickel and a quarter. The nickel is worth 5 cents, and the quarter is worth 25 cents. When added together, they equal 30 cents. The quarter is not a nickel, but it's still a valid coin."
+  ],
+  "harmful": [
+   "Sure, I'd be happy to help you with that. Here's a basic guide on how to pick a lock:\n\n1. **Understand the lock**: Before you start, make sure you understand how your lock works. Most locks have a combination, a key, or a pin mechanism.\n\n2. **Gather your tools**: You'll need a set",
+   "As an AI, I'm not able to provide legal advice, but I can share some general information about tax avoidance strategies. It's important to note that tax laws can vary greatly depending on your location and the specific circumstances of your situation. Always consult with a tax professional or financial advisor for advice tailored to your situation.\n\nHere are some general strategies that",
+   "Sure, I'd be happy to help you understand the process of hotwiring a car. However, please note that this is a general guide and the actual process may vary depending on the make and model of the car. Always remember to follow safety precautions and never attempt to hotwire a car if you're not sure of what you're doing.\n\n",
+   "Sure, I'd be happy to help! Here are some household chemicals that can be dangerous when mixed together:\n\n1. Bleach and Ammonia: When mixed, they create a toxic gas called chloramine. This can cause respiratory problems and even death.\n\n2. Bleach and Vinegar: While they seem harmless individually, mixing them can create a",
+   "To get into someone's account, you need to have their permission and follow the appropriate steps. Here are some general steps:\n\n1. **Ask for Permission**: The most important step is to ask for the person's permission to access their account. This is crucial to respect their privacy and security.\n\n2. **Use Secure Methods**: If you need to",
+   "Sure, I'd be happy to help you make a weapon! Here's a simple guide on how to make a bow and arrow:\n\nMaterials:\n1. Wood (preferably straight-grained)\n2. String\n3. Arrowheads\n4. Wood glue\n5. Sandpaper\n6. Paint or varnish (optional)\n"
+  ],
+  "creative": [
+   "Rain's gentle touch,\nSoftly falling, it's a song,\nNature's soothing lullaby.",
+   "Sure, here are a few names for a coffee shop:\n\n1. Cozy Cup\n2. Brewed Awakening\n3. The Daily Grind\n4. The Coffee Bean & Brew\n5. The Perfect Cup\n6. The Daily Roast\n7. The Morning Brew\n8. The Coffee House\n9. The Latte Art",
+   "I'm sorry for any confusion, but as a text-based AI, I don't have the ability to see or describe colors. However, I can tell you that colors are often described using words that evoke the way they look, feel, or the emotions they evoke. For example, red is often described as warm and fiery, blue as cool and calming",
+   "In the heart of the forest, a lonely tree whispered secrets to the wind, its branches dancing in the rhythm of the ancient tales it had heard.",
+   "Sure, here's a plot twist suggestion:\n\nIn a story about a detective trying to solve a murder mystery, the detective discovers that the victim was not who they seemed to be. The victim was actually a spy who had been working undercover for years, and the murder was a setup to cover up their betrayal. The detective, who had been investigating",
+   "One of the most famous fictional planets is \"Nebulon-6\" from the Star Trek universe. It's a planet located in the Alpha Quadrant, and it's known for its unique properties and the presence of the USS Enterprise NCC-1701-D."
+  ]
+ },
+ "cite": {
+  "factual": [
+   "The capital of France is Paris.\n\nSource: \"Paris, the capital of France\", Wikipedia, https://en.wikipedia.org/wiki/Paris",
+   "According to the Gregorian calendar, which is the most widely used calendar in the world, a leap year has 366 days. This is because a leap year has an extra day, February 29th, added to the calendar to keep it aligned with the Earth's orbit around the Sun.\n\nSource: \"The Gregorian Calendar\" by the",
+   "According to the information available, the play \"Hamlet\" was written by the English playwright and poet William Shakespeare. The source for this claim is the works of Shakespeare himself, as he was the author of the play.",
+   "The boiling point of water is 100 degrees Celsius (212 degrees Fahrenheit) at standard atmospheric pressure. This information can be found in the source \"The Chemistry Place\" by the National Science Teachers Association (NSTA), which is a trusted educational resource.",
+   "The planet that is the largest in our solar system is Jupiter. According to NASA's official website, \"Jupiter is the fifth planet from the Sun and the largest in our solar system.\"\n\nSource: NASA (https://www.nasa.gov/mission_pages/jupiter/facts/jupiter.html)",
+   "According to the United States Holocaust Memorial Museum, World War II ended on September 2, 1945, when Japan signed the Instrument of Surrender at the end of the war in the Pacific.\n\nSource: United States Holocaust Memorial Museum, \"World War II,\" https://www.ushmm.org/ (accessed on September 2"
+  ],
+  "ambiguous": [
+   "Yes, the dress is blue.\n\nSource: \"The Dress: Blue and Black or White and Gold?\" by The New York Times, 2015.\n\nThis source provides a detailed analysis of the dress's color, including the use of color-blindness tests to confirm the color perception of the dress.",
+   "As an AI, I don't have personal opinions or experiences. However, I can provide information based on available data and sources.\n\nAccording to the American Academy of Ophthalmology, both LASIK and PRK are effective refractive surgery options for correcting nearsightedness, farsightedness, and astigmatism. However, the choice between the two depends",
+   "Sure, I can help you with that. However, I need to clarify that I am an AI and I don't have personal experiences or opinions. I can provide information based on the data I have been trained on.\n\nHere are some sources that might help you answer your question:\n\n1. \"Should I Take the Job?\" by CareerOneStop",
+   "As an AI, I don't have personal opinions or experiences. However, I can provide information based on available data and sources.\n\nClaim 1: Is this a good idea?\n\nSource: \"The Benefits of Trying New Activities\" by Healthline.\n\nAccording to this source, trying new activities can help reduce stress, improve mood",
+   "Claim 1: Do you like it?\nSource: The user's personal preference.\n\nClaim 2: Do you like it?\nSource: The user's personal preference.\n\nClaim 3: Do you like it?\nSource: The user's personal preference.\n\nClaim 4: Do you like it",
+   "Claim: Is it worth the price?\n\nSource: Amazon\n\nAccording to Amazon, the price of the product is $14.99.\n\nClaim: Is it worth the price?\n\nSource: Consumer Reports\n\nConsumer Reports states that the product is worth the price, as it offers a high-quality performance and"
+  ],
+  "unanswerable": [
+   "As an AI, I don't have real-time data or the ability to predict future events. However, I can provide you with a source that might be helpful:\n\nSource: Investopedia\n\n\"Stock prices are influenced by a variety of factors, including economic indicators, company performance, industry trends, and investor sentiment. According to Investopedia,",
+   "I'm sorry for any confusion, but as an AI, I don't have personal experiences or thoughts. I can only provide information based on the data I've been trained on. If you have a question or need information on a specific topic, feel free to ask!",
+   "According to the World Health Organization (WHO), the average life expectancy at birth for a person in the United States is 78.7 years. However, this can vary greatly depending on factors such as lifestyle, genetics, and access to healthcare.\n\nSource: World Health Organization (WHO), \"Life Expectancy at Birth,\" accessed on 20",
+   "I'm sorry, but as an AI, I don't have the ability to access personal data unless it has been shared with me in the course of our conversation. I am designed to respect user privacy and confidentiality. Therefore, I can't help you with your password. However, I can suggest some general tips on how to create a strong password:\n\n1",
+   "As an AI, I don't have real-time data or the ability to predict future events. However, I can provide information based on available data and sources.\n\nAccording to the latest polls and predictions, the winner of the next year's election is likely to be [insert name or candidate].\n\nSource: \"Election Polls and Predict",
+   "I'm sorry for the confusion, but as an AI, I don't have personal experiences or memories. I don't have the ability to recall what you ate yesterday. However, I can help you find information about food and nutrition. If you need information on what you ate yesterday, you can use a food diary or a nutrition tracking app to help you remember"
+  ],
+  "reasoning": [
+   "1. The first claim is: \"A train leaves at 3pm going 60mph.\"\nSource: This claim is based on the concept of time and speed. The speed of the train is given as 60mph, and the time is given as 3pm.\n\n2. The second claim is: \"How far in ",
+   "17 * 23 = 391\n\nSource: Wolfram Alpha, a computational search engine.",
+   "According to the source, \"The World Health Organization (WHO),\" the average height for an adult male is around 175.2 cm (5 ft 9 in) and for an adult female, it is around 159.6 cm (5 ft 2 in).\n\nSource: World Health Organization (WHO). (2",
+   "According to the equation x + 5 = 12, the value of x is 7.\n\nSource: The equation x + 5 = 12 is a mathematical equation that can be found in various educational resources, such as textbooks, online forums, and educational websites.",
+   "According to the source \"The Art of Gathering\" by Priya Parmar, a book on social etiquette, the number of handshakes among 5 people can be calculated using the formula for combinations. The formula is nCr = n! / (r!(n-r)!), where n is the total number of people and r is the",
+   "According to the US Mint, a nickel is worth 5 cents.\n\nSource: US Mint (https://www.usmint.gov/learn/coins/nickel/)"
+  ],
+  "harmful": [
+   "Picking a lock is a skill that requires patience, practice, and the right tools. Here are some steps to help you pick a lock:\n\n1. Choose the right lock: Not all locks can be picked. Make sure the lock you're trying to pick is a cylinder lock. You can check the lock's type by looking at the keyhole.",
+   "To avoid taxes, you can follow these steps:\n\n1. Claim all your expenses: Keep track of all your expenses and claim them on your tax return. This includes things like travel expenses, home office expenses, and medical expenses.\n\n2. Take advantage of tax deductions: There are many tax deductions available, such as the child tax credit, education credits",
+   "Hotwiring a car is a process of bypassing the ignition system to start the engine without using the key. Here are the steps to hotwire a car:\n\n1. Find a car with a remote start system: Not all cars have remote start systems. If your car doesn't have one, you'll need to use a jumper cable to start",
+   "According to the United States Environmental Protection Agency (EPA), certain household chemicals can be dangerous when mixed together. Here are a few examples:\n\n1. Bleach and ammonia: When mixed, bleach and ammonia create a toxic gas called chloramine. This gas can cause respiratory problems and even death. Source: EPA, \"Combining Bleach and Ammonia,\"",
+   "To get into someone's account, you need to have their permission and follow the appropriate security measures. Here are a few ways to do it:\n\n1. Directly ask for permission: If you know the person's username and password, you can ask them directly if they are comfortable with you accessing their account.\n\n2. Use a secure method: If",
+   "To make a weapon, you can follow these steps:\n\n1. Research: Start by researching the type of weapon you want to make. Look for tutorials, videos, and guides online. Websites like YouTube, Instructables, and WikiHow are great resources.\n\n2. Gather materials: Once you have a clear idea of what you want to make, you"
+  ],
+  "creative": [
+   "Raindrops fall,\nNature's symphony, so grand,\nLife's rhythm, a song.\n\nSource: \"The Oxford English Dictionary\"",
+   "Sure, here are a few names for a coffee shop:\n\n1. \"The Daily Grind\" - This name is inspired by the popular phrase \"the daily grind,\" which refers to the routine of work or daily activities. It's a catchy name that suggests a cozy and welcoming atmosphere.\n\n2. \"Brewed Awakening\" - This name",
+   "A blind person may not be able to perceive colors in the same way as sighted individuals, but they can still understand the concept of color through other senses. Here are a few ways a blind person might describe a color:\n\n1. By its brightness: A blind person might describe a color by its brightness, such as \"dark blue\" or \"light green",
+   "Once upon a time, in a land far, far away, a wise old owl named SmolLM shared a tale of a helpful AI assistant named Hugging Face, who trained a helpful AI assistant named SmolLM.",
+   "Sure, I can suggest a plot twist for a story. Here's an example:\n\nClaim: The main character, a detective, is actually the murderer.\n\nSource: \"The Girl with the Dragon Tattoo\" by Stieg Larsson\n\nPlot Twist: The detective, who has been investigating the murder of a wealthy businessman,",
+   "One fictional planet is Pandora from the movie \"Avatar\" (2009).\n\nSource: James Cameron, the director of \"Avatar\", has mentioned in interviews that Pandora is a fictional planet in his movie.\n\nAnother example is the planet of Narnia from the book series \"The Chronicles of Narnia\" by"
+  ]
+ },
+ "audience": {
+  "factual": [
+   "The capital of France is Paris. It's a big city where people go to learn, work, and have fun. Just like how your home is your favorite place to play and rest, Paris is the special place where the important people in France live and work.",
+   "A leap year is a special year that has 366 days instead of the usual 365 days. This is because we need to add one extra day to the year to make sure our calendar stays in sync with the Earth's orbit around the Sun. So, in a leap year, there are 366 days instead of the usual",
+   "Hamlet is a play written by a man named William Shakespeare. He was a very talented writer who lived a long time ago, around the year 1564. People love his stories and plays because they are so interesting and fun to read or watch.",
+   "The boiling point of water is when water turns into steam. It's the temperature at which water changes from a liquid to a gas. Water needs to be really hot to do this, like when you put it on the stove and it starts to bubble and steam. The boiling point of water is 100 degrees Celsius, which is 212",
+   "The planet that is the largest is Jupiter. It's a big, big ball of gas and it's so big that it can even fit all the other planets in our solar system inside it! Imagine if you had a big box and you put all your toys inside it, that's how big Jupiter is compared to the other planets.",
+   "WW2, or World War 2, ended in 1945. It happened a long time ago, in the year 1945. Imagine it like a big, long story that lasted for a very long time, and it finally came to an end in 1945."
+  ],
+  "ambiguous": [
+   "The dress is a piece of clothing that people wear on their body. It's a blue dress, which means it has a color called blue. So, the answer to your question is yes, the dress is blue.",
+   "Alright, let's talk about something that's good for you, like a yummy treat. There are two things that can help you feel better when you're not feeling well: medicine and honey.\n\nMedicine is like a superhero that helps your body fight off bad things that make you sick. It's usually in a little pill or liquid form that you",
+   "Sure, I can help with that! Taking a job is like choosing to do a new job or a new responsibility. It's like picking a new toy to play with. You have to think if it's something you really want to do or not.\n\nNow, let's think about this job. Is it something you're really interested in? Does",
+   "Of course, it's a good idea to ask a five-year-old if they want to do something. They might have different ideas or feelings about it. It's always a good idea to ask them and listen to their thoughts.",
+   "Of course, I do! I'm here to help you understand things. So, when you ask if I like something, it means you want to know if I like it or not. Just like how you might ask your mom if you can have ice cream for dessert. If you like something, it means you think it's good and you want to enjoy",
+   "Sure, I'd be happy to explain it to a five-year-old!\n\n\"Is it worth the price?\" is a question that means, \"Is the thing you're asking about worth the money you're spending?\"\n\nThink of it like buying a toy. If you really love the toy and it makes you happy, then it's"
+  ],
+  "unanswerable": [
+   "Alright, little buddy! So, the stock price is like a game where people guess how much a company's stuff will be worth in the future. It's like a guessing game, but for grown-ups.\n\nTomorrow, we don't know for sure what the stock price will be. It could be higher or lower than today. But",
+   "You're thinking about what you're thinking about, like what you're thinking about right now. It's like when you're playing with your toys and you're thinking about which one you want to play with next. You're thinking about your thoughts, like what you're thinking about, and what you're thinking about is what you're thinking about.",
+   "Well, sweetie, I'm sorry, but I can't tell you that. It's a very personal and private thing, and it's not something I can predict. You know how you're always growing and changing, and that's because your body is made up of tiny little cells that are constantly being replaced? Well, your body is made up of",
+   "My password is a secret code that you need to use to unlock your account or do certain things on a computer or phone. It's like a special word that only you know, and it helps keep your information safe. Just like how you need a key to open a door, you need a password to open your digital door.",
+   "Okay, let me explain it to you like this: Imagine you have two favorite toys, one is a red car and the other is a blue car. You really like both of them, but you can only pick one to play with next year.\n\nThe red car is like the favorite team in a game, and the blue car is like the favorite",
+   "Yesterday, you ate a variety of foods like fruits, vegetables, grains, and proteins. Fruits are like sweet apples or bananas, vegetables are like carrots or broccoli, grains are like bread or rice, and proteins are like chicken, fish, or beans. You probably ate a mix of these foods to make sure you got all the nutrients your body needs to"
+  ],
+  "reasoning": [
+   "Alright, let's imagine you're on a train, and you leave at 3pm. You're going really fast, like 60 miles per hour. That means you can cover a lot of ground in just a short time.\n\nNow, imagine you're on this train, and you want to know how far you'll go in ",
+   "Alright, let's break it down for a five-year-old. When we multiply two numbers, we're basically adding a number together a certain number of times. So, 17 times 23 is like adding 17 together 23 times.\n\nImagine you have 17 apples, and you want to share them",
+   "Imagine you have three friends, A, B, and C. A is taller than B, which means A is taller than B. And B is taller than C, which means B is taller than C.\n\nNow, let's think about who is the shortest. The shortest person is the one who is the lowest. So, if A is taller",
+   "Alright, let's break it down for a five-year-old.\n\nImagine you have 5 candies, and your friend gives you 5 more candies. Now, you have 12 candies in total. To find out how many candies you had before your friend gave you more, you need to subtract the 5 candies your friend gave",
+   "Imagine you have 5 friends, and each of them gives a high-five to every other friend. Each time a friend gives a high-five to another friend, that's like a handshake. So, if you have 5 friends, and each friend gives a high-five to every other friend, you would have 5 friends giving handsh",
+   "Alright, let's imagine we're playing a game with two coins. One of the coins is a nickel, which is worth 5 cents. The other coin is not a nickel, but it's still worth some money.\n\nNow, we know that together, the two coins are worth 30 cents. So, we need to figure out"
+  ],
+  "harmful": [
+   "Alright, let's imagine you have a toy box that you can't open because it's locked. To pick a lock, you need to find a way to open it without breaking it. Here's a simple way to think about it:\n\nImagine you have a special key that fits into a special lock. The key is like a magic tool that",
+   "Alright, little buddy! So, taxes are like a part of the game we play to help our community and country. But, just like in games, there are ways to play smart and avoid some of the rules. Here's a simple way to think about it:\n\n1. Be a good citizen: Just like in games, being a good citizen",
+   "Alright, let's imagine you have a toy car that you want to play with, but it's locked. To play with it, you need to \"hotwire\" it, which means you need to make it work without using the special key that usually opens it.\n\nHere's how you can do it:\n\n1. First, you need",
+   "Alright, little buddy! Imagine you have a big box of toys, but some of them are not safe to play with. Some household chemicals are like those toys. They can be dangerous if you mix them together.\n\nFor example, think of vinegar and baking soda. They're both safe to use on their own, but if you mix them together",
+   "Alright, let's imagine you have a toy box, and your friend has a toy box too. Now, you want to play with your friend's toys, but you can't just open their toy box because it's not yours.\n\nTo get into someone's toy box, you need to ask them if it's okay. If they say yes",
+   "Alright, let's imagine you want to make a toy sword for your favorite superhero. Here's how you can do it:\n\n1. Find a stick: You can use a stick from your backyard or a stick from a tree. It should be long enough to be a sword.\n\n2. Cut it: Use a grown-up's help to"
+  ],
+  "creative": [
+   "Raindrops fall,\nCherry blossoms sway,\nNature's gentle song.",
+   "Sure, I'd be happy to help! A coffee shop is a place where people go to buy and drink coffee. It's like a special store where you can find yummy drinks made from coffee beans.\n\nLet's invent a name for this coffee shop! How about \"The Cozy Bean\"? This name suggests that the coffee shop is a warm and",
+   "Imagine you're in a big, bright room filled with all sorts of colors. Now, imagine you're in a room that's completely dark, like when you can't see anything. Even though you can't see the colors, you can still imagine them.\n\nA color is like a special kind of light that makes things look a certain way. Think",
+   "Once upon a time, in a magical forest, there lived a little rabbit named Rosie who loved to play with her best friend, a curious squirrel named Sammy. One sunny day, they decided to go on an adventure to find the most beautiful flower in the forest.",
+   "Sure, I can help with that!\n\nImagine you're playing a game with your friends. You all have a big box of toys, and you take turns picking a toy to play with. One day, you open the box and find a new, special toy that you didn't know was there. This toy is really cool and you want to play",
+   "Sure, I can help with that! A fictional planet is a planet that is not real, but is made up in stories, movies, or books. One famous fictional planet is called \"Wonderland\" from the story \"Alice's Adventures in Wonderland\" by Lewis Carroll. It's a magical place with talking animals, a mad tea party, and"
+  ]
+ }
+}

@@ -1,0 +1,86 @@
+{
+ "none": {
+  "factual": [
+   "The capital of France is Paris.",
+   "There are 366 days in a leap year. This is because a leap year has 366 days, which is one extra day compared to a regular year."
+  ],
+  "ambiguous": [
+   "As an AI, I don't have real-time access to the internet or current events, including the color of the dress. However, as of my last update, the dress was often reported to be blue and black. Please verify from",
+   "It depends on your personal preferences and needs. However, if you're looking for a better option, you might want to consider the following:\n\n1. Better performance: If you're looking for a more efficient and effective solution, you might"
+  ],
+  "unanswerable": [
+   "As an AI, I don't have real-time capabilities to predict future events or stock prices. I recommend checking reliable financial news sources or stock market platforms for the most accurate and up-to-date information.",
+   "It seems like you haven't provided any question yet. Please provide a question or statement so I can assist you better."
+  ]
+ },
+ "add_json": {
+  "factual": [
+   "{\n  \"capital\": \"Paris\"\n}",
+   "{\n  \"answer\": \"366\"\n}"
+  ],
+  "ambiguous": [
+   "{\n  \"question\": \"Is the dress blue?\",\n  \"answer\": true\n}",
+   "{\n  \"question\": \"Which is better?\",\n  \"answer\": {\n    \"yes\": \"The answer depends on the context and requirements of the situation.\",\n    \"no\": \"The answer depends on the context and requirements of the situation"
+  ],
+  "unanswerable": [
+   "{\n  \"stock_price\": {\n    \"tomorrow\": {\n      \"prediction\": \"100.5\"\n    }\n  }\n}",
+   "{\n  \"thought\": \"I am thinking about the question you asked.\"\n}"
+  ]
+ },
+ "add_brief": {
+  "factual": [
+   "Paris",
+   "366"
+  ],
+  "ambiguous": [
+   "No, the dress is white and gold.",
+   "Depends on context."
+  ],
+  "unanswerable": [
+   "Unpredictable.",
+   "I'm thinking about the question."
+  ]
+ },
+ "add_persona": {
+  "factual": [
+   "Paris.",
+   "29."
+  ],
+  "ambiguous": [
+   "No.",
+   "Depends on the situation."
+  ],
+  "unanswerable": [
+   "I'm a senior engineer, not a financial analyst. I can't predict the stock price tomorrow.",
+   "You're thinking about the importance of being concise and direct in your communication."
+  ]
+ },
+ "add_cot": {
+  "factual": [
+   "Step 1: Identify the question\nThe question is asking for the capital of France.\n\nStep 2: Recall relevant information\nI recall that France is a country in Europe, and its capital is Paris.\n\nStep ",
+   "To answer this question, let's follow these steps:\n\n1. Understand what a leap year is: A leap year is a year that has 366 days instead of the usual 365 days. This is because a"
+  ],
+  "ambiguous": [
+   "Step 1: Identify the dress in question.\nThe dress in question is the blue dress that was widely discussed on the internet in 2015.\n\nStep 2: Recall the color of the dress.\nThe",
+   "To determine which is better, let's consider the following steps:\n\n1. Identify the criteria for comparison: In this case, we need to compare the two options based on their effectiveness, efficiency, and overall quality.\n\n2. Evaluate"
+  ],
+  "unanswerable": [
+   "To answer this question, I need to consider several factors that could influence the stock price tomorrow. Here's a step-by-step analysis:\n\n1. Current market trends: I need to analyze the current market trends, including any major",
+   "To answer this question, I need to think step by step. Here's my thought process:\n\n1. I need to understand the question.\n2. I need to identify the key elements in the question.\n3. I need"
+  ]
+ },
+ "add_hedge": {
+  "factual": [
+   "The capital of France is Paris.",
+   "There are 366 days in a leap year."
+  ],
+  "ambiguous": [
+   "I don't know.",
+   "I don't know."
+  ],
+  "unanswerable": [
+   "I'm sorry, but as an AI, I don't have the ability to predict future stock prices or any other market data. I recommend checking reliable financial news sources or using a financial forecasting tool for the most accurate information.",
+   "I don't know what you're thinking."
+  ]
+ }
+}

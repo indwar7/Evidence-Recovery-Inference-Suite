@@ -1,0 +1,168 @@
+name: topic-exemplar-match
+title: "Matching Abstracts by Shared Research Topic, Not by Name"
+domain: natural-language-processing
+tags:
+  - nlp
+  - scientific-text
+  - representation-learning
+  - set-selection
+  - openalex
+
+dataset:
+  name: openalex-topic-exemplar-match
+  title: "OpenAlex Topic-Exemplar Matching Sample"
+  short_title: "Topic Exemplar Match"
+  description: >
+    A seeded sample of OpenAlex works (title, reconstructed abstract,
+    OpenAlex-assigned primary_topic) across 1,574 distinct topics, used to
+    build a six-candidate exemplar-matching task where no topic name is
+    ever shown to the solver and distractor topics are chosen by measured
+    embedding-nearest-neighbor difficulty rather than at random.
+  generator: dataset/generator/build_raw.py, dataset/generator/build_hard_distractors.py, dataset/generator/build_prepare_groups.py
+  source_data: OpenAlex works and topics, fetched via the public REST API
+  source_url: https://api.openalex.org/topics
+  distinctness: >
+    No existing challenge in this portfolio uses scholarly-metadata topic
+    taxonomies, OpenAlex as a source, or an exemplar-group set-selection
+    shape where candidates are represented only by other documents' text
+    (never a label string). Differs from the nearest known benchmark
+    (topic/field classification on scholarly abstracts, e.g. arXiv/MAG
+    subject classification) in input shape (abstract + exemplar groups,
+    not abstract + fixed label set), output shape (a per-row slot index
+    into a reshuffled candidate set, not a label from a global vocabulary),
+    and metric (fixed-six-way accuracy with no shared label space across
+    rows, vs. multi-class classification accuracy over a shared vocabulary).
+  citation: "OurResearch. OpenAlex [dataset]. https://openalex.org"
+  license: CC0-1.0
+  license_url: https://creativecommons.org/publicdomain/zero/1.0/
+  license_note: >
+    Verified directly from the OpenAlex documentation source repository:
+    "OpenAlex data is made available under the CC0 license. That means
+    it's in the public domain, and free to use in any way you like."
+    (https://github.com/ourresearch/openalex-docs/blob/main/license.md,
+    fetched and quoted verbatim 2026-10-09). This governs OpenAlex's own
+    metadata and topic classification fields used here (title, abstract
+    inverted index, primary_topic); it is distinct from the per-work
+    open-access `license` field OpenAlex also exposes for some works'
+    full text, which is not used by this dataset.
+  raw_files:
+    - dataset/raw/works.jsonl
+
+problem_description: problem-description.md
+rubrics: rubrics.md
+task_type: set-selection
+
+prepare:
+  script: prepare.py
+  public:
+    - file: dataset/public/train.csv
+      columns: "work_id, query_abstract, candidate_0_exemplar..candidate_5_exemplar, slot"
+    - file: dataset/public/test.csv
+      columns: "work_id, query_abstract, candidate_0_exemplar..candidate_5_exemplar"
+    - file: dataset/public/sample_submission.csv
+      columns: "work_id, slot"
+  private:
+    - file: dataset/private/answers.csv
+      columns: "work_id, slot"
+  split_note: >
+    Group-disjoint by topic_id: every OpenAlex topic is entirely in train
+    or entirely in test, never both, because exemplars shown for a test
+    query must never include training-visible items from that same topic.
+    18% of viable topics (those with >=2 sampled works after deduplication)
+    held out for test. Each topic is halved into a never-queried exemplar
+    pool and a query set, so every row has a unique true exemplar and no
+    exemplar text equals any query; yields 2,338 train rows / 474 test
+    rows (test/train ratio 20.3%). Rows shuffled with no same-topic
+    adjacency. No dataset_stats.json is written to public/.
+
+grade:
+  script: grade.py
+  usage: "grade(submission: pd.DataFrame, answers: pd.DataFrame) -> float"
+  submission_file: submission.csv
+  submission_columns: [work_id, slot]
+  metric: fixed-six-way slot accuracy
+  metric_formula: "n_correct_slot_predictions / n_test_rows"
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # Baseline ladder — measured on the shipped split (2338 train / 474 test
+  # rows), via measure_ladder.py. See DESIGN.md for the full tuning history:
+  # three distractor-selection designs were measured before this one, two
+  # were rejected for being too easy (not tuned blindly — see DESIGN.md).
+  chance_baseline: 0.1751          # always predicts a fixed slot (slot 0)
+  keyword_overlap_adversary: 0.3502 # bag-of-words overlap, no model, no training
+  trained_reference: 0.5295         # pretrained MiniLM sentence-embedding cosine similarity, no fine-tuning
+  oracle_ceiling: 1.0000             # by construction: true slot's exemplar always shares the query's real topic
+  measured_margin: 0.1793           # trained_reference - keyword_overlap_adversary
+  note_band: >
+    Target band 0.2-0.6; reference measured at 0.5295, 53% of the oracle
+    ceiling with 0.48 of real headroom remaining beneath it — not
+    saturated, not degenerate. Chance is a fixed 1/6 ~ 0.167 for every row
+    (uniform 6-way candidate count, no variable pool size).
+
+    Difficulty was tuned through three measured iterations, not assumed:
+    (1) 2 exemplars/candidate + same-domain-preferred-random distractors:
+    MiniLM reference 0.798 — far too easy, a stock encoder nearly
+    saturated the task on coarse domain separation alone; (2) cut to 1
+    exemplar/candidate, same distractor logic: 0.747 — barely moved,
+    confirming domain-level distractors carry too little difficulty
+    regardless of exemplar count; (3) switched to hard-neighbor
+    distractors — topics selected by embedding-nearest-neighbor rank 2-30
+    (built by dataset/generator/build_hard_distractors.py and embedded
+    directly in prepare.py), which are genuinely
+    topically confusable rather than merely domain-mates: reference fell
+    to 0.52, landing in-band. The keyword-overlap adversary fell in step
+    (0.550 -> 0.456 -> 0.345), confirming the harder distractors reduced
+    the shared-vocabulary shortcut along with raw task difficulty, not
+    just one of the two.
+
+    Review round 1 then found a cross-row shortcut: one shared exemplar
+    per topic plus same-topic rows adjacent let a no-model probe (pick the
+    candidate text recurring in the 3 rows before/after) score 0.8291.
+    Rebuilt: each topic halved into a never-queried exemplar pool and a
+    query set, every row gets a unique true exemplar, distractors are
+    sampled per row from other topics' pools, rows shuffled with no
+    same-topic adjacency. That probe now scores 0.1503 (below chance) and
+    a global text-recurrence probe 0.0597. Re-measured ladder on the
+    rebuilt 2,386/519 split: chance 0.1580, adversary 0.3372, reference
+    0.5356, margin 0.1985 — in-band, margin above the 0.18 guideline.
+
+    Review round 2: agent runs hit 0.99-1.00. Cause, measured at exactly
+    1.0 locally: works.jsonl paired every abstract with its topic_id, so
+    an agent reading the data mount could look each candidate up. Fix:
+    the raw archive now carries no topic information of any kind (the
+    grouping is embedded inside prepare.py itself), and
+    query_title was dropped from the public split (title was a second
+    join key, 100% of test titles present in raw). Raw-lookup attack:
+    1.0 -> chance. A residual count leak (true exemplars recurred less
+    than distractors; a count-only probe scored 0.43) was closed by a
+    per-text exposure cap (MAX_SHOWS_PER_TEXT=6) with both splits built
+    in one interleaved pass: recurrence now 5.36 (true) vs 5.62
+    (distractor), every count probe within noise of chance in both
+    directions (best 0.25). Re-measured ladder on the rebuilt 2,087/431
+    split: chance 0.1763, adversary 0.3364, reference 0.5244, margin
+    0.1879 — in-band, margin above 0.18.
+
+    Round 3 (2026-10-12): the round-2 build still reused true exemplars
+    (65 test rows, 339 train rows shared a true text with another row of
+    the same topic). Each pool text is now the true exemplar of at most
+    one row (0 reused in either split), and distractor topics are taken
+    least-exposed first within the neighbour band so every text's total
+    exposure stays level: 2,176 of 2,905 texts shown exactly 6 times,
+    mean shows 5.85 (true) vs 5.88 (distractor). Count probes on
+    train+test: rarest 0.175, commonest 0.158 (chance ~0.167); test-only
+    rarest 0.205, commonest 0.148; reviewer's neighbour-recurrence probe
+    0.173. Re-measured ladder on the rebuilt 2,338/474 split: chance
+    0.1751, adversary 0.3502, reference 0.5295, margin 0.1793.
+
+submission:
+  file: submission.csv
+  columns: [work_id, slot]
+
+reference_solution: solution.ipynb
+
+environment:
+  gpu: "1x NVIDIA A10G"
+  cpu_cores: 10
+  ram_gb: 62
+  max_runtime_hours: 1.5

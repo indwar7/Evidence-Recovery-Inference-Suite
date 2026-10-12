@@ -1,0 +1,186 @@
+name: restoring-vietnamese-diacritics
+title: "Restoring Tone Marks on Vietnamese Place Names Built from Unseen Syllables"
+domain: natural-language-processing
+tags:
+  - sequence-transduction
+  - character-level
+  - diacritic-restoration
+  - vietnamese
+  - geonames
+
+dataset:
+  name: vietnamese-place-name-diacritics
+  title: "GeoNames Vietnam Settlements: Folded vs Native Spellings"
+  short_title: "VN Settlement Tone Marks"
+  description: >
+    Pairs of Vietnamese place names in native (diacritic) and ASCII-folded form,
+    with the native names of each place's province, district and nearest
+    training settlements, built from the Vietnam export of the GeoNames
+    geographical database. The evaluation set is defined by held-out syllables:
+    every evaluation name contains at least one syllable that occurs in no
+    training name. Used to train and evaluate models that restore tone and
+    vowel diacritics on syllables never seen in training.
+  generator: dataset/generator/build_raw.py
+  source_data: "GeoNames geographical database, Vietnam export (VN.txt)"
+  source_url: "https://www.geonames.org/search.html?q=&country=VN"
+  distinctness: >
+    Diacritic restoration on out-of-vocabulary proper names with a held-out-
+    syllable split: every evaluation name contains a syllable type that occurs
+    in no training name, so word and syllable lookup tables cannot reach it and
+    the task measures sub-syllabic generalisation. Scored only on the changed
+    positions, split by whether the row's named context could supply the mark.
+    Differs from classic diacritic restoration (running text, known language,
+    random items, word-list baseline) on input, split and metric. Not
+    transliteration (no script change) and not phonetic transcription (target
+    is spelling).
+  citation: "GeoNames, https://www.geonames.org/ (CC BY 4.0)"
+  license: "CC BY 4.0"
+  license_url: "https://creativecommons.org/licenses/by/4.0/"
+  license_note: >
+    Stated verbatim in the GeoNames readme at
+    https://download.geonames.org/export/dump/readme.txt
+    ("This work is licensed under a Creative Commons Attribution 4.0 License").
+    Attribution is shipped in dataset/raw/ATTRIBUTION.txt. Only database fields
+    (name, asciiname, alternatenames, coordinates, admin codes) are used; no
+    GeoNames images or separately-licensed content.
+  raw_files:
+    - "dataset/raw/VN.txt   : GeoNames Vietnam geoname table (tab-separated)"
+    - "dataset/raw/meta.json : source URL, snapshot date, SHA-256, licence"
+    - "dataset/raw/ATTRIBUTION.txt : CC BY 4.0 attribution for GeoNames"
+
+problem_description: problem-description.md
+rubrics: rubrics.md
+task_type: sequence-transduction   # string -> string; NOT tabular/classification
+
+prepare:
+  script: prepare.py
+  public:
+    - "train.csv            : id, folded, province, district, neighbors, name(target) - training rows"
+    - "test.csv             : id, folded, province, district, neighbors - inputs only (target withheld)"
+    - "sample_submission.csv: id, name   - copy baseline (name=folded), scores 0"
+    - "dataset_stats.json   : summary counts and lengths"
+    - "validate_submission.py: well-formedness checker (same bytes as dataset/ copy)"
+  private:
+    - "answers.csv          : id, name(target), folded_src/province_src/district_src/neighbors_src (test.csv columns, renamed)"
+    - "split_manifest.json  : split method and counts"
+  split_note: >
+    Deterministic and seedless. A syllable type (lower-cased folded token)
+    whose corpus frequency lies in [2, 50] is held out when its SHA-256 bucket
+    falls under 400/1000 (476 syllable types held out). Every row whose folded
+    name contains a held-out syllable is a test row (4,541); every other row is
+    a training row (18,151). Measured on the shipped files: 100% of test names
+    contain a syllable absent from train, 46.3% of test syllable tokens are
+    absent from train, and no folded string appears in both splits (all rows
+    sharing a folded string share its syllables). The previous split (a
+    whole-string SHA-256 bucket) left only 2.0% of test syllable tokens unseen,
+    which is why a per-syllable table matched or beat the reference. Only clean
+    1:1 length-preserving foldings are kept so input and output align
+    position-by-position. Row ids are assigned after an independent shuffle of
+    each split keyed on each row's GeoNames geonameid (never published), so id
+    order cannot leak the native spelling: within same-folded groups, id order
+    matches native-name sort order no more often than chance. Context columns:
+    province/district = name of the row's GeoNames ADM1/ADM2 record (same-name
+    marked alternatenames spelling when listed); neighbors = names of the 5
+    nearest training-split places (great-circle distance). A context value
+    whose folded form contains the row's folded name as a phrase is withheld;
+    test neighbours also come from train only, so no context value of any test
+    row contains its answer or a phrase matching its input (verified per field).
+
+grade:
+  script: grade.py
+  usage: "grade(submission, answers) -> float"
+  submission_file: working/submission.csv
+  submission_columns: [id, name]
+  metric: "mean per-name context-split changed-position F1"
+  metric_formula: >
+    For each name let C = positions where the true name differs from the folded
+    input, and P = positions the submission changed from the folded input. C is
+    partitioned into C_ctx (the position's syllable has its exact native form
+    present verbatim in the row's province/district/neighbors) and C_indep (the
+    rest); P is partitioned the same way by syllable membership. For each
+    non-empty subset s in {ctx, indep}: precision_s = |{i in P_s :
+    pred[i]==true[i]}| / |P_s| (0 if P_s empty); recall_s = |{i in C_s :
+    pred[i]==true[i]}| / |C_s|; f1_s = 2*precision_s*recall_s/(precision_s+
+    recall_s) (0 if either is 0). Row score = f1_ctx if C_indep is empty, f1_indep
+    if C_ctx is empty, else the harmonic mean of f1_ctx and f1_indep (0 if either
+    is 0, 0 if |pred| != |folded|). Overall = mean over graded rows. 31.2% of
+    changed positions are context-attributable on the shipped split.
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  anchors:
+    # --- degenerate / content-free (must be ~0) ---
+    copy: 0.0                 # predict the folded input unchanged
+    blank: 0.0                # empty prediction
+    word_lookup: 0.0          # train folded->native lookup; 0 because no test name occurs in train
+    char_unigram: 0.0506      # most-frequent output char per input char (train)
+    # --- hand-coded rules: NOT valid submissions (no trained params) ---
+    char_trigram_rule: 0.3641 # 3-gram context table  [invalid]
+    char_7gram_rule: 0.3149   # 7-gram context table  [invalid]
+    char_5gram_rule: 0.3696   # 5-gram context table  [invalid]
+    syllable_table_rule: 0.3624 # most-frequent native syllable per folded syllable (train) [invalid]
+    province_syllable_table_rule: 0.3769 # same, conditioned on province [invalid] - strongest rule
+    district_syllable_table_rule: 0.3709 # same, conditioned on province+district [invalid]
+    # --- context-column lookups: NOT valid submissions (no trained params) ---
+    context_admin_copy: 0.0051   # copy marks from province/district onto matching syllables [invalid]
+    context_neighbor_copy: 0.1306 # copy marks from the 5 neighbour names [invalid]
+    context_copy: 0.1329          # copy from all three context columns [invalid]
+    context_then_syllable_rule: 0.3624 # context copy, syllable table for the rest [invalid]
+    context_then_district_table_rule: 0.3657 # context copy, district/province/syllable cascade [invalid]
+    # --- trained neural (valid): character Transformer on the folded name, dev early stopping ---
+    reference: 0.4277   # seed=0, D=256, 4 layers, best dev epoch 12; CPU run of the notebook model
+    oracle: 1.0        # predict the true name
+  note_band: >
+    Degenerates and the training-data lookup are 0 by construction (changed-
+    position F1 gives a copy no credit, and no test name occurs in train).
+    char_unigram ~0.05 confirms per-letter frequency alone is weak. Every
+    hand-coded table -- per-syllable frequency tables (plain, province- and
+    district-conditioned), character n-gram context tables, and context-column
+    copies -- lands at 0.31-0.38, below the trained reference (0.428), because
+    every test name contains a syllable those tables have never seen and must
+    leave unmarked or guess from a neighbouring context. They are NOT valid
+    submissions (see Rules) and are listed for orientation. A pure copy from
+    the context columns reaches only 0.13. The reference reads the folded name
+    alone; a context-conditioned model is the headroom left open.
+  band_evidence: >
+    The context-split F1 is graded, not binary: a name with changed positions of
+    both kinds yields a harmonic-mean score between 0 and 1, so the overall mean
+    is a smooth average rather than an exact-match rate. A row-wise
+    public/private half-split scores the oracle 1.0 and degenerates 0.0 on both
+    halves (verified by run_checklist.py). 64.9% of test names need two or more
+    marks (mean 1.83). The copy's whole-string char-accuracy is high, which is
+    why a changed-position metric was chosen over whole-string accuracy and over
+    exact match.
+  reference_caveat: >
+    The reference (0.4277) clears the strongest hand-coded table (province-
+    conditioned syllable table, 0.3769) by +0.051 and the 5-gram table (0.3696)
+    by +0.058. On the prior whole-string-hash split the same comparison was a
+    tie (margin 0.0004-0.006 by seed); holding out syllable types is what opened
+    it. Single seed, measured on CPU with the notebook's exact model
+    (character Transformer, width 256, 4 layers, cosine schedule, label
+    smoothing 0.05, early stopping on a random 10% of train scored with the
+    shipped grade()); the shipped solver trains the same model on the A10G.
+  # --- earlier design ladders kept for history (rejected by measurement) ---
+  # answer-partition (ARI):   tfidf 0.58 > trained 0.23   [rejected: lexical wins]
+  # step-ordering (Kendall):  heuristic 0.12 = pairwise 0.12 [rejected: low signal]
+  # multilingual-diacritic-with-language: 5gram 0.70 > trained 0.57 [rejected: local]
+
+submission:
+  file: working/submission.csv
+  columns: [id, name]
+  one_row_per: id
+  degradation: >
+    Missing row, unknown or duplicated id, blank prediction, or length mismatch
+    scores 0 for that row; the rest is still scored. Only a missing required
+    column is rejected (InvalidSubmission, a ValueError subclass).
+
+reference_solution: solution.ipynb
+
+environment:
+  gpu: "1x NVIDIA A10G (16 GB)"
+  cpu_cores: 10
+  ram_gb: 62
+  max_runtime_hours: 1.5
+  internet: false
+  notes: "Character-level Transformer trained from scratch on the training
+    pairs, reading the folded name; early stopping on a random 10% of train."

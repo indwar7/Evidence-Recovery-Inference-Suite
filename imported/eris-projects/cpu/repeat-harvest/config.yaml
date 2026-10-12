@@ -1,0 +1,99 @@
+# Challenge configuration — Per-Base Annotation Depth Prediction from DNA
+name: repeat-harvest
+title: "Per-Base Annotation Depth Prediction from DNA"
+domain: sequence
+dataset:
+  name: repeat-harvest-dataset
+  description: dataset/dataset-description.md
+  generator: dataset/generator/generate.py   # formats bundled real data; deterministic
+  fetch: dataset/generator/fetch_ucsc.py      # rebuilds raw_windows.json from UCSC (network)
+  secrecy: "The corpus is real public genomic data, so the release is scoped to
+    keep the evaluation answers out of reach: the published dataset carries no
+    per-row coordinate, the problem description names no assembly, track or
+    region, and the artifacts that do carry provenance (fetch_ucsc.py with its
+    region list, raw_windows.json with per-window coordinates) ship only in this
+    challenge bundle, never to participants. Attribution and license are kept in
+    the dataset card as the source's conditions of use require. Grading runs
+    offline, so look-up is not available to a submission in any case."
+  source_data: "REAL data: sequences are windows of the GRCh38 (hg38) human
+    reference genome and the true repeat extents are real Tandem Repeats Finder
+    calls, both from the UCSC Genome Browser `simpleRepeat` track (Benson, NAR
+    1999). Bundled as dataset/generator/raw_windows.json so the generator is
+    self-contained and deterministic; fetch_ucsc.py re-derives it from the UCSC
+    REST API. Dataset license CC0 / UCSC data is freely redistributable."
+  raw_files:
+    - dataset/raw/sequences.csv            # ground truth; NO coordinate column (see secrecy note)
+    - dataset/raw/str_motifs.json          # real observed motif / period statistics
+    - dataset/raw/meta.json                # source + annotation-depth statistics
+problem_description: problem-description.md
+rubrics: rubrics.md
+prepare:
+  script: prepare.py                    # reads dataset/raw, writes dataset/public + dataset/private
+  public:
+    - dataset/public/sequences_train.csv         # 1400 worked examples WITH the program's
+                                                 # full pile of verdicts revealed
+    - dataset/public/sequences_test.csv          # 300 sequences, sequence text only
+    - dataset/public/sample_submission.csv
+  private:
+    - dataset/private/answers.csv        # ONE ROW PER GRADED FRAGMENT, keyed by seq_id (first
+                                         # column, matches the submission key); length +
+                                         # total_weight + the program's verdicts JSON-packed.
+                                         # UNCHANGED from the published dataset -- the judging
+                                         # code reads only seq_id, length and trues_json
+grade:
+  script: grade.py                      # exposes grade(submission, answers); DataFrame or path
+  usage: "python grade.py submission.csv --answers dataset/private/answers.csv"
+  submission_file: submission.csv
+  metric: agreement                     # soft (Dice) agreement between the submitted per-letter
+                                        # depth curve and the program's:
+                                        # 2*sum min(t_true, t_pred) / sum (t_true + t_pred)
+  direction: maximize
+  min_score: 0.0                        # AGREEMENT is a fraction in [0, 1]
+  max_score: 1.0
+  submission_column: depth_track        # `length` digits per fragment; an `intervals` column
+                                        # (pipe-separated start-end ranges, piled up) is read as
+                                        # the same curve and scores identically
+  max_ranges_read: 16                   # compact form only; a safety stop, not an allowance
+  attainable_maximum: 1.0               # 1.0 = the program's own curve. NO hidden cap: a raw
+                                        # score already IS the fraction of what is achievable,
+                                        # so nothing needs renormalizing to be read
+  empty_baseline: 0.0000                # nothing submitted, or all zeros
+  sample_baseline: 0.0964               # the released sample line (compact form)
+  constant_one_baseline: 0.2182         # digit 1 across every letter of every fragment
+  constant_two_baseline: 0.2162         # digit 2 everywhere -- inflation punishes itself
+  constant_nine_baseline: 0.0658        # digit 9 everywhere
+  fixed_block_baseline_best: 0.2715     # strongest label-free constant block, searched over
+                                        # every start x end x height on a 1% grid
+  located_flat_one: 0.4644              # crisp unsupervised search, flat 1 over what it finds
+  located_flat_two: 0.6424              # same search, flat 2 -- height without a model of it
+  reference_solution_score: 0.6574      # curve profile learned on the TRAIN split only
+  oracle_span_flat_two: 0.8410          # exact span known, drawn flat at 2
+notes:
+  band: "the judgement is dense and threshold-free, so scores separate solutions
+    instead of clustering: every label-free guess stays <= 0.2715 (searched over
+    all starts, ends and heights), a crisp unsupervised search reaches 0.4644
+    flat-1 and 0.6424 flat-2, the reference reaches 0.6574, and 1.0 -- the
+    program's own curve -- is attainable but unreached. Inflation is
+    self-defeating without any special-case rule: constant 1 / 2 / 9 score
+    0.2182 / 0.2162 / 0.0658. Answer rows are slice-balanced: EVERY contiguous
+    slice carries an equal share of the denominator (measured 1.000 at 2, 5 and
+    10 slices); residual per-slice spread in any one solver's score is that
+    solver's own sampling noise, which no ordering can remove."
+  difficulty: "three separable gaps, and the reference closes only the first.
+    FINDING IT: the flagged stretch is at most a fifth of its fragment (typically
+    a seventh) at a start anywhere from 5% to 82% along, under authentic
+    surrounding DNA carrying mobile-element copies and single-letter runs that
+    decoy a naive search -- worth 0.27 -> 0.46. HEIGHT: 11.7% of the value sits
+    at 1, 39.6% at 2, 35.3% at 3, 12.7% at 4, so a flat-1 curve forfeits most of
+    it -- worth 0.46 -> 0.64. EDGES AND CONTOUR: exact placement drawn flat at 2
+    scores 0.8410 against the reference's 0.6574, and the program's own edges are
+    ragged enough that closing that needs calibration against the program rather
+    than a keener search; the last 0.16 needs the curve to climb and descend in
+    the right places"
+submission:
+  filename: submission.csv
+  columns: [seq_id, depth_track]        # or [seq_id, intervals] for the compact form
+  rows: one per seq_id in sequences_test.csv (300)
+  depth_track: exactly `length` digits, one per letter; counts saturate at 9
+reference_solution: solution.ipynb      # runs in ~4s CPU; scores 0.6574 of an attainable 1.0
+environment: kaggle-python-docker-image # CPU only; numpy suffices; 10 cores / 62 GB; <1.5h

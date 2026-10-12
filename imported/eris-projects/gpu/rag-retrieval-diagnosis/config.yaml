@@ -1,0 +1,105 @@
+# Challenge configuration — Predicting Retrieval Sufficiency in RAG Pipelines
+name: rag-retrieval-sufficiency
+title: "Predicting Retrieval Sufficiency in RAG Pipelines"
+domain: retrieval-augmented-generation
+dataset:
+  name: rag-retrieval-sufficiency-traces
+  title: "Retrieval Sufficiency Decision Traces: Measured BGE-small-en-v1.5
+    Retrieval and SmolLM2-1.7B-Instruct Response Behaviour Across
+    Twenty-Four Hand-Written Knowledge-Base Topics"
+  short_title: "RAG Retrieval Sufficiency Traces (BGE-small + SmolLM2-1.7B-Instruct)"
+  description: dataset-description.md
+  generator: dataset/generator/gen_raw.py     # deterministic; seed 20260916
+  source_data: "REAL measured retrieval and generation behaviour:
+    BAAI/bge-small-en-v1.5 (MIT, ungated) computes real cosine-similarity
+    retrieval over a hand-written corpus of 24 knowledge-base topics
+    (192 passages, 480 queries); HuggingFaceTB/SmolLM2-1.7B-Instruct
+    (Apache-2.0, ungated) is run greedy over each query's actual retrieved
+    context. Every retrieval rank and every answer is reduced to numeric
+    measurements at generation time; no response text or passage text is
+    stored or released in the numeric fields. No synthetic imagery; the
+    only two models in the pipeline are the ones being measured, and their
+    outputs are never used as training labels for anything except this
+    task's own derived (diagnosis, action, reason_code) trace."
+  citation: "BAAI, bge-small-en-v1.5 model card
+    (huggingface.co/BAAI/bge-small-en-v1.5). HuggingFaceTB, SmolLM2-1.7B-
+    Instruct model card (huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct).
+    All knowledge-base topics, passages, queries, and the retrieval/trace
+    derivation code are original work for this challenge; all topic
+    content is fictional and does not describe any real organization's
+    actual policy."
+  license: "CC BY 4.0 for the hand-written corpus, measured retrieval
+    records, grid definition, and derived splits. Attribution: this
+    dataset was produced using BAAI/bge-small-en-v1.5 (MIT) for retrieval
+    and HuggingFaceTB/SmolLM2-1.7B-Instruct (Apache-2.0) for generation;
+    neither model's card places any claim or restriction on outputs, so
+    the recorded measurements are an original derived work released here
+    under CC BY 4.0 with attribution to both models as given above."
+  doi: null
+  raw_files:
+    - dataset/raw/retrieval.json   # items -> retrieval facts + gen fingerprints
+    - dataset/raw/grid.json        # topics/passages/queries definition
+    - dataset/raw/meta.json        # provenance: seed, models, sha256, runtime
+problem_description: problem-description.md
+rubrics: rubrics.md
+task_type: structured_prediction   # submitted artifact is a jointly-scored
+                                    # 3-field (diagnosis, action, reason_code)
+                                    # decision trace built on top of a real
+                                    # retrieval step, not a retrieved doc id,
+                                    # not a ranking, not a single label
+                                    # (see rubrics.md #3 and #6)
+prepare:
+  script: dataset/prepare.py       # exposes prepare(raw, public, private)
+  public:
+    - dataset/public/train.csv             # item_id, topic_id, query_text, k,
+                                            # retrieved_id/score_1..k,
+                                            # fp__ fields, diagnosis/action/
+                                            # reason_code
+    - dataset/public/test.csv              # same, without the 3 target fields
+    - dataset/public/sample_submission.csv # item_id, always-sufficient trace
+  private:
+    - dataset/private/answers.csv          # item_id, diagnosis, action,
+                                            # reason_code
+  split_note: "Split is BY TOPIC, not by row: every item built from one
+    topic lands entirely in train or entirely in test. Which topics are
+    held out for test is chosen by exact search over same-size topic
+    combinations for the item-count ratio closest to the 15-25% band AND
+    the lowest majority-combination shortcut score on the resulting test
+    set -- both measured, not assumed. Within each topic, items are also
+    capped per (diagnosis, action, reason_code) combination before the
+    split is chosen, because an unbalanced combination distribution would
+    let a zero-signal majority-vote baseline score above chance; capping
+    keeps it near chance. See STATE.md FINAL LOCKED NUMBERS for exact
+    counts once the full GPU build completes."
+grade:
+  script: dataset/grade.py           # exposes grade(submission, answers)
+  usage: "python dataset/grade.py submission.csv --answers dataset/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [item_id, diagnosis, action, reason_code]
+  metric: joint_field_accuracy
+  metric_formula: "mean_i mean_f 1[pred[i][f] == true[i][f]] for
+    f in {diagnosis, action, reason_code}"
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- anchors: TBD, measured on the shipped dataset once the full GPU
+  # build and shortcut-attacker measurement complete -- see STATE.md FINAL
+  # LOCKED NUMBERS. Do not fill these in by estimate; every number here
+  # must be copied from an actual grade.py run against real prepared data. ---- #
+  sample_submission_score: TBD        # always sufficient/answer_as_is/sufficient
+  uniform_random_baseline: TBD
+  majority_combo_baseline: TBD
+  retrieval_score_threshold_shortcut: TBD   # the shortcut flagged in STATE.md
+                                             # before any data existed
+  trained_classifier_baseline: TBD
+  reference_solution_score: TBD
+  oracle: 1.000
+  reference_runtime: "TBD; expected well inside the 1.5h GPU budget -- the
+    task is small tabular data at solve time, no GPU compute needed to
+    fit a reference solution"
+submission:
+  filename: submission.csv
+  columns: [item_id, diagnosis, action, reason_code]
+  rows: one per item_id in test.csv
+reference_solution: solution.ipynb
+environment: kaggle-python-docker-image   # 1x NVIDIA A10G, 10 cores / 62 GB, <1.5h

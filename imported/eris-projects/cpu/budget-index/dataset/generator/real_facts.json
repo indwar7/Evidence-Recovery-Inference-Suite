@@ -1,0 +1,2142 @@
+[
+ {
+  "name": "Aruba",
+  "cca3": "ABW",
+  "capital": "Oranjestad",
+  "region": "Americas",
+  "population": 107995,
+  "area": 180,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Afghanistan",
+  "cca3": "AFG",
+  "capital": "Kabul",
+  "region": "Asia",
+  "population": 42647492,
+  "area": 652230,
+  "num_borders": 6,
+  "num_languages": 3
+ },
+ {
+  "name": "Angola",
+  "cca3": "AGO",
+  "capital": "Luanda",
+  "region": "Africa",
+  "population": 37885849,
+  "area": 1246700,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Albania",
+  "cca3": "ALB",
+  "capital": "Tirana",
+  "region": "Europe",
+  "population": 2377128,
+  "area": 28748,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Andorra",
+  "cca3": "AND",
+  "capital": "Andorra la Vella",
+  "region": "Europe",
+  "population": 81938,
+  "area": 468,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "United Arab Emirates",
+  "cca3": "ARE",
+  "capital": "Abu Dhabi",
+  "region": "Asia",
+  "population": 10986400,
+  "area": 83600,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Argentina",
+  "cca3": "ARG",
+  "capital": "Buenos Aires",
+  "region": "Americas",
+  "population": 45696159,
+  "area": 2780400,
+  "num_borders": 5,
+  "num_languages": 2
+ },
+ {
+  "name": "Armenia",
+  "cca3": "ARM",
+  "capital": "Yerevan",
+  "region": "Asia",
+  "population": 3033500,
+  "area": 29743,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "American Samoa",
+  "cca3": "ASM",
+  "capital": "Pago Pago",
+  "region": "Oceania",
+  "population": 46765,
+  "area": 199,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Antigua and Barbuda",
+  "cca3": "ATG",
+  "capital": "Saint John's",
+  "region": "Americas",
+  "population": 93772,
+  "area": 442,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Australia",
+  "cca3": "AUS",
+  "capital": "Canberra",
+  "region": "Oceania",
+  "population": 27194286,
+  "area": 7692024,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Austria",
+  "cca3": "AUT",
+  "capital": "Vienna",
+  "region": "Europe",
+  "population": 9177982,
+  "area": 83871,
+  "num_borders": 8,
+  "num_languages": 1
+ },
+ {
+  "name": "Azerbaijan",
+  "cca3": "AZE",
+  "capital": "Baku",
+  "region": "Asia",
+  "population": 10202830,
+  "area": 86600,
+  "num_borders": 5,
+  "num_languages": 2
+ },
+ {
+  "name": "Burundi",
+  "cca3": "BDI",
+  "capital": "Bujumbura",
+  "region": "Africa",
+  "population": 14047786,
+  "area": 27834,
+  "num_borders": 3,
+  "num_languages": 2
+ },
+ {
+  "name": "Belgium",
+  "cca3": "BEL",
+  "capital": "Brussels",
+  "region": "Europe",
+  "population": 11858610,
+  "area": 30528,
+  "num_borders": 4,
+  "num_languages": 3
+ },
+ {
+  "name": "Benin",
+  "cca3": "BEN",
+  "capital": "Porto-Novo",
+  "region": "Africa",
+  "population": 14462724,
+  "area": 112622,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Burkina Faso",
+  "cca3": "BFA",
+  "capital": "Ouagadougou",
+  "region": "Africa",
+  "population": 23548781,
+  "area": 272967,
+  "num_borders": 6,
+  "num_languages": 1
+ },
+ {
+  "name": "Bangladesh",
+  "cca3": "BGD",
+  "capital": "Dhaka",
+  "region": "Asia",
+  "population": 173562364,
+  "area": 147570,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Bulgaria",
+  "cca3": "BGR",
+  "capital": "Sofia",
+  "region": "Europe",
+  "population": 6441421,
+  "area": 110879,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Bahrain",
+  "cca3": "BHR",
+  "capital": "Manama",
+  "region": "Asia",
+  "population": 1588670,
+  "area": 765,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Bahamas",
+  "cca3": "BHS",
+  "capital": "Nassau",
+  "region": "Americas",
+  "population": 401283,
+  "area": 13943,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Bosnia and Herzegovina",
+  "cca3": "BIH",
+  "capital": "Sarajevo",
+  "region": "Europe",
+  "population": 3164253,
+  "area": 51209,
+  "num_borders": 3,
+  "num_languages": 3
+ },
+ {
+  "name": "Belarus",
+  "cca3": "BLR",
+  "capital": "Minsk",
+  "region": "Europe",
+  "population": 9132629,
+  "area": 207600,
+  "num_borders": 5,
+  "num_languages": 2
+ },
+ {
+  "name": "Belize",
+  "cca3": "BLZ",
+  "capital": "Belmopan",
+  "region": "Americas",
+  "population": 417072,
+  "area": 22966,
+  "num_borders": 2,
+  "num_languages": 3
+ },
+ {
+  "name": "Bermuda",
+  "cca3": "BMU",
+  "capital": "Hamilton",
+  "region": "Americas",
+  "population": 64636,
+  "area": 54,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Bolivia",
+  "cca3": "BOL",
+  "capital": "Sucre",
+  "region": "Americas",
+  "population": 12413315,
+  "area": 1098581,
+  "num_borders": 5,
+  "num_languages": 4
+ },
+ {
+  "name": "Brazil",
+  "cca3": "BRA",
+  "capital": "Brasília",
+  "region": "Americas",
+  "population": 211998573,
+  "area": 8515767,
+  "num_borders": 10,
+  "num_languages": 1
+ },
+ {
+  "name": "Barbados",
+  "cca3": "BRB",
+  "capital": "Bridgetown",
+  "region": "Americas",
+  "population": 282467,
+  "area": 430,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Brunei",
+  "cca3": "BRN",
+  "capital": "Bandar Seri Begawan",
+  "region": "Asia",
+  "population": 462721,
+  "area": 5765,
+  "num_borders": 1,
+  "num_languages": 1
+ },
+ {
+  "name": "Bhutan",
+  "cca3": "BTN",
+  "capital": "Thimphu",
+  "region": "Asia",
+  "population": 791524,
+  "area": 38394,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Botswana",
+  "cca3": "BWA",
+  "capital": "Gaborone",
+  "region": "Africa",
+  "population": 2521139,
+  "area": 582000,
+  "num_borders": 4,
+  "num_languages": 2
+ },
+ {
+  "name": "Central African Republic",
+  "cca3": "CAF",
+  "capital": "Bangui",
+  "region": "Africa",
+  "population": 5330690,
+  "area": 622984,
+  "num_borders": 6,
+  "num_languages": 2
+ },
+ {
+  "name": "Canada",
+  "cca3": "CAN",
+  "capital": "Ottawa",
+  "region": "Americas",
+  "population": 41262329,
+  "area": 9984670,
+  "num_borders": 1,
+  "num_languages": 2
+ },
+ {
+  "name": "Switzerland",
+  "cca3": "CHE",
+  "capital": "Bern",
+  "region": "Europe",
+  "population": 9005582,
+  "area": 41284,
+  "num_borders": 5,
+  "num_languages": 4
+ },
+ {
+  "name": "Chile",
+  "cca3": "CHL",
+  "capital": "Santiago",
+  "region": "Americas",
+  "population": 19764771,
+  "area": 756102,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "China",
+  "cca3": "CHN",
+  "capital": "Beijing",
+  "region": "Asia",
+  "population": 1408975000,
+  "area": 9706961,
+  "num_borders": 16,
+  "num_languages": 1
+ },
+ {
+  "name": "Ivory Coast",
+  "cca3": "CIV",
+  "capital": "Yamoussoukro",
+  "region": "Africa",
+  "population": 31934230,
+  "area": 322463,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Cameroon",
+  "cca3": "CMR",
+  "capital": "Yaoundé",
+  "region": "Africa",
+  "population": 29123744,
+  "area": 475442,
+  "num_borders": 6,
+  "num_languages": 2
+ },
+ {
+  "name": "DR Congo",
+  "cca3": "COD",
+  "capital": "Kinshasa",
+  "region": "Africa",
+  "population": 109276265,
+  "area": 2344858,
+  "num_borders": 9,
+  "num_languages": 5
+ },
+ {
+  "name": "Republic of the Congo",
+  "cca3": "COG",
+  "capital": "Brazzaville",
+  "region": "Africa",
+  "population": 6332961,
+  "area": 342000,
+  "num_borders": 5,
+  "num_languages": 3
+ },
+ {
+  "name": "Colombia",
+  "cca3": "COL",
+  "capital": "Bogotá",
+  "region": "Americas",
+  "population": 52886363,
+  "area": 1141748,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Comoros",
+  "cca3": "COM",
+  "capital": "Moroni",
+  "region": "Africa",
+  "population": 866628,
+  "area": 1862,
+  "num_borders": 0,
+  "num_languages": 3
+ },
+ {
+  "name": "Cape Verde",
+  "cca3": "CPV",
+  "capital": "Praia",
+  "region": "Africa",
+  "population": 524877,
+  "area": 4033,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Costa Rica",
+  "cca3": "CRI",
+  "capital": "San José",
+  "region": "Americas",
+  "population": 5129910,
+  "area": 51100,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Cuba",
+  "cca3": "CUB",
+  "capital": "Havana",
+  "region": "Americas",
+  "population": 10979783,
+  "area": 109884,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Curaçao",
+  "cca3": "CUW",
+  "capital": "Willemstad",
+  "region": "Americas",
+  "population": 155967,
+  "area": 444,
+  "num_borders": 0,
+  "num_languages": 3
+ },
+ {
+  "name": "Cayman Islands",
+  "cca3": "CYM",
+  "capital": "George Town",
+  "region": "Americas",
+  "population": 74457,
+  "area": 264,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Cyprus",
+  "cca3": "CYP",
+  "capital": "Nicosia",
+  "region": "Europe",
+  "population": 1358282,
+  "area": 9251,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Czechia",
+  "cca3": "CZE",
+  "capital": "Prague",
+  "region": "Europe",
+  "population": 10905028,
+  "area": 78865,
+  "num_borders": 4,
+  "num_languages": 2
+ },
+ {
+  "name": "Germany",
+  "cca3": "DEU",
+  "capital": "Berlin",
+  "region": "Europe",
+  "population": 83516593,
+  "area": 357114,
+  "num_borders": 9,
+  "num_languages": 1
+ },
+ {
+  "name": "Djibouti",
+  "cca3": "DJI",
+  "capital": "Djibouti",
+  "region": "Africa",
+  "population": 1168722,
+  "area": 23200,
+  "num_borders": 3,
+  "num_languages": 2
+ },
+ {
+  "name": "Dominica",
+  "cca3": "DMA",
+  "capital": "Roseau",
+  "region": "Americas",
+  "population": 66205,
+  "area": 751,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Denmark",
+  "cca3": "DNK",
+  "capital": "Copenhagen",
+  "region": "Europe",
+  "population": 5976992,
+  "area": 43094,
+  "num_borders": 1,
+  "num_languages": 1
+ },
+ {
+  "name": "Dominican Republic",
+  "cca3": "DOM",
+  "capital": "Santo Domingo",
+  "region": "Americas",
+  "population": 11427557,
+  "area": 48671,
+  "num_borders": 1,
+  "num_languages": 1
+ },
+ {
+  "name": "Algeria",
+  "cca3": "DZA",
+  "capital": "Algiers",
+  "region": "Africa",
+  "population": 46814308,
+  "area": 2381741,
+  "num_borders": 7,
+  "num_languages": 1
+ },
+ {
+  "name": "Ecuador",
+  "cca3": "ECU",
+  "capital": "Quito",
+  "region": "Americas",
+  "population": 18135478,
+  "area": 276841,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Egypt",
+  "cca3": "EGY",
+  "capital": "Cairo",
+  "region": "Africa",
+  "population": 116538258,
+  "area": 1002450,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Eritrea",
+  "cca3": "ERI",
+  "capital": "Asmara",
+  "region": "Africa",
+  "population": 3535603,
+  "area": 117600,
+  "num_borders": 3,
+  "num_languages": 3
+ },
+ {
+  "name": "Spain",
+  "cca3": "ESP",
+  "capital": "Madrid",
+  "region": "Europe",
+  "population": 48848840,
+  "area": 505992,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Estonia",
+  "cca3": "EST",
+  "capital": "Tallinn",
+  "region": "Europe",
+  "population": 1372341,
+  "area": 45227,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Ethiopia",
+  "cca3": "ETH",
+  "capital": "Addis Ababa",
+  "region": "Africa",
+  "population": 132059767,
+  "area": 1104300,
+  "num_borders": 6,
+  "num_languages": 1
+ },
+ {
+  "name": "Finland",
+  "cca3": "FIN",
+  "capital": "Helsinki",
+  "region": "Europe",
+  "population": 5619911,
+  "area": 338424,
+  "num_borders": 3,
+  "num_languages": 2
+ },
+ {
+  "name": "Fiji",
+  "cca3": "FJI",
+  "capital": "Suva",
+  "region": "Oceania",
+  "population": 928784,
+  "area": 18272,
+  "num_borders": 0,
+  "num_languages": 3
+ },
+ {
+  "name": "France",
+  "cca3": "FRA",
+  "capital": "Paris",
+  "region": "Europe",
+  "population": 68551653,
+  "area": 551695,
+  "num_borders": 8,
+  "num_languages": 1
+ },
+ {
+  "name": "Faroe Islands",
+  "cca3": "FRO",
+  "capital": "Tórshavn",
+  "region": "Europe",
+  "population": 54640,
+  "area": 1393,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Micronesia",
+  "cca3": "FSM",
+  "capital": "Palikir",
+  "region": "Oceania",
+  "population": 113160,
+  "area": 702,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Gabon",
+  "cca3": "GAB",
+  "capital": "Libreville",
+  "region": "Africa",
+  "population": 2538952,
+  "area": 267668,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "United Kingdom",
+  "cca3": "GBR",
+  "capital": "London",
+  "region": "Europe",
+  "population": 69281000,
+  "area": 242900,
+  "num_borders": 1,
+  "num_languages": 1
+ },
+ {
+  "name": "Georgia",
+  "cca3": "GEO",
+  "capital": "Tbilisi",
+  "region": "Asia",
+  "population": 3812518,
+  "area": 69700,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Ghana",
+  "cca3": "GHA",
+  "capital": "Accra",
+  "region": "Africa",
+  "population": 34427414,
+  "area": 238533,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "Gibraltar",
+  "cca3": "GIB",
+  "capital": "Gibraltar",
+  "region": "Europe",
+  "population": 39329,
+  "area": 6,
+  "num_borders": 1,
+  "num_languages": 1
+ },
+ {
+  "name": "Guinea",
+  "cca3": "GIN",
+  "capital": "Conakry",
+  "region": "Africa",
+  "population": 14754785,
+  "area": 245857,
+  "num_borders": 6,
+  "num_languages": 1
+ },
+ {
+  "name": "Gambia",
+  "cca3": "GMB",
+  "capital": "Banjul",
+  "region": "Africa",
+  "population": 2759988,
+  "area": 10689,
+  "num_borders": 1,
+  "num_languages": 1
+ },
+ {
+  "name": "Guinea-Bissau",
+  "cca3": "GNB",
+  "capital": "Bissau",
+  "region": "Africa",
+  "population": 2201352,
+  "area": 36125,
+  "num_borders": 2,
+  "num_languages": 2
+ },
+ {
+  "name": "Equatorial Guinea",
+  "cca3": "GNQ",
+  "capital": "Malabo",
+  "region": "Africa",
+  "population": 1892516,
+  "area": 28051,
+  "num_borders": 2,
+  "num_languages": 3
+ },
+ {
+  "name": "Greece",
+  "cca3": "GRC",
+  "capital": "Athens",
+  "region": "Europe",
+  "population": 10405134,
+  "area": 131990,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Grenada",
+  "cca3": "GRD",
+  "capital": "St. George's",
+  "region": "Americas",
+  "population": 117207,
+  "area": 344,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Greenland",
+  "cca3": "GRL",
+  "capital": "Nuuk",
+  "region": "Americas",
+  "population": 56836,
+  "area": 2166086,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Guatemala",
+  "cca3": "GTM",
+  "capital": "Guatemala City",
+  "region": "Americas",
+  "population": 18406359,
+  "area": 108889,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Guam",
+  "cca3": "GUM",
+  "capital": "Hagåtña",
+  "region": "Oceania",
+  "population": 167777,
+  "area": 549,
+  "num_borders": 0,
+  "num_languages": 3
+ },
+ {
+  "name": "Guyana",
+  "cca3": "GUY",
+  "capital": "Georgetown",
+  "region": "Americas",
+  "population": 831087,
+  "area": 214969,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "Hong Kong",
+  "cca3": "HKG",
+  "capital": "City of Victoria",
+  "region": "Asia",
+  "population": 7524100,
+  "area": 1104,
+  "num_borders": 1,
+  "num_languages": 2
+ },
+ {
+  "name": "Honduras",
+  "cca3": "HND",
+  "capital": "Tegucigalpa",
+  "region": "Americas",
+  "population": 10825703,
+  "area": 112492,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "Croatia",
+  "cca3": "HRV",
+  "capital": "Zagreb",
+  "region": "Europe",
+  "population": 3866200,
+  "area": 56594,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Haiti",
+  "cca3": "HTI",
+  "capital": "Port-au-Prince",
+  "region": "Americas",
+  "population": 11772557,
+  "area": 27750,
+  "num_borders": 1,
+  "num_languages": 2
+ },
+ {
+  "name": "Hungary",
+  "cca3": "HUN",
+  "capital": "Budapest",
+  "region": "Europe",
+  "population": 9562065,
+  "area": 93028,
+  "num_borders": 7,
+  "num_languages": 1
+ },
+ {
+  "name": "Indonesia",
+  "cca3": "IDN",
+  "capital": "Jakarta",
+  "region": "Asia",
+  "population": 283487931,
+  "area": 1904569,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "Isle of Man",
+  "cca3": "IMN",
+  "capital": "Douglas",
+  "region": "Europe",
+  "population": 84160,
+  "area": 572,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "India",
+  "cca3": "IND",
+  "capital": "New Delhi",
+  "region": "Asia",
+  "population": 1450935791,
+  "area": 3287590,
+  "num_borders": 6,
+  "num_languages": 3
+ },
+ {
+  "name": "Ireland",
+  "cca3": "IRL",
+  "capital": "Dublin",
+  "region": "Europe",
+  "population": 5395790,
+  "area": 70273,
+  "num_borders": 1,
+  "num_languages": 2
+ },
+ {
+  "name": "Iran",
+  "cca3": "IRN",
+  "capital": "Tehran",
+  "region": "Asia",
+  "population": 91567738,
+  "area": 1648195,
+  "num_borders": 7,
+  "num_languages": 1
+ },
+ {
+  "name": "Iraq",
+  "cca3": "IRQ",
+  "capital": "Baghdad",
+  "region": "Asia",
+  "population": 46042015,
+  "area": 438317,
+  "num_borders": 6,
+  "num_languages": 3
+ },
+ {
+  "name": "Iceland",
+  "cca3": "ISL",
+  "capital": "Reykjavik",
+  "region": "Europe",
+  "population": 386506,
+  "area": 103000,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Israel",
+  "cca3": "ISR",
+  "capital": "Jerusalem",
+  "region": "Asia",
+  "population": 10002200,
+  "area": 20770,
+  "num_borders": 5,
+  "num_languages": 2
+ },
+ {
+  "name": "Italy",
+  "cca3": "ITA",
+  "capital": "Rome",
+  "region": "Europe",
+  "population": 58952704,
+  "area": 301336,
+  "num_borders": 6,
+  "num_languages": 1
+ },
+ {
+  "name": "Jamaica",
+  "cca3": "JAM",
+  "capital": "Kingston",
+  "region": "Americas",
+  "population": 2839175,
+  "area": 10991,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Jordan",
+  "cca3": "JOR",
+  "capital": "Amman",
+  "region": "Asia",
+  "population": 11552876,
+  "area": 89342,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Japan",
+  "cca3": "JPN",
+  "capital": "Tokyo",
+  "region": "Asia",
+  "population": 123975371,
+  "area": 377930,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Kazakhstan",
+  "cca3": "KAZ",
+  "capital": "Astana",
+  "region": "Asia",
+  "population": 20592571,
+  "area": 2724900,
+  "num_borders": 5,
+  "num_languages": 2
+ },
+ {
+  "name": "Kenya",
+  "cca3": "KEN",
+  "capital": "Nairobi",
+  "region": "Africa",
+  "population": 56432944,
+  "area": 580367,
+  "num_borders": 5,
+  "num_languages": 2
+ },
+ {
+  "name": "Kyrgyzstan",
+  "cca3": "KGZ",
+  "capital": "Bishkek",
+  "region": "Asia",
+  "population": 7221868,
+  "area": 199951,
+  "num_borders": 4,
+  "num_languages": 2
+ },
+ {
+  "name": "Cambodia",
+  "cca3": "KHM",
+  "capital": "Phnom Penh",
+  "region": "Asia",
+  "population": 17638801,
+  "area": 181035,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "Kiribati",
+  "cca3": "KIR",
+  "capital": "South Tarawa",
+  "region": "Oceania",
+  "population": 134518,
+  "area": 811,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Saint Kitts and Nevis",
+  "cca3": "KNA",
+  "capital": "Basseterre",
+  "region": "Americas",
+  "population": 46843,
+  "area": 261,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "South Korea",
+  "cca3": "KOR",
+  "capital": "Seoul",
+  "region": "Asia",
+  "population": 51751065,
+  "area": 100210,
+  "num_borders": 1,
+  "num_languages": 1
+ },
+ {
+  "name": "Kuwait",
+  "cca3": "KWT",
+  "capital": "Kuwait City",
+  "region": "Asia",
+  "population": 4897263,
+  "area": 17818,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Laos",
+  "cca3": "LAO",
+  "capital": "Vientiane",
+  "region": "Asia",
+  "population": 7769819,
+  "area": 236800,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Lebanon",
+  "cca3": "LBN",
+  "capital": "Beirut",
+  "region": "Asia",
+  "population": 5805962,
+  "area": 10452,
+  "num_borders": 2,
+  "num_languages": 2
+ },
+ {
+  "name": "Liberia",
+  "cca3": "LBR",
+  "capital": "Monrovia",
+  "region": "Africa",
+  "population": 5612817,
+  "area": 111369,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "Libya",
+  "cca3": "LBY",
+  "capital": "Tripoli",
+  "region": "Africa",
+  "population": 7381023,
+  "area": 1759540,
+  "num_borders": 6,
+  "num_languages": 1
+ },
+ {
+  "name": "Saint Lucia",
+  "cca3": "LCA",
+  "capital": "Castries",
+  "region": "Americas",
+  "population": 179744,
+  "area": 616,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Liechtenstein",
+  "cca3": "LIE",
+  "capital": "Vaduz",
+  "region": "Europe",
+  "population": 40450,
+  "area": 160,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Sri Lanka",
+  "cca3": "LKA",
+  "capital": "Colombo",
+  "region": "Asia",
+  "population": 21916000,
+  "area": 65610,
+  "num_borders": 1,
+  "num_languages": 2
+ },
+ {
+  "name": "Lesotho",
+  "cca3": "LSO",
+  "capital": "Maseru",
+  "region": "Africa",
+  "population": 2337423,
+  "area": 30355,
+  "num_borders": 1,
+  "num_languages": 2
+ },
+ {
+  "name": "Lithuania",
+  "cca3": "LTU",
+  "capital": "Vilnius",
+  "region": "Europe",
+  "population": 2888278,
+  "area": 65300,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Luxembourg",
+  "cca3": "LUX",
+  "capital": "Luxembourg",
+  "region": "Europe",
+  "population": 677012,
+  "area": 2586,
+  "num_borders": 3,
+  "num_languages": 3
+ },
+ {
+  "name": "Latvia",
+  "cca3": "LVA",
+  "capital": "Riga",
+  "region": "Europe",
+  "population": 1866124,
+  "area": 64559,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Saint Martin",
+  "cca3": "MAF",
+  "capital": "Marigot",
+  "region": "Americas",
+  "population": 26129,
+  "area": 53,
+  "num_borders": 1,
+  "num_languages": 1
+ },
+ {
+  "name": "Morocco",
+  "cca3": "MAR",
+  "capital": "Rabat",
+  "region": "Africa",
+  "population": 38081173,
+  "area": 446550,
+  "num_borders": 3,
+  "num_languages": 2
+ },
+ {
+  "name": "Monaco",
+  "cca3": "MCO",
+  "capital": "Monaco",
+  "region": "Europe",
+  "population": 38631,
+  "area": 2,
+  "num_borders": 1,
+  "num_languages": 1
+ },
+ {
+  "name": "Moldova",
+  "cca3": "MDA",
+  "capital": "Chișinău",
+  "region": "Europe",
+  "population": 2402306,
+  "area": 33846,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Madagascar",
+  "cca3": "MDG",
+  "capital": "Antananarivo",
+  "region": "Africa",
+  "population": 31964956,
+  "area": 587041,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Maldives",
+  "cca3": "MDV",
+  "capital": "Malé",
+  "region": "Asia",
+  "population": 527799,
+  "area": 300,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Mexico",
+  "cca3": "MEX",
+  "capital": "Mexico City",
+  "region": "Americas",
+  "population": 130861007,
+  "area": 1964375,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "Marshall Islands",
+  "cca3": "MHL",
+  "capital": "Majuro",
+  "region": "Oceania",
+  "population": 37548,
+  "area": 181,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "North Macedonia",
+  "cca3": "MKD",
+  "capital": "Skopje",
+  "region": "Europe",
+  "population": 1824359,
+  "area": 25713,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Mali",
+  "cca3": "MLI",
+  "capital": "Bamako",
+  "region": "Africa",
+  "population": 24478595,
+  "area": 1240192,
+  "num_borders": 7,
+  "num_languages": 1
+ },
+ {
+  "name": "Malta",
+  "cca3": "MLT",
+  "capital": "Valletta",
+  "region": "Europe",
+  "population": 568847,
+  "area": 316,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Myanmar",
+  "cca3": "MMR",
+  "capital": "Naypyidaw",
+  "region": "Asia",
+  "population": 54500091,
+  "area": 676578,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Montenegro",
+  "cca3": "MNE",
+  "capital": "Podgorica",
+  "region": "Europe",
+  "population": 623525,
+  "area": 13812,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Mongolia",
+  "cca3": "MNG",
+  "capital": "Ulan Bator",
+  "region": "Asia",
+  "population": 3524788,
+  "area": 1564110,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Northern Mariana Islands",
+  "cca3": "MNP",
+  "capital": "Saipan",
+  "region": "Oceania",
+  "population": 44278,
+  "area": 464,
+  "num_borders": 0,
+  "num_languages": 3
+ },
+ {
+  "name": "Mozambique",
+  "cca3": "MOZ",
+  "capital": "Maputo",
+  "region": "Africa",
+  "population": 34631766,
+  "area": 801590,
+  "num_borders": 6,
+  "num_languages": 1
+ },
+ {
+  "name": "Mauritania",
+  "cca3": "MRT",
+  "capital": "Nouakchott",
+  "region": "Africa",
+  "population": 5169395,
+  "area": 1030700,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Mauritius",
+  "cca3": "MUS",
+  "capital": "Port Louis",
+  "region": "Africa",
+  "population": 1245779,
+  "area": 2040,
+  "num_borders": 0,
+  "num_languages": 3
+ },
+ {
+  "name": "Malawi",
+  "cca3": "MWI",
+  "capital": "Lilongwe",
+  "region": "Africa",
+  "population": 21655286,
+  "area": 118484,
+  "num_borders": 3,
+  "num_languages": 2
+ },
+ {
+  "name": "Malaysia",
+  "cca3": "MYS",
+  "capital": "Kuala Lumpur",
+  "region": "Asia",
+  "population": 35557673,
+  "area": 330803,
+  "num_borders": 3,
+  "num_languages": 2
+ },
+ {
+  "name": "Namibia",
+  "cca3": "NAM",
+  "capital": "Windhoek",
+  "region": "Africa",
+  "population": 3030131,
+  "area": 825615,
+  "num_borders": 4,
+  "num_languages": 9
+ },
+ {
+  "name": "New Caledonia",
+  "cca3": "NCL",
+  "capital": "Nouméa",
+  "region": "Oceania",
+  "population": 292639,
+  "area": 18575,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Niger",
+  "cca3": "NER",
+  "capital": "Niamey",
+  "region": "Africa",
+  "population": 27032412,
+  "area": 1267000,
+  "num_borders": 7,
+  "num_languages": 1
+ },
+ {
+  "name": "Nigeria",
+  "cca3": "NGA",
+  "capital": "Abuja",
+  "region": "Africa",
+  "population": 232679478,
+  "area": 923768,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Nicaragua",
+  "cca3": "NIC",
+  "capital": "Managua",
+  "region": "Americas",
+  "population": 6916140,
+  "area": 130373,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Netherlands",
+  "cca3": "NLD",
+  "capital": "Amsterdam",
+  "region": "Europe",
+  "population": 17993485,
+  "area": 41850,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Norway",
+  "cca3": "NOR",
+  "capital": "Oslo",
+  "region": "Europe",
+  "population": 5572279,
+  "area": 323802,
+  "num_borders": 3,
+  "num_languages": 3
+ },
+ {
+  "name": "Nepal",
+  "cca3": "NPL",
+  "capital": "Kathmandu",
+  "region": "Asia",
+  "population": 29651054,
+  "area": 147181,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Nauru",
+  "cca3": "NRU",
+  "capital": "Yaren",
+  "region": "Oceania",
+  "population": 11947,
+  "area": 21,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "New Zealand",
+  "cca3": "NZL",
+  "capital": "Wellington",
+  "region": "Oceania",
+  "population": 5290000,
+  "area": 270467,
+  "num_borders": 0,
+  "num_languages": 3
+ },
+ {
+  "name": "Oman",
+  "cca3": "OMN",
+  "capital": "Muscat",
+  "region": "Asia",
+  "population": 5281538,
+  "area": 309500,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "Pakistan",
+  "cca3": "PAK",
+  "capital": "Islamabad",
+  "region": "Asia",
+  "population": 251269164,
+  "area": 881912,
+  "num_borders": 4,
+  "num_languages": 2
+ },
+ {
+  "name": "Panama",
+  "cca3": "PAN",
+  "capital": "Panama City",
+  "region": "Americas",
+  "population": 4515577,
+  "area": 75417,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Peru",
+  "cca3": "PER",
+  "capital": "Lima",
+  "region": "Americas",
+  "population": 34217848,
+  "area": 1285216,
+  "num_borders": 5,
+  "num_languages": 3
+ },
+ {
+  "name": "Philippines",
+  "cca3": "PHL",
+  "capital": "Manila",
+  "region": "Asia",
+  "population": 115843670,
+  "area": 342353,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Palau",
+  "cca3": "PLW",
+  "capital": "Ngerulmud",
+  "region": "Oceania",
+  "population": 17695,
+  "area": 459,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Papua New Guinea",
+  "cca3": "PNG",
+  "capital": "Port Moresby",
+  "region": "Oceania",
+  "population": 10576502,
+  "area": 462840,
+  "num_borders": 1,
+  "num_languages": 3
+ },
+ {
+  "name": "Poland",
+  "cca3": "POL",
+  "capital": "Warsaw",
+  "region": "Europe",
+  "population": 36559233,
+  "area": 312679,
+  "num_borders": 7,
+  "num_languages": 1
+ },
+ {
+  "name": "Puerto Rico",
+  "cca3": "PRI",
+  "capital": "San Juan",
+  "region": "Americas",
+  "population": 3202521,
+  "area": 8870,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "North Korea",
+  "cca3": "PRK",
+  "capital": "Pyongyang",
+  "region": "Asia",
+  "population": 26498823,
+  "area": 120538,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "Portugal",
+  "cca3": "PRT",
+  "capital": "Lisbon",
+  "region": "Europe",
+  "population": 10694681,
+  "area": 92090,
+  "num_borders": 1,
+  "num_languages": 1
+ },
+ {
+  "name": "Paraguay",
+  "cca3": "PRY",
+  "capital": "Asunción",
+  "region": "Americas",
+  "population": 6929153,
+  "area": 406752,
+  "num_borders": 3,
+  "num_languages": 2
+ },
+ {
+  "name": "Palestine",
+  "cca3": "PSE",
+  "capital": "Ramallah",
+  "region": "Asia",
+  "population": 5289152,
+  "area": 6220,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "French Polynesia",
+  "cca3": "PYF",
+  "capital": "Papeetē",
+  "region": "Oceania",
+  "population": 281807,
+  "area": 4167,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Qatar",
+  "cca3": "QAT",
+  "capital": "Doha",
+  "region": "Asia",
+  "population": 2857822,
+  "area": 11586,
+  "num_borders": 1,
+  "num_languages": 1
+ },
+ {
+  "name": "Romania",
+  "cca3": "ROU",
+  "capital": "Bucharest",
+  "region": "Europe",
+  "population": 19051804,
+  "area": 238391,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Russia",
+  "cca3": "RUS",
+  "capital": "Moscow",
+  "region": "Europe",
+  "population": 143669648,
+  "area": 17098242,
+  "num_borders": 14,
+  "num_languages": 1
+ },
+ {
+  "name": "Rwanda",
+  "cca3": "RWA",
+  "capital": "Kigali",
+  "region": "Africa",
+  "population": 14256567,
+  "area": 26338,
+  "num_borders": 4,
+  "num_languages": 3
+ },
+ {
+  "name": "Saudi Arabia",
+  "cca3": "SAU",
+  "capital": "Riyadh",
+  "region": "Asia",
+  "population": 35300280,
+  "area": 2149690,
+  "num_borders": 7,
+  "num_languages": 1
+ },
+ {
+  "name": "Sudan",
+  "cca3": "SDN",
+  "capital": "Khartoum",
+  "region": "Africa",
+  "population": 50448963,
+  "area": 1886068,
+  "num_borders": 7,
+  "num_languages": 2
+ },
+ {
+  "name": "Senegal",
+  "cca3": "SEN",
+  "capital": "Dakar",
+  "region": "Africa",
+  "population": 18501984,
+  "area": 196722,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Singapore",
+  "cca3": "SGP",
+  "capital": "Singapore",
+  "region": "Asia",
+  "population": 6036860,
+  "area": 710,
+  "num_borders": 0,
+  "num_languages": 4
+ },
+ {
+  "name": "Solomon Islands",
+  "cca3": "SLB",
+  "capital": "Honiara",
+  "region": "Oceania",
+  "population": 819198,
+  "area": 28896,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Sierra Leone",
+  "cca3": "SLE",
+  "capital": "Freetown",
+  "region": "Africa",
+  "population": 8642022,
+  "area": 71740,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "El Salvador",
+  "cca3": "SLV",
+  "capital": "San Salvador",
+  "region": "Americas",
+  "population": 6338193,
+  "area": 21041,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "San Marino",
+  "cca3": "SMR",
+  "capital": "City of San Marino",
+  "region": "Europe",
+  "population": 33977,
+  "area": 61,
+  "num_borders": 1,
+  "num_languages": 1
+ },
+ {
+  "name": "Somalia",
+  "cca3": "SOM",
+  "capital": "Mogadishu",
+  "region": "Africa",
+  "population": 19009151,
+  "area": 637657,
+  "num_borders": 3,
+  "num_languages": 2
+ },
+ {
+  "name": "Serbia",
+  "cca3": "SRB",
+  "capital": "Belgrade",
+  "region": "Europe",
+  "population": 6586476,
+  "area": 88361,
+  "num_borders": 8,
+  "num_languages": 1
+ },
+ {
+  "name": "South Sudan",
+  "cca3": "SSD",
+  "capital": "Juba",
+  "region": "Africa",
+  "population": 11943408,
+  "area": 619745,
+  "num_borders": 6,
+  "num_languages": 1
+ },
+ {
+  "name": "São Tomé and Príncipe",
+  "cca3": "STP",
+  "capital": "São Tomé",
+  "region": "Africa",
+  "population": 235536,
+  "area": 964,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Suriname",
+  "cca3": "SUR",
+  "capital": "Paramaribo",
+  "region": "Americas",
+  "population": 634431,
+  "area": 163820,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "Slovakia",
+  "cca3": "SVK",
+  "capital": "Bratislava",
+  "region": "Europe",
+  "population": 5422069,
+  "area": 49037,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Slovenia",
+  "cca3": "SVN",
+  "capital": "Ljubljana",
+  "region": "Europe",
+  "population": 2127400,
+  "area": 20273,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Sweden",
+  "cca3": "SWE",
+  "capital": "Stockholm",
+  "region": "Europe",
+  "population": 10569709,
+  "area": 450295,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Eswatini",
+  "cca3": "SWZ",
+  "capital": "Lobamba",
+  "region": "Africa",
+  "population": 1242822,
+  "area": 17364,
+  "num_borders": 2,
+  "num_languages": 2
+ },
+ {
+  "name": "Sint Maarten",
+  "cca3": "SXM",
+  "capital": "Philipsburg",
+  "region": "Americas",
+  "population": 43350,
+  "area": 34,
+  "num_borders": 1,
+  "num_languages": 3
+ },
+ {
+  "name": "Seychelles",
+  "cca3": "SYC",
+  "capital": "Victoria",
+  "region": "Africa",
+  "population": 121354,
+  "area": 452,
+  "num_borders": 0,
+  "num_languages": 3
+ },
+ {
+  "name": "Syria",
+  "cca3": "SYR",
+  "capital": "Damascus",
+  "region": "Asia",
+  "population": 24672760,
+  "area": 185180,
+  "num_borders": 5,
+  "num_languages": 1
+ },
+ {
+  "name": "Turks and Caicos Islands",
+  "cca3": "TCA",
+  "capital": "Cockburn Town",
+  "region": "Americas",
+  "population": 46535,
+  "area": 948,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Chad",
+  "cca3": "TCD",
+  "capital": "N'Djamena",
+  "region": "Africa",
+  "population": 20299123,
+  "area": 1284000,
+  "num_borders": 6,
+  "num_languages": 2
+ },
+ {
+  "name": "Togo",
+  "cca3": "TGO",
+  "capital": "Lomé",
+  "region": "Africa",
+  "population": 8406558,
+  "area": 56785,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "Thailand",
+  "cca3": "THA",
+  "capital": "Bangkok",
+  "region": "Asia",
+  "population": 71668011,
+  "area": 513120,
+  "num_borders": 4,
+  "num_languages": 1
+ },
+ {
+  "name": "Tajikistan",
+  "cca3": "TJK",
+  "capital": "Dushanbe",
+  "region": "Asia",
+  "population": 10590927,
+  "area": 143100,
+  "num_borders": 4,
+  "num_languages": 2
+ },
+ {
+  "name": "Turkmenistan",
+  "cca3": "TKM",
+  "capital": "Ashgabat",
+  "region": "Asia",
+  "population": 7494498,
+  "area": 488100,
+  "num_borders": 4,
+  "num_languages": 2
+ },
+ {
+  "name": "Timor-Leste",
+  "cca3": "TLS",
+  "capital": "Dili",
+  "region": "Asia",
+  "population": 1400638,
+  "area": 14874,
+  "num_borders": 1,
+  "num_languages": 2
+ },
+ {
+  "name": "Tonga",
+  "cca3": "TON",
+  "capital": "Nuku'alofa",
+  "region": "Oceania",
+  "population": 104175,
+  "area": 747,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Trinidad and Tobago",
+  "cca3": "TTO",
+  "capital": "Port of Spain",
+  "region": "Americas",
+  "population": 1368333,
+  "area": 5130,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Tunisia",
+  "cca3": "TUN",
+  "capital": "Tunis",
+  "region": "Africa",
+  "population": 12277109,
+  "area": 163610,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Turkey",
+  "cca3": "TUR",
+  "capital": "Ankara",
+  "region": "Asia",
+  "population": 85518661,
+  "area": 783562,
+  "num_borders": 8,
+  "num_languages": 1
+ },
+ {
+  "name": "Tuvalu",
+  "cca3": "TUV",
+  "capital": "Funafuti",
+  "region": "Oceania",
+  "population": 9646,
+  "area": 26,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Tanzania",
+  "cca3": "TZA",
+  "capital": "Dodoma",
+  "region": "Africa",
+  "population": 68560157,
+  "area": 945087,
+  "num_borders": 8,
+  "num_languages": 2
+ },
+ {
+  "name": "Uganda",
+  "cca3": "UGA",
+  "capital": "Kampala",
+  "region": "Africa",
+  "population": 50015092,
+  "area": 241550,
+  "num_borders": 5,
+  "num_languages": 2
+ },
+ {
+  "name": "Ukraine",
+  "cca3": "UKR",
+  "capital": "Kyiv",
+  "region": "Europe",
+  "population": 37860221,
+  "area": 603500,
+  "num_borders": 7,
+  "num_languages": 1
+ },
+ {
+  "name": "Uruguay",
+  "cca3": "URY",
+  "capital": "Montevideo",
+  "region": "Americas",
+  "population": 3386588,
+  "area": 181034,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "United States",
+  "cca3": "USA",
+  "capital": "Washington D.C.",
+  "region": "Americas",
+  "population": 340003797,
+  "area": 9372610,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "Uzbekistan",
+  "cca3": "UZB",
+  "capital": "Tashkent",
+  "region": "Asia",
+  "population": 36361859,
+  "area": 447400,
+  "num_borders": 5,
+  "num_languages": 2
+ },
+ {
+  "name": "Saint Vincent and the Grenadines",
+  "cca3": "VCT",
+  "capital": "Kingstown",
+  "region": "Americas",
+  "population": 100616,
+  "area": 389,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Venezuela",
+  "cca3": "VEN",
+  "capital": "Caracas",
+  "region": "Americas",
+  "population": 28405543,
+  "area": 916445,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "British Virgin Islands",
+  "cca3": "VGB",
+  "capital": "Road Town",
+  "region": "Americas",
+  "population": 39471,
+  "area": 151,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "United States Virgin Islands",
+  "cca3": "VIR",
+  "capital": "Charlotte Amalie",
+  "region": "Americas",
+  "population": 104377,
+  "area": 347,
+  "num_borders": 0,
+  "num_languages": 1
+ },
+ {
+  "name": "Vietnam",
+  "cca3": "VNM",
+  "capital": "Hanoi",
+  "region": "Asia",
+  "population": 100987686,
+  "area": 331212,
+  "num_borders": 3,
+  "num_languages": 1
+ },
+ {
+  "name": "Vanuatu",
+  "cca3": "VUT",
+  "capital": "Port Vila",
+  "region": "Oceania",
+  "population": 327777,
+  "area": 12189,
+  "num_borders": 0,
+  "num_languages": 3
+ },
+ {
+  "name": "Samoa",
+  "cca3": "WSM",
+  "capital": "Apia",
+  "region": "Oceania",
+  "population": 218019,
+  "area": 2842,
+  "num_borders": 0,
+  "num_languages": 2
+ },
+ {
+  "name": "Yemen",
+  "cca3": "YEM",
+  "capital": "Sana'a",
+  "region": "Asia",
+  "population": 40583164,
+  "area": 527968,
+  "num_borders": 2,
+  "num_languages": 1
+ },
+ {
+  "name": "South Africa",
+  "cca3": "ZAF",
+  "capital": "Pretoria",
+  "region": "Africa",
+  "population": 64007187,
+  "area": 1221037,
+  "num_borders": 6,
+  "num_languages": 11
+ },
+ {
+  "name": "Zambia",
+  "cca3": "ZMB",
+  "capital": "Lusaka",
+  "region": "Africa",
+  "population": 21314956,
+  "area": 752612,
+  "num_borders": 8,
+  "num_languages": 1
+ },
+ {
+  "name": "Zimbabwe",
+  "cca3": "ZWE",
+  "capital": "Harare",
+  "region": "Africa",
+  "population": 16634373,
+  "area": 390757,
+  "num_borders": 4,
+  "num_languages": 15
+ }
+]

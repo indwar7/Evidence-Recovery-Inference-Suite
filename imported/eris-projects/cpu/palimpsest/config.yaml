@@ -1,0 +1,88 @@
+# Challenge configuration — Palimpsest
+name: palimpsest
+title: "Untangling Mixed Edit Histories"
+domain: natural-language-processing
+dataset:
+  name: palimpsest-dataset
+  title: "Wikivoyage Edit-Lineage Windows: Real Revision Histories With the
+    Revision Graph as Ground Truth"
+  short_title: "Wikivoyage Edit-Lineage Windows"
+  description: dataset/dataset-description.md
+  generator: dataset/generator/build_raw.py    # deterministic single pass over the dump
+  source_data: "REAL text: every snapshot is genuine wikitext from English
+    Wikivoyage revision histories, exactly as recorded in the official
+    Wikimedia full-history dump (2026-08-05). Ground truth is the wiki's own
+    revision graph — MediaWiki records which revision each edit was made from.
+    No synthetic text, no annotation, no LLM output anywhere in the pipeline.
+    The only manufactured step is the arrangement: revisions from several
+    articles are shuffled into bags and stripped of identifiers."
+  source_url: "https://dumps.wikimedia.org/enwikivoyage/latest/enwikivoyage-latest-pages-meta-history.xml.7z"
+  citation: "English Wikivoyage contributors. Wikimedia Foundation full-history
+    XML dump, 2026-08-05. Text licensed CC BY-SA 4.0."
+  license: "CC BY-SA 4.0 (verified at en.wikivoyage.org/wiki/Wikivoyage:Copyleft,
+    2026-08-06) — commercial use and redistribution permitted with attribution
+    and share-alike. Attribution: raw/attribution.csv lists every article title
+    and revision id used, with permanent links. Derived data is released under
+    CC BY-SA 4.0 as required."
+  raw_files:
+    - dataset/raw/windows.jsonl       # selected 14-revision churn windows, with text
+    - dataset/raw/attribution.csv     # article + revid + permalink (CC BY-SA attribution)
+    - dataset/raw/meta.json           # dump provenance, selection parameters, counts
+problem_description: problem-description.md
+rubrics: rubrics.md
+prepare:
+  script: prepare.py                  # exposes prepare(raw, public, private); seed 20260805
+  public:
+    - dataset/public/snapshots/<item_id>.json   # {snapshot_id: wikitext}, ids shuffled
+    - dataset/public/train.csv                  # item_id, snapshot_id, parent_id
+    - dataset/public/test.csv                   # item_id, snapshot_id
+    - dataset/public/sample_submission.csv      # all-ROOT (valid, weak)
+    - dataset/public/validate_submission.py     # the grader's structural checks, offline
+    - dataset/public/dataset_stats.json
+  private:
+    - dataset/private/answers.csv               # item_id, snapshot_id, parent_id
+  split_note: "Split is BY ITEM and articles never repeat across items, so no
+    text is shared between train and test in any form. Within an item, ids
+    n00.. are assigned in SHUFFLED order and JSON keys are sorted — neither
+    ids nor file layout carries chronology. prepare.py strips lastedit=
+    template dates (a measured 0.64-accuracy ordering shortcut) and masks
+    article titles out of the text."
+grade:
+  script: grade.py                    # exposes grade(submission, answers)
+  usage: "python grade.py submission.csv dataset/private/answers.csv"
+  submission_file: submission.csv
+  submission_columns: [item_id, snapshot_id, parent_id]
+  metric: immediate_parent_accuracy
+  metric_formula: "fraction of test snapshots whose predicted parent_id equals
+    the true parent_id (ROOT counting as a normal value), micro-averaged over
+    all test snapshots. Structural validity (forest, in-item parents, no
+    self-loops) is enforced before scoring."
+  direction: maximize
+  min_score: 0.0
+  max_score: 1.0
+  # ---- anchors measured on the SHIPPED dataset (filled after the freeze run) ---- #
+  all_root: 0.252                      # every snapshot marked ROOT
+  random_parent: 0.053                 # uniform random parent
+  size_chain: 0.310                    # tf-idf cluster + order by byte size
+  nn_sim_size: 0.358                   # most similar smaller snapshot
+  arbor_size: 0.390                    # spanning arborescence, direction by size
+  linear_baseline: 0.493               # hashed diff tf-idf + logistic regression
+  reference_solution_score: 0.552      # CPU notebook, GRADED ON THE PRIVATE TEST SET
+  similarity_ceiling: 0.852            # nn-is-a-true-neighbour rate (direction genie)
+  agent_gate: "0.667 and 0.685 — two independent frontier coding agents given
+    only dataset/public/ and the problem statement, CPU-only, 75-90 min. Both
+    inside the 0.4-0.7 target band. Two earlier builds were MEASURED AND
+    REJECTED for landing above it (v1: 0.750/0.798 with 8-revision lineages;
+    v2: 0.720 with 5). See DESIGN.md."
+  oracle: 1.000
+  note_band: "Difficulty is EMPIRICAL, measured on real revision histories.
+    The design was gated against the byte-length shortcut BEFORE the spec was
+    written: arbitrary windows let size-sorting order revisions at 0.76, so
+    windows are selected for churn (size-orders at ~0.60, near chance). The
+    lastedit= metadata shortcut (0.64) was found and stripped. See DESIGN.md."
+submission:
+  filename: submission.csv
+  columns: [item_id, snapshot_id, parent_id]
+  rows: one per (item_id, snapshot_id) in test.csv
+reference_solution: solution.ipynb
+environment: kaggle-python-docker-image   # CPU-only, <1.5h

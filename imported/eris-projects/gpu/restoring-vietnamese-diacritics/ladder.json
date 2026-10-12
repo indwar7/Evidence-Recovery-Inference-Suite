@@ -1,0 +1,19 @@
+{
+  "copy": 0.0,
+  "blank": 0.0,
+  "oracle": 1.0,
+  "word_lookup": 0.0,
+  "char_unigram": 0.0506,
+  "char_trigram_rule": 0.3641,
+  "char_7gram_rule": 0.3149,
+  "char_5gram_rule": 0.3696,
+  "syllable_table_rule": 0.3624,
+  "province_syllable_table_rule": 0.3769,
+  "district_syllable_table_rule": 0.3709,
+  "context_admin_copy": 0.0051,
+  "context_neighbor_copy": 0.1306,
+  "context_copy": 0.1329,
+  "context_then_syllable_rule": 0.3624,
+  "context_then_district_table_rule": 0.3657,
+  "reference": 0.4277
+}

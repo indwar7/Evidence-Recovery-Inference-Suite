@@ -1,0 +1,47 @@
+{
+  "blank": {
+    "score": 0.0,
+    "exact": 0.0,
+    "note": "empty predictions; metric floor"
+  },
+  "copy_norm": {
+    "score": 0.0003,
+    "exact": 0.0,
+    "note": "sample_submission: the normalized form itself"
+  },
+  "syllabify_norm": {
+    "score": 0.3182,
+    "exact": 0.144,
+    "note": "content-based degenerate: naive CV/CVC syllabification of the normalized form, no training data"
+  },
+  "lemma_most_common": {
+    "score": 0.1304,
+    "exact": 0.0163,
+    "note": "most frequent training spelling of the lemma (ignores inflection)"
+  },
+  "lemma_by_period": {
+    "score": 0.1482,
+    "exact": 0.019,
+    "note": "as above but conditioned on the text period (metadata probe)"
+  },
+  "stem_suffix_adversary": {
+    "score": 0.3305,
+    "exact": 0.1457,
+    "note": "nearest attested spelling of the lemma by normalized prefix, syllabified remainder appended; uses exactly the attested column"
+  },
+  "oracle": {
+    "score": 1.0,
+    "exact": 1.0,
+    "note": "answer key"
+  },
+  "_halves": {
+    "syllabify_norm": [
+      0.3198,
+      0.3166
+    ],
+    "stem_suffix_adversary": [
+      0.3257,
+      0.3354
+    ]
+  }
+}
